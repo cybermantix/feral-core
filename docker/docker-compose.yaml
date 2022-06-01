@@ -1,0 +1,69 @@
+version: '2.4'
+services:
+
+  ## #########
+  ## APP (PHP)
+  ## #########
+  app:
+    build:
+      context: ./
+    image: noloco/core
+    env_file:
+      - .env.developer
+      - ../.env
+      - ../.env.local
+    volumes:
+      - ../:/opt/app:delegated
+      - ./etc/php.ini-development:/usr/local/etc/php/php.ini:delegated
+      - ./etc/zz-docker-dev.conf:/usr/local/etc/php-fpm.d/zz-docker.conf:delegated
+      - ./etc/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini:delegated
+#    links:
+#      - db
+    expose:
+      - "9003"
+
+
+  ## #########
+  ## WEBSERVER
+  ## #########
+  nginx:
+    image: nginx:1.12
+    links:
+      - app
+    volumes:
+      - ../public:/opt/app/public:delegated
+      - ./etc/nginx.conf:/etc/nginx/nginx.conf:delegated
+    ports:
+      - '8036:3000'
+
+  ## #################
+  ## DATABASE
+  ## Remove if unused
+  ## #################
+#  db:
+#    platform: linux/x86_64
+#    image: mysql:8
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=K6dyiEx29rcy
+#      - MYSQL_USER=noloco_core
+#      - MYSQL_PASSWORD=zxs9kbFZGbXd
+#      - MYSQL_DATABASE=noloco_core
+#    ports:
+#      - '25306:3306'
+
+  ## #################
+  ## TEST DATABASE
+  ## Remove if unused
+  ## #################
+#  testdb:
+#    platform: linux/x86_64
+#    image: mysql:8
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=testdb
+#      - MYSQL_USER=tester
+#      - MYSQL_PASSWORD=testdb
+#      - MYSQL_DATABASE=gentent_api
+#    ports:
+#      - '26306:3306'
+
+
