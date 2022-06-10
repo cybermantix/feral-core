@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Utility\Search;
+namespace NoLoCo\Core\Utility\Search;
 
-use NoLoCo\Utility\Search\Exception\WrongTypeException;
+use NoLoCo\Core\Utility\Search\Exception\WrongTypeException;
 use stdClass;
-use NoLoCo\Utility\Search\Exception\UnknownTypeException;
+use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * This general utility will allow data to be found and typed within a set of data.

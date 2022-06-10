@@ -20,7 +20,7 @@ use OpenApi\Annotations as OA;
  *  3) Two similar criterion keys and one different key
  *      WHERE (foo >= 'test' OR foo <= 'test2') AND bar = 'test3'
  *
- * @package App\Utility\Entity
+ * @package NoLoCo\Core\Utility\Entity
  * @OA\Schema(
  *     description="The unified filter used to search the database, external systems, or any filterable data."
  * )

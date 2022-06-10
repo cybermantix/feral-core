@@ -3,17 +3,17 @@
 
 namespace NoLoCo\Core\Process\Node\FlowControl;
 
-use App\Utility\Filter\Comparator\Comparator;
-use App\Utility\Filter\Comparator\ComparatorInterface;
+use NoLoCo\Core\Utility\Filter\Comparator\Comparator;
+use NoLoCo\Core\Utility\Filter\Comparator\ComparatorInterface;
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\Node\AbstractNode;
 use NoLoCo\Core\Process\Result\ResultInterface;
-use NoLoCo\Utility\Search\DataPathReaderInterface;
+use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 
 /**
  * Class ComparatorNode
  * Test if a value in the context passes a test with an operator.
- * To see the list of available operators see \App\Utility\Filter\Criterion
+ * To see the list of available operators see \NoLoCo\Core\Utility\Filter\Criterion
  *
  * Configuration Keys
  *  operator    - The operator used in the test

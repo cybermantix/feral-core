@@ -1,7 +1,7 @@
 <?php
 
 
-namespace NoLoCo\Utility\Search\Exception;
+namespace NoLoCo\Core\Utility\Search\Exception;
 
 use Exception;
 use Throwable;

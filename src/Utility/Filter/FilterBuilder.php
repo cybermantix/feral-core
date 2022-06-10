@@ -4,10 +4,10 @@
 namespace NoLoCo\Core\Utility\Filter;
 
 use DateTimeImmutable;
-use App\Utility\DateTime\DateTimeFormats;
+use NoLoCo\Core\Utility\DateTime\DateTimeFormats;
 use NoLoCo\Core\Utility\Filter\Exception\CriterionException;
 use NoLoCo\Core\Utility\Filter\Exception\FilterLimitException;
-use App\Utility\Scalar\FloatUtility;
+use NoLoCo\Core\Utility\Scalar\FloatUtility;
 
 /**
  * Class FilterBuilder
@@ -22,7 +22,7 @@ use App\Utility\Scalar\FloatUtility;
  *                ->equal('foo', 'bang') // foo = bar OR foo = bang
  *                ->build();
  *
- * @package App\Utility\Entity\Filter
+ * @package NoLoCo\Core\Utility\Entity\Filter
  */
 class FilterBuilder
 {

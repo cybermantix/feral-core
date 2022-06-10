@@ -8,7 +8,7 @@ use OpenApi\Annotations as OA;
 /**
  * Class Order
  * A key/direction pair used to sort a set of data.
- * @package App\Utility\Entity\Filter
+ * @package NoLoCo\Core\Utility\Entity\Filter
  * @OA\Schema(
  *     description="The direction and key/property result data should be sorted by."
  * )

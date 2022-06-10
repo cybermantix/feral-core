@@ -25,10 +25,10 @@ echo "COMPOSER VERSION:"
 composer -V
 
 
-tail -f /opt/app/docker/Makefile
-exit 1;
+#tail -f /opt/app/docker/Makefile
+#exit 1;
 
-echo "Test Point 1"
+echo "Go for Start"
 
 # Install PHP dependencies. Static assets installation and cache clear/warm
 # invoked via post-autoload-dump scripts in composer.json

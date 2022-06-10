@@ -9,7 +9,7 @@ use OpenApi\Annotations as OA;
  * Class Criteria
  * Criteria is a key/test evaluation set which can filter down
  * a set of data.
- * @package App\Utility\Entity\Filter
+ * @package NoLoCo\Core\Utility\Entity\Filter
  * @OA\Schema(
  *     description="One instance of criteria when filtering a larger dataset."
  * )

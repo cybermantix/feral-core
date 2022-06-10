@@ -2,7 +2,7 @@
 
 namespace NoLoCo\Core\Utility\Filter\Comparator;
 
-use App\Utility\Scalar\FloatUtility;
+use NoLoCo\Core\Utility\Scalar\FloatUtility;
 
 class LessThanOrEqualToComparator implements ScalarToScalarComparatorInterface, ArrayToScalarComparatorInterface
 {

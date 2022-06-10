@@ -1,7 +1,7 @@
 <?php
 
 
-namespace NoLoCo\Core\Search\Exception;
+namespace NoLoCo\Core\Process\Exception;
 
 
 use Exception;

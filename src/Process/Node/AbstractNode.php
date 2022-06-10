@@ -5,8 +5,8 @@ namespace NoLoCo\Core\Process\Node;
 use LogicException;
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
-use NoLoCo\Utility\Search\DataPathReaderInterface;
-use NoLoCo\Utility\Search\Exception\UnknownTypeException;
+use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
+use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * The abstract class contains helper methods to get the local configuration
@@ -46,7 +46,7 @@ abstract class AbstractNode implements NodeInterface
      * @param string $key
      * @return AbstractNode
      */
-    public function setNodeKey(string $key): static
+    public function setKey(string $key): static
     {
         $this->key = $key;
         return $this;

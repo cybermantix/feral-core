@@ -3,7 +3,7 @@
 
 namespace NoLoCo\Core\Utility\Filter\Comparator;
 
-use App\Utility\Scalar\FloatUtility;
+use NoLoCo\Core\Utility\Scalar\FloatUtility;
 
 class GreaterThanComparator implements ScalarToScalarComparatorInterface, ArrayToScalarComparatorInterface
 {
@@ -19,7 +19,7 @@ class GreaterThanComparator implements ScalarToScalarComparatorInterface, ArrayT
         } elseif (is_string($actual)) {
             return 0 < strcmp($actual, strval($testValue));
         } else {
-            $actual > $testValue;
+            return $actual > $testValue;
         }
     }
 

@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="NoLoCo/Core" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="NoLoCo\Core\Tests" />
       <excludeFolder url="file://$MODULE_DIR$/composer" />
     </content>
     <orderEntry type="inheritedJdk" />
