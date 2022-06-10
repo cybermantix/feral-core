@@ -52,8 +52,20 @@ interface NodeInterface
      */
     public function setConfiguration(array $configuration): static;
 
+    /**
+     * Add a configuration value to the node instance configuration.
+     * @param string $key
+     * @param mixed $value
+     * @return $this
+     */
     public function addConfiguration(string $key, mixed $value): static;
 
+    /**
+     * Pass in an array as a partial configuration to merge into the existing
+     * configuration.
+     * @param array $partialConfiguration
+     * @return $this
+     */
     public function mergeConfiguration(array $partialConfiguration): static;
 
 
