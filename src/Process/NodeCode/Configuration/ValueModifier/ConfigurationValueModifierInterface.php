@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Node\Configuration\ValueModifier;
+namespace NoLoCo\Core\Process\NodeCode\Configuration\ValueModifier;
 
 /**
  * When a configuration value is set into a node, the value

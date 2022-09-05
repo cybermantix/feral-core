@@ -1,28 +1,28 @@
 <?php
 
 
-namespace NoLoCo\Core\Process\Node\FlowControl;
+namespace NoLoCo\Core\Process\NodeCode\FlowControl;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Node\AbstractNode;
+use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
 /**
  * Class ComparatorNode
- * Start the process by returning the OK status.
+ * Stop the process by returning the stop status.
  *
  * Configuration Keys
  *  (No Configuration keys)
  *
  * @package NoLoCo\Core\Process\Node\FlowControl
  */
-class StartProcessingNode extends AbstractNode
+class StopProcessingNode extends AbstractNodeCode
 {
     /**
      * @inheritDoc
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        return $this->result(ResultInterface::OK, 'Start processing.');
+        return $this->result(ResultInterface::STOP, 'Stop processing.');
     }
 }

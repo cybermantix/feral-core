@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Node;
+namespace NoLoCo\Core\Process\NodeCode;
 
 use LogicException;
 use NoLoCo\Core\Process\Context\ContextInterface;
@@ -12,7 +12,7 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  * The abstract class contains helper methods to get the local configuration
  * data.
  */
-abstract class AbstractNode implements NodeInterface
+abstract class AbstractNodeCode implements NodeCodeInterface
 {
     const MAX_MESSAGE_VALUE_LENGTH = 128;
 
@@ -44,7 +44,7 @@ abstract class AbstractNode implements NodeInterface
 
     /**
      * @param string $key
-     * @return AbstractNode
+     * @return AbstractNodeCode
      */
     public function setKey(string $key): static
     {
@@ -54,7 +54,7 @@ abstract class AbstractNode implements NodeInterface
 
     /**
      * @param array $configuration
-     * @return AbstractNode
+     * @return AbstractNodeCode
      */
     public function setConfiguration(array $configuration): static
     {

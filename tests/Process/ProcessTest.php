@@ -6,7 +6,7 @@ use NoLoCo\Core\Process\Context\Context;
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\Edge\Edge;
 use NoLoCo\Core\Process\Exception\MaximumNodeRunsException;
-use NoLoCo\Core\Process\Node\AbstractNode;
+use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
 use NoLoCo\Core\Process\Process;
 use NoLoCo\Core\Process\Result\Result;
 use NoLoCo\Core\Process\Result\ResultInterface;
@@ -244,7 +244,7 @@ class ProcessTest extends TestCase
     }
 }
 
-class TestNode extends AbstractNode
+class TestNode extends AbstractNodeCode
 {
     protected string $nodeKey;
 

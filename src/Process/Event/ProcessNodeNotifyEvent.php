@@ -3,16 +3,16 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ProcessNodeNotifyEvent extends Event
 {
     /**
      * The node dispatching the event.
-     * @var NodeInterface
+     * @var NodeCodeInterface
      */
-    protected NodeInterface $node;
+    protected NodeCodeInterface $node;
 
 
     /**
@@ -27,18 +27,18 @@ class ProcessNodeNotifyEvent extends Event
     protected string $notice = '';
 
     /**
-     * @return NodeInterface
+     * @return NodeCodeInterface
      */
-    public function getNode(): NodeInterface
+    public function getNode(): NodeCodeInterface
     {
         return $this->node;
     }
 
     /**
-     * @param NodeInterface $node
+     * @param NodeCodeInterface $node
      * @return ProcessNodeNotifyEvent
      */
-    public function setNode(NodeInterface $node): ProcessNodeNotifyEvent
+    public function setNode(NodeCodeInterface $node): ProcessNodeNotifyEvent
     {
         $this->node = $node;
         return $this;

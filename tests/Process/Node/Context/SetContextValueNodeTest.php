@@ -3,8 +3,8 @@
 namespace Tests\Unit\Process\Node\Context;
 
 use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\Node\Context\SetContextValueNode;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use NoLoCo\Core\Process\NodeCode\Context\SetContextValueNode;
+use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\Result\Result;
 use NoLoCo\Core\Utility\Search\DataPathReader;
 use PHPUnit\Framework\TestCase;
@@ -19,7 +19,7 @@ class SetContextValueNodeTest extends TestCase
         $node = (new SetContextValueNode(
             new DataPathReader(),
             [
-                NodeInterface::CONTEXT_KEY => 'test',
+                NodeCodeInterface::CONTEXT_KEY => 'test',
                 SetContextValueNode::VALUE => 'testValue'
             ]
         ));

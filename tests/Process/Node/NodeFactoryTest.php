@@ -3,9 +3,9 @@
 namespace Tests\Unit\Process\Node;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Node\AbstractNode;
-use NoLoCo\Core\Process\Node\NodeFactory;
-use NoLoCo\Core\Process\Node\NodeRegistryItem;
+use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
+use NoLoCo\Core\Process\NodeCode\NodeFactory;
+use NoLoCo\Core\Process\NodeCode\NodeRegistryItem;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Search\DataPathReader;
 use PHPUnit\Framework\TestCase;
@@ -63,7 +63,7 @@ class NodeFactoryTest extends TestCase
     }
 }
 
-class TestNode extends AbstractNode
+class TestNode extends AbstractNodeCode
 {
     /**
      * @inheritDoc

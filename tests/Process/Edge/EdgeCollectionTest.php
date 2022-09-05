@@ -15,55 +15,55 @@ class EdgeCollectionTest extends TestCase
         $collection
             ->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('from')
-                    ->setToNodeKey('to')
+                    ->setFromKey('from')
+                    ->setToKey('to')
                     ->setResponse('test'))
             ->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('from')
-                    ->setToNodeKey('second')
+                    ->setFromKey('from')
+                    ->setToKey('second')
                     ->setResponse('test'))
             ->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('one')
-                    ->setToNodeKey('two')
+                    ->setFromKey('one')
+                    ->setToKey('two')
                     ->setResponse('true')
             );
 
         $this->assertCount(2, $collection->getEdgesByNodeAndResult('from', 'test'));
     }
 
-    public function testGetToNodeKeysByNodeAndResult()
+    public function testGetToKeysByNodeAndResult()
     {
         $collection = new EdgeCollection();
         $collection
             ->addEdge((new Edge())
-                ->setFromNodeKey('from')
-                ->setToNodeKey('to')
+                ->setFromKey('from')
+                ->setToKey('to')
                 ->setResponse('test')
             )->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('one')
-                    ->setToNodeKey('two')
+                    ->setFromKey('one')
+                    ->setToKey('two')
                     ->setResponse('true')
             );
 
-        $this->assertEquals(['to'], $collection->getToNodeKeysByNodeAndResult('from', 'test'));
+        $this->assertEquals(['to'], $collection->getToKeysByNodeAndResult('from', 'test'));
     }
 
     public function testRemoveEdge()
     {
         $test = (new Edge())
-            ->setFromNodeKey('from')
-            ->setToNodeKey('to')
+            ->setFromKey('from')
+            ->setToKey('to')
             ->setResponse('test');
         $collection = new EdgeCollection();
         $collection
             ->addEdge($test)
             ->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('one')
-                    ->setToNodeKey('two')
+                    ->setFromKey('one')
+                    ->setToKey('two')
                     ->setResponse('true')
             )->removeEdge($test);
 
@@ -73,16 +73,16 @@ class EdgeCollectionTest extends TestCase
     public function testRemoveEdgesToNode()
     {
         $test = (new Edge())
-            ->setFromNodeKey('from')
-            ->setToNodeKey('to')
+            ->setFromKey('from')
+            ->setToKey('to')
             ->setResponse('test');
         $collection = new EdgeCollection();
         $collection
             ->addEdge($test)
             ->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('one')
-                    ->setToNodeKey('two')
+                    ->setFromKey('one')
+                    ->setToKey('two')
                     ->setResponse('true'))
             ->removeEdgesToNode('to');
 
@@ -94,13 +94,13 @@ class EdgeCollectionTest extends TestCase
         $collection = new EdgeCollection();
         $collection
             ->addEdge((new Edge())
-                ->setFromNodeKey('from')
-                ->setToNodeKey('to')
+                ->setFromKey('from')
+                ->setToKey('to')
                 ->setResponse('test')
             )->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('one')
-                    ->setToNodeKey('two')
+                    ->setFromKey('one')
+                    ->setToKey('two')
                     ->setResponse('true')
             );
 
@@ -110,16 +110,16 @@ class EdgeCollectionTest extends TestCase
     public function testRemoveEdgesFromNode()
     {
         $test = (new Edge())
-            ->setFromNodeKey('from')
-            ->setToNodeKey('to')
+            ->setFromKey('from')
+            ->setToKey('to')
             ->setResponse('test');
         $collection = new EdgeCollection();
         $collection
             ->addEdge($test)
             ->addEdge(
                 (new Edge())
-                    ->setFromNodeKey('one')
-                    ->setToNodeKey('two')
+                    ->setFromKey('one')
+                    ->setToKey('two')
                     ->setResponse('true'))
             ->removeEdgesFromNode('one');
         $this->assertCount(1, $collection->getEdges());

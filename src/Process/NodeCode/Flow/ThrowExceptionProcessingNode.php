@@ -1,11 +1,11 @@
 <?php
 
 
-namespace NoLoCo\Core\Process\Node\FlowControl;
+namespace NoLoCo\Core\Process\NodeCode\FlowControl;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Node\AbstractNode;
-use NoLoCo\Core\Process\Node\Exception\ProcessException;
+use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
+use NoLoCo\Core\Process\NodeCode\Exception\ProcessException;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
 /**
@@ -16,7 +16,7 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  *
  * @package NoLoCo\Core\Process\Node\FlowControl
  */
-class ThrowExceptionProcessingNode extends AbstractNode
+class ThrowExceptionProcessingNode extends AbstractNodeCode
 {
     /**
      * @inheritDoc

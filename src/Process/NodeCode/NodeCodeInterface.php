@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Node;
+namespace NoLoCo\Core\Process\NodeCode;
 
 /**
  * A Node is one element in a process that performs one action
@@ -25,7 +25,7 @@ namespace NoLoCo\Core\Process\Node;
  * object containing information allowing the process to route upon a successful
  * run or error information when a process fails.
  */
-interface NodeInterface
+interface NodeCodeInterface
 {
     /**
      * Set the node key for this instance of the node which is unique in a process.

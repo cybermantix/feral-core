@@ -3,7 +3,7 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
@@ -16,7 +16,7 @@ class ProcessNodeBeforeEvent extends Event
      * The node to be processed
      * @var array
      */
-    protected NodeInterface $node;
+    protected NodeCodeInterface $node;
 
     /**
      * @var ContextInterface
@@ -26,7 +26,7 @@ class ProcessNodeBeforeEvent extends Event
     /**
      * @return array
      */
-    public function getNode(): NodeInterface|array
+    public function getNode(): NodeCodeInterface|array
     {
         return $this->node;
     }
@@ -35,7 +35,7 @@ class ProcessNodeBeforeEvent extends Event
      * @param array $node
      * @return ProcessNodeBeforeEvent
      */
-    public function setNode(NodeInterface|array $node): self
+    public function setNode(NodeCodeInterface|array $node): self
     {
         $this->node = $node;
         return $this;

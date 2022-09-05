@@ -1,12 +1,12 @@
 <?php
 
 
-namespace NoLoCo\Core\Process\Node\FlowControl;
+namespace NoLoCo\Core\Process\NodeCode\FlowControl;
 
 use NoLoCo\Core\Utility\Filter\Comparator\Comparator;
 use NoLoCo\Core\Utility\Filter\Comparator\ComparatorInterface;
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Node\AbstractNode;
+use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 
@@ -22,7 +22,7 @@ use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
  *
  * @package NoLoCo\Core\Process\Node\FlowControl
  */
-class ContextValueComparatorNode extends AbstractNode
+class ContextValueComparatorNode extends AbstractNodeCode
 {
     const TEST_VALUE = 'test_value';
 

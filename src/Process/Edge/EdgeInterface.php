@@ -14,22 +14,22 @@ interface EdgeInterface
     /**
      * @return string
      */
-    public function getFromNodeKey(): string;
+    public function getFromKey(): string;
 
     /**
      * @param string $fromNodeKey
      * @return $this
      */
-    public function setFromNodeKey(string $fromNodeKey): static;
+    public function setFromKey(string $fromNodeKey): static;
 
     /**
      * @return string
      */
-    public function getToNodeKey(): string;
+    public function getToKey(): string;
 
     /**
      * @param string $toNodeKey
      * @return $this
      */
-    public function setToNodeKey(string $toNodeKey): static;
+    public function setToKey(string $toNodeKey): static;
 }

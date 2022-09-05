@@ -3,8 +3,8 @@
 namespace Tests\Unit\Process;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Node\AbstractNode;
-use NoLoCo\Core\Process\Node\NodeFactory;
+use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
+use NoLoCo\Core\Process\NodeCode\NodeFactory;
 use NoLoCo\Core\Process\Process;
 use NoLoCo\Core\Process\ProcessBuilder;
 use NoLoCo\Core\Process\Result\ResultInterface;
@@ -82,7 +82,7 @@ class ProcessBuilderTest extends TestCase
     }
 }
 
-class BuilderTestNode extends AbstractNode
+class BuilderTestNode extends AbstractNodeCode
 {
     /**
      * @inheritDoc

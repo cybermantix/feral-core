@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Node\Configuration;
+namespace NoLoCo\Core\Process\NodeCode\Configuration;
 
-use NoLoCo\Core\Process\Node\Configuration\ValueModifier\ConfigurationValueModifierInterface;
+use NoLoCo\Core\Process\NodeCode\Configuration\ValueModifier\ConfigurationValueModifierInterface;
 
 /**
  * Build a configuration for a node instance. The configuration

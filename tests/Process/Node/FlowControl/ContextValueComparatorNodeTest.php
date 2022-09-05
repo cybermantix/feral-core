@@ -4,7 +4,7 @@ namespace Tests\Unit\Process\Node\FlowControl;
 
 use NoLoCo\Core\Utility\Filter\Criterion;
 use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\Node\FlowControl\ContextValueComparatorNode;
+use NoLoCo\Core\Process\NodeCode\FlowControl\ContextValueComparatorNode;
 use NoLoCo\Core\Process\Result\Result;
 use NoLoCo\Core\Utility\Search\DataPathReader;
 use PHPUnit\Framework\TestCase;
