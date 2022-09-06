@@ -2,6 +2,11 @@
 
 namespace NoLoCo\Core\Process\NodeCode;
 
+use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use NoLoCo\Core\Process\Result\ResultInterface;
+
 /**
  * A Node is one element in a process that performs one action
  * in the process. The node can perform any work using information
@@ -28,45 +33,63 @@ namespace NoLoCo\Core\Process\NodeCode;
 interface NodeCodeInterface
 {
     /**
-     * Set the node key for this instance of the node which is unique in a process.
-     * The process edges reference the unique keys of the node to identify the
-     * source and target nodes based on the result.
-     * @param string $key
-     * @return $this
-     */
-    public function setKey(string $key): static;
-
-    /**
-     * Get the unique key for this node instance.
+     * Get the unique key for this node instance. This key must be unique in the system
+     * amongst other Node Code.
      * @return string
      */
     public function getKey(): string;
 
     /**
-     * Set the configuration for this node instance. The configuration is a
+     * The human-readable name for this Node Code. This name is shown in any catalog
+     * building tools which can modify the configuration and make unique nodes in the
+     * catalog.
+     * @return string
+     */
+    public function getName(): string;
+
+    /**
+     * The human friendly context about this node code which is used to describe
+     * the code and process used by the NodeCode.
+     * @return string
+     */
+    public function getDescription(): string;
+
+    /**
+     * The category this NodeCode belongs to. This helps the admin organize the process
+     * algorithms with similar traits and responses.
+     * @return string
+     */
+    public function getCategoryKey(): string;
+
+    /**
+     * The array of node code configuration descriptions
+     * @return ConfigurationDescriptionInterface[]
+     */
+    public function getConfigurationDescriptions(): array;
+
+    /**
+     * Add a configuration value to the node instance configuration. The configuration is a
      * 2D array that contains a simple key/value pair. The value of the
      * configuration can be processed before being set by the
      * ConfigurationValueInterface instances
-     * @param array $configuration
-     * @return $this
-     */
-    public function setConfiguration(array $configuration): static;
-
-    /**
-     * Add a configuration value to the node instance configuration.
      * @param string $key
      * @param mixed $value
      * @return $this
      */
-    public function addConfiguration(string $key, mixed $value): static;
+    public function addConfigurationValue(string $key, mixed $value): static;
 
     /**
-     * Pass in an array as a partial configuration to merge into the existing
-     * configuration.
-     * @param array $partialConfiguration
+     * Add an key/value (associative array) of keys and values to the configuration.
+     * @param array $values
      * @return $this
      */
-    public function mergeConfiguration(array $partialConfiguration): static;
+    public function addConfiguration(array $keysValues): static;
+
+    /**
+     * @param ContextInterface $context
+     * @return ResultInterface
+     */
+    public function process(ContextInterface $context): ResultInterface;
 
 
 }
