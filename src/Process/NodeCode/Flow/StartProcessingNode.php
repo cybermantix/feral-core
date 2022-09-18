@@ -6,6 +6,7 @@ namespace NoLoCo\Core\Process\NodeCode\FlowControl;
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
 use NoLoCo\Core\Process\Result\ResultInterface;
+use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 
 /**
  * Class ComparatorNode
@@ -18,6 +19,19 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  */
 class StartProcessingNode extends AbstractNodeCode
 {
+    const KEY = 'start';
+
+    const NAME = 'Start Process';
+
+    const DESCRIPTION = 'The node that starts a process.';
+
+    public function __construct(DataPathReaderInterface $dataPathReader, array $configuration)
+    {
+        parent::__construct($dataPathReader, $configuration);
+        $this->setMeta(self::KEY, self::NAME, self::DESCRIPTION);
+    }
+
+
     /**
      * @inheritDoc
      */

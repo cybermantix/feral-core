@@ -32,6 +32,11 @@ abstract class AbstractConfigurationDescription implements ConfigurationDescript
      */
     protected array $options = [];
 
+    /**
+     * Set the configuration key which is used to identify the configuration.
+     * @param string $key
+     * @return $this
+     */
     function setKey(string $key): static
     {
         $this->key = $key;
@@ -46,6 +51,11 @@ abstract class AbstractConfigurationDescription implements ConfigurationDescript
         return $this->key;
     }
 
+    /**
+     * Set the human friendly name of the configurations
+     * @param string $name
+     * @return $this
+     */
     function setName(string $name): static
     {
         $this->name = $name;
@@ -60,6 +70,11 @@ abstract class AbstractConfigurationDescription implements ConfigurationDescript
         return $this->name;
     }
 
+    /**
+     * Set the human description of this configuration option.
+     * @param string $description
+     * @return $this
+     */
     function setDescription(string $description): static
     {
         $this->description = $description;
@@ -74,12 +89,20 @@ abstract class AbstractConfigurationDescription implements ConfigurationDescript
         return $this->description;
     }
 
+    /**
+     * Set the optional options allowed for the configuration.
+     * @param array $options
+     * @return $this
+     */
     function setOptions(array $options): static
     {
         $this->options = $options;
         return $this;
     }
 
+    /**
+     * @inheritDoc
+     */
     function getOptions(): array
     {
         return $this->options;

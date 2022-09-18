@@ -25,11 +25,11 @@ use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
  * Configuration Keys
  *  operator    - The operator used in the test
  *  test_value  - The value used to test the actual value in the context
- *  key         - The key used to retrieve the actual value from the context
+ *  context_path - The key used to retrieve the actual value from the context
  *
  * @package NoLoCo\Core\Process\Node\FlowControl
  */
-class ContextValueComparatorNodeCode implements NodeCodeInterface {
+class ContextValueComparatorNodeCode extends AbstractNodeCode implements NodeCodeInterface {
 
 
     const KEY = 'context_value_comparator';
@@ -46,15 +46,13 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
 
     protected ComparatorInterface $comparator;
 
-    /**
-     * ValueComparatorNode constructor.
-     * @param DataPathReaderInterface $dataPathReader
-     * @param ComparatorInterface|null $comparator
-     */
     public function __construct(
-        public DataPathReaderInterface $dataPathReader,
+        DataPathReaderInterface $dataPathReader,
+        array $configuration,
         ComparatorInterface $comparator = null
-    ) {
+    ){
+        parent::__construct($dataPathReader, $configuration);
+        $this->setMeta(self::KEY, self::NAME, self::DESCRIPTION);
         if ($comparator) {
             $this->comparator = $comparator;
         } else {
@@ -62,37 +60,6 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
         }
     }
 
-    /**
-     * @see NodeCodeInterface::getKey()
-     */
-    public function getKey(): string
-    {
-        return self::KEY;
-    }
-
-    /**
-     * @see NodeCodeInterface::getName()
-     */
-    public function getName(): string
-    {
-        return self::NAME;
-    }
-
-    /**
-     * @see NodeCodeInterface::getDescription()
-     */
-    public function getDescription(): string
-    {
-        return self::DESCRIPTION;
-    }
-
-    /**
-     * @see NodeCodeInterface::getCategoryKey()
-     */
-    public function getCategoryKey(): string
-    {
-        return NodeCodeCategoryInterface::FLOW;
-    }
 
     /**
      * @return ConfigurationDescriptionInterface[]

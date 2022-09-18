@@ -46,14 +46,12 @@ else
   echo "No composer.json found, skipping composer install and auto load."
 fi
 
-echo "Test Point 2"
 
 if [[ -d /opt/app/var/cache/dev/profiler ]]; then
    rm -Rf /opt/app/var/cache/dev/profiler/*
    echo "Cleared the profiler cache"
 fi
 
-echo "Test Point 3"
 
 if [[ "${APP_ENV}" = "test" ]]; then
     echo "Checking code style..."
@@ -66,7 +64,8 @@ if [[ "${APP_ENV}" = "test" ]]; then
     /usr/bin/php -dxdebug.mode=off vendor/bin/phpunit tests/Functional
 elif [[ "${APP_ENV}" = "prod" ]] || [[ "${APP_ENV}" = "dev" ]]; then
     echo "Starting ${APP_ENV} in PHP-FPM service."
-    php-fpm
+    #php-fpm
+    tail -f /opt/app/var/.gitkeep
 else
     echo "Invalid APP_ENV: ${APP_ENV}. Options: dev|test|prod"
 fi

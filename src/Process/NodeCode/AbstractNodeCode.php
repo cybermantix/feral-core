@@ -5,6 +5,7 @@ namespace NoLoCo\Core\Process\NodeCode;
 use LogicException;
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
+use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
@@ -21,7 +22,17 @@ abstract class AbstractNodeCode implements NodeCodeInterface
      * the relationship in the graph edges
      * @var string
      */
-    protected string $key;
+    protected string $key = '';
+    /**
+     * The human friendly name of the node code.
+     * @var string
+     */
+    protected string $name = '';
+    /**
+     * The human friendly description of the node code.
+     * @var string
+     */
+    protected string $description = '';
 
     /**
      * AbstractNode constructor.
@@ -38,43 +49,55 @@ abstract class AbstractNodeCode implements NodeCodeInterface
          * node class.
          * @var string[]
          */
-        protected array $configuration
+        protected array $configuration = []
     ){
     }
 
     /**
-     * @param string $key
-     * @return AbstractNodeCode
+     * @see NodeCodeInterface::getKey()
      */
-    public function setKey(string $key): static
+    public function getKey(): string
     {
-        $this->key = $key;
-        return $this;
+        return $this->key;
     }
 
     /**
-     * @param array $configuration
-     * @return AbstractNodeCode
+     * @see NodeCodeInterface::getName()
      */
-    public function setConfiguration(array $configuration): static
+    public function getName(): string
     {
-        $this->configuration = $configuration;
-        return $this;
+        return $this->name;
+    }
+
+    /**
+     * @see NodeCodeInterface::getDescription()
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @see NodeCodeInterface::getCategoryKey()
+     */
+    public function getCategoryKey(): string
+    {
+        return NodeCodeCategoryInterface::FLOW;
+    }
+
+    /**
+     * No configuration options.
+     * @return array
+     */
+    public function getConfigurationDescriptions(): array
+    {
+        return [];
     }
 
     /**
      * @inheritDoc
      */
-    public function getConfiguration(): array
-    {
-        return $this->configuration;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function addConfiguration(string $key, $value): static
+    public function addConfigurationValue(string $key, $value): static
     {
         if (!isset($this->configuration)) {
             $this->configuration = [];
@@ -86,21 +109,13 @@ abstract class AbstractNodeCode implements NodeCodeInterface
     /**
      * @inheritDoc
      */
-    public function mergeConfiguration(array $partialConfiguration): static
+    public function addConfiguration(array $keysValues): static
     {
         if (!isset($this->configuration)) {
-            $this->configuration = $partialConfiguration;
+            $this->configuration = $keysValues;
         }
-        $this->configuration = array_merge($this->configuration, $partialConfiguration);
+        $this->configuration = array_merge($this->configuration, $keysValues);
         return $this;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getKey(): string
-    {
-        return $this->key;
     }
 
     /**
@@ -306,5 +321,18 @@ abstract class AbstractNodeCode implements NodeCodeInterface
         return (new Result())
             ->setStatus($status)
             ->setMessage($message);
+    }
+
+    /**
+     * Helper method to set the meta information.
+     * @param string $key
+     * @param string $name
+     * @param string $description
+     */
+    protected function setMeta(string $key, string $name, string $description): void
+    {
+        $this->key = $key;
+        $this->name = $name;
+        $this->description = $description;
     }
 }

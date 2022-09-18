@@ -80,7 +80,7 @@ interface NodeCodeInterface
 
     /**
      * Add an key/value (associative array) of keys and values to the configuration.
-     * @param array $values
+     * @param array $keysValues
      * @return $this
      */
     public function addConfiguration(array $keysValues): static;

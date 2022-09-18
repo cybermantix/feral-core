@@ -1,4 +1,4 @@
-FROM php:8.0.11-fpm-alpine
+FROM php:8.1-cli-alpine
 
 # #########
 # VARIABLES
@@ -8,6 +8,7 @@ ENV DEVWORKDIR /opt/app
 ENV DEVBASEDIR .
 ENV COMPOSER_HOME /opt/app/composer
 
+
 # ###########
 # OS PACKAGES
 # ###########
@@ -16,7 +17,6 @@ RUN apk update && \
     apk add \
         bash \
         git \
-        composer \
         figlet \
         icu-dev \
         libzip-dev \
@@ -39,7 +39,6 @@ RUN docker-php-ext-configure zip && \
 # #############
 RUN docker-php-ext-install \
     exif \
-    iconv \
     opcache \
     pdo_mysql \
     gd \
@@ -47,6 +46,10 @@ RUN docker-php-ext-install \
     intl \
     zip
 
+# #############
+# COMPOSER
+# #############
+COPY --from=composer:2.1 /usr/bin/composer /usr/local/bin/composer
 
 # ##############################
 # ADD THE USER TO THE IMAGE

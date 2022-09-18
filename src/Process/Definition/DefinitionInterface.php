@@ -42,5 +42,5 @@ interface DefinitionInterface
      * The edge definitions
      * @return EdgeInterface[]
      */
-    public function getEdgeDefinitions(); array;
+    public function getEdgeDefinitions(): array;
 }
