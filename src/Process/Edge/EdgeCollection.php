@@ -22,15 +22,16 @@ class EdgeCollection implements EdgeCollectionInterface
      */
     public function addEdge(EdgeInterface $edge): EdgeCollectionInterface
     {
-        $fromKey = $edge->getFromNodeKey();
-        $response = $edge->getResponse();
+        $fromKey = $edge->getFromKey();
+        $result = $edge->getResult();
+
         if (empty($this->collection[$fromKey])) {
             $this->collection[$fromKey] = [];
         }
-        if (empty($this->collection[$fromKey][$response])) {
-            $this->collection[$fromKey][$response] = [];
+        if (empty($this->collection[$fromKey][$result])) {
+            $this->collection[$fromKey][$result] = [];
         }
-        $this->collection[$fromKey][$response][] = $edge;
+        $this->collection[$fromKey][$result][] = $edge;
         return $this;
     }
 
@@ -39,13 +40,13 @@ class EdgeCollection implements EdgeCollectionInterface
      */
     public function removeEdge(EdgeInterface $edge): EdgeCollectionInterface
     {
-        $fromKey = $edge->getFromNodeKey();
-        $response = $edge->getResponse();
-        if (!empty($this->collection[$fromKey][$response])) {
+        $fromKey = $edge->getFromKey();
+        $result = $edge->getResult();
+        if (!empty($this->collection[$fromKey][$result])) {
             /** @var EdgeInterface $item */
-            foreach ($this->collection[$fromKey][$response] as $key => $item) {
-                if ($item->getToNodeKey() == $edge->getToNodeKey()) {
-                    unset($this->collection[$fromKey][$response][$key]);
+            foreach ($this->collection[$fromKey][$result] as $key => $item) {
+                if ($item->getToKey() == $edge->getToKey()) {
+                    unset($this->collection[$fromKey][$result][$key]);
                 }
             }
         }
@@ -73,17 +74,17 @@ class EdgeCollection implements EdgeCollectionInterface
     {
         foreach ($this->collection as $fromNodeKey => $item) {
             /**
-             * @var string $response
+             * @var string $result
              * @var array $edges
              */
-            foreach ($item as $response => $edges) {
+            foreach ($item as $result => $edges) {
                 /**
                  * @var int $idx
                  * @var EdgeInterface $edge
                  */
                 foreach ($edges as $idx => $edge)
-                if ($edge->getToNodeKey() == $toNodeKey) {
-                    unset($this->collection[$fromNodeKey][$response][$idx]);
+                if ($edge->getToKey() == $toNodeKey) {
+                    unset($this->collection[$fromNodeKey][$result][$idx]);
                 }
             }
         }
@@ -97,8 +98,8 @@ class EdgeCollection implements EdgeCollectionInterface
     {
         $edges = [];
         foreach ($this->collection as $k => $v) {
-            foreach ($v as $kk => $vv) {
-                foreach ($vv as $kkk => $vvv) {
+            foreach ($v as $vv) {
+                foreach ($vv as $vvv) {
                     $edges[] = $vvv;
                 }
             }
@@ -122,13 +123,13 @@ class EdgeCollection implements EdgeCollectionInterface
     /**
      * @inheritDoc
      */
-    public function getToNodeKeysByNodeAndResult(string $fromNodeKey, string $result): array
+    public function getToKeysByNodeAndResult(string $fromNodeKey, string $result): array
     {
         $keys = [];
         if (!empty($this->collection[$fromNodeKey]) && !empty($this->collection[$fromNodeKey][$result])) {
             /** @var EdgeInterface $edge */
             foreach( $this->collection[$fromNodeKey][$result] as $edge) {
-                $keys[] = $edge->getToNodeKey();
+                $keys[] = $edge->getToKey();
             }
             return $keys;
         } else {

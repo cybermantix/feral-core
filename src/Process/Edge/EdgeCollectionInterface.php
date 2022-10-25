@@ -58,5 +58,5 @@ interface EdgeCollectionInterface
      * @param string $result
      * @return EdgeInterface[]
      */
-    public function getToNodeKeysByNodeAndResult(string $fromNodeKey, string $result): array;
+    public function getToKeysByNodeAndResult(string $fromNodeKey, string $result): array;
 }

@@ -1,11 +1,16 @@
 <?php
 
 
-namespace NoLoCo\Core\Process\NodeCode\FlowControl;
+namespace NoLoCo\Core\Process\NodeCode\Flow;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
-use NoLoCo\Core\Process\NodeCode\Exception\ProcessException;
+use NoLoCo\Core\Process\Exception\ProcessException;
+use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
 /**
@@ -16,10 +21,29 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  *
  * @package NoLoCo\Core\Process\Node\FlowControl
  */
-class ThrowExceptionProcessingNode extends AbstractNodeCode
+class ThrowExceptionProcessingNode implements NodeCodeInterface
 {
+    use NodeCodeMetaTrait, ResultsTrait, ConfigurationTrait, EmptyConfigurationDescriptionTrait;
+
+    const KEY = 'throw_exception';
+
+    const NAME = 'Throw Exception';
+
+    const DESCRIPTION = 'Throw an exception in the process.';
+
+    public function __construct()
+    {
+        $this->setMeta(
+            self::KEY,
+            self::NAME,
+            self::DESCRIPTION,
+            NodeCodeCategoryInterface::FLOW
+        );
+    }
+
     /**
      * @inheritDoc
+     * @throws ProcessException
      */
     public function process(ContextInterface $context): ResultInterface
     {

@@ -1,11 +1,10 @@
 <?php
 
-namespace Tests\Unit\Process\Node\FlowControl;
+namespace NoLoCo\Core\Tests\Process\NodeCode\Flow;
 
 use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\NodeCode\FlowControl\StopProcessingNode;
+use NoLoCo\Core\Process\NodeCode\Flow\StopProcessingNode;
 use NoLoCo\Core\Process\Result\Result;
-use NoLoCo\Core\Utility\Search\DataPathReader;
 use PHPUnit\Framework\TestCase;
 
 class StopProcessingNodeTest extends TestCase
@@ -13,7 +12,7 @@ class StopProcessingNodeTest extends TestCase
     public function testProcess()
     {
         $context = new Context();
-        $node = new StopProcessingNode(new DataPathReader());
+        $node = new StopProcessingNode();
         $result = $node->process($context);
         $this->assertEquals(Result::STOP, $result->getStatus());
     }

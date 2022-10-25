@@ -1,21 +1,29 @@
 <?php
 
 
-namespace NoLoCo\Core\Process\NodeCode\FlowControl;
+namespace NoLoCo\Core\Process\NodeCode\Flow;
 
+use NoLoCo\Core\Process\Configuration\ConfigurationManager;
+use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
 use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
+use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Comparator;
 use NoLoCo\Core\Utility\Filter\Comparator\ComparatorInterface;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\NodeCode\AbstractNodeCode;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 use NoLoCo\Core\Utility\Filter\Criterion;
 use NoLoCo\Core\Utility\Search\DataPathReader;
 use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
+use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Class ComparatorNode
@@ -29,8 +37,14 @@ use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
  *
  * @package NoLoCo\Core\Process\Node\FlowControl
  */
-class ContextValueComparatorNodeCode extends AbstractNodeCode implements NodeCodeInterface {
+class ContextValueComparatorNodeCode implements NodeCodeInterface {
 
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        ConfigurationValueTrait,
+        EmptyConfigurationDescriptionTrait,
+        ContextValueTrait;
 
     const KEY = 'context_value_comparator';
 
@@ -38,26 +52,29 @@ class ContextValueComparatorNodeCode extends AbstractNodeCode implements NodeCod
 
     const DESCRIPTION = 'Test a value in the context against a value in the configuration with an operator';
 
-    protected const TEST_VALUE = 'test_value';
+    public const TEST_VALUE = 'test_value';
 
-    protected const OPERATOR = 'operator';
+    public const OPERATOR = 'operator';
 
-    protected const CONTEXT_PATH = 'context_path';
-
-    protected ComparatorInterface $comparator;
+    public const CONTEXT_PATH = 'context_path';
 
     public function __construct(
-        DataPathReaderInterface $dataPathReader,
-        array $configuration,
-        ComparatorInterface $comparator = null
+        /**
+         * The object that can use a path to read a value from a complex
+         * object or array.
+         */
+        protected DataPathReaderInterface $dataPathReader = new DataPathReader(),
+        /**
+         * The object that can compare two different values.
+         */
+        protected ComparatorInterface $comparator = new Comparator()
     ){
-        parent::__construct($dataPathReader, $configuration);
-        $this->setMeta(self::KEY, self::NAME, self::DESCRIPTION);
-        if ($comparator) {
-            $this->comparator = $comparator;
-        } else {
-            $this->comparator = new Comparator();
-        }
+        $this->setMeta(
+            self::KEY,
+            self::NAME,
+            self::DESCRIPTION,
+            NodeCodeCategoryInterface::FLOW
+        )->setConfigurationManager(new ConfigurationManager());
     }
 
 
@@ -96,13 +113,15 @@ class ContextValueComparatorNodeCode extends AbstractNodeCode implements NodeCod
 
     /**
      * @inheritDoc
+     * @throws UnknownTypeException
+     * @throws MissingConfigurationValueException|UnknownComparatorException
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $testValue = $this->getConfigurationValue(self::TEST_VALUE);
-        $operator = $this->getStringConfigurationValue(self::OPERATOR);
-        $contextValue = $this->getValueFromContext($this->getStringConfigurationValue(self::CONTEXT_PATH), $context);
-
+        $contextPath = $this->getRequiredStringConfigurationValue(self::CONTEXT_PATH);
+        $testValue = $this->getRequiredConfigurationValue(self::TEST_VALUE);
+        $operator = $this->getRequiredConfigurationValue(self::OPERATOR);
+        $contextValue = $this->getValueFromContext($contextPath, $context);
         if ($this->comparator->compare($contextValue, $operator, $testValue)) {
             if (is_array($testValue)) {
                 $testValue = implode(',', $testValue);

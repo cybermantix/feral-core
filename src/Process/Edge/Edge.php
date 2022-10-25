@@ -4,9 +4,21 @@ namespace NoLoCo\Core\Process\Edge;
 
 class Edge implements EdgeInterface
 {
+    /**
+     * The node key from the source side of the node.
+     * @var string
+     */
     protected string $fromKey;
-
+    /**
+     * The node key for the next node.
+     * @var string
+     */
     protected string $toKey;
+    /**
+     * The result to select this edge.
+     * @var string
+     */
+    protected string $result;
 
     /**
      * @return string
@@ -42,4 +54,20 @@ class Edge implements EdgeInterface
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getResult(): string
+    {
+        return $this->result;
+    }
+
+    /**
+     * @param string $result
+     */
+    public function setResult(string $result): static
+    {
+        $this->result = $result;
+        return $this;
+    }
 }

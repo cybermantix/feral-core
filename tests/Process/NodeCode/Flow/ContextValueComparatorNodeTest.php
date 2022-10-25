@@ -1,12 +1,11 @@
 <?php
 
-namespace Tests\Unit\Process\Node\FlowControl;
+namespace NoLoCo\Core\Tests\Process\NodeCode\Flow;
 
-use NoLoCo\Core\Utility\Filter\Criterion;
 use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\NodeCode\FlowControl\ContextValueComparatorNodeCode;
+use NoLoCo\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
 use NoLoCo\Core\Process\Result\Result;
-use NoLoCo\Core\Utility\Search\DataPathReader;
+use NoLoCo\Core\Utility\Filter\Criterion;
 use PHPUnit\Framework\TestCase;
 
 class ContextValueComparatorNodeTest extends TestCase
@@ -14,10 +13,9 @@ class ContextValueComparatorNodeTest extends TestCase
 
     public function testProcessEq()
     {
-        $node = new ContextValueComparatorNodeCode(
-            new DataPathReader(),
+        $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_KEY => 'test',
+                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::EQ,
                 ContextValueComparatorNodeCode::TEST_VALUE => 'testing'
             ]
@@ -33,10 +31,9 @@ class ContextValueComparatorNodeTest extends TestCase
 
     public function testProcessNot()
     {
-        $node = new ContextValueComparatorNodeCode(
-            new DataPathReader(),
+        $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_KEY => 'test',
+                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::NOT,
                 ContextValueComparatorNodeCode::TEST_VALUE => 'testing'
             ]
@@ -52,10 +49,9 @@ class ContextValueComparatorNodeTest extends TestCase
 
     public function testProcessContains()
     {
-        $node = new ContextValueComparatorNodeCode(
-            new DataPathReader(),
+        $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_KEY => 'test',
+                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::CONTAINS,
                 ContextValueComparatorNodeCode::TEST_VALUE => 'ing'
             ]
@@ -71,10 +67,9 @@ class ContextValueComparatorNodeTest extends TestCase
 
     public function testProcessIn()
     {
-        $node = new ContextValueComparatorNodeCode(
-            new DataPathReader(),
+        $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_KEY => 'test',
+                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::IN,
                 ContextValueComparatorNodeCode::TEST_VALUE => [1,2,3]
             ]

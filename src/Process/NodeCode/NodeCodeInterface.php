@@ -68,17 +68,6 @@ interface NodeCodeInterface
     public function getConfigurationDescriptions(): array;
 
     /**
-     * Add a configuration value to the node instance configuration. The configuration is a
-     * 2D array that contains a simple key/value pair. The value of the
-     * configuration can be processed before being set by the
-     * ConfigurationValueInterface instances
-     * @param string $key
-     * @param mixed $value
-     * @return $this
-     */
-    public function addConfigurationValue(string $key, mixed $value): static;
-
-    /**
      * Add an key/value (associative array) of keys and values to the configuration.
      * @param array $keysValues
      * @return $this

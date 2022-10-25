@@ -32,4 +32,17 @@ interface EdgeInterface
      * @return $this
      */
     public function setToKey(string $toNodeKey): static;
+
+    /**
+     * Get the result to select the node
+     * @return string
+     */
+    public function getResult(): string;
+
+    /**
+     * Set the result used to select this edge
+     * @param string $result
+     * @return $this
+     */
+    public function setResult(string $result): static;
 }

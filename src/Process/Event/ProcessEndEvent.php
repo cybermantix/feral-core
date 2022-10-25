@@ -3,13 +3,13 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\ProcessInterface;
+use NoLoCo\Core\Process\Engine\ProcessEngineInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ProcessEndEvent extends Event
 {
 
-    protected ProcessInterface $process;
+    protected ProcessEngineInterface $process;
 
     /**
      * @var ContextInterface
@@ -17,18 +17,18 @@ class ProcessEndEvent extends Event
     protected ContextInterface $context;
 
     /**
-     * @return ProcessInterface
+     * @return ProcessEngineInterface
      */
-    public function getProcess(): ProcessInterface
+    public function getProcess(): ProcessEngineInterface
     {
         return $this->process;
     }
 
     /**
-     * @param ProcessInterface $process
+     * @param ProcessEngineInterface $process
      * @return ProcessEndEvent
      */
-    public function setProcess(ProcessInterface $process): ProcessEndEvent
+    public function setProcess(ProcessEngineInterface $process): ProcessEndEvent
     {
         $this->process = $process;
         return $this;
