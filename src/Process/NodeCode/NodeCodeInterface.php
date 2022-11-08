@@ -26,7 +26,7 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  * and is used to navigate the flow of the process.
  *
  * A node is called by the process using the run function that receives
- * the process Context as the sole parameter and returns a ProcessNodeResult
+ * the process Data as the sole parameter and returns a ProcessNodeResult
  * object containing information allowing the process to route upon a successful
  * run or error information when a process fails.
  */

@@ -22,3 +22,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    _instanceof:
+        NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface:
+            tags: [ 'noloco.catalog_node' ]
+        NoLoCo\Core\Process\Catalog\CatalogSource\CatalogSourceInterface:
+            tags: [ 'noloco.catalog_source' ]
+        NoLoCo\Core\Process\Validator\ValidatorInterface:
+            tags: [ 'noloco.process_validator' ]

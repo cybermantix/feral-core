@@ -3,6 +3,8 @@
 namespace NoLoCo\Core\Console\Command;
 
 use DataObject\Configuration;
+use NoLoCo\Core\Process\Catalog\Catalog;
+use NoLoCo\Core\Process\Catalog\CatalogSource\TaggedCatalogSource;
 use NoLoCo\Core\Process\Context\Context;
 use NoLoCo\Core\Process\Edge\Edge;
 use NoLoCo\Core\Process\Engine\ProcessEngine;
@@ -26,6 +28,7 @@ class TestCommand extends Command
 {
 
     public function __construct(
+        private Catalog $catalog,
         protected EventDispatcherInterface $eventDispatcher
     ) {
         parent::__construct();
@@ -33,21 +36,13 @@ class TestCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $process = new ProcessEngine($this->eventDispatcher);
-        $nodes = [
-            new StartProcessingNode(),
-            (new ContextValueComparatorNodeCode())->addConfiguration([
-                ContextValueComparatorNodeCode::OPERATOR => Criterion::GTE,
-                ContextValueComparatorNodeCode::CONTEXT_PATH => 'value',
-                ContextValueComparatorNodeCode::TEST_VALUE => 100
-            ]),
-            new StopProcessingNode()
-        ];
-        $edges = [
-            (new Edge())->setFromKey('start')->setToKey('')
-        ];
-        $process->process('start');
         $output->writeln('Test Point');
+
+        $catalogNodes = $this->catalog->getCatalogNodes();
+        foreach ($catalogNodes as $node) {
+            $output->writeln('Key: ' . $node->getKey());
+        }
+        $output->writeln('Count: ' . count($catalogNodes));
         return Command::SUCCESS;
     }
 }

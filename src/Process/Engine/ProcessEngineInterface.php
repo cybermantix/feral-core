@@ -4,6 +4,7 @@ namespace NoLoCo\Core\Process\Engine;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\Edge\EdgeInterface;
+use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 
 /**
@@ -16,7 +17,7 @@ interface ProcessEngineInterface
      * Using a set of nodes, edges, and the initial context process each
      * node as determined by the result of the last processed node.
      * @param string $startNodeKey
-     * @param NodeCodeInterface[] $nodes
+     * @param NodeInterface[] $nodes
      * @param EdgeInterface[] $edges
      * @param ContextInterface $context
      */

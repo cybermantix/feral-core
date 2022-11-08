@@ -4,7 +4,7 @@ namespace NoLoCo\Core\Process\Context;
 
 class Context implements ContextInterface
 {
-    protected $data = [];
+    protected array $data = [];
 
     /**
      * @inheritDoc
@@ -18,9 +18,13 @@ class Context implements ContextInterface
     /**
      * @inheritDoc
      */
-    public function get(string $key): mixed
+    public function &get(string $key): mixed
     {
-        return $this->data[$key] ?? null;
+        if (!isset($this->data[$key])) {
+            $nullReference = null;
+            return $nullReference;
+        }
+        return $this->data[$key];
     }
 
     /**

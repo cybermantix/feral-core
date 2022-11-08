@@ -48,7 +48,7 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
 
     const KEY = 'context_value_comparator';
 
-    const NAME = 'Context Value Comparator';
+    const NAME = 'Data Value Comparator';
 
     const DESCRIPTION = 'Test a value in the context against a value in the configuration with an operator';
 
@@ -106,7 +106,7 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
                 ->setDescription('The value to compare the context value to.'),
             (new StringConfigurationDescription())
                 ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
+                ->setName('Data Path')
                 ->setDescription('The context path to get the value being tested.'),
         ];
     }
