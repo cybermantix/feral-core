@@ -55,7 +55,6 @@ class ProcessEngine implements ProcessEngineInterface
         $this->addNodeCollection($nodes);
         $this->addEdgeCollection($edges);
 
-
         $this->eventDispatcher->dispatch(
             (new ProcessStartEvent())
                 ->setContext($context)
