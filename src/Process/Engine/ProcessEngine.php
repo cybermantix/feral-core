@@ -18,6 +18,7 @@ use NoLoCo\Core\Process\Node\NodeCollection;
 use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use NoLoCo\Core\Process\ProcessInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
@@ -47,13 +48,13 @@ class ProcessEngine implements ProcessEngineInterface
 
     /**
      * @inheritDoc
-     * @throws InvalidNodeCodeKey
      * @throws InvalidNodeKey
      */
-    public function process(string $startNodeKey, array $nodes, array $edges, ContextInterface $context): void
+    public function process(ProcessInterface $process, string $startNode = 'start'): void
     {
-        $this->addNodeCollection($nodes);
-        $this->addEdgeCollection($edges);
+        $this->addNodeCollection($process->getNodes());
+        $this->addEdgeCollection($process->getEdges());
+        $context = $process->getContext();
 
         $this->eventDispatcher->dispatch(
             (new ProcessStartEvent())
@@ -62,7 +63,7 @@ class ProcessEngine implements ProcessEngineInterface
         );
 
         // START NODE
-        $node = $this->getNodeByKey($startNodeKey);
+        $node = $this->getNodeByKey($startNode);
 
         $result = $this->processNode($node, $context);
         while (ResultInterface::STOP !== $result->getStatus()) {

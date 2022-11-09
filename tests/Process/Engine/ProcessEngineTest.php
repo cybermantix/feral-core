@@ -10,6 +10,7 @@ use NoLoCo\Core\Process\Engine\ProcessEngine;
 use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use NoLoCo\Core\Process\Process;
 use NoLoCo\Core\Process\Result\Result;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
@@ -74,6 +75,10 @@ class ProcessEngineTest extends TestCase
                 ->setResult(ResultInterface::OK)
         ];
         $context = new Context();
-        $this->engine->process('one', $nodes, $edges, $context);
+        $process = (new Process())
+            ->setNodes($nodes)
+            ->setEdges($edges)
+            ->setContext($context);
+        $this->engine->process($process, 'one');
     }
 }

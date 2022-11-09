@@ -6,6 +6,7 @@ use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use NoLoCo\Core\Process\ProcessInterface;
 
 /**
  * A process engine manages the flow between the nodes and the
@@ -16,11 +17,8 @@ interface ProcessEngineInterface
     /**
      * Using a set of nodes, edges, and the initial context process each
      * node as determined by the result of the last processed node.
-     * @param string $startNodeKey
-     * @param NodeInterface[] $nodes
-     * @param EdgeInterface[] $edges
-     * @param ContextInterface $context
+     * @param ProcessInterface $process
      */
-    public function process(string $startNodeKey, array $nodes, array $edges, ContextInterface $context):void;
+    public function process(ProcessInterface $process, string $startNode = 'start'):void;
 
 }
