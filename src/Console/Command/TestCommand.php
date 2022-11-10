@@ -3,6 +3,7 @@
 namespace NoLoCo\Core\Console\Command;
 
 use DataObject\Configuration;
+use NoLoCo\Core\Process\Engine\ProcessEngine;
 use NoLoCo\Core\Process\ProcessJsonHydrator;
 use NoLoCo\Core\Process\Reader\DirectoryProcessReader;
 use Psr\EventDispatcher\EventDispatcherInterface;
@@ -20,7 +21,8 @@ class TestCommand extends Command
 {
 
     public function __construct(
-        protected EventDispatcherInterface $eventDispatcher
+        protected EventDispatcherInterface $eventDispatcher,
+        protected ProcessEngine $engine
     ) {
         parent::__construct();
     }
@@ -30,7 +32,11 @@ class TestCommand extends Command
         $output->writeln('Test Point');
         $reader = new DirectoryProcessReader('var/processes', new ProcessJsonHydrator());
         $processes = $reader->getProcesses();
-        $output->writeln('Count: ' . count($processes));
+        $process = array_shift($processes);
+        $this->engine->process($process);
+        //$context = $process->getContext();
+        $output->writeln('Done!');
+        //$output->writeln('Context: ' . print_r($context, true));
         return Command::SUCCESS;
     }
 }

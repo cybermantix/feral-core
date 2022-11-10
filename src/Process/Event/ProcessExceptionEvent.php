@@ -13,7 +13,7 @@ class ProcessExceptionEvent extends Event
 {
     /**
      * The node to be processed
-     * @var array
+     * @var NodeCodeInterface
      */
     protected NodeCodeInterface $node;
 
@@ -73,7 +73,7 @@ class ProcessExceptionEvent extends Event
 
     /**
      * @param Throwable $throwable
-     * @return ProcessNodeAfterEvent
+     * @return self
      */
     public function setThrowable(Throwable $throwable): self
     {

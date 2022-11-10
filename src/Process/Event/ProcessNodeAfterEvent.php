@@ -17,7 +17,7 @@ class ProcessNodeAfterEvent extends Event
 
     /**
      * The node to be processed
-     * @var array
+     * @var NodeCodeInterface
      */
     protected NodeCodeInterface $node;
 

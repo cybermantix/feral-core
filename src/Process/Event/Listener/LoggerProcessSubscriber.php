@@ -22,7 +22,7 @@ class LoggerProcessSubscriber implements EventSubscriberInterface
     /**
      * @inheritDoc
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ProcessStartEvent::class => ['onStartProcess'],
@@ -60,7 +60,7 @@ class LoggerProcessSubscriber implements EventSubscriberInterface
     {
         $this->logger->info(
             'Processing Node {key}',
-            ['key' => $event->getNode()->getNodeKey()]
+            ['key' => $event->getNode()->getKey()]
         );
     }
 

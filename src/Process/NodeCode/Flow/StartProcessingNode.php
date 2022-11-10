@@ -3,6 +3,7 @@
 
 namespace NoLoCo\Core\Process\NodeCode\Flow;
 
+use NoLoCo\Core\Process\Configuration\ConfigurationManager;
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
@@ -31,14 +32,15 @@ class StartProcessingNode implements NodeCodeInterface
 
     const DESCRIPTION = 'The node that starts a process.';
 
-    public function __construct()
-    {
+    public function __construct(
+        ConfigurationManager $configurationManager = new ConfigurationManager()
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
-        );
+        )->setConfigurationManager($configurationManager);
     }
 
     /**

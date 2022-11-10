@@ -12,7 +12,6 @@ use NoLoCo\Core\Process\Event\ProcessEndEvent;
 use NoLoCo\Core\Process\Event\ProcessNodeAfterEvent;
 use NoLoCo\Core\Process\Event\ProcessNodeBeforeEvent;
 use NoLoCo\Core\Process\Event\ProcessStartEvent;
-use NoLoCo\Core\Process\Exception\InvalidNodeCodeKey;
 use NoLoCo\Core\Process\Exception\InvalidNodeKey;
 use NoLoCo\Core\Process\Node\NodeCollection;
 use NoLoCo\Core\Process\Node\NodeInterface;
@@ -59,22 +58,23 @@ class ProcessEngine implements ProcessEngineInterface
         $this->eventDispatcher->dispatch(
             (new ProcessStartEvent())
                 ->setContext($context)
-                ->setProcess($this)
+                ->setProcess($process)
         );
 
         // START NODE
         $node = $this->getNodeByKey($startNode);
-
+        $processNodeKey = $startNode;
         $result = $this->processNode($node, $context);
         while (ResultInterface::STOP !== $result->getStatus()) {
-            $edge = $this->getEdgeByNodeAndResult($node->getKey(), $result->getStatus());
-            $node = $this->getNodeByKey($edge->getToKey());
+            $edge = $this->getEdgeByNodeAndResult($processNodeKey, $result->getStatus());
+            $processNodeKey = $edge->getToKey();
+            $node = $this->getNodeByKey($processNodeKey);
             $result = $this->processNode($node, $context);
         }
         $this->eventDispatcher->dispatch(
             (new ProcessEndEvent())
                 ->setContext($context)
-                ->setProcess($this)
+                ->setProcess($process)
         );
     }
 
@@ -132,6 +132,7 @@ class ProcessEngine implements ProcessEngineInterface
             (new ProcessNodeAfterEvent())
                 ->setContext($context)
                 ->setNode($nodeCode)
+                ->setResult($result)
         );
         return $result;
     }

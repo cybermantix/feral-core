@@ -5,13 +5,13 @@ namespace NoLoCo\Core\Process\Event;
 
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Engine\ProcessEngineInterface;
+use NoLoCo\Core\Process\ProcessInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ProcessStartEvent extends Event
 {
 
-    protected ProcessEngineInterface $process;
+    protected ProcessInterface $process;
 
     /**
      * @var ContextInterface
@@ -19,18 +19,18 @@ class ProcessStartEvent extends Event
     protected ContextInterface $context;
 
     /**
-     * @return ProcessEngineInterface
+     * @return ProcessInterface
      */
-    public function getProcess(): ProcessEngineInterface
+    public function getProcess(): ProcessInterface
     {
         return $this->process;
     }
 
     /**
-     * @param ProcessEngineInterface $process
+     * @param ProcessInterface $process
      * @return ProcessStartEvent
      */
-    public function setProcess(ProcessEngineInterface $process): ProcessStartEvent
+    public function setProcess(ProcessInterface $process): ProcessStartEvent
     {
         $this->process = $process;
         return $this;

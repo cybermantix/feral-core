@@ -29,3 +29,7 @@ services:
             tags: [ 'noloco.catalog_source' ]
         NoLoCo\Core\Process\Validator\ValidatorInterface:
             tags: [ 'noloco.process_validator' ]
+        NoLoCo\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface:
+            tags: [ 'noloco.node_code_source' ]
+        NoLoCo\Core\Process\NodeCode\NodeCodeInterface:
+            tags: [ 'noloco.node_code' ]
