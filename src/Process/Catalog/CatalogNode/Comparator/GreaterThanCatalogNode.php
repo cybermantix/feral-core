@@ -1,13 +1,16 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogNode\Data;
+namespace NoLoCo\Core\Process\Catalog\CatalogNode\Comparator;
 
 use JetBrains\PhpStorm\ArrayShape;
 use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use NoLoCo\Core\Process\NodeCode\Data\LogNodeCode;
-use Psr\Log\LogLevel;
+use NoLoCo\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
+use NoLoCo\Core\Utility\Filter\Criterion;
 
-class LogInfoCatalogNode implements CatalogNodeInterface
+/**
+ * Check if a conteext value is greater than a valuee
+ */
+class GreaterThanCatalogNode implements CatalogNodeInterface
 {
 
     /**
@@ -15,7 +18,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getKey(): string
     {
-        return 'log_info';
+        return 'greater_than';
     }
 
     /**
@@ -23,7 +26,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getNodeCodeKey(): string
     {
-        return 'log';
+        return 'context_value_comparator';
     }
 
     /**
@@ -31,7 +34,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getName(): string
     {
-        return 'Info Logger';
+        return 'Greater Than';
     }
 
     /**
@@ -39,7 +42,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getGroup(): string
     {
-        return 'Data';
+        return 'Comparator';
     }
 
     /**
@@ -47,17 +50,17 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getDescription(): string
     {
-        return 'Log a message with the info level';
+        return 'Check if a context value is greater than a configuration value.';
     }
 
     /**
      * @inheritDoc
      */
-    #[ArrayShape([LogNodeCode::LEVEL => "string"])]
+    #[ArrayShape([ContextValueComparatorNodeCode::OPERATOR => "string"])]
     public function getConfiguration(): array
     {
         return [
-            LogNodeCode::LEVEL => LogLevel::INFO
+            ContextValueComparatorNodeCode::OPERATOR => Criterion::GT
         ];
     }
 }

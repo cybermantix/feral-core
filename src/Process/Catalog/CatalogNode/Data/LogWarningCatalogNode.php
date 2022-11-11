@@ -39,7 +39,7 @@ class LogWarningCatalogNode implements CatalogNodeInterface
      */
     public function getGroup(): string
     {
-        return 'Flow';
+        return 'Data';
     }
 
     /**

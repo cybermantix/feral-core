@@ -13,44 +13,51 @@ use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurat
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use NoLoCo\Core\Utility\Search\DataPathReader;
+use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
+use NoLoCo\Core\Utility\Search\DataPathWriter;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
 /**
- * Sent a message to the logs.
+ * Create a counter that ticks every pass through the
+ * node.
  *
  * Configuration Keys
- *  message  - The message to log
- *  level - the log level to use
+ *  context_path - The path in the context
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class LogNodeCode implements NodeCodeInterface {
+class CounterNodeCode implements NodeCodeInterface {
 
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
         EmptyConfigurationDescriptionTrait,
-        ContextValueTrait;
+        ContextValueTrait,
+        ContextMutationTrait;
 
-    const KEY = 'log';
+    const DEFAULT_CONTEXT_PATH = '_counter';
 
-    const NAME = 'Log Message';
+    const KEY = 'counter';
 
-    const DESCRIPTION = 'Log a message into the system logger.';
+    const NAME = 'Counter';
 
-    public const MESSAGE = 'message';
-    public const LEVEL = 'level';
+    const DESCRIPTION = 'A counter that ticks on every pass in the node.';
+
+    public const CONTEXT_PATH = 'context_path';
 
     public function __construct(
-        protected LoggerInterface $logger,
+        DataPathReaderInterface $dataPathReader = new DataPathReader(),
+        DataPathWriter $dataPathWriter = new DataPathWriter(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
     ){
         $this->setMeta(
@@ -58,7 +65,9 @@ class LogNodeCode implements NodeCodeInterface {
             self::NAME,
             self::DESCRIPTION,
             NodeCodeCategoryInterface::DATA)
-            ->setConfigurationManager($configurationManager);
+            ->setConfigurationManager($configurationManager)
+            ->setDataPathWriter($dataPathWriter)
+            ->setDataPathReader($dataPathReader);
     }
 
 
@@ -69,20 +78,9 @@ class LogNodeCode implements NodeCodeInterface {
     {
         return [
             (new StringArrayConfigurationDescription())
-                ->setKey(self::MESSAGE)
-                ->setName('Message')
-                ->setDescription('The message to log.'),
-            (new StringArrayConfigurationDescription())
-                ->setKey(self::LEVEL)
-                ->setName('Level')
-                ->setDescription('The logger level')
-                ->setOptions([
-                    LogLevel::DEBUG,
-                    LogLevel::INFO,
-                    LogLevel::WARNING,
-                    LogLevel::ERROR,
-                    LogLevel::CRITICAL,
-                ]),
+                ->setKey(self::CONTEXT_PATH)
+                ->setName('Context Path')
+                ->setDescription('The context path where the counter is held.')
         ];
     }
 
@@ -93,21 +91,18 @@ class LogNodeCode implements NodeCodeInterface {
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $message = $this->getRequiredConfigurationValue(self::MESSAGE);
-        $level = $this->getRequiredConfigurationValue(self::LEVEL, LogLevel::INFO);
-
-        foreach  ($context->getAll() as $key => $value) {
-            if (is_object($value)) {
-                $value = 'object';
-            }
-            $message = str_replace('{' . $key . '}', $value, $message);
+        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, self::DEFAULT_CONTEXT_PATH);
+        $counter = $this->getValueFromContext($contextPath, $context);
+        if (!$counter) {
+            $counter = 0;
         }
-        $this->logger->log($level, $message);
+        $counter++;
+        $this->setValueInContext($contextPath, $counter, $context);
 
         return $this->result(
             ResultInterface::OK,
-            'Logged the message to the logger.',
-            []
+            'Changed the counter to %u.',
+            [$counter]
         );
     }
 }

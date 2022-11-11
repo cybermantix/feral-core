@@ -7,7 +7,7 @@ use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use NoLoCo\Core\Process\NodeCode\Data\LogNodeCode;
 use Psr\Log\LogLevel;
 
-class LogInfoCatalogNode implements CatalogNodeInterface
+class CounterCatalogNode implements CatalogNodeInterface
 {
 
     /**
@@ -15,7 +15,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getKey(): string
     {
-        return 'log_info';
+        return 'counter';
     }
 
     /**
@@ -23,7 +23,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getNodeCodeKey(): string
     {
-        return 'log';
+        return 'counter';
     }
 
     /**
@@ -31,7 +31,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getName(): string
     {
-        return 'Info Logger';
+        return 'Counter';
     }
 
     /**
@@ -47,7 +47,7 @@ class LogInfoCatalogNode implements CatalogNodeInterface
      */
     public function getDescription(): string
     {
-        return 'Log a message with the info level';
+        return 'A counter that ticks every time the node is processed.';
     }
 
     /**
@@ -56,8 +56,6 @@ class LogInfoCatalogNode implements CatalogNodeInterface
     #[ArrayShape([LogNodeCode::LEVEL => "string"])]
     public function getConfiguration(): array
     {
-        return [
-            LogNodeCode::LEVEL => LogLevel::INFO
-        ];
+        return [];
     }
 }

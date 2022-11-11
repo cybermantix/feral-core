@@ -39,7 +39,7 @@ class LogDebugCatalogNode implements CatalogNodeInterface
      */
     public function getGroup(): string
     {
-        return 'Flow';
+        return 'Data';
     }
 
     /**

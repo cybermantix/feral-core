@@ -45,7 +45,7 @@ trait NodeCollectionTrait
      * @return NodeInterface
      * @throws InvalidNodeKey
      */
-    protected function getNodeByKey(string $fromNodeKey): NodeInterface
+    protected function getNodeCodeByKey(string $fromNodeKey): NodeInterface
     {
         return $this->nodeCollection->getNodeByKey($fromNodeKey);
     }

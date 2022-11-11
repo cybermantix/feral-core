@@ -13,6 +13,7 @@ use NoLoCo\Core\Process\Event\ProcessNodeAfterEvent;
 use NoLoCo\Core\Process\Event\ProcessNodeBeforeEvent;
 use NoLoCo\Core\Process\Event\ProcessStartEvent;
 use NoLoCo\Core\Process\Exception\InvalidNodeKey;
+use NoLoCo\Core\Process\Node\Node;
 use NoLoCo\Core\Process\Node\NodeCollection;
 use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;
@@ -62,14 +63,16 @@ class ProcessEngine implements ProcessEngineInterface
         );
 
         // START NODE
-        $node = $this->getNodeByKey($startNode);
+        $node = $this->nodeCollection->getNodeByKey($startNode);
+        $nodeCode = $this->getNodeCodeByKey($startNode);
         $processNodeKey = $startNode;
-        $result = $this->processNode($node, $context);
+        $result = $this->processNode($node, $nodeCode, $context);
         while (ResultInterface::STOP !== $result->getStatus()) {
             $edge = $this->getEdgeByNodeAndResult($processNodeKey, $result->getStatus());
             $processNodeKey = $edge->getToKey();
-            $node = $this->getNodeByKey($processNodeKey);
-            $result = $this->processNode($node, $context);
+            $node = $this->nodeCollection->getNodeByKey($processNodeKey);
+            $nodeCode = $this->getNodeCodeByKey($processNodeKey);
+            $result = $this->processNode($node, $nodeCode, $context);
         }
         $this->eventDispatcher->dispatch(
             (new ProcessEndEvent())
@@ -85,7 +88,7 @@ class ProcessEngine implements ProcessEngineInterface
      * @return NodeCodeInterface
      * @throws InvalidNodeKey
      */
-    protected function getNodeByKey(string $key): NodeCodeInterface
+    protected function getNodeCodeByKey(string $key): NodeCodeInterface
     {
         $node = $this->nodeCollection->getNodeByKey($key);
         return $this->getConfiguredNodeCode($node);
@@ -114,16 +117,17 @@ class ProcessEngine implements ProcessEngineInterface
 
     /**
      * Process a node, dispatch the events, and return the results
+     * @param Node $node
      * @param NodeCodeInterface $nodeCode
      * @param ContextInterface $context
      * @return ResultInterface
      */
-    protected function processNode(NodeCodeInterface $nodeCode, ContextInterface $context): ResultInterface
+    protected function processNode(Node $node, NodeCodeInterface $nodeCode, ContextInterface $context): ResultInterface
     {
         $this->eventDispatcher->dispatch(
             (new ProcessNodeBeforeEvent())
                 ->setContext($context)
-                ->setNode($nodeCode)
+                ->setNode($node)
         );
 
         $result = $nodeCode->process($context);
@@ -131,7 +135,7 @@ class ProcessEngine implements ProcessEngineInterface
         $this->eventDispatcher->dispatch(
             (new ProcessNodeAfterEvent())
                 ->setContext($context)
-                ->setNode($nodeCode)
+                ->setNode($node)
                 ->setResult($result)
         );
         return $result;

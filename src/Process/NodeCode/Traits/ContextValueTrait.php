@@ -3,6 +3,7 @@
 namespace NoLoCo\Core\Process\NodeCode\Traits;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Utility\Search\DataPathReader;
 use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
@@ -10,6 +11,17 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  */
 trait ContextValueTrait
 {
+    protected DataPathReader $dataPathReader;
+
+    /**
+     * @param DataPathReader $dataPathReader
+     */
+    public function setDataPathReader(DataPathReader $dataPathReader): static
+    {
+        $this->dataPathReader = $dataPathReader;
+        return $this;
+    }
+    
     /**
      * A helper function to get a value from the context.
      * @param string $key

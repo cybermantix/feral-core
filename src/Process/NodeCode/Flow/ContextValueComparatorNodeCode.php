@@ -63,7 +63,7 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
          * The object that can use a path to read a value from a complex
          * object or array.
          */
-        protected DataPathReaderInterface $dataPathReader = new DataPathReader(),
+        DataPathReaderInterface $dataPathReader = new DataPathReader(),
         /**
          * The object that can compare two different values.
          */
@@ -74,7 +74,8 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
             self::NAME,
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
-        )->setConfigurationManager(new ConfigurationManager());
+            )->setConfigurationManager(new ConfigurationManager())
+            ->setDataPathReader($dataPathReader);
     }
 
 

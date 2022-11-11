@@ -37,8 +37,8 @@ trait ContextMutationTrait
      */
     protected function setValueInContext(string $path, mixed $value, ContextInterface $context): static
     {
-        if (str_starts_with($path, '_')) {
-            throw new Exception('Path may not start with underscores.');
+        if (str_starts_with($path, '.')) {
+            throw new Exception('Path may not start with period.');
         }
         $this->dataPathWriter->set($context, $value, $path);
         return $this;
