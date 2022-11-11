@@ -107,9 +107,9 @@ class ProcessEngine implements ProcessEngineInterface
         if (empty($this->cachedConfiguredNodeCode[$nodeKey])) {
             $catalogNode = $this->catalog->getCatalogNode($node->getCatalogNodeKey());
             $nodeCode = $this->factory->getNodeCode($catalogNode->getNodeCodeKey());
-            $nodeCode
-                ->addConfiguration($catalogNode->getConfiguration())
-                ->addConfiguration($node->getConfiguration());
+            // Catalog Overrides Process Node
+            $configuration = array_merge($node->getConfiguration(), $catalogNode->getConfiguration());
+            $nodeCode->addConfiguration($configuration);
             $this->cachedConfiguredNodeCode[$nodeKey] = $nodeCode;
         }
         return $this->cachedConfiguredNodeCode[$nodeKey];

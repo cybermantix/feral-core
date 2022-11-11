@@ -2,6 +2,7 @@
 
 namespace NoLoCo\Core\Process\Validator;
 
+use NoLoCo\Core\Process\ProcessInterface;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 
 /**
@@ -21,8 +22,10 @@ class ProcessValidator implements ProcessValidatorInterface
     /**
      * @inheritDoc
      */
-    public function validate(string $startKey, array $nodes, array $edges): array
+    public function validate(ProcessInterface $process, string $startKey = 'start'): array
     {
+        $nodes = $process->getNodes();
+        $edges = $process->getEdges();
         $errors = [];
         /** @var ValidatorInterface $validator */
         foreach ($this->validators as $validator) {

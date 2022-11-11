@@ -4,6 +4,7 @@ namespace NoLoCo\Core\Process\Validator;
 
 use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Node\NodeInterface;
+use NoLoCo\Core\Process\ProcessInterface;
 
 /**
  * Run the nodes, edges, and start key against all the available
@@ -13,11 +14,10 @@ interface ProcessValidatorInterface
 {
     /**
      * Validate the nodes, edges, and start key used in a process engine.
+     * @param ProcessInterface $process
      * @param string $startKey
-     * @param NodeInterface[] $nodes
-     * @param EdgeInterface[] $edges
      * @return string[]
      */
-    public function validate(string $startKey, array $nodes, array $edges): array;
+    public function validate(ProcessInterface $process, string $startKey = 'start'): array;
 
 }
