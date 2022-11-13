@@ -1,13 +1,13 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogNode\Data;
+namespace NoLoCo\Core\Process\Catalog\CatalogNode\Log;
 
 use JetBrains\PhpStorm\ArrayShape;
 use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use NoLoCo\Core\Process\NodeCode\Data\LogNodeCode;
 use Psr\Log\LogLevel;
 
-class LogWarningCatalogNode implements CatalogNodeInterface
+class LogErrorCatalogNode implements CatalogNodeInterface
 {
 
     /**
@@ -15,7 +15,7 @@ class LogWarningCatalogNode implements CatalogNodeInterface
      */
     public function getKey(): string
     {
-        return 'log_warning';
+        return 'log_error';
     }
 
     /**
@@ -31,7 +31,7 @@ class LogWarningCatalogNode implements CatalogNodeInterface
      */
     public function getName(): string
     {
-        return 'Warning Logger';
+        return 'Error Logger';
     }
 
     /**
@@ -39,7 +39,7 @@ class LogWarningCatalogNode implements CatalogNodeInterface
      */
     public function getGroup(): string
     {
-        return 'Data';
+        return 'Log';
     }
 
     /**
@@ -47,7 +47,7 @@ class LogWarningCatalogNode implements CatalogNodeInterface
      */
     public function getDescription(): string
     {
-        return 'Log a message with the warning level';
+        return 'Log a message with the error level';
     }
 
     /**
@@ -57,7 +57,14 @@ class LogWarningCatalogNode implements CatalogNodeInterface
     public function getConfiguration(): array
     {
         return [
-            LogNodeCode::LEVEL => LogLevel::WARNING
+            LogNodeCode::LEVEL => LogLevel::ERROR
         ];
+    }
+    /**
+     * @inheritDoc
+     */
+    public function getConfigurationDescriptions(): array
+    {
+        return [];
     }
 }

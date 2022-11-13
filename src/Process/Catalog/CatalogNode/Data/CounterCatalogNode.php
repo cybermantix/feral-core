@@ -4,6 +4,9 @@ namespace NoLoCo\Core\Process\Catalog\CatalogNode\Data;
 
 use JetBrains\PhpStorm\ArrayShape;
 use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
+use NoLoCo\Core\Process\NodeCode\Data\CounterNodeCode;
 use NoLoCo\Core\Process\NodeCode\Data\LogNodeCode;
 use Psr\Log\LogLevel;
 
@@ -53,9 +56,20 @@ class CounterCatalogNode implements CatalogNodeInterface
     /**
      * @inheritDoc
      */
-    #[ArrayShape([LogNodeCode::LEVEL => "string"])]
     public function getConfiguration(): array
     {
         return [];
+    }
+    /**
+     * @return ConfigurationDescriptionInterface[]
+     */
+    public function getConfigurationDescriptions(): array
+    {
+        return [
+            (new StringArrayConfigurationDescription())
+                ->setKey(CounterNodeCode::CONTEXT_PATH)
+                ->setName('Context Path')
+                ->setDescription('The context path where the counter is held.')
+        ];
     }
 }

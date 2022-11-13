@@ -54,4 +54,11 @@ class StopCatalogNode implements \NoLoCo\Core\Process\Catalog\CatalogNode\Catalo
     {
         return [];
     }
+    /**
+     * @inheritDoc
+     */
+    public function getConfigurationDescriptions(): array
+    {
+        return [];
+    }
 }

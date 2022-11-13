@@ -48,11 +48,17 @@ class SetContextValueCatalogNode implements CatalogNodeInterface
     {
         return 'Set a value in the context using a value and a path to the location.';
     }
-
     /**
      * @inheritDoc
      */
     public function getConfiguration(): array
+    {
+        return [];
+    }
+    /**
+     * @inheritDoc
+     */
+    public function getConfigurationDescriptions(): array
     {
         return [
             (new StringConfigurationDescription())

@@ -67,5 +67,12 @@ class GreaterThanZeroCatalogNode implements CatalogNodeInterface
             ContextValueComparatorNodeCode::TEST_VALUE => 0,
             ContextValueComparatorNodeCode::OPERATOR => Criterion::GT
         ];
+    }    /**
+ * @inheritDoc
+ */
+    public function getConfigurationDescriptions(): array
+    {
+        return [];
     }
+
 }

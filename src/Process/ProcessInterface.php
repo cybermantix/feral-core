@@ -13,6 +13,10 @@ use NoLoCo\Core\Process\Node\NodeInterface;
 interface ProcessInterface
 {
     /**
+     * The identifying key for this process in the system.
+     */
+    public function getKey(): string;
+    /**
      * Get the initial context used in the process engine.
      * @return ContextInterface
      */

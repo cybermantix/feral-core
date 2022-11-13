@@ -34,3 +34,9 @@ services:
             tags: [ 'noloco.node_code_source' ]
         NoLoCo\Core\Process\NodeCode\NodeCodeInterface:
             tags: [ 'noloco.node_code' ]
+
+    process.source.var:
+        class: NoLoCo\Core\Process\Reader\DirectoryProcessReader
+        tags: ['noloco.process_source']
+        arguments:
+            $directory: 'var/processes'

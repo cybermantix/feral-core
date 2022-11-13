@@ -28,6 +28,11 @@ class ProcessJsonHydrator
             throw new Exception('Only schema version 1 is accepted');
         }
 
+        $key = $json['key'];
+        if (empty($key)) {
+            throw new Exception('A key is required for a process.');
+        }
+
         // NODES AND EDGES
         $nodes = [];
         $edges = [];
@@ -44,6 +49,7 @@ class ProcessJsonHydrator
         $context = $this->hydrateContext($json['context']);
 
         return (new Process())
+            ->setKey($key)
             ->setNodes($nodes)
             ->setEdges($edges)
             ->setContext($context);

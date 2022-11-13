@@ -4,11 +4,12 @@ namespace NoLoCo\Core\Process\Reader;
 
 use Exception;
 use NoLoCo\Core\Process\ProcessJsonHydrator;
+use NoLoCo\Core\Process\ProcessSourceInterface;
 
 /**
  * Read a directory of process files and return Process objects.
  */
-class DirectoryProcessReader implements ProcessReaderInterface
+class DirectoryProcessReader implements ProcessSourceInterface
 {
     public function __construct(
         /**

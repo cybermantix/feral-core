@@ -22,7 +22,7 @@ The code can be run inline with other code by executing a proceess and getting t
 
 We want to give back to the community and industry that has supported us all these years. As such our goal is to offer valuable code for free. 
 
-There is a need to have some income to pay some bills and as such, we will offer some pro-plugins that are a low yearly cost model along with professional services for businesses that need some help use the platform. 
+There is a need to have some income to pay some bills and as such, we will offer some pro-plugins at low yearly cost along with professional services for businesses that need some help use the platform. 
 
 ## PHP CS Fixer
 tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src

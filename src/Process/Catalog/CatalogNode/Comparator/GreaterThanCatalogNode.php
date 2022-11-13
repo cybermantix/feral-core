@@ -63,4 +63,11 @@ class GreaterThanCatalogNode implements CatalogNodeInterface
             ContextValueComparatorNodeCode::OPERATOR => Criterion::GT
         ];
     }
+    /**
+     * @inheritDoc
+     */
+    public function getConfigurationDescriptions(): array
+    {
+        return [];
+    }
 }

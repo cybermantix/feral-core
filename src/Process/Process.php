@@ -12,6 +12,10 @@ use NoLoCo\Core\Process\Node\NodeInterface;
 class Process implements ProcessInterface
 {
     /**
+     * @var string
+     */
+    protected string $key;
+    /**
      * @var ContextInterface
      */
     protected ContextInterface $context;
@@ -23,6 +27,25 @@ class Process implements ProcessInterface
      * @var EdgeInterface[]
      */
     protected array $edges;
+
+    /**
+     * @return string
+     */
+    public function getKey(): string
+    {
+        return $this->key;
+    }
+
+    /**
+     * @param string $key
+     * @return Process
+     */
+    public function setKey(string $key): Process
+    {
+        $this->key = $key;
+        return $this;
+    }
+
 
     /**
      * @return ContextInterface

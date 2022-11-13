@@ -50,4 +50,10 @@ interface CatalogNodeInterface
      * @return array
      */
     public function getConfiguration(): array;
+
+    /**
+     * Get the descriptions of the configuration avialable.
+     * @return ConfigurationDescriptionInterface[]
+     */
+    public function getConfigurationDescriptions(): array;
 }
