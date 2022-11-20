@@ -1,5 +1,9 @@
 {
-    "type": "project",
+    "name": "noloco/core",
+    "description": "This package provides a powerful core for No Code, Low Code solutions.",
+    "keywords": ["no-code", "low-code", "bpms"],
+    "homepage": "https://noloco.net",
+    "type": "symfony-bundle",
     "license": "Apache License 2.0",
     "minimum-stability": "stable",
     "prefer-stable": true,

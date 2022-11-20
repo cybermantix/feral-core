@@ -3,10 +3,8 @@
 namespace NoLoCo\Core\Console\Command;
 
 use DataObject\Configuration;
-use NoLoCo\Core\Process\Catalog\Catalog;
 use NoLoCo\Core\Process\ProcessFactory;
 use NoLoCo\Core\Process\Validator\ProcessValidator;
-use NoLoCo\Core\Process\Validator\ValidatorInterface;
 use Reepository\ConfigurationRepository;
 use Symfony\Component\Console\Attribute as Console;
 use Symfony\Component\Console\Command\Command;
@@ -15,7 +13,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[Console\AsCommand(
-    name: 'noloco:process:validate',
+    name: 'noloco:validate:processes',
     description: 'Validate all of the processes or use a filter to match processes.'
 )]
 class ValidateProcessesCommand extends Command

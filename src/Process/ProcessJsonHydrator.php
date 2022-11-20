@@ -65,9 +65,13 @@ class ProcessJsonHydrator
         $node = new Node();
         $node
             ->setKey($data['key'])
-            ->setDescription($data['description'])
-            ->setCatalogNodeKey($data['catalog_node_key'])
-            ->setConfiguration($data['configuration']);
+            ->setCatalogNodeKey($data['catalog_node_key']);
+        if (isset($data['description'])) {
+            $node->setDescription($data['description']);
+        }
+        if (isset($data['configuration'])) {
+            $node->setConfiguration($data['configuration']);
+        }
         return $node;
     }
 

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "key": "test_process",
+  "version": 1,
+  "context": {
+    "xtest": "testing123"
+  },
+  "nodes": [
+    {
+      "key": "start",
+      "description": "The starting node",
+      "catalog_node_key": "start",
+      "configuration": {},
+      "edges": {
+        "ok": "set_var"
+      }
+    },
+    {
+      "key": "set_var",
+      "description": "Set the context variable",
+      "catalog_node_key": "set_context_value",
+      "configuration": {
+        "value": "1",
+        "context_path": "test",
+        "value_type": "int"
+      },
+      "edges": {
+        "ok": "test"
+      }
+    },
+    {
+      "key": "test",
+      "description": "Check if the value is greater than zero",
+      "catalog_node_key": "greater_than_zero",
+      "configuration": {
+        "context_path": "test",
+        "operator": "eq"
+      },
+      "edges":  {
+        "true": "debug",
+        "false": "stop"
+      }
+    },
+    {
+      "key": "debug",
+      "description": "Log a statement",
+      "catalog_node_key": "log_debug",
+      "configuration": {
+        "message": "This is a test"
+      },
+      "edges": {
+        "ok": "info"
+      }
+    },
+    {
+      "key": "info",
+      "description": "Log a statement",
+      "catalog_node_key": "log_info",
+      "configuration": {
+        "message": "Info Test"
+      },
+      "edges": {
+        "ok": "warning"
+      }
+    },
+    {
+      "key": "warning",
+      "description": "Log a statement",
+      "catalog_node_key": "log_warning",
+      "configuration": {
+        "message": "Warning Test"
+      },
+      "edges": {
+        "ok": "error"
+      }
+    },
+    {
+      "key": "error",
+      "description": "Log a statement",
+      "catalog_node_key": "log_error",
+      "configuration": {
+        "message": "Error Test {xtest} {test}"
+      },
+      "edges": {
+        "ok": "counter"
+      }
+    },
+    {
+      "key": "counter",
+      "description": "Counter",
+      "catalog_node_key": "counter",
+      "configuration": {},
+      "edges": {
+        "ok": "counter_test"
+      }
+    },
+    {
+      "key": "counter_test",
+      "description": "Check if the counter is greater than the test.",
+      "catalog_node_key": "greater_than",
+      "configuration": {
+        "context_path": "_counter",
+        "test_value": 3
+      },
+      "edges":  {
+        "true": "stop",
+        "false": "counter_log"
+      }
+    },
+    {
+      "key": "counter_log",
+      "description": "Log the counter",
+      "catalog_node_key": "log_error",
+      "configuration": {
+        "message": "Error Test {_counter}"
+      },
+      "edges": {
+        "ok": "counter"
+      }
+    },
+    {
+      "key": "stop",
+      "description": "Stop",
+      "catalog_node_key": "stop",
+      "configuration": {},
+      "edges": {}
+    }
+  ]
+}#!/usr/bin/env php
+<?php
+
+use NoLoCo\Core\Kernel;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+
+if (!is_file(dirname(__DIR__).'/vendor/autoload_runtime.php')) {
+    throw new LogicException('Symfony Runtime is missing. Try running "composer require symfony/runtime".');
+}
+
+require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
+
+return function (array $context) {
+    $kernel = new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
+
+    return new Application($kernel);
+};
