@@ -37,14 +37,15 @@ class ValidateProcessCommand extends Command
     {
         $output->writeln('Validate a process');
         $json = $input->getArgument('process');
-        if (is_file($json)) {
+        if (empty($json)) {
+            $output->writeln('Reading STDIN');
+            $json = file_get_contents('php://stdin');
+        }
+        if (!is_null($json) && is_file($json)) {
+            $output->writeln(sprintf('Reading file: "%s"', $json));
             $json = file_get_contents($json);
-        } elseif (empty($json) && 0 === ftell(STDIN)) {
-            $json = '';
-            while (!feof(STDIN)) {
-                $json .= fread(STDIN, 1024);
-            }
-        } elseif (empty($json)) {
+        }
+        if (empty($json)) {
             $output->writeln('Invalid input');
             return Command::FAILURE;
         }
