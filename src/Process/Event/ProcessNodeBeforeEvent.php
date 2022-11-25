@@ -3,15 +3,18 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\Node\NodeInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 
 /**
  * An event for a process node that will be run next.
  * @package NoLoCo\Core\Process\Event
  */
-class ProcessNodeBeforeEvent extends Event
+class ProcessNodeBeforeEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
+
     /**
      * The node to be processed
      * @var NodeInterface

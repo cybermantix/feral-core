@@ -2,16 +2,10 @@
 
 namespace NoLoCo\Core\Utility\Filter;
 
-use Symfony\Component\Serializer\Annotation as Serializer;
-use OpenApi\Annotations as OA;
-
 /**
  * Class Order
  * A key/direction pair used to sort a set of data.
  * @package NoLoCo\Core\Utility\Entity\Filter
- * @OA\Schema(
- *     description="The direction and key/property result data should be sorted by."
- * )
  */
 class Order
 {
@@ -28,20 +22,12 @@ class Order
     /**
      * The field or set key for the sort
      * @var string
-     * @Serializer\Groups("hydrate")
-     * @OA\Property(
-     *     description="The key or property to sort by."
-     * )
      */
     protected string $key;
 
     /**
      * The direction of the sort for this key
      * @var string
-     * @Serializer\Groups("hydrate")
-     * @OA\Property(
-     *     description="The direction the data should be filtered by."
-     * )
      */
     protected string $direction = self::ASC;
 

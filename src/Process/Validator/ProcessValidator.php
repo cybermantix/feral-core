@@ -3,7 +3,6 @@
 namespace NoLoCo\Core\Process\Validator;
 
 use NoLoCo\Core\Process\ProcessInterface;
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 
 /**
  * Validate the nodes, edges, and start key against all of the available
@@ -11,13 +10,8 @@ use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
  */
 class ProcessValidator implements ProcessValidatorInterface
 {
-    private iterable $validators;
 
-    public function __construct(
-        #[TaggedIterator('noloco.process_validator')] iterable $validators
-    ) {
-        $this->validators = $validators;
-    }
+    public function __construct(private iterable $validators) {}
 
     /**
      * @inheritDoc

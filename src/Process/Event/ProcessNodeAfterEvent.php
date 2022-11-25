@@ -3,18 +3,19 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 
 /**
  * An event from a process after the node has been processed
  * and has a result.
  * @package NoLoCo\Core\Process\Event
  */
-class ProcessNodeAfterEvent extends Event
+class ProcessNodeAfterEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
 
     /**
      * The node to be processed

@@ -3,14 +3,15 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
-use Exception;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 use Throwable;
 
-class ProcessExceptionEvent extends Event
+class ProcessExceptionEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
+
     /**
      * The node to be processed
      * @var NodeCodeInterface
@@ -36,8 +37,8 @@ class ProcessExceptionEvent extends Event
     }
 
     /**
-     * @param array $node
-     * @return ProcessNodeAfterEvent
+     * @param NodeCodeInterface|array $node
+     * @return ProcessExceptionEvent
      */
     public function setNode(NodeCodeInterface|array $node): self
     {

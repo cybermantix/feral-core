@@ -3,8 +3,7 @@
 namespace NoLoCo\Core\Process;
 
 use Exception;
-use NoLoCo\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+
 
 /**
  * Aggregate the process sources allowing the user to find
@@ -23,9 +22,7 @@ class ProcessFactory
      */
     protected array $cache = [];
 
-    public function __construct(
-        #[TaggedIterator('noloco.process_source')] iterable $sources
-    )
+    public function __construct(iterable $sources)
     {
         foreach ($sources as $source) {
             $this->sources[] = $source;

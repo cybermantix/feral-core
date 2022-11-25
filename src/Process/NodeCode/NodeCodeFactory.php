@@ -3,7 +3,6 @@
 namespace NoLoCo\Core\Process\NodeCode;
 
 use NoLoCo\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 
 class NodeCodeFactory
 {
@@ -12,9 +11,7 @@ class NodeCodeFactory
      */
     protected array $nodeCodes = [];
 
-    public function __construct(
-        #[TaggedIterator('noloco.node_code_source')] iterable $sources
-    )
+    public function __construct(iterable $sources)
     {
         /** @var NodeCodeSourceInterface $source */
         foreach ($sources as $source) {

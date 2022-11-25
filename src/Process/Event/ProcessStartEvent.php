@@ -5,11 +5,13 @@ namespace NoLoCo\Core\Process\Event;
 
 
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\ProcessInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 
-class ProcessStartEvent extends Event
+class ProcessStartEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
 
     protected ProcessInterface $process;
 

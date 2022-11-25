@@ -117,12 +117,12 @@ class ProcessEngine implements ProcessEngineInterface
 
     /**
      * Process a node, dispatch the events, and return the results
-     * @param Node $node
+     * @param NodeInterface $node
      * @param NodeCodeInterface $nodeCode
      * @param ContextInterface $context
      * @return ResultInterface
      */
-    protected function processNode(Node $node, NodeCodeInterface $nodeCode, ContextInterface $context): ResultInterface
+    protected function processNode(NodeInterface $node, NodeCodeInterface $nodeCode, ContextInterface $context): ResultInterface
     {
         $this->eventDispatcher->dispatch(
             (new ProcessNodeBeforeEvent())

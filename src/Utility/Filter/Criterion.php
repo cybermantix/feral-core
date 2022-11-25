@@ -2,17 +2,11 @@
 
 namespace NoLoCo\Core\Utility\Filter;
 
-use Symfony\Component\Serializer\Annotation as Serializer;
-use OpenApi\Annotations as OA;
-
 /**
  * Class Criteria
  * Criteria is a key/test evaluation set which can filter down
  * a set of data.
  * @package NoLoCo\Core\Utility\Entity\Filter
- * @OA\Schema(
- *     description="One instance of criteria when filtering a larger dataset."
- * )
  */
 class Criterion
 {
@@ -108,30 +102,18 @@ class Criterion
     /**
      * The field this criteria should match.
      * @var string
-     * @Serializer\Groups("hydrate")
-     * @OA\Property(
-     *     description="The key or property which is being filtered."
-     * )
      */
     protected string $key;
 
     /**
      * The operator used to test the key against the test value.
      * @var string
-     * @Serializer\Groups("hydrate")
-     * @OA\Property(
-     *     description="The operator which articulates the relationship between the key and the value. Possible values: eq, not, contains, starts, ends, gt, gte, lt, lte, in, nin, between, empty, nempty."
-     * )
      */
     protected string $operator;
 
     /**
      * The test data to evaluate the criteria.
      * @var string
-     * @Serializer\Groups("hydrate")
-     * @OA\Property(
-     *     description="The value which relates to the key on the value to filter the data by."
-     * )
      */
     protected string $value;
 
