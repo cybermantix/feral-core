@@ -22,6 +22,9 @@ use NoLoCo\Core\Process\ProcessInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
+/**
+ * @see ProcessEngineInterface
+ */
 class ProcessEngine implements ProcessEngineInterface
 {
     use EdgeCollectionTrait, NodeCodeCollectionTrait, NodeCollectionTrait;

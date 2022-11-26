@@ -4,6 +4,10 @@ namespace NoLoCo\Core\Process\NodeCode;
 
 use NoLoCo\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
 
+/**
+ * A factory which can build node code objects based
+ * on the key.
+ */
 class NodeCodeFactory
 {
     /**

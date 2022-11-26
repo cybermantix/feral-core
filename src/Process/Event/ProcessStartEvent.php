@@ -9,6 +9,9 @@ use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\ProcessInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
+/**
+ * The event that is dispatched before the process starts.
+ */
 class ProcessStartEvent implements StoppableEventInterface
 {
     use StoppableEventTrait;

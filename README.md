@@ -10,13 +10,17 @@ NoLoCo is a No-Code-Low-Code framework written in PHP. This project is the free 
 
 # NoLoCo
 
-As you already know, NoLoCo stands for No/Low-Code and yes, it's written in PHP. Build on the incredible [Symfony](https://symfony.com/) framework. The point of NoLoCo is to make an easy to use, easy to modify No/Low-Code solution that is accessible to anybody.
+As you already know, NoLoCo stands for No/Low-Code and yes, it's written in PHP.  The point of NoLoCo is to make an easy to use, easy to modify No/Low-Code solution that is accessible to anybody.
 
 ## NoLoCo-Core
 
 This project is the core code used for the processes. It contains the basics needed for the engine, the validation, and a basic set of NodeCode and CatalogNodes.
 
 The code can be run inline with other code by executing a proceess and getting the results of the process.
+
+## NoLoCo - Bundle
+
+On its own, NoLoCo Core provides the structural classes but isn't very useful on its own. For higher value code, see the NoLoCo Bundle built on the incredible [Symfony](https://symfony.com/) framework.
 
 ## Our model : Free-Promium
 

@@ -7,6 +7,9 @@ use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
+/**
+ * @deprecated Not sure the purpose of this event.
+ */
 class ProcessNodeNotifyEvent implements StoppableEventInterface
 {
     use StoppableEventTrait;

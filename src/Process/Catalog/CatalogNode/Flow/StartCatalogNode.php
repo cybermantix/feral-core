@@ -4,6 +4,10 @@ namespace NoLoCo\Core\Process\Catalog\CatalogNode\Flow;
 
 use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 
+/**
+ * The first node in a process. This node will have the result
+ * of "OK".
+ */
 class StartCatalogNode implements CatalogNodeInterface
 {
 

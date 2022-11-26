@@ -2,8 +2,6 @@
 
 namespace NoLoCo\Core\Process\Validator;
 
-use NoLoCo\Core\Process\Edge\EdgeInterface;
-use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\ProcessInterface;
 
 /**

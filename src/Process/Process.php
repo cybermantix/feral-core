@@ -7,7 +7,8 @@ use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Node\NodeInterface;
 
 /**
- * The concrete simple process.
+ * The concrete process.
+ * @see ProcessInterface
  */
 class Process implements ProcessInterface
 {

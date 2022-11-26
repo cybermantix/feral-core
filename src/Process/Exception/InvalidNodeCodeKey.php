@@ -4,6 +4,9 @@ namespace NoLoCo\Core\Process\Exception;
 
 use Exception;
 
+/**
+ * The key for a node code is invalid.
+ */
 class InvalidNodeCodeKey extends Exception
 {
     public function __construct(

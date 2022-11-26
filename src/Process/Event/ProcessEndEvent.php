@@ -7,6 +7,9 @@ use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\ProcessInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
+/**
+ * The event that is dispatched after the process ends.
+ */
 class ProcessEndEvent implements StoppableEventInterface
 {
 

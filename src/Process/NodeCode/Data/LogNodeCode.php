@@ -23,7 +23,9 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
 /**
- * Sent a message to the logs.
+ * Sent a message to the logs. The message can include
+ * token variables which will be replaced with values
+ * from the context.
  *
  * Configuration Keys
  *  message  - The message to log

@@ -8,7 +8,7 @@ use NoLoCo\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
 use NoLoCo\Core\Utility\Filter\Criterion;
 
 /**
- * Check if a conteext value is greater than a valuee
+ * Check if a context value is greater than a value
  */
 class GreaterThanCatalogNode implements CatalogNodeInterface
 {

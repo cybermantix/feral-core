@@ -2,6 +2,9 @@
 
 namespace NoLoCo\Core\Process\Edge;
 
+/**
+ * @see EdgeInterface
+ */
 class Edge implements EdgeInterface
 {
     /**

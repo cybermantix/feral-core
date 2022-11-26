@@ -6,6 +6,9 @@ use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use NoLoCo\Core\Process\NodeCode\Data\SetContextValueNodeCode;
 
+/**
+ * Sets a value into the context at a certain key.
+ */
 class SetContextValueCatalogNode implements CatalogNodeInterface
 {
 

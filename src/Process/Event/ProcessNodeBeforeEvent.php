@@ -9,7 +9,6 @@ use Psr\EventDispatcher\StoppableEventInterface;
 
 /**
  * An event for a process node that will be run next.
- * @package NoLoCo\Core\Process\Event
  */
 class ProcessNodeBeforeEvent implements StoppableEventInterface
 {

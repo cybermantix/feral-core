@@ -18,8 +18,6 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  *
  * Configuration Keys
  *  (No Configuration keys)
- *
- * @package NoLoCo\Core\Process\Node\FlowControl
  */
 class ThrowExceptionProcessingNode implements NodeCodeInterface
 {

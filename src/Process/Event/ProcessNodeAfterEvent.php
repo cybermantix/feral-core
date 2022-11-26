@@ -11,7 +11,6 @@ use Psr\EventDispatcher\StoppableEventInterface;
 /**
  * An event from a process after the node has been processed
  * and has a result.
- * @package NoLoCo\Core\Process\Event
  */
 class ProcessNodeAfterEvent implements StoppableEventInterface
 {

@@ -7,7 +7,9 @@ use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 use Throwable;
-
+/**
+ * The event that is dispatched when an exception occurs.
+ */
 class ProcessExceptionEvent implements StoppableEventInterface
 {
     use StoppableEventTrait;

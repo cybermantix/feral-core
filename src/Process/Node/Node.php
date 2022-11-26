@@ -4,6 +4,7 @@ namespace NoLoCo\Core\Process\Node;
 
 /**
  * A concrete implementation of the process node.
+ * @see NodeInterface
  */
 class Node implements NodeInterface
 {
