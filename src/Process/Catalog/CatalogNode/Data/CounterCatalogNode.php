@@ -16,7 +16,6 @@ use Psr\Log\LogLevel;
  */
 class CounterCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */

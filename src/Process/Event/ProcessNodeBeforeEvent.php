@@ -16,6 +16,7 @@ class ProcessNodeBeforeEvent implements StoppableEventInterface
 
     /**
      * The node to be processed
+     *
      * @var NodeInterface
      */
     protected NodeInterface $node;
@@ -34,7 +35,7 @@ class ProcessNodeBeforeEvent implements StoppableEventInterface
     }
 
     /**
-     * @param NodeInterface $node
+     * @param  NodeInterface $node
      * @return ProcessNodeBeforeEvent
      */
     public function setNode(NodeInterface $node): self
@@ -52,7 +53,7 @@ class ProcessNodeBeforeEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessNodeBeforeEvent
      */
     public function setContext(ContextInterface $context): self

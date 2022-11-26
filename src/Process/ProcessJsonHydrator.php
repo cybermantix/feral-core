@@ -57,7 +57,8 @@ class ProcessJsonHydrator
 
     /**
      * Create a node from the array data.
-     * @param array $data
+     *
+     * @param  array $data
      * @return NodeInterface
      */
     protected function hydrateNode(array $data): NodeInterface
@@ -77,9 +78,10 @@ class ProcessJsonHydrator
 
     /**
      * Create a new edge from the parameters
-     * @param string $from
-     * @param string $to
-     * @param string $result
+     *
+     * @param  string $from
+     * @param  string $to
+     * @param  string $result
      * @return EdgeInterface
      */
     protected function hydrateEdge(string $from, string $to, string $result): EdgeInterface
@@ -94,7 +96,8 @@ class ProcessJsonHydrator
 
     /**
      * Take a plain array and hydrate a context object.
-     * @param array $data
+     *
+     * @param  array $data
      * @return ContextInterface
      */
     protected function hydrateContext(array $data): ContextInterface

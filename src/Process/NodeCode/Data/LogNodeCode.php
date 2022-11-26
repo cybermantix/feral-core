@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Data;
 
 use Exception;
@@ -33,14 +32,14 @@ use Psr\Log\LogLevel;
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class LogNodeCode implements NodeCodeInterface {
-
-    use NodeCodeMetaTrait,
-        ResultsTrait,
-        ConfigurationTrait,
-        ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
-        ContextValueTrait;
+class LogNodeCode implements NodeCodeInterface
+{
+    use NodeCodeMetaTrait;
+    use ResultsTrait;
+    use ConfigurationTrait;
+    use ConfigurationValueTrait;
+    use EmptyConfigurationDescriptionTrait;
+    use ContextValueTrait;
 
     const KEY = 'log';
 
@@ -54,12 +53,13 @@ class LogNodeCode implements NodeCodeInterface {
     public function __construct(
         protected LoggerInterface $logger,
         ConfigurationManager $configurationManager = new ConfigurationManager()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
-            NodeCodeCategoryInterface::DATA)
+            NodeCodeCategoryInterface::DATA
+        )
             ->setConfigurationManager($configurationManager);
     }
 
@@ -78,27 +78,29 @@ class LogNodeCode implements NodeCodeInterface {
                 ->setKey(self::LEVEL)
                 ->setName('Level')
                 ->setDescription('The logger level')
-                ->setOptions([
+                ->setOptions(
+                    [
                     LogLevel::DEBUG,
                     LogLevel::INFO,
                     LogLevel::WARNING,
                     LogLevel::ERROR,
                     LogLevel::CRITICAL,
-                ]),
+                    ]
+                ),
         ];
     }
 
     /**
      * @inheritDoc
-     * @throws MissingConfigurationValueException|UnknownComparatorException
-     * @throws Exception
+     * @throws     MissingConfigurationValueException|UnknownComparatorException
+     * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {
         $message = $this->getRequiredConfigurationValue(self::MESSAGE);
         $level = $this->getRequiredConfigurationValue(self::LEVEL, LogLevel::INFO);
 
-        foreach  ($context->getAll() as $key => $value) {
+        foreach ($context->getAll() as $key => $value) {
             if (is_object($value)) {
                 $value = 'object';
             }

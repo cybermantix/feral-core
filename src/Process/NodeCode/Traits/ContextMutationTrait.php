@@ -17,7 +17,7 @@ trait ContextMutationTrait
     protected DataPathWriter $dataPathWriter;
 
     /**
-     * @param DataPathWriter $dataPathWriter
+     * @param  DataPathWriter $dataPathWriter
      * @return ContextMutationTrait
      */
     public function setDataPathWriter(DataPathWriter $dataPathWriter): static
@@ -28,9 +28,10 @@ trait ContextMutationTrait
 
     /**
      * A helper function to set a value in the context.
-     * @param string $path
-     * @param mixed $value
-     * @param ContextInterface $context
+     *
+     * @param  string           $path
+     * @param  mixed            $value
+     * @param  ContextInterface $context
      * @return mixed
      * @throws UnknownTypeException
      * @throws Exception

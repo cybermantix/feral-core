@@ -12,7 +12,6 @@ use NoLoCo\Core\Utility\Filter\Criterion;
  */
 class GreaterThanCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */

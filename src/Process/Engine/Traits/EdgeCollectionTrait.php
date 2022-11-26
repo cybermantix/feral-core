@@ -15,7 +15,8 @@ trait EdgeCollectionTrait
 
     /**
      * Add an array of edges
-     * @param EdgeInterface[] $edges
+     *
+     * @param  EdgeInterface[] $edges
      * @return $this
      */
     protected function addEdgeCollection(array $edges): static
@@ -28,7 +29,8 @@ trait EdgeCollectionTrait
 
     /**
      * Add an edge to the collection
-     * @param EdgeInterface $edge
+     *
+     * @param  EdgeInterface $edge
      * @return $this
      */
     protected function addEdge(EdgeInterface $edge): static
@@ -40,8 +42,8 @@ trait EdgeCollectionTrait
 
     /**
      *
-     * @param string $fromNodeKey
-     * @param string $result
+     * @param  string $fromNodeKey
+     * @param  string $result
      * @return Edge
      */
     protected function getEdgeByNodeAndResult(string $fromNodeKey, string $result): Edge

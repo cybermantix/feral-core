@@ -16,6 +16,7 @@ class ProcessNodeNotifyEvent implements StoppableEventInterface
 
     /**
      * The node dispatching the event.
+     *
      * @var NodeCodeInterface
      */
     protected NodeCodeInterface $node;
@@ -28,6 +29,7 @@ class ProcessNodeNotifyEvent implements StoppableEventInterface
 
     /**
      * Information about the node
+     *
      * @var string
      */
     protected string $notice = '';
@@ -41,7 +43,7 @@ class ProcessNodeNotifyEvent implements StoppableEventInterface
     }
 
     /**
-     * @param NodeCodeInterface $node
+     * @param  NodeCodeInterface $node
      * @return ProcessNodeNotifyEvent
      */
     public function setNode(NodeCodeInterface $node): ProcessNodeNotifyEvent
@@ -59,7 +61,7 @@ class ProcessNodeNotifyEvent implements StoppableEventInterface
     }
 
     /**
-     * @param string $notice
+     * @param  string $notice
      * @return ProcessNodeNotifyEvent
      */
     public function setNotice(string $notice): ProcessNodeNotifyEvent
@@ -77,7 +79,7 @@ class ProcessNodeNotifyEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessNodeNotifyEvent
      */
     public function setContext(ContextInterface $context): ProcessNodeNotifyEvent

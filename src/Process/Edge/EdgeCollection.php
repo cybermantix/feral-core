@@ -1,11 +1,11 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\Edge;
 
 /**
  * A collection of edges held in a 3D array.
  * Class EdgeCollection
+ *
  * @package App\Utility\Process\Edge
  */
 class EdgeCollection implements EdgeCollectionInterface
@@ -13,6 +13,7 @@ class EdgeCollection implements EdgeCollectionInterface
     /**
      * The internal storage of edges
      * [from node key][result] => [to node keys]
+     *
      * @var array
      */
     protected array $collection = [];
@@ -43,7 +44,9 @@ class EdgeCollection implements EdgeCollectionInterface
         $fromKey = $edge->getFromKey();
         $result = $edge->getResult();
         if (!empty($this->collection[$fromKey][$result])) {
-            /** @var EdgeInterface $item */
+            /**
+ * @var EdgeInterface $item
+*/
             foreach ($this->collection[$fromKey][$result] as $key => $item) {
                 if ($item->getToKey() == $edge->getToKey()) {
                     unset($this->collection[$fromKey][$result][$key]);
@@ -59,7 +62,9 @@ class EdgeCollection implements EdgeCollectionInterface
     public function removeEdgesFromNode(string $fromNodeKey): EdgeCollectionInterface
     {
         if (!empty($this->collection[$fromNodeKey])) {
-            /** @var EdgeInterface $item */
+            /**
+ * @var EdgeInterface $item
+*/
             foreach ($this->collection[$fromNodeKey] as $key => $item) {
                 unset($this->collection[$fromNodeKey][$key]);
             }
@@ -82,9 +87,10 @@ class EdgeCollection implements EdgeCollectionInterface
                  * @var int $idx
                  * @var EdgeInterface $edge
                  */
-                foreach ($edges as $idx => $edge)
-                if ($edge->getToKey() == $toNodeKey) {
-                    unset($this->collection[$fromNodeKey][$result][$idx]);
+                foreach ($edges as $idx => $edge) {
+                    if ($edge->getToKey() == $toNodeKey) {
+                        unset($this->collection[$fromNodeKey][$result][$idx]);
+                    }
                 }
             }
         }
@@ -127,8 +133,10 @@ class EdgeCollection implements EdgeCollectionInterface
     {
         $keys = [];
         if (!empty($this->collection[$fromNodeKey]) && !empty($this->collection[$fromNodeKey][$result])) {
-            /** @var EdgeInterface $edge */
-            foreach( $this->collection[$fromNodeKey][$result] as $edge) {
+            /**
+ * @var EdgeInterface $edge
+*/
+            foreach ($this->collection[$fromNodeKey][$result] as $edge) {
                 $keys[] = $edge->getToKey();
             }
             return $keys;

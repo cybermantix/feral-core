@@ -6,6 +6,7 @@ namespace NoLoCo\Core\Utility\Filter;
  * Class Criteria
  * Criteria is a key/test evaluation set which can filter down
  * a set of data.
+ *
  * @package NoLoCo\Core\Utility\Entity\Filter
  */
 class Criterion
@@ -101,18 +102,21 @@ class Criterion
 
     /**
      * The field this criteria should match.
+     *
      * @var string
      */
     protected string $key;
 
     /**
      * The operator used to test the key against the test value.
+     *
      * @var string
      */
     protected string $operator;
 
     /**
      * The test data to evaluate the criteria.
+     *
      * @var string
      */
     protected string $value;
@@ -126,7 +130,7 @@ class Criterion
     }
 
     /**
-     * @param string $key
+     * @param  string $key
      * @return Criterion
      */
     public function setKey(string $key): Criterion
@@ -144,7 +148,7 @@ class Criterion
     }
 
     /**
-     * @param string $operator
+     * @param  string $operator
      * @return Criterion
      */
     public function setOperator(string $operator): Criterion
@@ -163,7 +167,8 @@ class Criterion
 
     /**
      * Get a single value from the array of values.
-     * @param int $idx
+     *
+     * @param  int $idx
      * @return string
      */
     public function getValueByIndex(int $idx): string
@@ -174,6 +179,7 @@ class Criterion
 
     /**
      * A helper method to get a value as an array.
+     *
      * @return array
      */
     public function getValueArray(): array
@@ -182,7 +188,7 @@ class Criterion
     }
 
     /**
-     * @param string $value
+     * @param  string $value
      * @return Criterion
      */
     public function setValue(string $value): Criterion

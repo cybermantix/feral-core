@@ -9,11 +9,11 @@ use Psr\Log\LogLevel;
 
 /**
  * A catalog node which logs WARNING statements to the master debugger.
+ *
  * @see LogNodeCode
  */
 class LogWarningCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */

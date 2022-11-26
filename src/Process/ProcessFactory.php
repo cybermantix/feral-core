@@ -4,7 +4,6 @@ namespace NoLoCo\Core\Process;
 
 use Exception;
 
-
 /**
  * Aggregate the process sources allowing the user to find
  * one process in the list.
@@ -18,6 +17,7 @@ class ProcessFactory
 
     /**
      * A cache to store the found node in the sources.
+     *
      * @var ProcessSourceInterface[]
      */
     protected array $cache = [];
@@ -32,6 +32,7 @@ class ProcessFactory
     /**
      * Get a process by its key. search through the process
      * sources to find the processes.
+     *
      * @throws Exception
      */
     public function build(string $key): ProcessInterface

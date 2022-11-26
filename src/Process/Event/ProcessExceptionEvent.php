@@ -7,6 +7,7 @@ use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 use Throwable;
+
 /**
  * The event that is dispatched when an exception occurs.
  */
@@ -16,6 +17,7 @@ class ProcessExceptionEvent implements StoppableEventInterface
 
     /**
      * The node to be processed
+     *
      * @var NodeCodeInterface
      */
     protected NodeCodeInterface $node;
@@ -39,7 +41,7 @@ class ProcessExceptionEvent implements StoppableEventInterface
     }
 
     /**
-     * @param NodeCodeInterface|array $node
+     * @param  NodeCodeInterface|array $node
      * @return ProcessExceptionEvent
      */
     public function setNode(NodeCodeInterface|array $node): self
@@ -57,7 +59,7 @@ class ProcessExceptionEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessNodeAfterEvent
      */
     public function setContext(ContextInterface $context): self
@@ -75,7 +77,7 @@ class ProcessExceptionEvent implements StoppableEventInterface
     }
 
     /**
-     * @param Throwable $throwable
+     * @param  Throwable $throwable
      * @return self
      */
     public function setThrowable(Throwable $throwable): self

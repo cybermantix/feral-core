@@ -21,7 +21,7 @@ class NodeCollection
     }
 
     /**
-     * @param NodeInterface[] $nodes
+     * @param  NodeInterface[] $nodes
      * @return $this
      */
     public function addNodeArray(array $nodes): self

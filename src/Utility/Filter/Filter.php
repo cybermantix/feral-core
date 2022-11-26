@@ -34,12 +34,14 @@ class Filter
     /**
      * The page of results to return. Page 1 is the first page
      * which equates to offset 0;
+     *
      * @var int
      */
     protected int $page = self::DEFAULT_PAGE;
 
     /**
      * The number of results to return per page.
+     *
      * @var int
      */
     protected int $limit = self::DEFAULT_LIMIT;
@@ -48,6 +50,7 @@ class Filter
      * An array of criteria used to filter a set of data. The data
      * is stored as an associative array with the field as the key
      * and the criterion as the value.
+     *
      * @var Criterion[]
      */
     protected array $criteria = [];
@@ -71,7 +74,7 @@ class Filter
     }
 
     /**
-     * @param int $page
+     * @param  int $page
      * @return Filter
      */
     public function setPage(int $page): Filter
@@ -89,7 +92,7 @@ class Filter
     }
 
     /**
-     * @param int $limit
+     * @param  int $limit
      * @return Filter
      */
     public function setLimit(int $limit): Filter
@@ -100,6 +103,7 @@ class Filter
 
     /**
      * Get the offset of the the first result to return.
+     *
      * @return int
      */
     public function getResultIndex(): int
@@ -116,7 +120,7 @@ class Filter
     }
 
     /**
-     * @param Criterion[] $criteria
+     * @param  Criterion[] $criteria
      * @return Filter
      */
     public function setCriteria(array $criteria): Filter
@@ -128,11 +132,10 @@ class Filter
     }
 
     /**
-     *
      * DO NOT USE SINGULAR "addCriterion" AS THE SERIALIZER
      * NEEDS THE SAME NAME AS THE PROPERTY!!!
      *
-     * @param Criterion $criterion
+     * @param  Criterion $criterion
      * @return Filter
      */
     public function addCriteria(Criterion $criterion): Filter
@@ -148,7 +151,8 @@ class Filter
      * Remove all of the criteria for a key. This is used for
      * security reasons if a criteria key is being added
      * for a filtering reasons.
-     * @param string $key
+     *
+     * @param  string $key
      * @return Filter
      */
     public function removeCriteria(string $key): Filter
@@ -159,6 +163,7 @@ class Filter
 
     /**
      * Get the array of orders.
+     *
      * @return Order[]
      */
     public function getOrders(): array
@@ -168,7 +173,8 @@ class Filter
 
     /**
      * Add an array of orders to the filter.
-     * @param Order[] $orders
+     *
+     * @param  Order[] $orders
      * @return Filter
      */
     public function setOrders(array $orders): Filter
@@ -181,7 +187,8 @@ class Filter
 
     /**
      * A a single Order object to the filter.
-     * @param Order $order
+     *
+     * @param  Order $order
      * @return Filter
      */
     public function addOrder(Order $order): Filter

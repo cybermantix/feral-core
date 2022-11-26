@@ -9,8 +9,11 @@ class Catalog implements CatalogInterface
 {
     private array $catalogNodes;
 
-    public function __construct(iterable $sources) {
-        /** @var CatalogSourceInterface $source */
+    public function __construct(iterable $sources)
+    {
+        /**
+ * @var CatalogSourceInterface $source
+*/
         foreach ($sources as $source) {
             foreach ($source->getCatalogNodes() as $node) {
                 $key = $node->getKey();

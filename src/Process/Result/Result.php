@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\Result;
 
 /**
@@ -11,12 +10,14 @@ class Result implements ResultInterface
     /**
      * The result from the process node which is used
      * for flow control
+     *
      * @var string
      */
     protected string $status;
 
     /**
      * The message from the process node which is used in the logging.
+     *
      * @var string
      */
     protected string $message = '';

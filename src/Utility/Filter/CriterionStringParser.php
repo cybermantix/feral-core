@@ -16,7 +16,8 @@ class CriterionStringParser extends AbstractPeriscopeNotationParser implements C
     /**
      * Parse a string in periscope notation into it's three parts then
      * create a Criterion object.
-     * @param string $criterionString
+     *
+     * @param  string $criterionString
      * @return Criterion
      * @throws FilterParserException
      */
@@ -25,16 +26,20 @@ class CriterionStringParser extends AbstractPeriscopeNotationParser implements C
         list($key, $operator, $value) = $this->parser->parseTripartite($criterionString);
 
         if (empty($key)) {
-            throw new FilterParserException(sprintf(
-                'The key "%s" is invalid.',
-                $criterionString
-            ));
+            throw new FilterParserException(
+                sprintf(
+                    'The key "%s" is invalid.',
+                    $criterionString
+                )
+            );
         }
         if (empty($operator)) {
-            throw new FilterParserException(sprintf(
-                'The operator "%s" is invalid.',
-                $criterionString
-            ));
+            throw new FilterParserException(
+                sprintf(
+                    'The operator "%s" is invalid.',
+                    $criterionString
+                )
+            );
         }
         if (empty($value)) {
             $value = '';

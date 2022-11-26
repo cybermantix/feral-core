@@ -1,6 +1,7 @@
 <?php
 
 namespace NoLoCo\Core\Process\Context;
+
 /**
  * @see ContextInterface
  */

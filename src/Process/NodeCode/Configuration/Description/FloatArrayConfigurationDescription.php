@@ -10,12 +10,13 @@ class FloatArrayConfigurationDescription extends AbstractConfigurationDescriptio
 {
     public function __construct(
         protected array $validOptions = []
-    ){}
+    ) {
+    }
 
     /**
      * @inheritDoc
      */
-    function getType(): string
+    public function getType(): string
     {
         return self::FLOAT_ARRAY;
     }
@@ -23,7 +24,7 @@ class FloatArrayConfigurationDescription extends AbstractConfigurationDescriptio
     /**
      * @inheritDoc
      */
-    function isValid(mixed $value): bool
+    public function isValid(mixed $value): bool
     {
         if (empty($this->validOptions)) {
             return is_array($value);
@@ -35,7 +36,7 @@ class FloatArrayConfigurationDescription extends AbstractConfigurationDescriptio
     /**
      * @inheritDoc
      */
-    function getOptions(): array
+    public function getOptions(): array
     {
         return $this->validOptions;
     }

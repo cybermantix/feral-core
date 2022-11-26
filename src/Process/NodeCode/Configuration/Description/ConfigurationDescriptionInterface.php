@@ -26,40 +26,45 @@ interface ConfigurationDescriptionInterface
     /**
      * The type of the configuration is an array of int.
      */
-    CONST INT_ARRAY = 'int_array';
+    const INT_ARRAY = 'int_array';
     /**
      * The type of the configuration is an array of floats.
      */
-    CONST FLOAT_ARRAY = 'float_array';
+    const FLOAT_ARRAY = 'float_array';
 
     /**
      * The key of the configuration value
+     *
      * @return string
      */
-    function getKey(): string;
+    public function getKey(): string;
 
     /**
      * The human friendly name for this configuration
+     *
      * @return string
      */
-    function getName(): string;
+    public function getName(): string;
 
     /**
      * The human friendly description for this configuration
+     *
      * @return string
      */
-    function getDescription(): string;
+    public function getDescription(): string;
 
     /**
      * The type of configuration value.
+     *
      * @return string
      */
-    function getType(): string;
+    public function getType(): string;
 
     /**
      * Test if a value is a valid configuration value.
-     * @param mixed $value
+     *
+     * @param  mixed $value
      * @return bool
      */
-    function isValid(mixed $value): bool;
+    public function isValid(mixed $value): bool;
 }

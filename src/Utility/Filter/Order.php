@@ -5,6 +5,7 @@ namespace NoLoCo\Core\Utility\Filter;
 /**
  * Class Order
  * A key/direction pair used to sort a set of data.
+ *
  * @package NoLoCo\Core\Utility\Entity\Filter
  */
 class Order
@@ -21,12 +22,14 @@ class Order
 
     /**
      * The field or set key for the sort
+     *
      * @var string
      */
     protected string $key;
 
     /**
      * The direction of the sort for this key
+     *
      * @var string
      */
     protected string $direction = self::ASC;
@@ -40,7 +43,7 @@ class Order
     }
 
     /**
-     * @param string $key
+     * @param  string $key
      * @return Order
      */
     public function setKey(string $key): Order
@@ -58,7 +61,7 @@ class Order
     }
 
     /**
-     * @param string $direction
+     * @param  string $direction
      * @return Order
      */
     public function setDirection(string $direction): Order

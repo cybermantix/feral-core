@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Flow;
 
 use NoLoCo\Core\Process\Configuration\ConfigurationManager;
@@ -37,14 +36,14 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  *
  * @package NoLoCo\Core\Process\Node\FlowControl
  */
-class ContextValueComparatorNodeCode implements NodeCodeInterface {
-
-    use NodeCodeMetaTrait,
-        ResultsTrait,
-        ConfigurationTrait,
-        ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
-        ContextValueTrait;
+class ContextValueComparatorNodeCode implements NodeCodeInterface
+{
+    use NodeCodeMetaTrait;
+    use ResultsTrait;
+    use ConfigurationTrait;
+    use ConfigurationValueTrait;
+    use EmptyConfigurationDescriptionTrait;
+    use ContextValueTrait;
 
     const KEY = 'context_value_comparator';
 
@@ -68,13 +67,13 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
          * The object that can compare two different values.
          */
         protected ComparatorInterface $comparator = new Comparator()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
-            )->setConfigurationManager(new ConfigurationManager())
+        )->setConfigurationManager(new ConfigurationManager())
             ->setDataPathReader($dataPathReader);
     }
 
@@ -89,7 +88,8 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
                 ->setKey(self::OPERATOR)
                 ->setName('Comparison Operator')
                 ->setDescription('The operator to compare the context value in the path to the value stored')
-                ->setOptions([
+                ->setOptions(
+                    [
                     Criterion::EQ,
                     Criterion::GT,
                     Criterion::GTE,
@@ -100,7 +100,8 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
                     Criterion::IN,
                     Criterion::NIN,
                     Criterion::NOT_EMPTY
-                ]),
+                    ]
+                ),
             (new StringConfigurationDescription())
                 ->setKey(self::TEST_VALUE)
                 ->setName('Test Value')
@@ -114,8 +115,8 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface {
 
     /**
      * @inheritDoc
-     * @throws UnknownTypeException
-     * @throws MissingConfigurationValueException|UnknownComparatorException
+     * @throws     UnknownTypeException
+     * @throws     MissingConfigurationValueException|UnknownComparatorException
      */
     public function process(ContextInterface $context): ResultInterface
     {

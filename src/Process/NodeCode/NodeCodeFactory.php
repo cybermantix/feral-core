@@ -17,7 +17,9 @@ class NodeCodeFactory
 
     public function __construct(iterable $sources)
     {
-        /** @var NodeCodeSourceInterface $source */
+        /**
+ * @var NodeCodeSourceInterface $source
+*/
         foreach ($sources as $source) {
             foreach ($source->getNodeCodes() as $nodeCode) {
                 $key = $nodeCode->getKey();
@@ -29,7 +31,7 @@ class NodeCodeFactory
     }
 
     /**
-     * @param string $key
+     * @param  string $key
      * @return NodeCodeInterface
      */
     public function getNodeCode(string $key): NodeCodeInterface

@@ -29,6 +29,7 @@ class ComparatorFactory
 
     /**
      * Comparators that have been built.
+     *
      * @var array
      */
     protected array $cache = [];
@@ -43,7 +44,7 @@ class ComparatorFactory
     }
 
     /**
-     * @param string $key
+     * @param  string $key
      * @return ScalarTestInterface|ArrayTestInterface|ScalarToScalarComparatorInterface|ArrayToScalarComparatorInterface|ArrayToArrayComparatorInterface|ScalarToArrayComparatorInterface
      * @throws UnknownComparatorException
      */

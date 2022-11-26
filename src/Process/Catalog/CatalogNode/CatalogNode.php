@@ -12,32 +12,38 @@ class CatalogNode implements CatalogNodeInterface
 {
     /**
      * The unique key for this catalog node.
+     *
      * @var string
      */
     private string $key = '';
     /**
      * The node code key used for the programatic
      * functionality.
+     *
      * @var string
      */
     private string $nodeCodeKey = '';
     /**
      * The human friendly name for this catalog node
+     *
      * @var string
      */
     private string $name = '';
     /**
      * The group or collection this catalog node belongs to.
+     *
      * @var string
      */
     private string $group = CatalogNodeInterface::DEFAULT_GROUP;
     /**
      * The human friendly description for this catalog node
+     *
      * @var string
      */
     private string $description = '';
     /**
      * The configuration options for this catalog node
+     *
      * @var array
      */
     private array $configuration = [];
@@ -56,7 +62,7 @@ class CatalogNode implements CatalogNodeInterface
     }
 
     /**
-     * @param string $key
+     * @param  string $key
      * @return CatalogNode
      */
     public function setKey(string $key): CatalogNode
@@ -74,7 +80,7 @@ class CatalogNode implements CatalogNodeInterface
     }
 
     /**
-     * @param string $nodeCodeKey
+     * @param  string $nodeCodeKey
      * @return CatalogNode
      */
     public function setNodeCodeKey(string $nodeCodeKey): CatalogNode
@@ -93,7 +99,7 @@ class CatalogNode implements CatalogNodeInterface
 
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return CatalogNode
      */
     public function setName(string $name): CatalogNode
@@ -111,7 +117,7 @@ class CatalogNode implements CatalogNodeInterface
     }
 
     /**
-     * @param string $group
+     * @param  string $group
      * @return CatalogNode
      */
     public function setGroup(string $group): CatalogNode
@@ -125,11 +131,11 @@ class CatalogNode implements CatalogNodeInterface
      */
     public function getDescription(): string
     {
-       return $this->description;
+        return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param  string $description
      * @return CatalogNode
      */
     public function setDescription(string $description): CatalogNode
@@ -147,7 +153,7 @@ class CatalogNode implements CatalogNodeInterface
     }
 
     /**
-     * @param array $configuration
+     * @param  array $configuration
      * @return CatalogNode
      */
     public function setConfiguration(array $configuration): CatalogNode
@@ -165,7 +171,7 @@ class CatalogNode implements CatalogNodeInterface
     }
 
     /**
-     * @param ConfigurationDescriptionInterface[] $configurationDescriptions
+     * @param  ConfigurationDescriptionInterface[] $configurationDescriptions
      * @return CatalogNode
      */
     public function setConfigurationDescriptions(array $configurationDescriptions): CatalogNode

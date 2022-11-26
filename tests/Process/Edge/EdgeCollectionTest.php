@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 
 class EdgeCollectionTest extends TestCase
 {
-
     public function testGetEdgesByNodeAndResult()
     {
         $collection = new EdgeCollection();
@@ -17,12 +16,14 @@ class EdgeCollectionTest extends TestCase
                 (new Edge())
                     ->setFromKey('from')
                     ->setToKey('to')
-                    ->setResult('test'))
+                ->setResult('test')
+            )
             ->addEdge(
                 (new Edge())
                     ->setFromKey('from')
                     ->setToKey('second')
-                    ->setResult('test'))
+                ->setResult('test')
+            )
             ->addEdge(
                 (new Edge())
                     ->setFromKey('one')
@@ -40,13 +41,12 @@ class EdgeCollectionTest extends TestCase
             ->addEdge((new Edge())
                 ->setFromKey('from')
                 ->setToKey('to')
-                ->setResult('test')
-            )->addEdge(
-                (new Edge())
+                ->setResult('test'))->addEdge(
+                    (new Edge())
                     ->setFromKey('one')
                     ->setToKey('two')
                     ->setResult('true')
-            );
+                );
 
         $this->assertEquals(['to'], $collection->getToKeysByNodeAndResult('from', 'test'));
     }
@@ -83,7 +83,8 @@ class EdgeCollectionTest extends TestCase
                 (new Edge())
                     ->setFromKey('one')
                     ->setToKey('two')
-                    ->setResult('true'))
+                ->setResult('true')
+            )
             ->removeEdgesToNode('to');
 
         $this->assertCount(1, $collection->getEdges());
@@ -96,13 +97,12 @@ class EdgeCollectionTest extends TestCase
             ->addEdge((new Edge())
                 ->setFromKey('from')
                 ->setToKey('to')
-                ->setResult('test')
-            )->addEdge(
-                (new Edge())
+                ->setResult('test'))->addEdge(
+                    (new Edge())
                     ->setFromKey('one')
                     ->setToKey('two')
                     ->setResult('true')
-            );
+                );
 
         $this->assertCount(2, $collection->getEdges());
     }
@@ -120,7 +120,8 @@ class EdgeCollectionTest extends TestCase
                 (new Edge())
                     ->setFromKey('one')
                     ->setToKey('two')
-                    ->setResult('true'))
+                ->setResult('true')
+            )
             ->removeEdgesFromNode('one');
         $this->assertCount(1, $collection->getEdges());
     }

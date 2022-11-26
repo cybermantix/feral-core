@@ -17,11 +17,12 @@ class DirectoryProcessReader implements ProcessSourceInterface
          */
         private string $directory,
         private ProcessJsonHydrator $hydrator
-    ){}
+    ) {
+    }
 
     /**
      * @inheritDoc
-     * @throws Exception
+     * @throws     Exception
      */
     public function getProcesses(): array
     {

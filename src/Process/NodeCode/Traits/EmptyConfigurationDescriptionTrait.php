@@ -1,6 +1,7 @@
 <?php
 
 namespace NoLoCo\Core\Process\NodeCode\Traits;
+
 /**
  * Add the function to return an empty array for the
  * configuration descriptions for Node Code classes
@@ -10,6 +11,7 @@ trait EmptyConfigurationDescriptionTrait
 {
     /**
      * No configuration options.
+     *
      * @return array
      */
     public function getConfigurationDescriptions(): array

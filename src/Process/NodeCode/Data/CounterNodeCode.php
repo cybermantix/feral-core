@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Data;
 
 use Exception;
@@ -35,15 +34,15 @@ use Psr\Log\LogLevel;
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class CounterNodeCode implements NodeCodeInterface {
-
-    use NodeCodeMetaTrait,
-        ResultsTrait,
-        ConfigurationTrait,
-        ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
-        ContextValueTrait,
-        ContextMutationTrait;
+class CounterNodeCode implements NodeCodeInterface
+{
+    use NodeCodeMetaTrait;
+    use ResultsTrait;
+    use ConfigurationTrait;
+    use ConfigurationValueTrait;
+    use EmptyConfigurationDescriptionTrait;
+    use ContextValueTrait;
+    use ContextMutationTrait;
 
     const DEFAULT_CONTEXT_PATH = '_counter';
 
@@ -59,12 +58,13 @@ class CounterNodeCode implements NodeCodeInterface {
         DataPathReaderInterface $dataPathReader = new DataPathReader(),
         DataPathWriter $dataPathWriter = new DataPathWriter(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
-            NodeCodeCategoryInterface::DATA)
+            NodeCodeCategoryInterface::DATA
+        )
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter)
             ->setDataPathReader($dataPathReader);
@@ -86,8 +86,8 @@ class CounterNodeCode implements NodeCodeInterface {
 
     /**
      * @inheritDoc
-     * @throws MissingConfigurationValueException|UnknownComparatorException
-     * @throws Exception
+     * @throws     MissingConfigurationValueException|UnknownComparatorException
+     * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {

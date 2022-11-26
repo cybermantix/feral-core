@@ -10,8 +10,9 @@ use NoLoCo\Core\Process\ProcessInterface;
  */
 class ProcessValidator implements ProcessValidatorInterface
 {
-
-    public function __construct(private iterable $validators) {}
+    public function __construct(private iterable $validators)
+    {
+    }
 
     /**
      * @inheritDoc
@@ -21,7 +22,9 @@ class ProcessValidator implements ProcessValidatorInterface
         $nodes = $process->getNodes();
         $edges = $process->getEdges();
         $errors = [];
-        /** @var ValidatorInterface $validator */
+        /**
+ * @var ValidatorInterface $validator
+*/
         foreach ($this->validators as $validator) {
             $error = $validator->getValidationError($startKey, $nodes, $edges);
             if ($error) {

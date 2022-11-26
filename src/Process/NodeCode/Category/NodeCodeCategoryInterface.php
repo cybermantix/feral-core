@@ -26,19 +26,22 @@ interface NodeCodeCategoryInterface
 
     /**
      * The key of the category which is lowercase alpha and underscores
+     *
      * @return string
      */
-    function getKey(): string;
+    public function getKey(): string;
 
     /**
      * The human friendly name of the category.
+     *
      * @return string
      */
-    function getName(): string;
+    public function getName(): string;
 
     /**
      * A human friendly description that provides context to the admin.
+     *
      * @return string
      */
-    function getDescription(): string;
+    public function getDescription(): string;
 }

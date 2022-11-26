@@ -7,7 +7,8 @@ interface ArrayTestInterface
 {
     /**
      * Run a test against a single array
-     * @param array $actual
+     *
+     * @param  array $actual
      * @return bool
      */
     public function testArray(array $actual): bool;

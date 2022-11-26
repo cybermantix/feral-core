@@ -28,7 +28,7 @@ class DateTimeWindow
     }
 
     /**
-     * @param DateTimeImmutable $startDateTime
+     * @param  DateTimeImmutable $startDateTime
      * @return DateTimeWindow
      */
     public function setStartDateTime(DateTimeImmutable $startDateTime): DateTimeWindow
@@ -46,7 +46,7 @@ class DateTimeWindow
     }
 
     /**
-     * @param DateTimeImmutable $endDateTime
+     * @param  DateTimeImmutable $endDateTime
      * @return DateTimeWindow
      */
     public function setEndDateTime(DateTimeImmutable $endDateTime): DateTimeWindow

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Data;
 
 use Exception;
@@ -33,15 +32,15 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class SetContextTableNodeCode implements NodeCodeInterface {
-
-    use NodeCodeMetaTrait,
-        ResultsTrait,
-        ConfigurationTrait,
-        ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
-        ContextValueTrait,
-        ContextMutationTrait;
+class SetContextTableNodeCode implements NodeCodeInterface
+{
+    use NodeCodeMetaTrait;
+    use ResultsTrait;
+    use ConfigurationTrait;
+    use ConfigurationValueTrait;
+    use EmptyConfigurationDescriptionTrait;
+    use ContextValueTrait;
+    use ContextMutationTrait;
 
     const KEY = 'set_context_table';
 
@@ -54,12 +53,13 @@ class SetContextTableNodeCode implements NodeCodeInterface {
     public function __construct(
         DataPathWriter $dataPathWriter = new DataPathWriter(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
-            NodeCodeCategoryInterface::DATA)
+            NodeCodeCategoryInterface::DATA
+        )
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter);
     }
@@ -80,8 +80,8 @@ class SetContextTableNodeCode implements NodeCodeInterface {
 
     /**
      * @inheritDoc
-     * @throws MissingConfigurationValueException|UnknownComparatorException
-     * @throws Exception
+     * @throws     MissingConfigurationValueException|UnknownComparatorException
+     * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {

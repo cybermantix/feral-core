@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 class ContextValueComparatorNodeTest extends TestCase
 {
-
     public function testProcessEq()
     {
         $node = (new ContextValueComparatorNodeCode())->addConfiguration(

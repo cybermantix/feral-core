@@ -13,21 +13,25 @@ trait NodeCodeMetaTrait
     /**
      * The key used to identify this node and used to identify
      * the relationship in the graph edges
+     *
      * @var string
      */
     protected string $key;
     /**
      * The human friendly name of the node code.
+     *
      * @var string
      */
     protected string $name;
     /**
      * The human friendly description of the node code.
+     *
      * @var string
      */
     protected string $description;
     /**
      * The category this node code belongs to.
+     *
      * @var string
      */
     protected string $categoryKey;
@@ -66,10 +70,11 @@ trait NodeCodeMetaTrait
 
     /**
      * Set the local meta properties
-     * @param string $key
-     * @param string $name
-     * @param string $description
-     * @param string $categoryKey
+     *
+     * @param  string $key
+     * @param  string $name
+     * @param  string $description
+     * @param  string $categoryKey
      * @return $this
      */
     protected function setMeta(string $key, string $name, string $description, string $categoryKey): static

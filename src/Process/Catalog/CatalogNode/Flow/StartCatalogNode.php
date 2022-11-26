@@ -10,7 +10,6 @@ use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
  */
 class StartCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */

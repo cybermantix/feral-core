@@ -6,7 +6,6 @@ namespace NoLoCo\Core\Utility\Filter\Comparator;
 use NoLoCo\Core\Utility\Scalar\FloatUtility;
 
 class EqualComparator implements ScalarToScalarComparatorInterface, ArrayToScalarComparatorInterface, ArrayToArrayComparatorInterface
-
 {
     /**
      * @inheritDoc

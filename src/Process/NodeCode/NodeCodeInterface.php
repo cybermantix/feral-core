@@ -35,6 +35,7 @@ interface NodeCodeInterface
     /**
      * Get the unique key for this node instance. This key must be unique in the system
      * amongst other Node Code.
+     *
      * @return string
      */
     public function getKey(): string;
@@ -43,6 +44,7 @@ interface NodeCodeInterface
      * The human-readable name for this Node Code. This name is shown in any catalog
      * building tools which can modify the configuration and make unique nodes in the
      * catalog.
+     *
      * @return string
      */
     public function getName(): string;
@@ -50,6 +52,7 @@ interface NodeCodeInterface
     /**
      * The human friendly context about this node code which is used to describe
      * the code and process used by the NodeCode.
+     *
      * @return string
      */
     public function getDescription(): string;
@@ -57,28 +60,29 @@ interface NodeCodeInterface
     /**
      * The category this NodeCode belongs to. This helps the admin organize the process
      * algorithms with similar traits and responses.
+     *
      * @return string
      */
     public function getCategoryKey(): string;
 
     /**
      * The array of node code configuration descriptions
+     *
      * @return ConfigurationDescriptionInterface[]
      */
     public function getConfigurationDescriptions(): array;
 
     /**
      * Add an key/value (associative array) of keys and values to the configuration.
-     * @param array $keysValues
+     *
+     * @param  array $keysValues
      * @return $this
      */
     public function addConfiguration(array $keysValues): static;
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ResultInterface
      */
     public function process(ContextInterface $context): ResultInterface;
-
-
 }

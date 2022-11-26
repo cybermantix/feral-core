@@ -18,6 +18,7 @@ class ProcessNodeAfterEvent implements StoppableEventInterface
 
     /**
      * The node to be processed
+     *
      * @var NodeInterface
      */
     protected NodeInterface $node;
@@ -29,6 +30,7 @@ class ProcessNodeAfterEvent implements StoppableEventInterface
 
     /**
      * The result of the node being processed
+     *
      * @var ResultInterface
      */
     protected ResultInterface $result;
@@ -42,7 +44,7 @@ class ProcessNodeAfterEvent implements StoppableEventInterface
     }
 
     /**
-     * @param array $node
+     * @param  array $node
      * @return ProcessNodeAfterEvent
      */
     public function setNode(NodeInterface $node): self
@@ -60,7 +62,7 @@ class ProcessNodeAfterEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessNodeAfterEvent
      */
     public function setContext(ContextInterface $context): ProcessNodeAfterEvent
@@ -78,7 +80,7 @@ class ProcessNodeAfterEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ResultInterface $result
+     * @param  ResultInterface $result
      * @return ProcessNodeAfterEvent
      */
     public function setResult(ResultInterface $result): ProcessNodeAfterEvent

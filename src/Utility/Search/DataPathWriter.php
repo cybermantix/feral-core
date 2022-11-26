@@ -22,12 +22,14 @@ class DataPathWriter implements DataPathWriterInterface
 
     /**
      * The path delimiter which to explode a string into an array
+     *
      * @var string
      */
     protected string $delimiter = DataPathReaderInterface::DEFAULT_DELIMITER;
 
     /**
      * The verbs to check if the data object is a class.
+     *
      * @var string[]
      */
     protected array $objectMutatorVerbs = self::DEFAULT_MUTATION_VERBS;
@@ -36,8 +38,8 @@ class DataPathWriter implements DataPathWriterInterface
 
     /**
      * @inheritDoc
-     * @throws UnknownTypeException
-     * @throws \Exception
+     * @throws     UnknownTypeException
+     * @throws     \Exception
      */
     public function set(mixed $data, mixed $value, string $path): mixed
     {

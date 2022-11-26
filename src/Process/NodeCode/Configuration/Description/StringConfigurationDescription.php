@@ -11,7 +11,7 @@ class StringConfigurationDescription extends AbstractConfigurationDescription
     /**
      * @inheritDoc
      */
-    function getType(): string
+    public function getType(): string
     {
         return self::STRING;
     }
@@ -19,7 +19,7 @@ class StringConfigurationDescription extends AbstractConfigurationDescription
     /**
      * @inheritDoc
      */
-    function isValid(mixed $value): bool
+    public function isValid(mixed $value): bool
     {
         return 0 < strlen((string)$value);
     }

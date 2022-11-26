@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Flow;
 
 use NoLoCo\Core\Process\Configuration\ConfigurationManager;
@@ -24,7 +23,10 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  */
 class StopProcessingNode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait, ResultsTrait, ConfigurationTrait, EmptyConfigurationDescriptionTrait;
+    use NodeCodeMetaTrait;
+    use ResultsTrait;
+    use ConfigurationTrait;
+    use EmptyConfigurationDescriptionTrait;
 
     const KEY = 'stop';
 

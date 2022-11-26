@@ -12,7 +12,6 @@ use Psr\EventDispatcher\StoppableEventInterface;
  */
 class ProcessEndEvent implements StoppableEventInterface
 {
-
     use StoppableEventTrait;
 
     protected ProcessInterface $process;
@@ -31,7 +30,7 @@ class ProcessEndEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ProcessInterface $process
+     * @param  ProcessInterface $process
      * @return ProcessEndEvent
      */
     public function setProcess(ProcessInterface $process): ProcessEndEvent
@@ -49,7 +48,7 @@ class ProcessEndEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessStartEvent
      */
     public function setContext(ContextInterface $context): self

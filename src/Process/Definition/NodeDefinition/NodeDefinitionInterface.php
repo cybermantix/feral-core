@@ -12,6 +12,7 @@ interface NodeDefinitionInterface
     /**
      * The key for this node referenced by edges in the
      * process. It must be unique in the process.
+     *
      * @return string
      */
     public function getKey(): string;
@@ -19,12 +20,14 @@ interface NodeDefinitionInterface
     /**
      * The type of node used to execute code at this
      * step in the process.
+     *
      * @return string
      */
     public function getType(): string;
 
     /**
      * The Key/Value pair used to configure the node.
+     *
      * @return array
      */
     public function getConfiguration(): array;
@@ -32,6 +35,7 @@ interface NodeDefinitionInterface
     /**
      * The mapping of result keys to the next nodes reference
      * by key.
+     *
      * @return array
      */
     public function getResultEdges(): array;

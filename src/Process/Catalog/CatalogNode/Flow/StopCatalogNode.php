@@ -10,7 +10,6 @@ use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescript
  */
 class StopCatalogNode implements \NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */

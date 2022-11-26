@@ -22,7 +22,8 @@ trait NodeCodeCollectionTrait
 
     /**
      * Add an array of edges
-     * @param NodeCodeInterface[] $collection
+     *
+     * @param  NodeCodeInterface[] $collection
      * @return $this
      */
     protected function addNodeCodeCollection(array $collection): static
@@ -35,7 +36,8 @@ trait NodeCodeCollectionTrait
 
     /**
      * Add a node to the collection
-     * @param NodeCodeInterface $node
+     *
+     * @param  NodeCodeInterface $node
      * @return $this
      */
     protected function addNodeCode(NodeCodeInterface $node): static
@@ -45,7 +47,7 @@ trait NodeCodeCollectionTrait
     }
 
     /**
-     * @param string $fromNodeKey
+     * @param  string $fromNodeKey
      * @return NodeCodeInterface
      * @throws InvalidNodeCodeKey
      */

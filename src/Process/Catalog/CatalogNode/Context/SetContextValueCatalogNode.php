@@ -11,7 +11,6 @@ use NoLoCo\Core\Process\NodeCode\Data\SetContextValueNodeCode;
  */
 class SetContextValueCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */
@@ -76,11 +75,13 @@ class SetContextValueCatalogNode implements CatalogNodeInterface
                 ->setKey(SetContextValueNodeCode::VALUE_TYPE)
                 ->setName('Value Type')
                 ->setDescription('The type of variable to set into the context.')
-                ->setOptions([
+                ->setOptions(
+                    [
                     SetContextValueNodeCode::OPTION_STRING,
                     SetContextValueNodeCode::OPTION_INT,
                     SetContextValueNodeCode::OPTION_FLOAT
-                ])
+                    ]
+                )
         ];
     }
 }

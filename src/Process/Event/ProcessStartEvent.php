@@ -1,8 +1,6 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\Event;
-
 
 use NoLoCo\Core\Process\Context\ContextInterface;
 use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
@@ -32,7 +30,7 @@ class ProcessStartEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ProcessInterface $process
+     * @param  ProcessInterface $process
      * @return ProcessStartEvent
      */
     public function setProcess(ProcessInterface $process): ProcessStartEvent
@@ -50,7 +48,7 @@ class ProcessStartEvent implements StoppableEventInterface
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessStartEvent
      */
     public function setContext(ContextInterface $context): ProcessStartEvent

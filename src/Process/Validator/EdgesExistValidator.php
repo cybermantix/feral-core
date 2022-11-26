@@ -7,7 +7,6 @@ namespace NoLoCo\Core\Process\Validator;
  */
 class EdgesExistValidator implements ValidatorInterface
 {
-
     /**
      * @inheritDoc
      */

@@ -13,6 +13,7 @@ abstract class AbstractPeriscopeNotationParser
 
     /**
      * AbstractPeriscopeNotationParser constructor.
+     *
      * @param PeriscopeNotationParserInterface $parser
      */
     public function __construct(PeriscopeNotationParserInterface $parser)

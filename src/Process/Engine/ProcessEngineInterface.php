@@ -17,8 +17,8 @@ interface ProcessEngineInterface
     /**
      * Using a set of nodes, edges, and the initial context process each
      * node as determined by the result of the last processed node.
+     *
      * @param ProcessInterface $process
      */
-    public function process(ProcessInterface $process, string $startNode = 'start'):void;
-
+    public function process(ProcessInterface $process, string $startNode = 'start'): void;
 }

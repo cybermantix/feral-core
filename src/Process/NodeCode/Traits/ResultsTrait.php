@@ -10,6 +10,7 @@ trait ResultsTrait
     /**
      * The maximum length of a message. Any extra characters will
      * be truncated.
+     *
      * @var int
      */
     protected int $maxMessageValueLength = 128;
@@ -17,9 +18,10 @@ trait ResultsTrait
     /**
      * A helper function to instantiate and set the values in the
      * results.
-     * @param string $status
-     * @param string $messageTemplate
-     * @param array $variables
+     *
+     * @param  string $status
+     * @param  string $messageTemplate
+     * @param  array  $variables
      * @return ResultInterface
      */
     protected function result(string $status, string $messageTemplate = '', array $variables = []): ResultInterface

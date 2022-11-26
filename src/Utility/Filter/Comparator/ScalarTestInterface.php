@@ -8,7 +8,8 @@ interface ScalarTestInterface
 {
     /**
      * Run a test against a single scalar
-     * @param $actual
+     *
+     * @param  $actual
      * @return bool
      */
     public function testScalar($actual): bool;

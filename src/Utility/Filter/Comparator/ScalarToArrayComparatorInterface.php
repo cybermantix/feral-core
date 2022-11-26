@@ -8,8 +8,9 @@ interface ScalarToArrayComparatorInterface
 {
     /**
      * Compare a scalar to an array
-     * @param $actual
-     * @param array $testValue
+     *
+     * @param  $actual
+     * @param  array $testValue
      * @return bool
      */
     public function compareScalarToArray($actual, array $testValue): bool;
