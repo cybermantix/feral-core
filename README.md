@@ -28,5 +28,10 @@ We want to give back to the community and industry that has supported us all the
 
 There is a need to have some income to pay some bills and as such, we will offer some pro-plugins at low yearly cost along with professional services for businesses that need some help use the platform. 
 
-## PHP CS Fixer
-tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
+## Unit Tests
+
+We use PHPUnit for our unit tests. The test cases can be found in the tests folder.
+
+## Code Quality Tools
+
+We use Code_Sniffer for our quality standards. We include PSR1, PSR2, and PSR12.
