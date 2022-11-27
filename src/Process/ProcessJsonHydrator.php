@@ -5,10 +5,10 @@ namespace NoLoCo\Core\Process;
 use Exception;
 use NoLoCo\Core\Process\Context\Context;
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Edge\Edge;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Node\Node;
+use NoLoCo\Core\Process\Node\NodeInterface;
 
 /**
  * Hydrate a json string into a process object

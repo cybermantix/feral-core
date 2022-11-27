@@ -2,11 +2,7 @@
 
 namespace NoLoCo\Core\Process\Engine\Traits;
 
-use NoLoCo\Core\Process\Catalog\CatalogInterface;
-use NoLoCo\Core\Process\Edge\EdgeCollection;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Exception\InvalidNodeCodeKey;
-use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeCollection;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 

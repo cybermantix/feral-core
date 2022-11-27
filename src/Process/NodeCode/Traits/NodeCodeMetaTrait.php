@@ -2,8 +2,6 @@
 
 namespace NoLoCo\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-
 /**
  * Add the instance vars and getters for the interface which
  * help name, categorize, and tag the node code.

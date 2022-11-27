@@ -9,6 +9,7 @@ use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use NoLoCo\Core\Process\NodeCode\Traits\BooleanResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
@@ -38,12 +39,13 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  */
 class ContextValueComparatorNodeCode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait;
-    use ResultsTrait;
-    use ConfigurationTrait;
-    use ConfigurationValueTrait;
-    use EmptyConfigurationDescriptionTrait;
-    use ContextValueTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        ConfigurationValueTrait,
+        EmptyConfigurationDescriptionTrait,
+        ContextValueTrait,
+        BooleanResultsTrait;
 
     const KEY = 'context_value_comparator';
 

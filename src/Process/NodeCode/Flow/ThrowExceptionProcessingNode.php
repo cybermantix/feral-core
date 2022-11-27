@@ -20,10 +20,10 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  */
 class ThrowExceptionProcessingNode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait;
-    use ResultsTrait;
-    use ConfigurationTrait;
-    use EmptyConfigurationDescriptionTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        EmptyConfigurationDescriptionTrait;
 
     const KEY = 'throw_exception';
 
@@ -39,6 +39,11 @@ class ThrowExceptionProcessingNode implements NodeCodeInterface
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
         );
+    }
+
+    public function getResultDescriptions(): array
+    {
+        return [];
     }
 
     /**

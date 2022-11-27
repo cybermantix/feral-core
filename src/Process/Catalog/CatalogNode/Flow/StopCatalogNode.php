@@ -2,8 +2,6 @@
 
 namespace NoLoCo\Core\Process\Catalog\CatalogNode\Flow;
 
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-
 /**
  * The last node in a process. This node will have the result
  * of "OK".

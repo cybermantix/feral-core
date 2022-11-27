@@ -10,6 +10,7 @@ use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
+use NoLoCo\Core\Process\Result\Description\ResultDescription;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
 /**
@@ -23,10 +24,10 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  */
 class StopProcessingNode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait;
-    use ResultsTrait;
-    use ConfigurationTrait;
-    use EmptyConfigurationDescriptionTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        EmptyConfigurationDescriptionTrait;
 
     const KEY = 'stop';
 
@@ -43,6 +44,13 @@ class StopProcessingNode implements NodeCodeInterface
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
         )->setConfigurationManager($configurationManager);
+    }
+
+    public function getResultDescriptions(): array
+    {
+        return [(new ResultDescription())
+            ->setResult(ResultInterface::STOP)
+            ->setDescription('The send the stop signal to the process engine.')];
     }
 
     /**

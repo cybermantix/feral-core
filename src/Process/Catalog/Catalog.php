@@ -12,8 +12,8 @@ class Catalog implements CatalogInterface
     public function __construct(iterable $sources)
     {
         /**
- * @var CatalogSourceInterface $source
-*/
+         * @var CatalogSourceInterface $source
+         */
         foreach ($sources as $source) {
             foreach ($source->getCatalogNodes() as $node) {
                 $key = $node->getKey();

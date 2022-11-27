@@ -15,6 +15,7 @@ use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
@@ -34,12 +35,13 @@ use Psr\Log\LogLevel;
  */
 class LogNodeCode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait;
-    use ResultsTrait;
-    use ConfigurationTrait;
-    use ConfigurationValueTrait;
-    use EmptyConfigurationDescriptionTrait;
-    use ContextValueTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        ConfigurationValueTrait,
+        EmptyConfigurationDescriptionTrait,
+        ContextValueTrait,
+        OkResultsTrait;
 
     const KEY = 'log';
 

@@ -9,6 +9,7 @@ use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
@@ -23,10 +24,11 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  */
 class StartProcessingNode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait;
-    use ResultsTrait;
-    use ConfigurationTrait;
-    use EmptyConfigurationDescriptionTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        EmptyConfigurationDescriptionTrait,
+        OkResultsTrait;
 
     const KEY = 'start';
 

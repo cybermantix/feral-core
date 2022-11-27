@@ -3,8 +3,8 @@
 namespace NoLoCo\Core\Process\NodeCode;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
 /**
@@ -79,6 +79,11 @@ interface NodeCodeInterface
      * @return $this
      */
     public function addConfiguration(array $keysValues): static;
+
+    /**
+     * @return ResultDescriptionInterface[]
+     */
+    public function getResultDescriptions(): array;
 
     /**
      * @param  ContextInterface $context

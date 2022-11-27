@@ -4,8 +4,6 @@ namespace NoLoCo\Core\Process\NodeCode\Traits;
 
 use Exception;
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 use NoLoCo\Core\Utility\Search\DataPathWriter;
 use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 

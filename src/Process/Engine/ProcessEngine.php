@@ -13,7 +13,6 @@ use NoLoCo\Core\Process\Event\ProcessNodeAfterEvent;
 use NoLoCo\Core\Process\Event\ProcessNodeBeforeEvent;
 use NoLoCo\Core\Process\Event\ProcessStartEvent;
 use NoLoCo\Core\Process\Exception\InvalidNodeKey;
-use NoLoCo\Core\Process\Node\Node;
 use NoLoCo\Core\Process\Node\NodeCollection;
 use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;

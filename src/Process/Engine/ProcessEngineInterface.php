@@ -2,10 +2,6 @@
 
 namespace NoLoCo\Core\Process\Engine;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
-use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\ProcessInterface;
 
 /**

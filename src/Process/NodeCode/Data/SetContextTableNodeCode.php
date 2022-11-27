@@ -9,7 +9,6 @@ use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
 use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
@@ -17,11 +16,11 @@ use NoLoCo\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 use NoLoCo\Core\Utility\Search\DataPathWriter;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Set the value of a context key to a configured value. To set a deep reference
@@ -34,13 +33,14 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  */
 class SetContextTableNodeCode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait;
-    use ResultsTrait;
-    use ConfigurationTrait;
-    use ConfigurationValueTrait;
-    use EmptyConfigurationDescriptionTrait;
-    use ContextValueTrait;
-    use ContextMutationTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        ConfigurationValueTrait,
+        EmptyConfigurationDescriptionTrait,
+        ContextValueTrait,
+        ContextMutationTrait,
+        OkResultsTrait;
 
     const KEY = 'set_context_table';
 
