@@ -20,7 +20,15 @@ The code can be run inline with other code by executing a proceess and getting t
 
 ## NoLoCo - Bundle
 
-On its own, NoLoCo Core provides the structural classes but isn't very useful on its own. For higher value code, see the NoLoCo Bundle built on the incredible [Symfony](https://symfony.com/) framework.
+If you want to use NoLoCo inside of your Symfony project, then include the NoLoCo bundle in your Symfony project. From there you can call the process engine directly.
+
+## NoLoCo - Runtime Plane
+
+If you want a robust runtime plane with one to many nodes processing requests via the HTTP, then get the Docker NoLoCo Runtime Plane Image. 
+
+## NoLoCo - Queue Processor
+
+If you want to process a queue with NoLoCo, use the Docker image for the NoLoCo queue processor that will dequeue messages and process them using a NoLoCo process.
 
 ## Our model : Free-Promium
 
