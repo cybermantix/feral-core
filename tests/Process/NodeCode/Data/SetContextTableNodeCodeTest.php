@@ -3,18 +3,19 @@
 namespace NoLoCo\Core\Tests\Process\NodeCode\Data;
 
 use NoLoCo\Core\Process\Context\Context;
+use NoLoCo\Core\Process\NodeCode\Data\SetContextTableNodeCode;
 use NoLoCo\Core\Process\NodeCode\Data\SetContextValueNodeCode;
 use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
-class SetContextValueNodeCodeTest extends TestCase
+class SetContextTableNodeCodeTest extends TestCase
 {
-    protected SetContextValueNodeCode $node;
+    protected SetContextTableNodeCode $node;
 
     protected function setUp(): void
     {
-        $this->node = new SetContextValueNodeCode();
+        $this->node = new SetContextTableNodeCode();
     }
 
     public function testResultDescriptions()
@@ -28,16 +29,16 @@ class SetContextValueNodeCodeTest extends TestCase
     public function testGetConfigurationDescriptions()
     {
         $configuration = $this->node->getConfigurationDescriptions();
-        $this->assertEquals(3, count($configuration));
+        $this->assertEquals(2, count($configuration));
     }
 
     public function testProcess()
     {
         $this->node->addConfiguration(
             [
-                SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one',
-                SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_INT
+                SetContextTableNodeCode::TABLE => [
+                    'one' => 1
+                ]
             ]
         );
         $context = (new Context());
@@ -51,9 +52,9 @@ class SetContextValueNodeCodeTest extends TestCase
     {
         $this->node->addConfiguration(
             [
-                SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one',
-                SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_STRING
+                SetContextTableNodeCode::TABLE => [
+                    'one' => '1'
+                ]
             ]
         );
         $context = (new Context());
@@ -67,9 +68,9 @@ class SetContextValueNodeCodeTest extends TestCase
     {
         $this->node->addConfiguration(
             [
-                SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one',
-                SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_FLOAT
+                SetContextTableNodeCode::TABLE => [
+                    'one' => 1.1
+                ]
             ]
         );
         $context = (new Context());
@@ -82,9 +83,10 @@ class SetContextValueNodeCodeTest extends TestCase
     {
         $this->node->addConfiguration(
             [
-                SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one|two',
-                SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_INT
+                SetContextTableNodeCode::TABLE => [
+                    'two' => 1
+                ],
+                SetContextTableNodeCode::CONTEXT_PATH => 'one'
             ]
         );
         $context = (new Context())->set('one', []);

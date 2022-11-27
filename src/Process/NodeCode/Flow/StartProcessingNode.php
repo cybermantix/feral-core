@@ -11,6 +11,7 @@ use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
+use NoLoCo\Core\Process\Result\Description\ResultDescription;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
 /**

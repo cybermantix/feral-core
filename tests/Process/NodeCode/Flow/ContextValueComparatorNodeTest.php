@@ -4,7 +4,9 @@ namespace NoLoCo\Core\Tests\Process\NodeCode\Flow;
 
 use NoLoCo\Core\Process\Context\Context;
 use NoLoCo\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
+use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
 use NoLoCo\Core\Process\Result\Result;
+use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Criterion;
 use PHPUnit\Framework\TestCase;
 
@@ -26,6 +28,16 @@ class ContextValueComparatorNodeTest extends TestCase
         $context = (new Context())->set('test', 'not-testing');
         $results = $node->process($context);
         $this->assertEquals(Result::FALSE, $results->getStatus());
+    }
+
+    public function testResultDescriptions()
+    {
+        $node = new ContextValueComparatorNodeCode();
+        /** @var ResultDescriptionInterface[] $definitions */
+        $definitions = $node->getResultDescriptions();
+        $this->assertCount(2, $definitions);
+        $this->assertEquals(ResultInterface::TRUE, $definitions[0]->getResult());
+        $this->assertEquals(ResultInterface::FALSE, $definitions[1]->getResult());
     }
 
     public function testProcessNot()

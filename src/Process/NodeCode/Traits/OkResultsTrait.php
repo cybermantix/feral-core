@@ -11,6 +11,9 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  */
 trait OkResultsTrait
 {
+    /**
+     * @inheritDoc
+     */
     public function getResultDescriptions(): array
     {
         return [(new ResultDescription())

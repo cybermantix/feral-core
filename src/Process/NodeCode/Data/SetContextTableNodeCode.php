@@ -9,6 +9,7 @@ use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
 use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
+use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
@@ -20,6 +21,7 @@ use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 use NoLoCo\Core\Utility\Search\DataPathWriter;
 
 /**
@@ -50,6 +52,8 @@ class SetContextTableNodeCode implements NodeCodeInterface
 
     public const TABLE = 'table';
 
+    public const CONTEXT_PATH = 'context_path';
+
     public function __construct(
         DataPathWriter $dataPathWriter = new DataPathWriter(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
@@ -75,23 +79,28 @@ class SetContextTableNodeCode implements NodeCodeInterface
                 ->setKey(self::TABLE)
                 ->setName('Table')
                 ->setDescription('Set multiple values in the context.'),
+            (new StringConfigurationDescription())
+                ->setKey(self::CONTEXT_PATH)
+                ->setName('Context Path')
+                ->setDescription('The optional context path to the parent where the table of values will be written.'),
         ];
     }
 
     /**
      * @inheritDoc
-     * @throws     MissingConfigurationValueException|UnknownComparatorException
+     * @throws     MissingConfigurationValueException
      * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $table = $this->getRequiredConfigurationValue(self::TABLE);
-
+        $table = $this->getRequiredArrayConfigurationValue(self::TABLE);
+        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, '');
+        if (!empty($contextPath)) {
+            $contextPath .= DataPathReaderInterface::DEFAULT_DELIMITER;
+        }
         foreach ($table as $key => $value) {
-            if (str_starts_with($key, '_')) {
-                throw new Exception('Keys may not start with underscores.');
-            }
-            $this->setValueInContext($key, $value, $context);
+            $path = $contextPath . $key;
+            $this->setValueInContext($path, $value, $context);
         }
 
         return $this->result(

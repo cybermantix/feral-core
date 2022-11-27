@@ -110,6 +110,19 @@ trait ConfigurationValueTrait
     }
 
     /**
+     * A helper function to get an array configuration value.
+     *
+     * @param string $key
+     * @param array|null $default
+     * @return array
+     * @throws MissingConfigurationValueException
+     */
+    protected function getRequiredArrayConfigurationValue(string $key, array $default = null): array
+    {
+        return (array) $this->getRequiredConfigurationValue($key, $default);
+    }
+
+    /**
      * A helper function to get a float configuration value
      *
      * @param  string     $key
@@ -143,19 +156,6 @@ trait ConfigurationValueTrait
      * @throws MissingConfigurationValueException
      */
     protected function getRequiredStringConfigurationValue(string $key, string $default = null): ?string
-    {
-        return $this->getRequiredConfigurationValue($key, $default);
-    }
-
-    /**
-     * A helper function to get a required configuration value as an array
-     *
-     * @param  string      $key
-     * @param  string|null $default
-     * @return array|null
-     * @throws MissingConfigurationValueException
-     */
-    protected function getRequiredArrayConfigurationValue(string $key, string $default = null): ?array
     {
         return $this->getRequiredConfigurationValue($key, $default);
     }
