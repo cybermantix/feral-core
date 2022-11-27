@@ -1,4 +1,4 @@
-# A No-Code-Low-Code solution for the misfits, the dropouts, the freaks
+# A No/Low Code solution for the misfits, the dropouts, the freaks
 
 For the past 23 years people have asked why I code in PHP. I'll admit, back in 2000 I really wanted to code in Java, so I did. I wrote a lot of Java, PERL, Javascript, Flex, whatever was 'hot' at the time. But, time after time I kept building project in PHP. First PHP3, then PHP4, 5, 6 (just kidding), 7 and now PHP8. 
 
