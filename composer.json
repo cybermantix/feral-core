@@ -1,6 +1,8 @@
 {
+    "name": "noloco/core",
+    "version": "1.0.0",
     "type": "project",
-    "license": "Apache License 2.0",
+    "license": "Apache-2.0",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
