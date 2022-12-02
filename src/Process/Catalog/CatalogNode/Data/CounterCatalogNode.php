@@ -2,17 +2,17 @@
 
 namespace NoLoCo\Core\Process\Catalog\CatalogNode\Data;
 
-use JetBrains\PhpStorm\ArrayShape;
 use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
 use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
 use NoLoCo\Core\Process\NodeCode\Data\CounterNodeCode;
-use NoLoCo\Core\Process\NodeCode\Data\LogNodeCode;
-use Psr\Log\LogLevel;
 
+/**
+ * A counter node which increments a value every time the
+ * node is processed.
+ */
 class CounterCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */

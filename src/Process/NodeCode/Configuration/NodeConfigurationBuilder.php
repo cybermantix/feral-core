@@ -13,6 +13,7 @@ class NodeConfigurationBuilder
 {
     /**
      * The configuration that can be set in a node instance.
+     *
      * @var array
      */
     protected array $subject;
@@ -21,6 +22,7 @@ class NodeConfigurationBuilder
      * An array of configuration value modifiers that can
      * modify the basic configuration value and replace it
      * with a processed value.
+     *
      * @var ConfigurationValueModifierInterface[]
      */
     protected array $configurationValueModifiers;
@@ -36,7 +38,8 @@ class NodeConfigurationBuilder
     /**
      * Start the build processes with an existing configuration
      * array or an empty parameter to init with the default.
-     * @param array|null $configuration
+     *
+     * @param  array|null $configuration
      * @return $this
      */
     public function init(array $configuration = null): static
@@ -53,8 +56,9 @@ class NodeConfigurationBuilder
      * Add a value to the configuration array. Loop through the value
      * modifiers and if one accepts the value then process the value
      * modifier. Only process one value modifier.
-     * @param string $key
-     * @param mixed $value
+     *
+     * @param  string $key
+     * @param  mixed  $value
      * @return $this
      */
     public function addValue(string $key, mixed $value): static
@@ -71,11 +75,11 @@ class NodeConfigurationBuilder
 
     /**
      * Return the configuration array that was built.
+     *
      * @return array
      */
     public function build(): array
     {
         return $this->subject;
     }
-
 }

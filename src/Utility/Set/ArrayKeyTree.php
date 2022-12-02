@@ -6,6 +6,7 @@ namespace NoLoCo\Core\Utility\Set;
  * Class IdTree
  * Use a deep array structure to store a long key. Store each
  * character at a time.
+ *
  * @package App\Data\Utilities
  */
 class ArrayKeyTree implements KeyStorageInterface
@@ -18,6 +19,7 @@ class ArrayKeyTree implements KeyStorageInterface
     /**
      * We will store the ids using an array that stores each
      * value one character at a time.
+     *
      * @var array
      */
     protected array $arrayTree = [];

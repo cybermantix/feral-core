@@ -3,21 +3,22 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 
 /**
  * An event from a process after the node has been processed
  * and has a result.
- * @package NoLoCo\Core\Process\Event
  */
-class ProcessNodeAfterEvent extends Event
+class ProcessNodeAfterEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
 
     /**
      * The node to be processed
+     *
      * @var NodeInterface
      */
     protected NodeInterface $node;
@@ -29,6 +30,7 @@ class ProcessNodeAfterEvent extends Event
 
     /**
      * The result of the node being processed
+     *
      * @var ResultInterface
      */
     protected ResultInterface $result;
@@ -42,7 +44,7 @@ class ProcessNodeAfterEvent extends Event
     }
 
     /**
-     * @param array $node
+     * @param  array $node
      * @return ProcessNodeAfterEvent
      */
     public function setNode(NodeInterface $node): self
@@ -60,7 +62,7 @@ class ProcessNodeAfterEvent extends Event
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessNodeAfterEvent
      */
     public function setContext(ContextInterface $context): ProcessNodeAfterEvent
@@ -78,7 +80,7 @@ class ProcessNodeAfterEvent extends Event
     }
 
     /**
-     * @param ResultInterface $result
+     * @param  ResultInterface $result
      * @return ProcessNodeAfterEvent
      */
     public function setResult(ResultInterface $result): ProcessNodeAfterEvent

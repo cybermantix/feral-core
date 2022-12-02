@@ -18,11 +18,13 @@ interface ProcessInterface
     public function getKey(): string;
     /**
      * Get the initial context used in the process engine.
+     *
      * @return ContextInterface
      */
     public function getContext(): ContextInterface;
     /**
      * Get the process nodes used in the process engine.
+     *
      * @return NodeInterface[]
      */
     public function getNodes(): array;
@@ -30,6 +32,7 @@ interface ProcessInterface
     /**
      * The edges that stitch together the nodes based on
      * the results.
+     *
      * @return EdgeInterface[]
      */
     public function getEdges(): array;

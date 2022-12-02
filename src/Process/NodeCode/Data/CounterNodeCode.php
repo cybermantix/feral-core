@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Data;
 
 use Exception;
@@ -17,14 +16,13 @@ use NoLoCo\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 use NoLoCo\Core\Utility\Search\DataPathReader;
 use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 use NoLoCo\Core\Utility\Search\DataPathWriter;
-use Psr\Log\LoggerInterface;
-use Psr\Log\LogLevel;
 
 /**
  * Create a counter that ticks every pass through the
@@ -35,15 +33,16 @@ use Psr\Log\LogLevel;
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class CounterNodeCode implements NodeCodeInterface {
-
+class CounterNodeCode implements NodeCodeInterface
+{
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
         EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait;
+        ContextMutationTrait,
+        OkResultsTrait;
 
     const DEFAULT_CONTEXT_PATH = '_counter';
 
@@ -59,12 +58,13 @@ class CounterNodeCode implements NodeCodeInterface {
         DataPathReaderInterface $dataPathReader = new DataPathReader(),
         DataPathWriter $dataPathWriter = new DataPathWriter(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
-            NodeCodeCategoryInterface::DATA)
+            NodeCodeCategoryInterface::DATA
+        )
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter)
             ->setDataPathReader($dataPathReader);
@@ -86,8 +86,8 @@ class CounterNodeCode implements NodeCodeInterface {
 
     /**
      * @inheritDoc
-     * @throws MissingConfigurationValueException|UnknownComparatorException
-     * @throws Exception
+     * @throws     MissingConfigurationValueException|UnknownComparatorException
+     * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {

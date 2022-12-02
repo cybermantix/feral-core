@@ -13,8 +13,8 @@ class CatalogSource implements CatalogSourceInterface
         /**
          * @var CatalogNodeInterface[]
          */
-        private array $catalogNodes = [])
-    {
+        private array $catalogNodes = []
+    ) {
     }
 
     /**

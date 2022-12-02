@@ -4,6 +4,7 @@ namespace NoLoCo\Core\Tests\Process\NodeCode\Data;
 
 use NoLoCo\Core\Process\Context\Context;
 use NoLoCo\Core\Process\NodeCode\Data\SetContextValueNodeCode;
+use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -14,6 +15,14 @@ class SetContextValueNodeCodeTest extends TestCase
     protected function setUp(): void
     {
         $this->node = new SetContextValueNodeCode();
+    }
+
+    public function testResultDescriptions()
+    {
+        /** @var ResultDescriptionInterface[] $definitions */
+        $definitions = $this->node->getResultDescriptions();
+        $this->assertCount(1, $definitions);
+        $this->assertEquals(ResultInterface::OK, $definitions[0]->getResult());
     }
 
     public function testGetConfigurationDescriptions()

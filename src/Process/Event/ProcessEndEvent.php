@@ -3,12 +3,16 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Engine\ProcessEngineInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\ProcessInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 
-class ProcessEndEvent extends Event
+/**
+ * The event that is dispatched after the process ends.
+ */
+class ProcessEndEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
 
     protected ProcessInterface $process;
 
@@ -26,7 +30,7 @@ class ProcessEndEvent extends Event
     }
 
     /**
-     * @param ProcessInterface $process
+     * @param  ProcessInterface $process
      * @return ProcessEndEvent
      */
     public function setProcess(ProcessInterface $process): ProcessEndEvent
@@ -44,7 +48,7 @@ class ProcessEndEvent extends Event
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessStartEvent
      */
     public function setContext(ContextInterface $context): self

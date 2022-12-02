@@ -12,13 +12,15 @@ interface CatalogInterface
 {
     /**
      * Get a single catalog node by it's key
-     * @param string $key
+     *
+     * @param  string $key
      * @return CatalogNodeInterface
      */
     public function getCatalogNode(string $key): CatalogNodeInterface;
 
     /**
      * Get all of the catalog nodes available.
+     *
      * @return CatalogNodeInterface[]
      */
     public function getCatalogNodes(): array;

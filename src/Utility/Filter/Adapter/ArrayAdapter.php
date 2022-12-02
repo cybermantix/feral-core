@@ -15,12 +15,14 @@ class ArrayAdapter implements AdapterInterface
 {
     /**
      * The collection to be adapted
+     *
      * @var array
      */
     protected array $originalData;
 
     /**
      * The adapted collection
+     *
      * @var array|null
      */
     protected ?array $adaptedData;
@@ -45,7 +47,7 @@ class ArrayAdapter implements AdapterInterface
     }
 
     /**
-     * @param array $originalData
+     * @param  array $originalData
      * @return ArrayAdapter
      */
     public function setArray(array $originalData): self
@@ -55,7 +57,7 @@ class ArrayAdapter implements AdapterInterface
     }
 
     /**
-     * @param Filter $filter
+     * @param  Filter $filter
      * @return ArrayAdapter
      * @throws UnknownComparatorException
      */
@@ -76,7 +78,9 @@ class ArrayAdapter implements AdapterInterface
                 $matches = $internalMatch;
             } else {
                 // IF ANY ARE FALSE THEN NO MATCH
-                /** @var Criterion $criterion */
+                /**
+ * @var Criterion $criterion 
+*/
                 $criterion = array_pop($criterionArray);
                 if ($this->compare($criterion->getOperator(), $this->originalData, $criterion->getValue())) {
                     $matches = true;
@@ -116,9 +120,9 @@ class ArrayAdapter implements AdapterInterface
     }
 
     /**
-     * @param $operator
-     * @param $value
-     * @param $testValue
+     * @param  $operator
+     * @param  $value
+     * @param  $testValue
      * @return bool
      * @throws UnknownComparatorException
      */

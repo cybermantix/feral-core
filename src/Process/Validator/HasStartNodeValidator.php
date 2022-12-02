@@ -7,7 +7,6 @@ namespace NoLoCo\Core\Process\Validator;
  */
 class HasStartNodeValidator implements ValidatorInterface
 {
-
     /**
      * @inheritDoc
      */

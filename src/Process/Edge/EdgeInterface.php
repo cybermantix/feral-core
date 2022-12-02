@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\Edge;
 
 /**
@@ -17,7 +16,7 @@ interface EdgeInterface
     public function getFromKey(): string;
 
     /**
-     * @param string $fromNodeKey
+     * @param  string $fromNodeKey
      * @return $this
      */
     public function setFromKey(string $fromNodeKey): static;
@@ -28,20 +27,22 @@ interface EdgeInterface
     public function getToKey(): string;
 
     /**
-     * @param string $toNodeKey
+     * @param  string $toNodeKey
      * @return $this
      */
     public function setToKey(string $toNodeKey): static;
 
     /**
      * Get the result to select the node
+     *
      * @return string
      */
     public function getResult(): string;
 
     /**
      * Set the result used to select this edge
-     * @param string $result
+     *
+     * @param  string $result
      * @return $this
      */
     public function setResult(string $result): static;

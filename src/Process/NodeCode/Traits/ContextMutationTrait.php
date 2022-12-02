@@ -4,8 +4,6 @@ namespace NoLoCo\Core\Process\NodeCode\Traits;
 
 use Exception;
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 use NoLoCo\Core\Utility\Search\DataPathWriter;
 use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
@@ -17,7 +15,7 @@ trait ContextMutationTrait
     protected DataPathWriter $dataPathWriter;
 
     /**
-     * @param DataPathWriter $dataPathWriter
+     * @param  DataPathWriter $dataPathWriter
      * @return ContextMutationTrait
      */
     public function setDataPathWriter(DataPathWriter $dataPathWriter): static
@@ -28,9 +26,10 @@ trait ContextMutationTrait
 
     /**
      * A helper function to set a value in the context.
-     * @param string $path
-     * @param mixed $value
-     * @param ContextInterface $context
+     *
+     * @param  string           $path
+     * @param  mixed            $value
+     * @param  ContextInterface $context
      * @return mixed
      * @throws UnknownTypeException
      * @throws Exception

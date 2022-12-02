@@ -11,7 +11,7 @@ class FloatConfigurationDescription extends AbstractConfigurationDescription
     /**
      * @inheritDoc
      */
-    function getType(): string
+    public function getType(): string
     {
         return self::FLOAT;
     }
@@ -19,7 +19,7 @@ class FloatConfigurationDescription extends AbstractConfigurationDescription
     /**
      * @inheritDoc
      */
-    function isValid(mixed $value): bool
+    public function isValid(mixed $value): bool
     {
         return is_float($value);
     }

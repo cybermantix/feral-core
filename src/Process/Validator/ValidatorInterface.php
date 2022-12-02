@@ -13,9 +13,10 @@ interface ValidatorInterface
 {
     /**
      * Validate the nodes, edges, and start key used in a process engine.
-     * @param string $startKey
-     * @param NodeInterface[] $nodes
-     * @param EdgeInterface[] $edges
+     *
+     * @param  string          $startKey
+     * @param  NodeInterface[] $nodes
+     * @param  EdgeInterface[] $edges
      * @return string|null
      */
     public function getValidationError(string $startKey, array $nodes, array $edges): ?string;

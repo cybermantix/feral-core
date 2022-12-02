@@ -32,7 +32,7 @@ class StringableDateTimeType extends DateTimeType
     {
         $dateTime = parent::convertToPHPValue($value, $platform);
 
-        if ( ! $dateTime) {
+        if (! $dateTime) {
             return $dateTime;
         }
 

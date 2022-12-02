@@ -3,8 +3,11 @@
 namespace NoLoCo\Core\Process\NodeCode;
 
 use NoLoCo\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 
+/**
+ * A factory which can build node code objects based
+ * on the key.
+ */
 class NodeCodeFactory
 {
     /**
@@ -12,11 +15,11 @@ class NodeCodeFactory
      */
     protected array $nodeCodes = [];
 
-    public function __construct(
-        #[TaggedIterator('noloco.node_code_source')] iterable $sources
-    )
+    public function __construct(iterable $sources)
     {
-        /** @var NodeCodeSourceInterface $source */
+        /**
+ * @var NodeCodeSourceInterface $source
+*/
         foreach ($sources as $source) {
             foreach ($source->getNodeCodes() as $nodeCode) {
                 $key = $nodeCode->getKey();
@@ -28,7 +31,7 @@ class NodeCodeFactory
     }
 
     /**
-     * @param string $key
+     * @param  string $key
      * @return NodeCodeInterface
      */
     public function getNodeCode(string $key): NodeCodeInterface

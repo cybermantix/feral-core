@@ -13,8 +13,8 @@ class NodeCodeSource implements NodeCodeSourceInterface
         /**
          * @var CatalogNodeInterface[]
          */
-        private array $nodeCodes = [])
-    {
+        private array $nodeCodes = []
+    ) {
     }
 
     /**

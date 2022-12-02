@@ -1,15 +1,18 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\Event;
 
-
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\ProcessInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 
-class ProcessStartEvent extends Event
+/**
+ * The event that is dispatched before the process starts.
+ */
+class ProcessStartEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
 
     protected ProcessInterface $process;
 
@@ -27,7 +30,7 @@ class ProcessStartEvent extends Event
     }
 
     /**
-     * @param ProcessInterface $process
+     * @param  ProcessInterface $process
      * @return ProcessStartEvent
      */
     public function setProcess(ProcessInterface $process): ProcessStartEvent
@@ -45,7 +48,7 @@ class ProcessStartEvent extends Event
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessStartEvent
      */
     public function setContext(ContextInterface $context): ProcessStartEvent

@@ -7,9 +7,13 @@ use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use NoLoCo\Core\Process\NodeCode\Data\LogNodeCode;
 use Psr\Log\LogLevel;
 
+/**
+ * A catalog node which logs DEBUG statements to the master debugger.
+ *
+ * @see LogNodeCode
+ */
 class LogDebugCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */

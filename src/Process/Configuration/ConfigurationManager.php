@@ -11,13 +11,15 @@ class ConfigurationManager
 
     /**
      * Init the configuration instance
+     *
      * @var array
      */
     protected array $configuration = [];
 
     /**
      * Using array_merge is faster than using a loop with assignment.
-     * @param array $overrides
+     *
+     * @param  array $overrides
      * @return ConfigurationManager
      */
     public function merge(array $overrides): self
@@ -34,7 +36,8 @@ class ConfigurationManager
 
     /**
      * Check if the configuration value is set.
-     * @param string $key
+     *
+     * @param  string $key
      * @return bool
      */
     public function hasValue(string $key): bool
@@ -44,7 +47,8 @@ class ConfigurationManager
 
     /**
      * Get a value from the configuration
-     * @param string $key
+     *
+     * @param  string $key
      * @return mixed
      */
     public function getValue(string $key): mixed
@@ -58,8 +62,9 @@ class ConfigurationManager
 
     /**
      * A helper method to add the delete value to an array.
-     * @param array $main
-     * @param string $key
+     *
+     * @param  array  $main
+     * @param  string $key
      * @return array
      */
     public function addDeleteValue(array $main, string $key): array
@@ -70,6 +75,7 @@ class ConfigurationManager
 
     /**
      * Get the configuration
+     *
      * @return array
      */
     public function getConfiguration(): array

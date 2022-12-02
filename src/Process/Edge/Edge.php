@@ -2,20 +2,26 @@
 
 namespace NoLoCo\Core\Process\Edge;
 
+/**
+ * @see EdgeInterface
+ */
 class Edge implements EdgeInterface
 {
     /**
      * The node key from the source side of the node.
+     *
      * @var string
      */
     protected string $fromKey;
     /**
      * The node key for the next node.
+     *
      * @var string
      */
     protected string $toKey;
     /**
      * The result to select this edge.
+     *
      * @var string
      */
     protected string $result;

@@ -2,6 +2,7 @@
 
 namespace NoLoCo\Core\Tests\Process\Validator;
 
+use NoLoCo\Core\Process\ProcessInterface;
 use NoLoCo\Core\Process\Validator\ProcessValidator;
 use NoLoCo\Core\Process\Validator\ProcessValidatorInterface;
 use NoLoCo\Core\Process\Validator\ValidatorInterface;
@@ -11,19 +12,21 @@ class ProcessValidatorTest extends TestCase
 {
     public function testValidate()
     {
+        $process = $this->createMock(ProcessInterface::class);
         $validator = $this->createMock(ValidatorInterface::class);
         $validator->method('getValidationError')->willReturn('test');
-        $validator = new ProcessValidator([$validator]);
-        $errors = $validator->validate('one', [], []);
+        $processValidator = new ProcessValidator([$validator]);
+        $errors = $processValidator->validate($process);
         $this->assertCount(1, $errors);
     }
 
     public function testNoError()
     {
+        $process = $this->createMock(ProcessInterface::class);
         $validator = $this->createMock(ValidatorInterface::class);
         $validator->method('getValidationError')->willReturn(null);
-        $validator = new ProcessValidator([$validator]);
-        $errors = $validator->validate('one', [], []);
+        $processValidator = new ProcessValidator([$validator]);
+        $errors = $processValidator->validate($process);
         $this->assertEmpty($errors);
     }
 }

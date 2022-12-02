@@ -10,10 +10,10 @@ use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
  */
 trait ConfigurationValueTrait
 {
-
     /**
      * Check if a configuration value is set for a key.
-     * @param string $key
+     *
+     * @param  string $key
      * @return bool
      */
     protected function hasConfigurationValue(string $key): bool
@@ -23,15 +23,16 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get the value of a configuration key
-     * @param string $key
-     * @param null $default
+     *
+     * @param  string $key
+     * @param  null   $default
      * @return mixed
      */
     protected function getConfigurationValue(string $key, $default = null): mixed
     {
         if ($this->hasConfigurationValue($key)) {
             return $this->manager->getValue($key);
-        } elseif(!is_null($default)) {
+        } elseif (!is_null($default)) {
             return $default;
         } else {
             return null;
@@ -40,8 +41,9 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get the value of a configuration key
-     * @param string $key
-     * @param null $default
+     *
+     * @param  string $key
+     * @param  null   $default
      * @return mixed
      * @throws MissingConfigurationValueException
      */
@@ -49,18 +51,21 @@ trait ConfigurationValueTrait
     {
         $value = $this->getConfigurationValue($key, $default);
         if (is_null($value)) {
-            throw new MissingConfigurationValueException(sprintf(
-                'The configuration is missing the required value for "%s".',
-                $key
-            ));
+            throw new MissingConfigurationValueException(
+                sprintf(
+                    'The configuration is missing the required value for "%s".',
+                    $key
+                )
+            );
         }
         return $value;
     }
 
     /**
      * A helper function to get a configuration value as a boolean
-     * @param string $key
-     * @param bool|null $default
+     *
+     * @param  string    $key
+     * @param  bool|null $default
      * @return bool|null
      */
     protected function getBooleanConfigurationValue(string $key, bool $default = null): ?bool
@@ -70,8 +75,9 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get a configuration value as a string
-     * @param string $key
-     * @param string|null $default
+     *
+     * @param  string      $key
+     * @param  string|null $default
      * @return string|null
      */
     protected function getStringConfigurationValue(string $key, string $default = null): ?string
@@ -81,8 +87,9 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get an int configuration value.
-     * @param string $key
-     * @param int|null $default
+     *
+     * @param  string   $key
+     * @param  int|null $default
      * @return int|null
      */
     protected function getIntConfigurationValue(string $key, int $default = null): ?int
@@ -92,8 +99,9 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get an array configuration value.
-     * @param string $key
-     * @param array|null $default
+     *
+     * @param  string     $key
+     * @param  array|null $default
      * @return array|null
      */
     protected function getArrayConfigurationValue(string $key, array $default = null): ?array
@@ -102,9 +110,23 @@ trait ConfigurationValueTrait
     }
 
     /**
-     * A helper function to get a float configuration value
+     * A helper function to get an array configuration value.
+     *
      * @param string $key
-     * @param float|null $default
+     * @param array|null $default
+     * @return array
+     * @throws MissingConfigurationValueException
+     */
+    protected function getRequiredArrayConfigurationValue(string $key, array $default = null): array
+    {
+        return (array) $this->getRequiredConfigurationValue($key, $default);
+    }
+
+    /**
+     * A helper function to get a float configuration value
+     *
+     * @param  string     $key
+     * @param  float|null $default
      * @return float|null
      */
     protected function getFloatConfigurationValue(string $key, float $default = null): ?float
@@ -114,8 +136,9 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get a configuration value as a boolean
-     * @param string $key
-     * @param string|null $default
+     *
+     * @param  string      $key
+     * @param  string|null $default
      * @return bool|null
      * @throws MissingConfigurationValueException
      */
@@ -126,8 +149,9 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get a configuration value as a string
-     * @param string $key
-     * @param string|null $default
+     *
+     * @param  string      $key
+     * @param  string|null $default
      * @return string|null
      * @throws MissingConfigurationValueException
      */
@@ -137,21 +161,10 @@ trait ConfigurationValueTrait
     }
 
     /**
-     * A helper function to get a required configuration value as an array
-     * @param string $key
-     * @param string|null $default
-     * @return array|null
-     * @throws MissingConfigurationValueException
-     */
-    protected function getRequiredArrayConfigurationValue(string $key, string $default = null): ?array
-    {
-        return $this->getRequiredConfigurationValue($key, $default);
-    }
-
-    /**
      * A helper function to get an int configuration value.
-     * @param string $key
-     * @param int|null $default
+     *
+     * @param  string   $key
+     * @param  int|null $default
      * @return int|null
      * @throws MissingConfigurationValueException
      */
@@ -162,8 +175,9 @@ trait ConfigurationValueTrait
 
     /**
      * A helper function to get a float configuration value
-     * @param string $key
-     * @param float|null $default
+     *
+     * @param  string     $key
+     * @param  float|null $default
      * @return float|null
      * @throws MissingConfigurationValueException
      */

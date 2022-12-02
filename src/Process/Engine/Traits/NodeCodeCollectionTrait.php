@@ -2,11 +2,7 @@
 
 namespace NoLoCo\Core\Process\Engine\Traits;
 
-use NoLoCo\Core\Process\Catalog\CatalogInterface;
-use NoLoCo\Core\Process\Edge\EdgeCollection;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Exception\InvalidNodeCodeKey;
-use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeCollection;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 
@@ -22,7 +18,8 @@ trait NodeCodeCollectionTrait
 
     /**
      * Add an array of edges
-     * @param NodeCodeInterface[] $collection
+     *
+     * @param  NodeCodeInterface[] $collection
      * @return $this
      */
     protected function addNodeCodeCollection(array $collection): static
@@ -35,7 +32,8 @@ trait NodeCodeCollectionTrait
 
     /**
      * Add a node to the collection
-     * @param NodeCodeInterface $node
+     *
+     * @param  NodeCodeInterface $node
      * @return $this
      */
     protected function addNodeCode(NodeCodeInterface $node): static
@@ -45,7 +43,7 @@ trait NodeCodeCollectionTrait
     }
 
     /**
-     * @param string $fromNodeKey
+     * @param  string $fromNodeKey
      * @return NodeCodeInterface
      * @throws InvalidNodeCodeKey
      */

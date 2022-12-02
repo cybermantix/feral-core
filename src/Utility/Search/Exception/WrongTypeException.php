@@ -9,6 +9,7 @@ use Throwable;
 /**
  * The class of the data didn't match the expected class.
  * Class UnknownTypeException
+ *
  * @package NoLoCo\Utility\Search\Exception
  */
 class WrongTypeException extends Exception

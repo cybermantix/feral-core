@@ -5,10 +5,10 @@ namespace NoLoCo\Core\Process;
 use Exception;
 use NoLoCo\Core\Process\Context\Context;
 use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Edge\Edge;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Node\Node;
+use NoLoCo\Core\Process\Node\NodeInterface;
 
 /**
  * Hydrate a json string into a process object
@@ -57,7 +57,8 @@ class ProcessJsonHydrator
 
     /**
      * Create a node from the array data.
-     * @param array $data
+     *
+     * @param  array $data
      * @return NodeInterface
      */
     protected function hydrateNode(array $data): NodeInterface
@@ -65,17 +66,22 @@ class ProcessJsonHydrator
         $node = new Node();
         $node
             ->setKey($data['key'])
-            ->setDescription($data['description'])
-            ->setCatalogNodeKey($data['catalog_node_key'])
-            ->setConfiguration($data['configuration']);
+            ->setCatalogNodeKey($data['catalog_node_key']);
+        if (isset($data['description'])) {
+            $node->setDescription($data['description']);
+        }
+        if (isset($data['configuration'])) {
+            $node->setConfiguration($data['configuration']);
+        }
         return $node;
     }
 
     /**
      * Create a new edge from the parameters
-     * @param string $from
-     * @param string $to
-     * @param string $result
+     *
+     * @param  string $from
+     * @param  string $to
+     * @param  string $result
      * @return EdgeInterface
      */
     protected function hydrateEdge(string $from, string $to, string $result): EdgeInterface
@@ -90,7 +96,8 @@ class ProcessJsonHydrator
 
     /**
      * Take a plain array and hydrate a context object.
-     * @param array $data
+     *
+     * @param  array $data
      * @return ContextInterface
      */
     protected function hydrateContext(array $data): ContextInterface

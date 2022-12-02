@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Data;
 
 use Exception;
@@ -16,6 +15,7 @@ use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
@@ -23,7 +23,9 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
 /**
- * Sent a message to the logs.
+ * Sent a message to the logs. The message can include
+ * token variables which will be replaced with values
+ * from the context.
  *
  * Configuration Keys
  *  message  - The message to log
@@ -31,14 +33,15 @@ use Psr\Log\LogLevel;
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class LogNodeCode implements NodeCodeInterface {
-
+class LogNodeCode implements NodeCodeInterface
+{
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
         EmptyConfigurationDescriptionTrait,
-        ContextValueTrait;
+        ContextValueTrait,
+        OkResultsTrait;
 
     const KEY = 'log';
 
@@ -52,12 +55,13 @@ class LogNodeCode implements NodeCodeInterface {
     public function __construct(
         protected LoggerInterface $logger,
         ConfigurationManager $configurationManager = new ConfigurationManager()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
-            NodeCodeCategoryInterface::DATA)
+            NodeCodeCategoryInterface::DATA
+        )
             ->setConfigurationManager($configurationManager);
     }
 
@@ -76,27 +80,29 @@ class LogNodeCode implements NodeCodeInterface {
                 ->setKey(self::LEVEL)
                 ->setName('Level')
                 ->setDescription('The logger level')
-                ->setOptions([
+                ->setOptions(
+                    [
                     LogLevel::DEBUG,
                     LogLevel::INFO,
                     LogLevel::WARNING,
                     LogLevel::ERROR,
                     LogLevel::CRITICAL,
-                ]),
+                    ]
+                ),
         ];
     }
 
     /**
      * @inheritDoc
-     * @throws MissingConfigurationValueException|UnknownComparatorException
-     * @throws Exception
+     * @throws     MissingConfigurationValueException|UnknownComparatorException
+     * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {
         $message = $this->getRequiredConfigurationValue(self::MESSAGE);
         $level = $this->getRequiredConfigurationValue(self::LEVEL, LogLevel::INFO);
 
-        foreach  ($context->getAll() as $key => $value) {
+        foreach ($context->getAll() as $key => $value) {
             if (is_object($value)) {
                 $value = 'object';
             }

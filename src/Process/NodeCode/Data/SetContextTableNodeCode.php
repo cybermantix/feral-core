@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Data;
 
 use Exception;
@@ -18,11 +17,12 @@ use NoLoCo\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
 use NoLoCo\Core\Utility\Search\DataPathWriter;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Set the value of a context key to a configured value. To set a deep reference
@@ -33,15 +33,16 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class SetContextTableNodeCode implements NodeCodeInterface {
-
+class SetContextTableNodeCode implements NodeCodeInterface
+{
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
         EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait;
+        ContextMutationTrait,
+        OkResultsTrait;
 
     const KEY = 'set_context_table';
 
@@ -51,15 +52,18 @@ class SetContextTableNodeCode implements NodeCodeInterface {
 
     public const TABLE = 'table';
 
+    public const CONTEXT_PATH = 'context_path';
+
     public function __construct(
         DataPathWriter $dataPathWriter = new DataPathWriter(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
-            NodeCodeCategoryInterface::DATA)
+            NodeCodeCategoryInterface::DATA
+        )
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter);
     }
@@ -75,23 +79,28 @@ class SetContextTableNodeCode implements NodeCodeInterface {
                 ->setKey(self::TABLE)
                 ->setName('Table')
                 ->setDescription('Set multiple values in the context.'),
+            (new StringConfigurationDescription())
+                ->setKey(self::CONTEXT_PATH)
+                ->setName('Context Path')
+                ->setDescription('The optional context path to the parent where the table of values will be written.'),
         ];
     }
 
     /**
      * @inheritDoc
-     * @throws MissingConfigurationValueException|UnknownComparatorException
-     * @throws Exception
+     * @throws     MissingConfigurationValueException
+     * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $table = $this->getRequiredConfigurationValue(self::TABLE);
-
+        $table = $this->getRequiredArrayConfigurationValue(self::TABLE);
+        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, '');
+        if (!empty($contextPath)) {
+            $contextPath .= DataPathReaderInterface::DEFAULT_DELIMITER;
+        }
         foreach ($table as $key => $value) {
-            if (str_starts_with($key, '_')) {
-                throw new Exception('Keys may not start with underscores.');
-            }
-            $this->setValueInContext($key, $value, $context);
+            $path = $contextPath . $key;
+            $this->setValueInContext($path, $value, $context);
         }
 
         return $this->result(

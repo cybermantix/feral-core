@@ -7,7 +7,9 @@ use NoLoCo\Core\Process\Edge\EdgeInterface;
 use NoLoCo\Core\Process\Node\NodeInterface;
 
 /**
- * The concrete simple process.
+ * The concrete process.
+ *
+ * @see ProcessInterface
  */
 class Process implements ProcessInterface
 {
@@ -37,7 +39,7 @@ class Process implements ProcessInterface
     }
 
     /**
-     * @param string $key
+     * @param  string $key
      * @return Process
      */
     public function setKey(string $key): Process
@@ -56,7 +58,7 @@ class Process implements ProcessInterface
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return Process
      */
     public function setContext(ContextInterface $context): static
@@ -74,7 +76,7 @@ class Process implements ProcessInterface
     }
 
     /**
-     * @param NodeInterface[] $nodes
+     * @param  NodeInterface[] $nodes
      * @return Process
      */
     public function setNodes(array $nodes): static
@@ -92,7 +94,7 @@ class Process implements ProcessInterface
     }
 
     /**
-     * @param EdgeInterface[] $edges
+     * @param  EdgeInterface[] $edges
      * @return Process
      */
     public function setEdges(array $edges): static

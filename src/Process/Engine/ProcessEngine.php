@@ -13,7 +13,6 @@ use NoLoCo\Core\Process\Event\ProcessNodeAfterEvent;
 use NoLoCo\Core\Process\Event\ProcessNodeBeforeEvent;
 use NoLoCo\Core\Process\Event\ProcessStartEvent;
 use NoLoCo\Core\Process\Exception\InvalidNodeKey;
-use NoLoCo\Core\Process\Node\Node;
 use NoLoCo\Core\Process\Node\NodeCollection;
 use NoLoCo\Core\Process\Node\NodeInterface;
 use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;
@@ -22,33 +21,39 @@ use NoLoCo\Core\Process\ProcessInterface;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
+/**
+ * @see ProcessEngineInterface
+ */
 class ProcessEngine implements ProcessEngineInterface
 {
-    use EdgeCollectionTrait, NodeCodeCollectionTrait, NodeCollectionTrait;
+    use EdgeCollectionTrait;
+    use NodeCodeCollectionTrait;
+    use NodeCollectionTrait;
 
     /**
      * A cached version of a node that has been configured.
+     *
      * @var array
      */
     protected array $cachedConfiguredNodeCode = [];
 
     /**
      * Process constructor.
+     *
      * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
         protected EventDispatcherInterface $eventDispatcher,
         protected CatalogInterface $catalog,
         protected NodeCodeFactory $factory
-    )
-    {
+    ) {
         $this->edgeCollection = new EdgeCollection();
         $this->nodeCollection = new NodeCollection();
     }
 
     /**
      * @inheritDoc
-     * @throws InvalidNodeKey
+     * @throws     InvalidNodeKey
      */
     public function process(ProcessInterface $process, string $startNode = 'start'): void
     {
@@ -84,7 +89,8 @@ class ProcessEngine implements ProcessEngineInterface
     /**
      * Get the configured node by using the process node
      * key
-     * @param string $key
+     *
+     * @param  string $key
      * @return NodeCodeInterface
      * @throws InvalidNodeKey
      */
@@ -98,7 +104,8 @@ class ProcessEngine implements ProcessEngineInterface
      * An internal function used to get the catalog node, the node code
      * and configure it. This will use an internal cache for nodes that
      * get processed multiple times.
-     * @param NodeInterface $node
+     *
+     * @param  NodeInterface $node
      * @return NodeCodeInterface
      */
     protected function getConfiguredNodeCode(NodeInterface $node): NodeCodeInterface
@@ -117,12 +124,13 @@ class ProcessEngine implements ProcessEngineInterface
 
     /**
      * Process a node, dispatch the events, and return the results
-     * @param Node $node
-     * @param NodeCodeInterface $nodeCode
-     * @param ContextInterface $context
+     *
+     * @param  NodeInterface     $node
+     * @param  NodeCodeInterface $nodeCode
+     * @param  ContextInterface  $context
      * @return ResultInterface
      */
-    protected function processNode(Node $node, NodeCodeInterface $nodeCode, ContextInterface $context): ResultInterface
+    protected function processNode(NodeInterface $node, NodeCodeInterface $nodeCode, ContextInterface $context): ResultInterface
     {
         $this->eventDispatcher->dispatch(
             (new ProcessNodeBeforeEvent())

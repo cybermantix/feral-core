@@ -2,6 +2,9 @@
 
 namespace NoLoCo\Core\Process\Context;
 
+/**
+ * @see ContextInterface
+ */
 class Context implements ContextInterface
 {
     protected array $data = [];

@@ -14,7 +14,6 @@ use NoLoCo\Core\Utility\Filter\Criterion;
  */
 class EqualsZeroCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */
@@ -58,10 +57,12 @@ class EqualsZeroCatalogNode implements CatalogNodeInterface
     /**
      * @inheritDoc
      */
-    #[ArrayShape([
+    #[ArrayShape(
+        [
         ContextValueComparatorNodeCode::TEST_VALUE => "int",
         ContextValueComparatorNodeCode::OPERATOR => "string"
-    ])]
+        ]
+    )]
     public function getConfiguration(): array
     {
         return [

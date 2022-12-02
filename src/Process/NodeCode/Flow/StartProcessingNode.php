@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Flow;
 
 use NoLoCo\Core\Process\Configuration\ConfigurationManager;
@@ -10,7 +9,9 @@ use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
 use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
+use NoLoCo\Core\Process\Result\Description\ResultDescription;
 use NoLoCo\Core\Process\Result\ResultInterface;
 
 /**
@@ -24,7 +25,11 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  */
 class StartProcessingNode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait, ResultsTrait, ConfigurationTrait, EmptyConfigurationDescriptionTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        EmptyConfigurationDescriptionTrait,
+        OkResultsTrait;
 
     const KEY = 'start';
 

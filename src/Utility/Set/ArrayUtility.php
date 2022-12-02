@@ -5,6 +5,7 @@ namespace NoLoCo\Core\Utility\Set;
 
 /**
  * Class ArrayUtility
+ *
  * @package NoLoCo\Core\Utility\Set
  */
 class ArrayUtility
@@ -12,8 +13,9 @@ class ArrayUtility
     /**
      * Search a multi dimensional array and return an array
      * of array which build a path to the value being searched.
-     * @param string $needle
-     * @param array $haystack
+     *
+     * @param  string $needle
+     * @param  array  $haystack
      * @return array
      */
     public function deepSearch(string $needle, array $haystack): array
@@ -35,9 +37,10 @@ class ArrayUtility
     /**
      * Remove the values found in a map of keys. Return the array with the removed
      * values.
-     * @param array $keyMap
-     * @param array $haystack
-     * @param bool $isMultipleKeyMap Set to true if multiple keymaps are being used.
+     *
+     * @param  array $keyMap
+     * @param  array $haystack
+     * @param  bool  $isMultipleKeyMap Set to true if multiple keymaps are being used.
      * @return array
      */
     public function deepRemoval(array $keyMap, array $haystack, bool $isMultipleKeyMap = false): array

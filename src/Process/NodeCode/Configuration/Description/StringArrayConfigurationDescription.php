@@ -10,12 +10,13 @@ class StringArrayConfigurationDescription extends AbstractConfigurationDescripti
 {
     public function __construct(
         protected array $validOptions = []
-    ){}
+    ) {
+    }
 
     /**
      * @inheritDoc
      */
-    function getType(): string
+    public function getType(): string
     {
         return self::STRING_ARRAY;
     }
@@ -23,7 +24,7 @@ class StringArrayConfigurationDescription extends AbstractConfigurationDescripti
     /**
      * @inheritDoc
      */
-    function isValid(mixed $value): bool
+    public function isValid(mixed $value): bool
     {
         if (empty($this->validOptions)) {
             return is_array($value);

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Flow;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
@@ -18,12 +17,13 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  *
  * Configuration Keys
  *  (No Configuration keys)
- *
- * @package NoLoCo\Core\Process\Node\FlowControl
  */
 class ThrowExceptionProcessingNode implements NodeCodeInterface
 {
-    use NodeCodeMetaTrait, ResultsTrait, ConfigurationTrait, EmptyConfigurationDescriptionTrait;
+    use NodeCodeMetaTrait,
+        ResultsTrait,
+        ConfigurationTrait,
+        EmptyConfigurationDescriptionTrait;
 
     const KEY = 'throw_exception';
 
@@ -41,9 +41,14 @@ class ThrowExceptionProcessingNode implements NodeCodeInterface
         );
     }
 
+    public function getResultDescriptions(): array
+    {
+        return [];
+    }
+
     /**
      * @inheritDoc
-     * @throws ProcessException
+     * @throws     ProcessException
      */
     public function process(ContextInterface $context): ResultInterface
     {

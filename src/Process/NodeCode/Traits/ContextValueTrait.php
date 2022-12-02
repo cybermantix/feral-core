@@ -21,11 +21,12 @@ trait ContextValueTrait
         $this->dataPathReader = $dataPathReader;
         return $this;
     }
-    
+
     /**
      * A helper function to get a value from the context.
-     * @param string $key
-     * @param ContextInterface $context
+     *
+     * @param  string           $key
+     * @param  ContextInterface $context
      * @return mixed
      * @throws UnknownTypeException
      */
@@ -36,8 +37,9 @@ trait ContextValueTrait
 
     /**
      * Get an int value from the context
-     * @param string $key
-     * @param ContextInterface $context
+     *
+     * @param  string           $key
+     * @param  ContextInterface $context
      * @return int
      */
     protected function getRequiredIntValueFromContext(string $key, ContextInterface $context): int
@@ -46,8 +48,8 @@ trait ContextValueTrait
     }
 
     /**
-     * @param string $key
-     * @param ContextInterface $context
+     * @param  string           $key
+     * @param  ContextInterface $context
      * @return string
      */
     protected function getStringValueFromContext(string $key, ContextInterface $context): string

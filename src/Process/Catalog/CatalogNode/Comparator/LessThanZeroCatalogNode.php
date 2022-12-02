@@ -13,7 +13,6 @@ use NoLoCo\Core\Utility\Filter\Criterion;
  */
 class LessThanZeroCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */
@@ -57,10 +56,12 @@ class LessThanZeroCatalogNode implements CatalogNodeInterface
     /**
      * @inheritDoc
      */
-    #[ArrayShape([
+    #[ArrayShape(
+        [
         ContextValueComparatorNodeCode::TEST_VALUE => "int",
         ContextValueComparatorNodeCode::OPERATOR => "string"
-    ])]
+        ]
+    )]
     public function getConfiguration(): array
     {
         return [

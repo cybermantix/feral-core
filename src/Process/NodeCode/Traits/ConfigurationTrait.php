@@ -20,7 +20,8 @@ trait ConfigurationTrait
 
     /**
      * A setter for the class to set the manager.
-     * @param ConfigurationManager $manager
+     *
+     * @param  ConfigurationManager $manager
      * @return $this
      */
     protected function setConfigurationManager(ConfigurationManager $manager): static

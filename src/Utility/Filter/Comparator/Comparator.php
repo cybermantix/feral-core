@@ -12,6 +12,7 @@ class Comparator implements ComparatorInterface
 
     /**
      * Comparator constructor.
+     *
      * @param ComparatorFactory|null $factory
      */
     public function __construct(ComparatorFactory $factory = null)
@@ -25,7 +26,7 @@ class Comparator implements ComparatorInterface
 
     /**
      * @inheritDoc
-     * @throws UnknownComparatorException
+     * @throws     UnknownComparatorException
      */
     public function compare($actual, string $test, $testValue = null): bool
     {
@@ -40,10 +41,12 @@ class Comparator implements ComparatorInterface
             } elseif (is_array($actual) && is_array($testValue)) {
                 return $comparator->compareArrayToArray($actual, $testValue);
             } else {
-                throw new UnknownComparatorException(sprintf(
-                    'Unknown value types for actual and test value for comparator "%s".',
-                    $test
-                ));
+                throw new UnknownComparatorException(
+                    sprintf(
+                        'Unknown value types for actual and test value for comparator "%s".',
+                        $test
+                    )
+                );
             }
         } else {
             if (is_scalar($actual)) {
@@ -51,10 +54,12 @@ class Comparator implements ComparatorInterface
             } elseif (is_array($actual)) {
                 return $comparator->testArray($actual);
             } else {
-                throw new UnknownComparatorException(sprintf(
-                    'Unknown value type for actual for comparator "%s".',
-                    $test
-                ));
+                throw new UnknownComparatorException(
+                    sprintf(
+                        'Unknown value type for actual for comparator "%s".',
+                        $test
+                    )
+                );
             }
         }
         throw new UnknownComparatorException('Unknown Comparator issue.');

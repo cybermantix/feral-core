@@ -3,13 +3,20 @@
 namespace NoLoCo\Core\Process\Event;
 
 use NoLoCo\Core\Process\Context\ContextInterface;
+use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
 use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Psr\EventDispatcher\StoppableEventInterface;
 
-class ProcessNodeNotifyEvent extends Event
+/**
+ * @deprecated Not sure the purpose of this event.
+ */
+class ProcessNodeNotifyEvent implements StoppableEventInterface
 {
+    use StoppableEventTrait;
+
     /**
      * The node dispatching the event.
+     *
      * @var NodeCodeInterface
      */
     protected NodeCodeInterface $node;
@@ -22,6 +29,7 @@ class ProcessNodeNotifyEvent extends Event
 
     /**
      * Information about the node
+     *
      * @var string
      */
     protected string $notice = '';
@@ -35,7 +43,7 @@ class ProcessNodeNotifyEvent extends Event
     }
 
     /**
-     * @param NodeCodeInterface $node
+     * @param  NodeCodeInterface $node
      * @return ProcessNodeNotifyEvent
      */
     public function setNode(NodeCodeInterface $node): ProcessNodeNotifyEvent
@@ -53,7 +61,7 @@ class ProcessNodeNotifyEvent extends Event
     }
 
     /**
-     * @param string $notice
+     * @param  string $notice
      * @return ProcessNodeNotifyEvent
      */
     public function setNotice(string $notice): ProcessNodeNotifyEvent
@@ -71,7 +79,7 @@ class ProcessNodeNotifyEvent extends Event
     }
 
     /**
-     * @param ContextInterface $context
+     * @param  ContextInterface $context
      * @return ProcessNodeNotifyEvent
      */
     public function setContext(ContextInterface $context): ProcessNodeNotifyEvent

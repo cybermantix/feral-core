@@ -22,6 +22,7 @@ class DataPathReader implements DataPathReaderInterface
 
     /**
      * The path delimiter which to explode a string into an array
+     *
      * @var string
      */
     protected string $delimiter = DataPathReaderInterface::DEFAULT_DELIMITER;
@@ -30,7 +31,7 @@ class DataPathReader implements DataPathReaderInterface
 
     /**
      * @inheritDoc
-     * @throws UnknownTypeException
+     * @throws     UnknownTypeException
      */
     public function get($data, string $path)
     {
@@ -107,8 +108,8 @@ class DataPathReader implements DataPathReaderInterface
     }
 
     /**
-     * @param $data
-     * @param array $path
+     * @param  $data
+     * @param  array $path
      * @return mixed
      * @throws UnknownTypeException
      */
@@ -134,8 +135,9 @@ class DataPathReader implements DataPathReaderInterface
 
     /**
      * Get mixed data from a scalar
-     * @param $data
-     * @param string $key
+     *
+     * @param  $data
+     * @param  string $key
      * @return mixed
      */
     protected function getFromScalar($data, string $key): mixed
@@ -145,9 +147,10 @@ class DataPathReader implements DataPathReaderInterface
 
     /**
      * Get a mixed value from an array
-     * @param array $data
-     * @param string $key
-     * @param array $path
+     *
+     * @param  array  $data
+     * @param  string $key
+     * @param  array  $path
      * @return array|mixed
      * @throws UnknownTypeException
      */
@@ -161,7 +164,7 @@ class DataPathReader implements DataPathReaderInterface
             $values = [];
             foreach ($data as $datum){
                 $results = $this->doGet($datum, $path);
-                if($results){
+                if($results) {
                     $values[] = $results;
                 }
             }
@@ -174,8 +177,9 @@ class DataPathReader implements DataPathReaderInterface
      *   1. CHECK IF THE ACCESSOR METHOD EXISTS
      *   2. CHECK IF A GENERAL GET FUNCTION EXISTS
      *   3. CHECK IF THE PROPERTY IS EXPOSED
-     * @param $data
-     * @param string $key
+     *
+     * @param  $data
+     * @param  string $key
      * @return mixed|null
      */
     protected function getFromObject($data, string $key): mixed

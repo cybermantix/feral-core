@@ -1,14 +1,11 @@
 
-###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
-###< symfony/framework-bundle ###
+
 /composer/
+/docker/
+/vendor/
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -87,12 +84,20 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
 
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+docker/.env
+docker/.env.developer
+docker/bin/startup
+docker/docker-compose.yaml
+docker/Dockerfile
+docker/etc/nginx.conf
+docker/etc/php.ini-development
+docker/etc/xdebug.ini
+docker/etc/zz-docker-dev.conf
+docker/etc/zz-docker.conf
+docker/Makefile
+docker/Welcome

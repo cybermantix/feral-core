@@ -7,6 +7,9 @@ use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use NoLoCo\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \NoLoCo\Core\Process\Catalog\Catalog
+ */
 class CatalogTest extends TestCase
 {
     protected Catalog $catalog;

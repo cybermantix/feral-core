@@ -30,7 +30,8 @@ interface ConfigurationValueModifierInterface
     /**
      * Test weather the concrete implementation can modify
      * the value based on the current value.
-     * @param mixed $value
+     *
+     * @param  mixed $value
      * @return bool
      */
     public function accepts(mixed $value): bool;
@@ -42,7 +43,8 @@ interface ConfigurationValueModifierInterface
      * key to a secret instead of its actual secret providing
      * more security by not showing the secret itself in the
      * configuration.
-     * @param mixed $value
+     *
+     * @param  mixed $value
      * @return mixed
      */
     public function modifyValue(mixed $value): mixed;

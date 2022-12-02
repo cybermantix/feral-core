@@ -21,7 +21,7 @@ class NodeCodeCollection
     }
 
     /**
-     * @param NodeCodeInterface[] $nodeCodes
+     * @param  NodeCodeInterface[] $nodeCodes
      * @return $this
      */
     public function addNodeCodeArray(array $nodeCodes): self

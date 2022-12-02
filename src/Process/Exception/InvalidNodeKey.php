@@ -4,6 +4,9 @@ namespace NoLoCo\Core\Process\Exception;
 
 use Exception;
 
+/**
+ * Invalid node key
+ */
 class InvalidNodeKey extends Exception
 {
     public function __construct(
@@ -11,7 +14,7 @@ class InvalidNodeKey extends Exception
         string $message = "",
         int $code = 0,
         ?Throwable $previous = null
-    ){
+    ) {
         parent::__construct($message, $code, $previous);
     }
 

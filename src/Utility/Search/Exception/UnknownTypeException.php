@@ -9,6 +9,7 @@ use Throwable;
 /**
  * The type of data is not supported.
  * Class UnknownTypeException
+ *
  * @package NoLoCo\Utility\Search\Exception
  */
 class UnknownTypeException extends Exception

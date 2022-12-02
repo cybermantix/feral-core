@@ -47,7 +47,7 @@ class ProcessEngineTest extends TestCase
         $this->factory->method('getNodeCode')->will(
             $this->returnCallback(function ($key) {
                 $result = new Result();
-                $code = match($key) {
+                $code = match ($key) {
                     'one' => ResultInterface::OK,
                     'two' => ResultInterface::STOP,
                 };

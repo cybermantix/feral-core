@@ -51,7 +51,8 @@ class PeriscopeNotationParser implements PeriscopeNotationParserInterface
 
     /**
      * Parse a string in periscope notation into three parts.
-     * @param string $criterionString
+     *
+     * @param  string $criterionString
      * @return array
      * @throws FilterParserException
      */
@@ -62,10 +63,13 @@ class PeriscopeNotationParser implements PeriscopeNotationParserInterface
         list($leftPosition, $rightPosition) = $this->getPositions($criterionString);
 
         $key = trim(substr($criterionString, 0, $leftPosition));
-        $operator = trim(substr(
-            $criterionString,
-            $leftPosition + $leftLength,
-            $rightPosition - $leftPosition - $rightLength));
+        $operator = trim(
+            substr(
+                $criterionString,
+                $leftPosition + $leftLength,
+                $rightPosition - $leftPosition - $rightLength
+            )
+        );
         $value = trim(substr($criterionString, $rightPosition + strlen(self::RIGHT_DELIMITER)));
         return [$key, $operator, $value];
     }
@@ -74,7 +78,8 @@ class PeriscopeNotationParser implements PeriscopeNotationParserInterface
     /**
      * Parse a string in periscope notation into two parts. The left side of the delimeter
      * and the value inside the delimeter are returned.
-     * @param string $criterionString
+     *
+     * @param  string $criterionString
      * @return array
      * @throws FilterParserException
      */
@@ -91,7 +96,8 @@ class PeriscopeNotationParser implements PeriscopeNotationParserInterface
 
     /**
      * Parse a string in periscope notation into three parts.
-     * @param string $criterionString
+     *
+     * @param  string $criterionString
      * @return array
      * @throws FilterParserException
      */
@@ -101,16 +107,19 @@ class PeriscopeNotationParser implements PeriscopeNotationParserInterface
         $rightLength = strlen(self::RIGHT_DELIMITER);
         list($leftPosition, $rightPosition) = $this->getPositions($criterionString);
 
-        $operator = trim(substr(
-            $criterionString,
-            $leftPosition + $leftLength,
-            $rightPosition - $leftPosition - $rightLength));
+        $operator = trim(
+            substr(
+                $criterionString,
+                $leftPosition + $leftLength,
+                $rightPosition - $leftPosition - $rightLength
+            )
+        );
         $value = trim(substr($criterionString, $rightPosition + strlen(self::RIGHT_DELIMITER)));
         return [$operator, $value];
     }
 
     /**
-     * @param string $criterionString
+     * @param  string $criterionString
      * @return array
      * @throws FilterParserException
      */
@@ -120,11 +129,13 @@ class PeriscopeNotationParser implements PeriscopeNotationParserInterface
         $rightPosition = strpos($criterionString, self::RIGHT_DELIMITER);
 
         if ($leftPosition >= $rightPosition) {
-            throw new FilterParserException(sprintf(
-                'The left "%d" position must be less than right "%d" position.',
-                $leftPosition,
-                $rightPosition
-            ));
+            throw new FilterParserException(
+                sprintf(
+                    'The left "%d" position must be less than right "%d" position.',
+                    $leftPosition,
+                    $rightPosition
+                )
+            );
         }
 
         return [$leftPosition, $rightPosition];

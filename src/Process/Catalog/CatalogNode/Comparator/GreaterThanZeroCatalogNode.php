@@ -13,7 +13,6 @@ use NoLoCo\Core\Utility\Filter\Criterion;
  */
 class GreaterThanZeroCatalogNode implements CatalogNodeInterface
 {
-
     /**
      * @inheritDoc
      */
@@ -57,22 +56,24 @@ class GreaterThanZeroCatalogNode implements CatalogNodeInterface
     /**
      * @inheritDoc
      */
-    #[ArrayShape([
+    #[ArrayShape(
+        [
         ContextValueComparatorNodeCode::TEST_VALUE => "int",
         ContextValueComparatorNodeCode::OPERATOR => "string"
-    ])]
+        ]
+    )]
     public function getConfiguration(): array
     {
         return [
             ContextValueComparatorNodeCode::TEST_VALUE => 0,
             ContextValueComparatorNodeCode::OPERATOR => Criterion::GT
         ];
-    }    /**
- * @inheritDoc
- */
+    }
+    /**
+     * @inheritDoc
+     */
     public function getConfigurationDescriptions(): array
     {
         return [];
     }
-
 }

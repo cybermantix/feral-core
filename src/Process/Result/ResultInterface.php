@@ -98,26 +98,30 @@ interface ResultInterface
 
     /**
      * Set the status of the results which is used in flow control
-     * @param string $status
+     *
+     * @param  string $status
      * @return $this
      */
     public function setStatus(string $status): static;
 
     /**
      * Get the status of the result which is used in flow control.
+     *
      * @return string
      */
     public function getStatus(): string;
 
     /**
      * Set the message which is used in logging.
-     * @param string $message
+     *
+     * @param  string $message
      * @return $this
      */
     public function setMessage(string $message): static;
 
     /**
      * Get the message used in logging.
+     *
      * @return string
      */
     public function getMessage(): string;

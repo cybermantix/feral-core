@@ -10,6 +10,8 @@ use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 interface CatalogSourceInterface
 {
     /**
+     * Get the catalog nodes available on the system.
+     *
      * @return CatalogNodeInterface[]
      */
     public function getCatalogNodes(): array;

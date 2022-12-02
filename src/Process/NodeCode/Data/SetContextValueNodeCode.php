@@ -1,6 +1,5 @@
 <?php
 
-
 namespace NoLoCo\Core\Process\NodeCode\Data;
 
 use Exception;
@@ -17,6 +16,7 @@ use NoLoCo\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
 use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
 use NoLoCo\Core\Process\Result\ResultInterface;
 use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
@@ -34,15 +34,16 @@ use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
  *
  * @package NoLoCo\Core\Process\Node\Data
  */
-class SetContextValueNodeCode implements NodeCodeInterface {
-
+class SetContextValueNodeCode implements NodeCodeInterface
+{
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
         EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait;
+        ContextMutationTrait,
+        OkResultsTrait;
 
     const OPTION_STRING = 'string';
 
@@ -65,12 +66,13 @@ class SetContextValueNodeCode implements NodeCodeInterface {
     public function __construct(
         DataPathWriter $dataPathWriter = new DataPathWriter(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
-    ){
+    ) {
         $this->setMeta(
             self::KEY,
             self::NAME,
             self::DESCRIPTION,
-            NodeCodeCategoryInterface::DATA)
+            NodeCodeCategoryInterface::DATA
+        )
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter);
     }
@@ -94,19 +96,21 @@ class SetContextValueNodeCode implements NodeCodeInterface {
                 ->setKey(self::VALUE_TYPE)
                 ->setName('Value Type')
                 ->setDescription('The type of variable to set into the context.')
-                ->setOptions([
+                ->setOptions(
+                    [
                     self::OPTION_STRING,
                     self::OPTION_INT,
                     self::OPTION_FLOAT
-                ])
+                    ]
+                )
         ];
     }
 
     /**
      * @inheritDoc
-     * @throws UnknownTypeException
-     * @throws MissingConfigurationValueException|UnknownComparatorException
-     * @throws Exception
+     * @throws     UnknownTypeException
+     * @throws     MissingConfigurationValueException|UnknownComparatorException
+     * @throws     Exception
      */
     public function process(ContextInterface $context): ResultInterface
     {

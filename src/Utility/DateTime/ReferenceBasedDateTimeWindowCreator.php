@@ -6,10 +6,10 @@ use DateTime;
 use DateTimeImmutable;
 
 /**
- * Rule 1	Billing Period Number is the month the billing period start date is in. January is 1, June is 6, December is 12
- * Rule 2	The billing period start date is the provision date unless the provision date is greater than the last day of the month which then becomes the last day of the month.
- * Rule 3	Billing Period end day is one day before the provision date in the next month unless the provision date is greater than the last day of the month, then the billing end date is one day before the end of the month.
- * Rule 4	The number of days in the billing period equals the last day of the month of the billing period minus the billing start date plus the billing end date plus 1
+ * Rule 1    Billing Period Number is the month the billing period start date is in. January is 1, June is 6, December is 12
+ * Rule 2    The billing period start date is the provision date unless the provision date is greater than the last day of the month which then becomes the last day of the month.
+ * Rule 3    Billing Period end day is one day before the provision date in the next month unless the provision date is greater than the last day of the month, then the billing end date is one day before the end of the month.
+ * Rule 4    The number of days in the billing period equals the last day of the month of the billing period minus the billing start date plus the billing end date plus 1
  */
 class ReferenceBasedDateTimeWindowCreator implements DateTimeWindowCreatorInterface
 {

@@ -41,6 +41,7 @@ class SetComparator
 
     /**
      * Keys only found in the left set
+     *
      * @var array
      */
     protected array $leftOnlyKeys = [];
@@ -57,6 +58,7 @@ class SetComparator
 
     /**
      * SetComparison constructor.
+     *
      * @param DataPathReader|null $dataPathReader
      */
     public function __construct(DataPathReader $dataPathReader = null)
@@ -69,7 +71,7 @@ class SetComparator
     }
 
     /**
-     * @param mixed $left
+     * @param  mixed $left
      * @return SetComparator
      */
     public function setLeft($left): self
@@ -79,7 +81,7 @@ class SetComparator
     }
 
     /**
-     * @param mixed $right
+     * @param  mixed $right
      * @return SetComparator
      */
     public function setRight($right): self
@@ -89,8 +91,8 @@ class SetComparator
     }
 
     /**
-     * @param string $keyPath
-     * @param string|null $rightKeyPath Optional right key path if different than the left.
+     * @param  string      $keyPath
+     * @param  string|null $rightKeyPath Optional right key path if different than the left.
      * @return SetComparator
      * @throws InvalidSetException
      * @throws UnknownTypeException
@@ -123,6 +125,7 @@ class SetComparator
     /**
      * Get an array of items found in both.
      * NOTE: Returns the value stored in the left set.
+     *
      * @return array
      */
     public function getMatchingOnly(): array
@@ -136,6 +139,7 @@ class SetComparator
 
     /**
      * Get an array of the values only found in the left set.
+     *
      * @return array
      */
     public function getLeftOnly(): array
@@ -149,6 +153,7 @@ class SetComparator
 
     /**
      * Get an array of the values only found in the left set.
+     *
      * @return array
      */
     public function getRightOnly(): array

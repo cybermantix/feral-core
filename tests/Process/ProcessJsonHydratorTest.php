@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class ProcessJsonHydratorTest extends TestCase
 {
-
     public function testHydrate()
     {
         $hydrator = new ProcessJsonHydrator();
