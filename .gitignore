@@ -6,6 +6,7 @@
 /composer/
 /docker/
 /vendor/
+/var/
 
 .php-cs-fixer.cache
 .DS_Store

@@ -1,10 +1,11 @@
 {
     "name": "noloco/core",
+    "version": "1.0.4",
     "description": "This package provides a powerful core for No Code, Low Code solutions.",
     "keywords": ["no-code", "low-code", "bpms"],
-    "homepage": "https://noloco.net",
+    "homepage": "https://cybermantix.net",
     "type": "library",
-    "license": "Apache License 2.0",
+    "license": "Apache-2.0",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
