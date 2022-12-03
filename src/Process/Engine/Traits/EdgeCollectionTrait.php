@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process\Engine\Traits;
+namespace Nodez\Core\Process\Engine\Traits;
 
-use NoLoCo\Core\Process\Edge\Edge;
-use NoLoCo\Core\Process\Edge\EdgeCollection;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
+use Nodez\Core\Process\Edge\Edge;
+use Nodez\Core\Process\Edge\EdgeCollection;
+use Nodez\Core\Process\Edge\EdgeInterface;
 
 trait EdgeCollectionTrait
 {

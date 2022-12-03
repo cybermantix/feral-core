@@ -1,41 +1,41 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Flow;
+namespace Nodez\Core\Process\NodeCode\Flow;
 
-use NoLoCo\Core\Process\Configuration\ConfigurationManager;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
-use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\NodeCode\Traits\BooleanResultsTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
-use NoLoCo\Core\Process\Result\ResultInterface;
-use NoLoCo\Core\Utility\Filter\Comparator\Comparator;
-use NoLoCo\Core\Utility\Filter\Comparator\ComparatorInterface;
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
-use NoLoCo\Core\Utility\Filter\Criterion;
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
+use Nodez\Core\Process\Configuration\ConfigurationManager;
+use Nodez\Core\Process\Context\ContextInterface;
+use Nodez\Core\Process\Exception\MissingConfigurationValueException;
+use Nodez\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use Nodez\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Nodez\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
+use Nodez\Core\Process\NodeCode\NodeCodeInterface;
+use Nodez\Core\Process\NodeCode\Traits\BooleanResultsTrait;
+use Nodez\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use Nodez\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
+use Nodez\Core\Process\NodeCode\Traits\ContextValueTrait;
+use Nodez\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
+use Nodez\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use Nodez\Core\Process\NodeCode\Traits\ResultsTrait;
+use Nodez\Core\Process\Result\ResultInterface;
+use Nodez\Core\Utility\Filter\Comparator\Comparator;
+use Nodez\Core\Utility\Filter\Comparator\ComparatorInterface;
+use Nodez\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Nodez\Core\Utility\Filter\Criterion;
+use Nodez\Core\Utility\Search\DataPathReader;
+use Nodez\Core\Utility\Search\DataPathReaderInterface;
+use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Class ComparatorNode
  * Test if a value in the context passes a test with an operator.
- * To see the list of available operators see \NoLoCo\Core\Utility\Filter\Criterion
+ * To see the list of available operators see \Nodez\Core\Utility\Filter\Criterion
  *
  * Configuration Keys
  *  operator    - The operator used in the test
  *  test_value  - The value used to test the actual value in the context
  *  context_path - The key used to retrieve the actual value from the context
  *
- * @package NoLoCo\Core\Process\Node\FlowControl
+ * @package Nodez\Core\Process\Node\FlowControl
  */
 class ContextValueComparatorNodeCode implements NodeCodeInterface
 {

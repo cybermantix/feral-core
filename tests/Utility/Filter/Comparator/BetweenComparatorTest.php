@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Filter\Comparator\BetweenComparator;
+use Nodez\Core\Utility\Filter\Comparator\BetweenComparator;
 use PHPUnit\Framework\TestCase;
 
 class BetweenComparatorTest extends TestCase

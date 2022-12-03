@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Node;
+namespace Nodez\Core\Process\Node;
 
-use NoLoCo\Core\Process\Exception\InvalidNodeKey;
+use Nodez\Core\Process\Exception\InvalidNodeKey;
 
 /**
  * Store a collection of nodes and access by key.

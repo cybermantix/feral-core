@@ -1,24 +1,24 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Data;
+namespace Nodez\Core\Process\NodeCode\Data;
 
 use Exception;
-use NoLoCo\Core\Process\Configuration\ConfigurationManager;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
-use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
-use NoLoCo\Core\Process\Result\ResultInterface;
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Nodez\Core\Process\Configuration\ConfigurationManager;
+use Nodez\Core\Process\Context\ContextInterface;
+use Nodez\Core\Process\Exception\MissingConfigurationValueException;
+use Nodez\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use Nodez\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Nodez\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
+use Nodez\Core\Process\NodeCode\NodeCodeInterface;
+use Nodez\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use Nodez\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
+use Nodez\Core\Process\NodeCode\Traits\ContextValueTrait;
+use Nodez\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
+use Nodez\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use Nodez\Core\Process\NodeCode\Traits\OkResultsTrait;
+use Nodez\Core\Process\NodeCode\Traits\ResultsTrait;
+use Nodez\Core\Process\Result\ResultInterface;
+use Nodez\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
@@ -31,7 +31,7 @@ use Psr\Log\LogLevel;
  *  message  - The message to log
  *  level - the log level to use
  *
- * @package NoLoCo\Core\Process\Node\Data
+ * @package Nodez\Core\Process\Node\Data
  */
 class LogNodeCode implements NodeCodeInterface
 {

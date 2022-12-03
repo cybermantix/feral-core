@@ -1,12 +1,12 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Nodez\Core\Utility\Filter;
 
 /**
  * Interface PeriscopeNotationParserInterface
  *
- * @package NoLoCo\Core\Utility\Filter
+ * @package Nodez\Core\Utility\Filter
  */
 interface PeriscopeNotationParserInterface
 {

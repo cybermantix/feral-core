@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Result;
+namespace Nodez\Core\Process\Result;
 
 /**
  * A generic result returned from a node

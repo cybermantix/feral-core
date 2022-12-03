@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Catalog\CatalogSource;
+namespace Nodez\Core\Tests\Process\Catalog\CatalogSource;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNode;
-use NoLoCo\Core\Process\Catalog\CatalogSource\CatalogSource;
+use Nodez\Core\Process\Catalog\CatalogNode\CatalogNode;
+use Nodez\Core\Process\Catalog\CatalogSource\CatalogSource;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationCatalogSourceTest extends TestCase

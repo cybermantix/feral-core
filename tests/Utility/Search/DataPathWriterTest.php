@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\Search;
+namespace Nodez\Core\Tests\Utility\Search;
 
-use NoLoCo\Core\Utility\Search\DataPathWriter;
+use Nodez\Core\Utility\Search\DataPathWriter;
 use PHPUnit\Framework\TestCase;
 
 class DataPathWriterTest extends TestCase

@@ -1,13 +1,13 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\NodeCode\Flow;
+namespace Nodez\Core\Tests\Process\NodeCode\Flow;
 
-use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
-use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
-use NoLoCo\Core\Process\Result\Result;
-use NoLoCo\Core\Process\Result\ResultInterface;
-use NoLoCo\Core\Utility\Filter\Criterion;
+use Nodez\Core\Process\Context\Context;
+use Nodez\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
+use Nodez\Core\Process\Result\Description\ResultDescriptionInterface;
+use Nodez\Core\Process\Result\Result;
+use Nodez\Core\Process\Result\ResultInterface;
+use Nodez\Core\Utility\Filter\Criterion;
 use PHPUnit\Framework\TestCase;
 
 class ContextValueComparatorNodeTest extends TestCase

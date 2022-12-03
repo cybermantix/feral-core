@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Exception;
+namespace Nodez\Core\Process\Exception;
 
 use Exception;
 

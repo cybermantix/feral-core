@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Filter\Comparator\LessThanComparator;
+use Nodez\Core\Utility\Filter\Comparator\LessThanComparator;
 use PHPUnit\Framework\TestCase;
 
 class LessThanComparatorTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Validator;
+namespace Nodez\Core\Process\Validator;
 
 /**
  * Make sure all the nodes have edges pointing to them.

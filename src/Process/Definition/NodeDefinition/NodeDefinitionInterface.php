@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Definition\NodeDefinition;
+namespace Nodez\Core\Process\Definition\NodeDefinition;
 
 /**
  * A node definition is a description of a node and can

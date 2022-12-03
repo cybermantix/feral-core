@@ -1,13 +1,13 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Scalar;
+namespace Nodez\Core\Utility\Scalar;
 
 /**
  * Class FloatUtility
  * Helpful functions for float variables.
  *
- * @package NoLoCo\Core\Utility\Scalar
+ * @package Nodez\Core\Utility\Scalar
  */
 class FloatUtility
 {

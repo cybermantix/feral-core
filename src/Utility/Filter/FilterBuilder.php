@@ -1,13 +1,13 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Nodez\Core\Utility\Filter;
 
 use DateTimeImmutable;
-use NoLoCo\Core\Utility\DateTime\DateTimeFormats;
-use NoLoCo\Core\Utility\Filter\Exception\CriterionException;
-use NoLoCo\Core\Utility\Filter\Exception\FilterLimitException;
-use NoLoCo\Core\Utility\Scalar\FloatUtility;
+use Nodez\Core\Utility\DateTime\DateTimeFormats;
+use Nodez\Core\Utility\Filter\Exception\CriterionException;
+use Nodez\Core\Utility\Filter\Exception\FilterLimitException;
+use Nodez\Core\Utility\Scalar\FloatUtility;
 
 /**
  * Class FilterBuilder
@@ -22,7 +22,7 @@ use NoLoCo\Core\Utility\Scalar\FloatUtility;
  *                ->equal('foo', 'bang') // foo = bar OR foo = bang
  *                ->build();
  *
- * @package NoLoCo\Core\Utility\Entity\Filter
+ * @package Nodez\Core\Utility\Entity\Filter
  */
 class FilterBuilder
 {

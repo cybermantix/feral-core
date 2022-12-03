@@ -1,12 +1,12 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\NodeCode\Data;
+namespace Nodez\Core\Tests\Process\NodeCode\Data;
 
-use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\NodeCode\Data\SetContextTableNodeCode;
-use NoLoCo\Core\Process\NodeCode\Data\SetContextValueNodeCode;
-use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Nodez\Core\Process\Context\Context;
+use Nodez\Core\Process\NodeCode\Data\SetContextTableNodeCode;
+use Nodez\Core\Process\NodeCode\Data\SetContextValueNodeCode;
+use Nodez\Core\Process\Result\Description\ResultDescriptionInterface;
+use Nodez\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
 class SetContextTableNodeCodeTest extends TestCase

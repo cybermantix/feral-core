@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Nodez\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
+use Nodez\Core\Process\Exception\MissingConfigurationValueException;
 
 /**
  * Add the methods used to get the configuration values

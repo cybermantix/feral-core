@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Nodez\Core\Process\NodeCode\Traits;
 
 use Exception;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Utility\Search\DataPathWriter;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
+use Nodez\Core\Process\Context\ContextInterface;
+use Nodez\Core\Utility\Search\DataPathWriter;
+use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Mutate the context by adding or removing values.

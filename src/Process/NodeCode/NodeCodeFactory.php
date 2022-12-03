@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode;
+namespace Nodez\Core\Process\NodeCode;
 
-use NoLoCo\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
+use Nodez\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
 
 /**
  * A factory which can build node code objects based

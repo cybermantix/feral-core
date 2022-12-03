@@ -1,12 +1,12 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Set;
+namespace Nodez\Core\Utility\Set;
 
 /**
  * Class ArrayUtility
  *
- * @package NoLoCo\Core\Utility\Set
+ * @package Nodez\Core\Utility\Set
  */
 class ArrayUtility
 {

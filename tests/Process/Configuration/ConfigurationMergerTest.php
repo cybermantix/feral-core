@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Configuration;
+namespace Nodez\Core\Tests\Process\Configuration;
 
-use NoLoCo\Core\Process\Configuration\ConfigurationManager;
+use Nodez\Core\Process\Configuration\ConfigurationManager;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationMergerTest extends TestCase

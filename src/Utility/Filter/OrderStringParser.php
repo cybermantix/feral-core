@@ -1,9 +1,9 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Nodez\Core\Utility\Filter;
 
-use NoLoCo\Core\Utility\Filter\Exception\FilterParserException;
+use Nodez\Core\Utility\Filter\Exception\FilterParserException;
 
 class OrderStringParser extends AbstractPeriscopeNotationParser implements OrderStringParserInterface
 {

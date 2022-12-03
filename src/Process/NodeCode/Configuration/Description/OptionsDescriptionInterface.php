@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Configuration\Description;
+namespace Nodez\Core\Process\NodeCode\Configuration\Description;
 
 /**
  * A configuration description that has options.

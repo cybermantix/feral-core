@@ -1,24 +1,24 @@
 <?php
 
-namespace NoLoCo\Core\Process\Engine;
+namespace Nodez\Core\Process\Engine;
 
-use NoLoCo\Core\Process\Catalog\CatalogInterface;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\EdgeCollection;
-use NoLoCo\Core\Process\Engine\Traits\EdgeCollectionTrait;
-use NoLoCo\Core\Process\Engine\Traits\NodeCodeCollectionTrait;
-use NoLoCo\Core\Process\Engine\Traits\NodeCollectionTrait;
-use NoLoCo\Core\Process\Event\ProcessEndEvent;
-use NoLoCo\Core\Process\Event\ProcessNodeAfterEvent;
-use NoLoCo\Core\Process\Event\ProcessNodeBeforeEvent;
-use NoLoCo\Core\Process\Event\ProcessStartEvent;
-use NoLoCo\Core\Process\Exception\InvalidNodeKey;
-use NoLoCo\Core\Process\Node\NodeCollection;
-use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\ProcessInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Nodez\Core\Process\Catalog\CatalogInterface;
+use Nodez\Core\Process\Context\ContextInterface;
+use Nodez\Core\Process\Edge\EdgeCollection;
+use Nodez\Core\Process\Engine\Traits\EdgeCollectionTrait;
+use Nodez\Core\Process\Engine\Traits\NodeCodeCollectionTrait;
+use Nodez\Core\Process\Engine\Traits\NodeCollectionTrait;
+use Nodez\Core\Process\Event\ProcessEndEvent;
+use Nodez\Core\Process\Event\ProcessNodeAfterEvent;
+use Nodez\Core\Process\Event\ProcessNodeBeforeEvent;
+use Nodez\Core\Process\Event\ProcessStartEvent;
+use Nodez\Core\Process\Exception\InvalidNodeKey;
+use Nodez\Core\Process\Node\NodeCollection;
+use Nodez\Core\Process\Node\NodeInterface;
+use Nodez\Core\Process\NodeCode\NodeCodeFactory;
+use Nodez\Core\Process\NodeCode\NodeCodeInterface;
+use Nodez\Core\Process\ProcessInterface;
+use Nodez\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**

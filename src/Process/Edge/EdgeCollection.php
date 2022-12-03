@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Edge;
+namespace Nodez\Core\Process\Edge;
 
 /**
  * A collection of edges held in a 3D array.

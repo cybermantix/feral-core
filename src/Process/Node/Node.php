@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Node;
+namespace Nodez\Core\Process\Node;
 
 /**
  * A concrete implementation of the process node.

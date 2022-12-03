@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\DateTime;
+namespace Nodez\Core\Tests\Utility\DateTime;
 
-use NoLoCo\Core\Utility\DateTime\ReferenceBasedDateTimeWindowCreator;
+use Nodez\Core\Utility\DateTime\ReferenceBasedDateTimeWindowCreator;
 use PHPUnit\Framework\TestCase;
 
 class ReferenceBasedDateTimeWindowCreatorTest extends TestCase

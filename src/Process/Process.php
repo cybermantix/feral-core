@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process;
+namespace Nodez\Core\Process;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use Nodez\Core\Process\Context\ContextInterface;
+use Nodez\Core\Process\Edge\EdgeInterface;
+use Nodez\Core\Process\Node\NodeInterface;
 
 /**
  * The concrete process.

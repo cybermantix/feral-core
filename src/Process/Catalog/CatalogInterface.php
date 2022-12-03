@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog;
+namespace Nodez\Core\Process\Catalog;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 
 /**
  * The catalog is a list of catalog nodes available to be

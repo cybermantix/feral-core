@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Result;
+namespace Nodez\Core\Process\Result;
 
 /**
  * After a node is processed it will return a result

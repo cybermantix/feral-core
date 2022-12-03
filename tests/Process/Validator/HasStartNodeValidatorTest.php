@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Validator;
+namespace Nodez\Core\Tests\Process\Validator;
 
-use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\Validator\HasStartNodeValidator;
-use NoLoCo\Core\Process\Validator\ValidatorInterface;
+use Nodez\Core\Process\Node\NodeInterface;
+use Nodez\Core\Process\Validator\HasStartNodeValidator;
+use Nodez\Core\Process\Validator\ValidatorInterface;
 use PHPUnit\Framework\TestCase;
 
 class HasStartNodeValidatorTest extends TestCase

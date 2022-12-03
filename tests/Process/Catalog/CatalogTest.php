@@ -1,14 +1,14 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Catalog;
+namespace Nodez\Core\Tests\Process\Catalog;
 
-use NoLoCo\Core\Process\Catalog\Catalog;
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use NoLoCo\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
+use Nodez\Core\Process\Catalog\Catalog;
+use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Nodez\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \NoLoCo\Core\Process\Catalog\Catalog
+ * @covers \Nodez\Core\Process\Catalog\Catalog
  */
 class CatalogTest extends TestCase
 {

@@ -1,29 +1,29 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter\Comparator;
+namespace Nodez\Core\Utility\Filter\Comparator;
 
 
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
-use NoLoCo\Core\Utility\Filter\Criterion;
+use Nodez\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Nodez\Core\Utility\Filter\Criterion;
 
 class ComparatorFactory
 {
     const DEFAULT = [
-        Criterion::EQ => '\NoLoCo\Core\Utility\Filter\Comparator\EqualComparator',
-        Criterion::NOT => '\NoLoCo\Core\Utility\Filter\Comparator\NotEqualComparator',
-        Criterion::GT => '\NoLoCo\Core\Utility\Filter\Comparator\GreaterThanComparator',
-        Criterion::GTE => '\NoLoCo\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator',
-        Criterion::LT => '\NoLoCo\Core\Utility\Filter\Comparator\LessThanComparator',
-        Criterion::LTE => '\NoLoCo\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator',
-        Criterion::IN => '\NoLoCo\Core\Utility\Filter\Comparator\InComparator',
-        Criterion::NIN => '\NoLoCo\Core\Utility\Filter\Comparator\NotInComparator',
-        Criterion::BETWEEN => '\NoLoCo\Core\Utility\Filter\Comparator\BetweenComparator',
-        Criterion::EMPTY => '\NoLoCo\Core\Utility\Filter\Comparator\EmptyTest',
-        Criterion::NOT_EMPTY => '\NoLoCo\Core\Utility\Filter\Comparator\NotEmptyTest',
-        Criterion::STARTS => '\NoLoCo\Core\Utility\Filter\Comparator\StartsWithComparator',
-        Criterion::ENDS => '\NoLoCo\Core\Utility\Filter\Comparator\EndsWithComparator',
-        Criterion::CONTAINS => '\NoLoCo\Core\Utility\Filter\Comparator\ContainsComparator',
+        Criterion::EQ => '\Nodez\Core\Utility\Filter\Comparator\EqualComparator',
+        Criterion::NOT => '\Nodez\Core\Utility\Filter\Comparator\NotEqualComparator',
+        Criterion::GT => '\Nodez\Core\Utility\Filter\Comparator\GreaterThanComparator',
+        Criterion::GTE => '\Nodez\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator',
+        Criterion::LT => '\Nodez\Core\Utility\Filter\Comparator\LessThanComparator',
+        Criterion::LTE => '\Nodez\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator',
+        Criterion::IN => '\Nodez\Core\Utility\Filter\Comparator\InComparator',
+        Criterion::NIN => '\Nodez\Core\Utility\Filter\Comparator\NotInComparator',
+        Criterion::BETWEEN => '\Nodez\Core\Utility\Filter\Comparator\BetweenComparator',
+        Criterion::EMPTY => '\Nodez\Core\Utility\Filter\Comparator\EmptyTest',
+        Criterion::NOT_EMPTY => '\Nodez\Core\Utility\Filter\Comparator\NotEmptyTest',
+        Criterion::STARTS => '\Nodez\Core\Utility\Filter\Comparator\StartsWithComparator',
+        Criterion::ENDS => '\Nodez\Core\Utility\Filter\Comparator\EndsWithComparator',
+        Criterion::CONTAINS => '\Nodez\Core\Utility\Filter\Comparator\ContainsComparator',
     ];
     protected array $registry = [];
 

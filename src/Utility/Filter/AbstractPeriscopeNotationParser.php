@@ -1,7 +1,7 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Nodez\Core\Utility\Filter;
 
 
 abstract class AbstractPeriscopeNotationParser

@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process\Event;
+namespace Nodez\Core\Process\Event;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
-use NoLoCo\Core\Process\ProcessInterface;
+use Nodez\Core\Process\Context\ContextInterface;
+use Nodez\Core\Process\Event\Traits\StoppableEventTrait;
+use Nodez\Core\Process\ProcessInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
 /**

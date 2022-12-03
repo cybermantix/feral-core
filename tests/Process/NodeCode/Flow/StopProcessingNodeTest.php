@@ -1,13 +1,13 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\NodeCode\Flow;
+namespace Nodez\Core\Tests\Process\NodeCode\Flow;
 
-use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\NodeCode\Flow\StartProcessingNode;
-use NoLoCo\Core\Process\NodeCode\Flow\StopProcessingNode;
-use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
-use NoLoCo\Core\Process\Result\Result;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Nodez\Core\Process\Context\Context;
+use Nodez\Core\Process\NodeCode\Flow\StartProcessingNode;
+use Nodez\Core\Process\NodeCode\Flow\StopProcessingNode;
+use Nodez\Core\Process\Result\Description\ResultDescriptionInterface;
+use Nodez\Core\Process\Result\Result;
+use Nodez\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
 class StopProcessingNodeTest extends TestCase

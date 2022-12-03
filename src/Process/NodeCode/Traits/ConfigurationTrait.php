@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Nodez\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Configuration\ConfigurationManager;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use Nodez\Core\Process\Configuration\ConfigurationManager;
+use Nodez\Core\Process\NodeCode\NodeCodeInterface;
 
 trait ConfigurationTrait
 {

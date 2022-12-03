@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogNode\Flow;
+namespace Nodez\Core\Process\Catalog\CatalogNode\Flow;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 
 /**
  * The first node in a process. This node will have the result

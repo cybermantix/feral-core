@@ -1,12 +1,12 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Set;
+namespace Nodez\Core\Utility\Set;
 
 
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
-use NoLoCo\Core\Utility\Set\Exception\InvalidSetException;
+use Nodez\Core\Utility\Search\DataPathReader;
+use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
+use Nodez\Core\Utility\Set\Exception\InvalidSetException;
 
 /**
  * Class SetComparison
@@ -23,7 +23,7 @@ use NoLoCo\Core\Utility\Set\Exception\InvalidSetException;
  *    $leftOnlyItems = $comparator->getLeftOnly();
  *    $rightOnlyItems = $comparator->getRightOnly();
  *
- * @package NoLoCo\Core\Utility\Set
+ * @package Nodez\Core\Utility\Set
  */
 class SetComparator
 {

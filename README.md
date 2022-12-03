@@ -6,29 +6,29 @@ Time after time at tech conference, online, some asshole manager I was criticise
 
 So you don't think a No-Code-Low-Code system should be written in PHP?? Fine, [Piss off and Go Away](https://www.urbandictionary.com/define.php?term=Elitest).
 
-NoLoCo is a No-Code-Low-Code framework written in PHP. This project is the free and open core which contains the basic tools for NoLoCo.
+Nodez is a No-Code-Low-Code framework written in PHP. This project is the free and open core which contains the basic tools for Nodez.
 
-# NoLoCo
+# Nodez
 
-As you already know, NoLoCo stands for No/Low-Code and yes, it's written in PHP.  The point of NoLoCo is to make an easy to use, easy to modify No/Low-Code solution that is accessible to anybody.
+As you already know, Nodez stands for No/Low-Code and yes, it's written in PHP.  The point of Nodez is to make an easy to use, easy to modify No/Low-Code solution that is accessible to anybody.
 
-## NoLoCo-Core
+## Nodez-Core
 
 This project is the core code used for the processes. It contains the basics needed for the engine, the validation, and a basic set of NodeCode and CatalogNodes.
 
 The code can be run inline with other code by executing a proceess and getting the results of the process.
 
-## NoLoCo - Bundle
+## Nodez - Bundle
 
-If you want to use NoLoCo inside of your Symfony project, then include the NoLoCo bundle in your Symfony project. From there you can call the process engine directly.
+If you want to use Nodez inside of your Symfony project, then include the Nodez bundle in your Symfony project. From there you can call the process engine directly.
 
-## NoLoCo - Runtime Plane
+## Nodez - Runtime Plane
 
-If you want a robust runtime plane with one to many nodes processing requests via the HTTP, then get the Docker NoLoCo Runtime Plane Image. 
+If you want a robust runtime plane with one to many nodes processing requests via the HTTP, then get the Docker Nodez Runtime Plane Image. 
 
-## NoLoCo - Queue Processor
+## Nodez - Queue Processor
 
-If you want to process a queue with NoLoCo, use the Docker image for the NoLoCo queue processor that will dequeue messages and process them using a NoLoCo process.
+If you want to process a queue with Nodez, use the Docker image for the Nodez queue processor that will dequeue messages and process them using a Nodez process.
 
 ## Our model : Free-Promium
 

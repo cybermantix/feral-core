@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter\Adapter;
+namespace Nodez\Core\Utility\Filter\Adapter;
 
-use NoLoCo\Core\Utility\Filter\Filter;
+use Nodez\Core\Utility\Filter\Filter;
 
 interface AdapterInterface
 {

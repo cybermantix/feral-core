@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Filter\Comparator\EqualComparator;
+use Nodez\Core\Utility\Filter\Comparator\EqualComparator;
 use PHPUnit\Framework\TestCase;
 
 class EqualComparatorTest extends TestCase

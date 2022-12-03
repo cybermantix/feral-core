@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter\Comparator;
+namespace Nodez\Core\Utility\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Scalar\FloatUtility;
+use Nodez\Core\Utility\Scalar\FloatUtility;
 
 class BetweenComparator implements ScalarToArrayComparatorInterface
 {

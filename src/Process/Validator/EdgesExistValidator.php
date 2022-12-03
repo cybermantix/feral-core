@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Validator;
+namespace Nodez\Core\Process\Validator;
 
 /**
  * Check if the set of nodes contains the start node.

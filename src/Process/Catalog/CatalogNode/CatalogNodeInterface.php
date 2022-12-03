@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogNode;
+namespace Nodez\Core\Process\Catalog\CatalogNode;
 
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Nodez\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
 
 /**
  * A catalog node provides information to the user

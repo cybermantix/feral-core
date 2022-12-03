@@ -1,15 +1,15 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter\Adapter;
+namespace Nodez\Core\Utility\Filter\Adapter;
 
-use NoLoCo\Core\Utility\Filter\Adapter\Exception\AdapterException;
-use NoLoCo\Core\Utility\Filter\Comparator\Comparator;
-use NoLoCo\Core\Utility\Filter\Comparator\ComparatorInterface;
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
-use NoLoCo\Core\Utility\Filter\Criterion;
-use NoLoCo\Core\Utility\Filter\Filter;
-use NoLoCo\Core\Utility\Filter\Order;
+use Nodez\Core\Utility\Filter\Adapter\Exception\AdapterException;
+use Nodez\Core\Utility\Filter\Comparator\Comparator;
+use Nodez\Core\Utility\Filter\Comparator\ComparatorInterface;
+use Nodez\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Nodez\Core\Utility\Filter\Criterion;
+use Nodez\Core\Utility\Filter\Filter;
+use Nodez\Core\Utility\Filter\Order;
 
 class ArrayAdapter implements AdapterInterface
 {

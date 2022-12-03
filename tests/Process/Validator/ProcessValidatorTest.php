@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Validator;
+namespace Nodez\Core\Tests\Process\Validator;
 
-use NoLoCo\Core\Process\ProcessInterface;
-use NoLoCo\Core\Process\Validator\ProcessValidator;
-use NoLoCo\Core\Process\Validator\ProcessValidatorInterface;
-use NoLoCo\Core\Process\Validator\ValidatorInterface;
+use Nodez\Core\Process\ProcessInterface;
+use Nodez\Core\Process\Validator\ProcessValidator;
+use Nodez\Core\Process\Validator\ProcessValidatorInterface;
+use Nodez\Core\Process\Validator\ValidatorInterface;
 use PHPUnit\Framework\TestCase;
 
 class ProcessValidatorTest extends TestCase

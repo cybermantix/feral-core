@@ -1,15 +1,15 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Search;
+namespace Nodez\Core\Utility\Search;
 
 use stdClass;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
+use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * This general utility will allow data be modified in an object or
  * array.
  *
- * @package NoLoCo\Utility\Search
+ * @package Nodez\Utility\Search
  */
 interface DataPathWriterInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Context;
+namespace Nodez\Core\Process\Context;
 
 /**
  * A process context is a set of data that is passed from node

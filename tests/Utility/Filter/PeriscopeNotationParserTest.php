@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\Filter;
+namespace Nodez\Core\Tests\Utility\Filter;
 
-use NoLoCo\Core\Utility\Filter\Exception\FilterParserException;
-use NoLoCo\Core\Utility\Filter\PeriscopeNotationParser;
+use Nodez\Core\Utility\Filter\Exception\FilterParserException;
+use Nodez\Core\Utility\Filter\PeriscopeNotationParser;
 use PHPUnit\Framework\TestCase;
 
 class PeriscopeNotationParserTest extends TestCase

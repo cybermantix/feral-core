@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Utility\DateTime;
+namespace Nodez\Core\Utility\DateTime;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\DateTimeType;

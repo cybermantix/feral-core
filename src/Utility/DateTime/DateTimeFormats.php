@@ -1,7 +1,7 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\DateTime;
+namespace Nodez\Core\Utility\DateTime;
 
 
 interface DateTimeFormats

@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Edge;
+namespace Nodez\Core\Process\Edge;
 
 /**
  * A collection of edges with helper functions to manipulate the collection.

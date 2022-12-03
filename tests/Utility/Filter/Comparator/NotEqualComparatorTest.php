@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Filter\Comparator\NotEqualComparator;
+use Nodez\Core\Utility\Filter\Comparator\NotEqualComparator;
 use PHPUnit\Framework\TestCase;
 
 class NotEqualComparatorTest extends TestCase

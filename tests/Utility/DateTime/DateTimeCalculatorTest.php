@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\DateTime;
+namespace Nodez\Core\Tests\Utility\DateTime;
 
-use NoLoCo\Core\Utility\DateTime\DateTimeCalculator;
+use Nodez\Core\Utility\DateTime\DateTimeCalculator;
 use PHPUnit\Framework\TestCase;
 use DateTimeImmutable;
 

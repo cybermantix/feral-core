@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Nodez\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
+use Nodez\Core\Process\Context\ContextInterface;
+use Nodez\Core\Utility\Search\DataPathReader;
+use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Add the functions to get values from the context.

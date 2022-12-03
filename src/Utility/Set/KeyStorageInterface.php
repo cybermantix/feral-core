@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Set;
+namespace Nodez\Core\Utility\Set;
 
 interface KeyStorageInterface
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process\Reader;
+namespace Nodez\Core\Process\Reader;
 
 use Exception;
-use NoLoCo\Core\Process\ProcessJsonHydrator;
-use NoLoCo\Core\Process\ProcessSourceInterface;
+use Nodez\Core\Process\ProcessJsonHydrator;
+use Nodez\Core\Process\ProcessSourceInterface;
 
 /**
  * Read a directory of process files and return Process objects.

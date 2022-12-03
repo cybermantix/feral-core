@@ -1,10 +1,10 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter\Comparator;
+namespace Nodez\Core\Utility\Filter\Comparator;
 
 
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Nodez\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 
 class Comparator implements ComparatorInterface
 {

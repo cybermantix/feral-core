@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Nodez\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Result\Description\ResultDescription;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Nodez\Core\Process\Result\Description\ResultDescription;
+use Nodez\Core\Process\Result\ResultInterface;
 
 /**
  * A trait to return the result descriptions for a

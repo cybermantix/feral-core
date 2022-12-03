@@ -1,13 +1,13 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Nodez\Core\Utility\Filter;
 
 /**
  * Class Criteria
  * Criteria is a key/test evaluation set which can filter down
  * a set of data.
  *
- * @package NoLoCo\Core\Utility\Entity\Filter
+ * @package Nodez\Core\Utility\Entity\Filter
  */
 class Criterion
 {

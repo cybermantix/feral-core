@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Context;
+namespace Nodez\Core\Process\Context;
 
 /**
  * @see ContextInterface

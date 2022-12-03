@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Validator;
+namespace Nodez\Core\Process\Validator;
 
-use NoLoCo\Core\Process\ProcessInterface;
+use Nodez\Core\Process\ProcessInterface;
 
 /**
  * Run the nodes, edges, and start key against all the available

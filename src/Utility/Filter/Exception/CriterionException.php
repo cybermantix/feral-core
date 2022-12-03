@@ -1,7 +1,7 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter\Exception;
+namespace Nodez\Core\Utility\Filter\Exception;
 
 use Exception;
 

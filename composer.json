@@ -1,8 +1,8 @@
 {
     "name": "cybermantix/nodez-core",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "This package provides a powerful core for No Code, Low Code solutions.",
-    "keywords": ["no-code", "low-code", "bpms"],
+    "keywords": ["nodez", "nodes", "edges", "process" ,"no-code", "low-code", "bpm", "bpms"],
     "homepage": "https://cybermantix.com",
     "type": "library",
     "license": "Apache-2.0",
@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NoLoCo\\Core\\": "src/"
+            "Nodez\\Core\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NoLoCo\\Core\\Tests\\": "tests/"
+            "Nodez\\Core\\Tests\\": "tests/"
         }
     }
 }

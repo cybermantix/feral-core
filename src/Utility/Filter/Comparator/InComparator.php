@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter\Comparator;
+namespace Nodez\Core\Utility\Filter\Comparator;
 
 class InComparator implements ScalarToArrayComparatorInterface, ArrayToArrayComparatorInterface
 {

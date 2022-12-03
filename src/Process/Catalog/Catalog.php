@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog;
+namespace Nodez\Core\Process\Catalog;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use NoLoCo\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
+use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Nodez\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
 
 class Catalog implements CatalogInterface
 {

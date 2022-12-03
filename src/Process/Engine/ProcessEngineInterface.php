@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Engine;
+namespace Nodez\Core\Process\Engine;
 
-use NoLoCo\Core\Process\ProcessInterface;
+use Nodez\Core\Process\ProcessInterface;
 
 /**
  * A process engine manages the flow between the nodes and the

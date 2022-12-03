@@ -1,18 +1,18 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Engine;
+namespace Nodez\Core\Tests\Process\Engine;
 
-use NoLoCo\Core\Process\Catalog\CatalogInterface;
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\Edge\Edge;
-use NoLoCo\Core\Process\Engine\ProcessEngine;
-use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\Process;
-use NoLoCo\Core\Process\Result\Result;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Nodez\Core\Process\Catalog\CatalogInterface;
+use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Nodez\Core\Process\Context\Context;
+use Nodez\Core\Process\Edge\Edge;
+use Nodez\Core\Process\Engine\ProcessEngine;
+use Nodez\Core\Process\Node\NodeInterface;
+use Nodez\Core\Process\NodeCode\NodeCodeFactory;
+use Nodez\Core\Process\NodeCode\NodeCodeInterface;
+use Nodez\Core\Process\Process;
+use Nodez\Core\Process\Result\Result;
+use Nodez\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
