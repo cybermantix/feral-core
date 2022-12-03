@@ -1,9 +1,9 @@
 {
-    "name": "noloco/core",
+    "name": "cybermantix/nodez-core",
     "version": "1.0.5",
     "description": "This package provides a powerful core for No Code, Low Code solutions.",
     "keywords": ["no-code", "low-code", "bpms"],
-    "homepage": "https://cybermantix.net",
+    "homepage": "https://cybermantix.com",
     "type": "library",
     "license": "Apache-2.0",
     "minimum-stability": "stable",
