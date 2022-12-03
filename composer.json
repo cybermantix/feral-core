@@ -1,6 +1,6 @@
 {
-    "name": "cybermantix/nodez-core",
-    "version": "1.0.7",
+    "name": "nodez/core",
+    "version": "1.0.8",
     "description": "This package provides a powerful core for No Code, Low Code solutions.",
     "keywords": ["nodez", "nodes", "edges", "process" ,"no-code", "low-code", "bpm", "bpms"],
     "homepage": "https://cybermantix.com",
