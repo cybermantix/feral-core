@@ -10,7 +10,7 @@ use NoLoCo\Core\Process\ProcessInterface;
  */
 class ProcessValidator implements ProcessValidatorInterface
 {
-    public function __construct(private iterable $validators)
+    public function __construct(private iterable $validators = [])
     {
     }
 

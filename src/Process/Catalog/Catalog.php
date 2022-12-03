@@ -9,7 +9,7 @@ class Catalog implements CatalogInterface
 {
     private array $catalogNodes;
 
-    public function __construct(iterable $sources)
+    public function __construct(iterable $sources = [])
     {
         /**
          * @var CatalogSourceInterface $source

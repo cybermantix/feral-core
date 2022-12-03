@@ -15,11 +15,11 @@ class NodeCodeFactory
      */
     protected array $nodeCodes = [];
 
-    public function __construct(iterable $sources)
+    public function __construct(iterable $sources = [])
     {
         /**
- * @var NodeCodeSourceInterface $source
-*/
+         * @var NodeCodeSourceInterface $source
+         */
         foreach ($sources as $source) {
             foreach ($source->getNodeCodes() as $nodeCode) {
                 $key = $nodeCode->getKey();
