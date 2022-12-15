@@ -4,17 +4,34 @@ namespace Nodez\Core\Process\Catalog;
 
 use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use Nodez\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
+use Nodez\Core\Process\Exception\ProcessException;
 
+/**
+ * The catalog is a container that holds all of the catalog
+ * nodes and the nodes can be accessed and returned by the catalog
+ * node's key.
+ */
 class Catalog implements CatalogInterface
 {
-    private array $catalogNodes;
+    /**
+     * The nodes stored in this catalog.
+     * @var array
+     */
+    private array $catalogNodes = [];
 
+    /**
+     * @param iterable|CatalogSourceInterface[] $sources
+     * @throws ProcessException
+     */
     public function __construct(iterable $sources = [])
     {
         /**
          * @var CatalogSourceInterface $source
          */
         foreach ($sources as $source) {
+            if (!is_a($source, CatalogSourceInterface::class)) {
+                throw new ProcessException('The Catalog requires CatalogSourceInterface objects.');
+            }
             foreach ($source->getCatalogNodes() as $node) {
                 $key = $node->getKey();
                 if (!empty($key)) {
