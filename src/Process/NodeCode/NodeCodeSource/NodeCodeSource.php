@@ -13,8 +13,9 @@ class NodeCodeSource implements NodeCodeSourceInterface
         /**
          * @var CatalogNodeInterface[]
          */
-        private array $nodeCodes = []
+        private iterable $nodeCodes = []
     ) {
+        $this->nodeCodes = iterator_to_array($this->nodeCodes);
     }
 
     /**

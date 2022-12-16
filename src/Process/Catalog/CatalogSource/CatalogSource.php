@@ -13,8 +13,9 @@ class CatalogSource implements CatalogSourceInterface
         /**
          * @var CatalogNodeInterface[]
          */
-        private array $catalogNodes = []
+        private iterable $catalogNodes = []
     ) {
+        $this->catalogNodes = iterator_to_array($this->catalogNodes);
     }
 
     /**
