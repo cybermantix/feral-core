@@ -12,6 +12,7 @@ class ProcessValidator implements ProcessValidatorInterface
 {
     public function __construct(private iterable $validators = [])
     {
+        $this->validators = iterator_to_array($validators);
     }
 
     /**

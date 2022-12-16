@@ -15,6 +15,7 @@ class ProcessSource implements ProcessSourceInterface
     public function __construct(
         private iterable $sources = []
     ){
+        $this->sources = iterator_to_array($sources);
     }
 
     /**
