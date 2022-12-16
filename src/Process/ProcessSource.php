@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process;
+namespace Nodez\Core\Process;
 
 use Nodez\Core\Process\ProcessSourceInterface;
 
