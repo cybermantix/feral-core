@@ -10,7 +10,7 @@
     <ini name="error_reporting" value="-1"/>
   </php>
   <testsuites>
-    <testsuite name="Nodez Core Test Suite">
+    <testsuite name="Feral Core Test Suite">
       <directory>tests/</directory>
     </testsuite>
   </testsuites>

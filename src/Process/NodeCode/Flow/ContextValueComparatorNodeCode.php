@@ -28,14 +28,13 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 /**
  * Class ComparatorNode
  * Test if a value in the context passes a test with an operator.
- * To see the list of available operators see \Nodez\Core\Utility\Filter\Criterion
+ * To see the list of available operators see \Feral\Core\Utility\Filter\Criterion
  *
  * Configuration Keys
  *  operator    - The operator used in the test
  *  test_value  - The value used to test the actual value in the context
  *  context_path - The key used to retrieve the actual value from the context
  *
- * @package Nodez\Core\Process\Node\FlowControl
  */
 class ContextValueComparatorNodeCode implements NodeCodeInterface
 {

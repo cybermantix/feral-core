@@ -10,7 +10,6 @@ use Feral\Core\Utility\Set\ArrayUtility;
  * Class StringUtility
  * Functions used to help with strings.
  *
- * @package Nodez\Core\Utility\Scalar
  */
 class StringUtility
 {

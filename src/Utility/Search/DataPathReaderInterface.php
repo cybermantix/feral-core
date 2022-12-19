@@ -10,7 +10,6 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  * This general utility will allow data to be found and typed within a set of data.
  * Interface DataPathReaderInterface
  *
- * @package Nodez\Utility\Search
  */
 interface DataPathReaderInterface
 {

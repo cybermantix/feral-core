@@ -10,20 +10,20 @@ use Feral\Core\Utility\Filter\Criterion;
 class ComparatorFactory
 {
     const DEFAULT = [
-        Criterion::EQ => '\Nodez\Core\Utility\Filter\Comparator\EqualComparator',
-        Criterion::NOT => '\Nodez\Core\Utility\Filter\Comparator\NotEqualComparator',
-        Criterion::GT => '\Nodez\Core\Utility\Filter\Comparator\GreaterThanComparator',
-        Criterion::GTE => '\Nodez\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator',
-        Criterion::LT => '\Nodez\Core\Utility\Filter\Comparator\LessThanComparator',
-        Criterion::LTE => '\Nodez\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator',
-        Criterion::IN => '\Nodez\Core\Utility\Filter\Comparator\InComparator',
-        Criterion::NIN => '\Nodez\Core\Utility\Filter\Comparator\NotInComparator',
-        Criterion::BETWEEN => '\Nodez\Core\Utility\Filter\Comparator\BetweenComparator',
-        Criterion::EMPTY => '\Nodez\Core\Utility\Filter\Comparator\EmptyTest',
-        Criterion::NOT_EMPTY => '\Nodez\Core\Utility\Filter\Comparator\NotEmptyTest',
-        Criterion::STARTS => '\Nodez\Core\Utility\Filter\Comparator\StartsWithComparator',
-        Criterion::ENDS => '\Nodez\Core\Utility\Filter\Comparator\EndsWithComparator',
-        Criterion::CONTAINS => '\Nodez\Core\Utility\Filter\Comparator\ContainsComparator',
+        Criterion::EQ => '\Feral\Core\Utility\Filter\Comparator\EqualComparator',
+        Criterion::NOT => '\Feral\Core\Utility\Filter\Comparator\NotEqualComparator',
+        Criterion::GT => '\Feral\Core\Utility\Filter\Comparator\GreaterThanComparator',
+        Criterion::GTE => '\Feral\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator',
+        Criterion::LT => '\Feral\Core\Utility\Filter\Comparator\LessThanComparator',
+        Criterion::LTE => '\Feral\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator',
+        Criterion::IN => '\Feral\Core\Utility\Filter\Comparator\InComparator',
+        Criterion::NIN => '\Feral\Core\Utility\Filter\Comparator\NotInComparator',
+        Criterion::BETWEEN => '\Feral\Core\Utility\Filter\Comparator\BetweenComparator',
+        Criterion::EMPTY => '\Feral\Core\Utility\Filter\Comparator\EmptyTest',
+        Criterion::NOT_EMPTY => '\Feral\Core\Utility\Filter\Comparator\NotEmptyTest',
+        Criterion::STARTS => '\Feral\Core\Utility\Filter\Comparator\StartsWithComparator',
+        Criterion::ENDS => '\Feral\Core\Utility\Filter\Comparator\EndsWithComparator',
+        Criterion::CONTAINS => '\Feral\Core\Utility\Filter\Comparator\ContainsComparator',
     ];
     protected array $registry = [];
 

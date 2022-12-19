@@ -35,7 +35,6 @@ use Feral\Core\Utility\Filter\Exception\FilterParserException;
  *                ╲           ╱
  *                   `─────'
  *
- * @package Nodez\Core\Utility\Filter
  */
 class PeriscopeNotationParser implements PeriscopeNotationParserInterface
 {

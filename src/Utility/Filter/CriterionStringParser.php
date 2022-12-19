@@ -8,7 +8,6 @@ use Feral\Core\Utility\Filter\Exception\FilterParserException;
 /**
  * Class PeriscopeNotationParser
  *
- * @package Nodez\Core\Utility\Filter
  */
 class CriterionStringParser extends AbstractPeriscopeNotationParser implements CriterionStringParserInterface
 {

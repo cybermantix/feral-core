@@ -31,7 +31,6 @@ use Feral\Core\Utility\Search\DataPathWriter;
  * Configuration Keys
  *  table  - The associative array
  *
- * @package Nodez\Core\Process\Node\Data
  */
 class SetContextTableNodeCode implements NodeCodeInterface
 {

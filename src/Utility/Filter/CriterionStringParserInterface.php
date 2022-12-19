@@ -6,7 +6,6 @@ namespace Feral\Core\Utility\Filter;
 /**
  * Interface CriterionStringParserInterface
  *
- * @package Nodez\Core\Utility\Filter
  */
 interface CriterionStringParserInterface
 {

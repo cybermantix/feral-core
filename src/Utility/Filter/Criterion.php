@@ -7,7 +7,6 @@ namespace Feral\Core\Utility\Filter;
  * Criteria is a key/test evaluation set which can filter down
  * a set of data.
  *
- * @package Nodez\Core\Utility\Entity\Filter
  */
 class Criterion
 {

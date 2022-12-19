@@ -9,7 +9,6 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  * This general utility will allow data be modified in an object or
  * array.
  *
- * @package Nodez\Utility\Search
  */
 interface DataPathWriterInterface
 {

@@ -6,7 +6,7 @@ namespace Feral\Core\Process\Catalog\CatalogNode\Flow;
  * The last node in a process. This node will have the result
  * of "OK".
  */
-class StopCatalogNode implements \Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface
+class StopCatalogNode implements \Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface
 {
     /**
      * @inheritDoc

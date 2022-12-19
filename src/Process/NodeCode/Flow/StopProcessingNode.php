@@ -20,7 +20,6 @@ use Feral\Core\Process\Result\ResultInterface;
  * Configuration Keys
  *  (No Configuration keys)
  *
- * @package Nodez\Core\Process\Node\FlowControl
  */
 class StopProcessingNode implements NodeCodeInterface
 {

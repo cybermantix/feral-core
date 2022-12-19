@@ -8,7 +8,6 @@ use Feral\Core\Utility\Filter\Exception\FilterParserException;
 /**
  * Interface CriterionStringParserInterface
  *
- * @package Nodez\Core\Utility\Filter
  */
 interface OrderStringParserInterface
 {

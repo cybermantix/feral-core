@@ -8,7 +8,7 @@ use Feral\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Nodez\Core\Process\Catalog\Catalog
+ * @covers \Feral\Core\Process\Catalog\Catalog
  */
 class CatalogTest extends TestCase
 {

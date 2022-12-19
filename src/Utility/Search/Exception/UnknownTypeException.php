@@ -10,7 +10,6 @@ use Throwable;
  * The type of data is not supported.
  * Class UnknownTypeException
  *
- * @package Nodez\Utility\Search\Exception
  */
 class UnknownTypeException extends Exception
 {

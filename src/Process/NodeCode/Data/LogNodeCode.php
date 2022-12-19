@@ -31,7 +31,6 @@ use Psr\Log\LogLevel;
  *  message  - The message to log
  *  level - the log level to use
  *
- * @package Nodez\Core\Process\Node\Data
  */
 class LogNodeCode implements NodeCodeInterface
 {

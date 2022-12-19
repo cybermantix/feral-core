@@ -23,7 +23,6 @@ use Feral\Core\Utility\Set\Exception\InvalidSetException;
  *    $leftOnlyItems = $comparator->getLeftOnly();
  *    $rightOnlyItems = $comparator->getRightOnly();
  *
- * @package Nodez\Core\Utility\Set
  */
 class SetComparator
 {

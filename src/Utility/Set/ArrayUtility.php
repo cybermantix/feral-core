@@ -6,7 +6,6 @@ namespace Feral\Core\Utility\Set;
 /**
  * Class ArrayUtility
  *
- * @package Nodez\Core\Utility\Set
  */
 class ArrayUtility
 {

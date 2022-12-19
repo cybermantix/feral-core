@@ -7,7 +7,6 @@ namespace Feral\Core\Utility\Scalar;
  * Class FloatUtility
  * Helpful functions for float variables.
  *
- * @package Nodez\Core\Utility\Scalar
  */
 class FloatUtility
 {

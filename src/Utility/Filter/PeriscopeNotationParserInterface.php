@@ -6,7 +6,6 @@ namespace Feral\Core\Utility\Filter;
 /**
  * Interface PeriscopeNotationParserInterface
  *
- * @package Nodez\Core\Utility\Filter
  */
 interface PeriscopeNotationParserInterface
 {

@@ -22,7 +22,6 @@ use Feral\Core\Utility\Scalar\FloatUtility;
  *                ->equal('foo', 'bang') // foo = bar OR foo = bang
  *                ->build();
  *
- * @package Nodez\Core\Utility\Entity\Filter
  */
 class FilterBuilder
 {

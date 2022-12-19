@@ -17,7 +17,6 @@ namespace Feral\Core\Utility\Filter;
  *  3) Two similar criterion keys and one different key
  *      WHERE (foo >= 'test' OR foo <= 'test2') AND bar = 'test3'
  *
- * @package Nodez\Core\Utility\Entity
  */
 class Filter
 {

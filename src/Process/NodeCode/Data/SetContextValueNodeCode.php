@@ -32,7 +32,6 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  *  context_path - The key in the context that will be set
  *  value_type - The type of var to place into the context
  *
- * @package Nodez\Core\Process\Node\Data
  */
 class SetContextValueNodeCode implements NodeCodeInterface
 {

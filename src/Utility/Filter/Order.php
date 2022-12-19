@@ -6,7 +6,6 @@ namespace Feral\Core\Utility\Filter;
  * Class Order
  * A key/direction pair used to sort a set of data.
  *
- * @package Nodez\Core\Utility\Entity\Filter
  */
 class Order
 {

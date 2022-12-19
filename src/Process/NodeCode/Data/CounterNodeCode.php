@@ -31,7 +31,6 @@ use Feral\Core\Utility\Search\DataPathWriter;
  * Configuration Keys
  *  context_path - The path in the context
  *
- * @package Nodez\Core\Process\Node\Data
  */
 class CounterNodeCode implements NodeCodeInterface
 {

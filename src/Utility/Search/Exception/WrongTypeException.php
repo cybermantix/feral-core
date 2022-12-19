@@ -10,7 +10,6 @@ use Throwable;
  * The class of the data didn't match the expected class.
  * Class UnknownTypeException
  *
- * @package Nodez\Utility\Search\Exception
  */
 class WrongTypeException extends Exception
 {
