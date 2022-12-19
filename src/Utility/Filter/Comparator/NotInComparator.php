@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Filter\Comparator;
+namespace Feral\Core\Utility\Filter\Comparator;
 
 
 class NotInComparator implements ScalarToArrayComparatorInterface, ArrayToArrayComparatorInterface

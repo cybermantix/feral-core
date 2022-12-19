@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
-use Nodez\Core\Utility\Filter\Exception\FilterParserException;
+use Feral\Core\Utility\Filter\Exception\FilterParserException;
 
 /**
  * Interface CriterionStringParserInterface

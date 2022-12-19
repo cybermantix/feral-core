@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\DateTime;
+namespace Feral\Core\Tests\Utility\DateTime;
 
-use Nodez\Core\Utility\DateTime\DateTimeCalculator;
+use Feral\Core\Utility\DateTime\DateTimeCalculator;
 use PHPUnit\Framework\TestCase;
 use DateTimeImmutable;
 

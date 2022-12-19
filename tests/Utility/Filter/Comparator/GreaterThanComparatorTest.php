@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use Nodez\Core\Utility\Filter\Comparator\GreaterThanComparator;
+use Feral\Core\Utility\Filter\Comparator\GreaterThanComparator;
 use PHPUnit\Framework\TestCase;
 
 class GreaterThanComparatorTest extends TestCase

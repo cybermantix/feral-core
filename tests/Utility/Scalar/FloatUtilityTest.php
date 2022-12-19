@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\Scalar;
+namespace Feral\Core\Tests\Utility\Scalar;
 
-use Nodez\Core\Utility\Scalar\FloatUtility;
+use Feral\Core\Utility\Scalar\FloatUtility;
 use PHPUnit\Framework\TestCase;
 
 class FloatUtilityTest extends TestCase

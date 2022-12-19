@@ -1,18 +1,18 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\Engine;
+namespace Feral\Core\Tests\Process\Engine;
 
-use Nodez\Core\Process\Catalog\CatalogInterface;
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Nodez\Core\Process\Context\Context;
-use Nodez\Core\Process\Edge\Edge;
-use Nodez\Core\Process\Engine\ProcessEngine;
-use Nodez\Core\Process\Node\NodeInterface;
-use Nodez\Core\Process\NodeCode\NodeCodeFactory;
-use Nodez\Core\Process\NodeCode\NodeCodeInterface;
-use Nodez\Core\Process\Process;
-use Nodez\Core\Process\Result\Result;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Catalog\CatalogInterface;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\Edge\Edge;
+use Feral\Core\Process\Engine\ProcessEngine;
+use Feral\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\NodeCode\NodeCodeFactory;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\Process;
+use Feral\Core\Process\Result\Result;
+use Feral\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\EventDispatcher\EventDispatcherInterface;
 

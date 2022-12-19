@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode;
+namespace Feral\Core\Process\NodeCode;
 
-use Nodez\Core\Process\Exception\InvalidNodeCodeKey;
+use Feral\Core\Process\Exception\InvalidNodeCodeKey;
 
 /**
  * Store a collection of node codes and access by key.

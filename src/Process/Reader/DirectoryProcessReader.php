@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Reader;
+namespace Feral\Core\Process\Reader;
 
 use Exception;
-use Nodez\Core\Process\ProcessJsonHydrator;
-use Nodez\Core\Process\ProcessSourceInterface;
+use Feral\Core\Process\ProcessJsonHydrator;
+use Feral\Core\Process\ProcessSourceInterface;
 
 /**
  * Read a directory of process files and return Process objects.

@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process;
+namespace Feral\Core\Process;
 
-use Nodez\Core\Process\Context\ContextInterface;
-use Nodez\Core\Process\Edge\EdgeInterface;
-use Nodez\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Node\NodeInterface;
 
 /**
  * The concrete process.

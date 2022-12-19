@@ -1,9 +1,9 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\Catalog\CatalogSource;
+namespace Feral\Core\Tests\Process\Catalog\CatalogSource;
 
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNode;
-use Nodez\Core\Process\Catalog\CatalogSource\CatalogSource;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNode;
+use Feral\Core\Process\Catalog\CatalogSource\CatalogSource;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationCatalogSourceTest extends TestCase

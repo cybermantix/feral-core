@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Set;
+namespace Feral\Core\Utility\Set;
 
 /**
  * Class ArrayUtility

@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\Search;
+namespace Feral\Core\Tests\Utility\Search;
 
-use Nodez\Core\Utility\Search\DataPathWriter;
+use Feral\Core\Utility\Search\DataPathWriter;
 use PHPUnit\Framework\TestCase;
 
 class DataPathWriterTest extends TestCase

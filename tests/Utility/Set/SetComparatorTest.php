@@ -1,9 +1,9 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\Set;
+namespace Feral\Core\Tests\Utility\Set;
 
-use Nodez\Core\Utility\Set\Exception\InvalidSetException;
-use Nodez\Core\Utility\Set\SetComparator;
+use Feral\Core\Utility\Set\Exception\InvalidSetException;
+use Feral\Core\Utility\Set\SetComparator;
 use PHPUnit\Framework\TestCase;
 
 class SetComparatorTest extends TestCase

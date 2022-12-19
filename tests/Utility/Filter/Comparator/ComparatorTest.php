@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use Nodez\Core\Utility\Filter\Comparator\Comparator;
-use Nodez\Core\Utility\Filter\Criterion;
+use Feral\Core\Utility\Filter\Comparator\Comparator;
+use Feral\Core\Utility\Filter\Criterion;
 use PHPUnit\Framework\TestCase;
 
 class ComparatorTest extends TestCase

@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Event;
+namespace Feral\Core\Process\Event;
 
-use Nodez\Core\Process\Context\ContextInterface;
-use Nodez\Core\Process\Event\Traits\StoppableEventTrait;
-use Nodez\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Event\Traits\StoppableEventTrait;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
 /**

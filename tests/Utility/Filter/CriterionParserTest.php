@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\Filter;
+namespace Feral\Core\Tests\Utility\Filter;
 
-use Nodez\Core\Utility\Filter\CriterionStringParser;
-use Nodez\Core\Utility\Filter\Exception\FilterParserException;
-use Nodez\Core\Utility\Filter\PeriscopeNotationParser;
+use Feral\Core\Utility\Filter\CriterionStringParser;
+use Feral\Core\Utility\Filter\Exception\FilterParserException;
+use Feral\Core\Utility\Filter\PeriscopeNotationParser;
 use PHPUnit\Framework\TestCase;
 
 class CriterionParserTest extends TestCase

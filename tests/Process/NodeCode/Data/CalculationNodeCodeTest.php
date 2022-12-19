@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\NodeCode\Data;
+namespace Feral\Core\Tests\Process\NodeCode\Data;
 
-use Nodez\Core\Process\Context\Context;
-use Nodez\Core\Process\NodeCode\Data\CalculationNodeCode;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\NodeCode\Data\CalculationNodeCode;
+use Feral\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
 class CalculationNodeCodeTest extends TestCase

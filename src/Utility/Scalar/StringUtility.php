@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Scalar;
+namespace Feral\Core\Utility\Scalar;
 
 use InvalidArgumentException;
-use Nodez\Core\Utility\Set\ArrayUtility;
+use Feral\Core\Utility\Set\ArrayUtility;
 
 /**
  * Class StringUtility

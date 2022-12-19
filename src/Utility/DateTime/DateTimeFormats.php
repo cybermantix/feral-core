@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nodez\Core\Utility\DateTime;
+namespace Feral\Core\Utility\DateTime;
 
 
 interface DateTimeFormats

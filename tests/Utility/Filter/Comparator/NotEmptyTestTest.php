@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use Nodez\Core\Utility\Filter\Comparator\NotEmptyTest;
+use Feral\Core\Utility\Filter\Comparator\NotEmptyTest;
 use PHPUnit\Framework\TestCase;
 
 class NotEmptyTestTest extends TestCase

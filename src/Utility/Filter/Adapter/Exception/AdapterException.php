@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Filter\Adapter\Exception;
+namespace Feral\Core\Utility\Filter\Adapter\Exception;
 
 use Exception;
 

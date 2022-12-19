@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Engine\Traits;
+namespace Feral\Core\Process\Engine\Traits;
 
-use Nodez\Core\Process\Exception\InvalidNodeCodeKey;
-use Nodez\Core\Process\NodeCode\NodeCodeCollection;
-use Nodez\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\Exception\InvalidNodeCodeKey;
+use Feral\Core\Process\NodeCode\NodeCodeCollection;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
 
 /**
  * Store nodes and make them accessible by key

@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\Edge;
+namespace Feral\Core\Process\Edge;
 
 /**
  * A collection of edges held in a 3D array.

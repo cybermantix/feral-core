@@ -1,5 +1,5 @@
 {
-    "name": "nodez/core",
+    "name": "feral/core",
     "version": "1.0.15",
     "description": "This package provides a powerful core for No Code, Low Code solutions.",
     "keywords": ["nodez", "nodes", "edges", "process" ,"no-code", "low-code", "bpm", "bpms"],
@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Nodez\\Core\\": "src/"
+            "Feral\\Core\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Nodez\\Core\\Tests\\": "tests/"
+            "Feral\\Core\\Tests\\": "tests/"
         }
     }
 }

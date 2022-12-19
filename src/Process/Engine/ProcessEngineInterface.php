@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\Engine;
+namespace Feral\Core\Process\Engine;
 
-use Nodez\Core\Process\ProcessInterface;
+use Feral\Core\Process\ProcessInterface;
 
 /**
  * A process engine manages the flow between the nodes and the

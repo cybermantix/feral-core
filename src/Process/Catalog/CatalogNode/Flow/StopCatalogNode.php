@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\Catalog\CatalogNode\Flow;
+namespace Feral\Core\Process\Catalog\CatalogNode\Flow;
 
 /**
  * The last node in a process. This node will have the result

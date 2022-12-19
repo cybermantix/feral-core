@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Engine\Traits;
+namespace Feral\Core\Process\Engine\Traits;
 
-use Nodez\Core\Process\Edge\Edge;
-use Nodez\Core\Process\Edge\EdgeCollection;
-use Nodez\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Edge\Edge;
+use Feral\Core\Process\Edge\EdgeCollection;
+use Feral\Core\Process\Edge\EdgeInterface;
 
 trait EdgeCollectionTrait
 {

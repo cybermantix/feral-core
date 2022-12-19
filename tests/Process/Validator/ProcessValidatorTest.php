@@ -1,11 +1,11 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\Validator;
+namespace Feral\Core\Tests\Process\Validator;
 
-use Nodez\Core\Process\ProcessInterface;
-use Nodez\Core\Process\Validator\ProcessValidator;
-use Nodez\Core\Process\Validator\ProcessValidatorInterface;
-use Nodez\Core\Process\Validator\ValidatorInterface;
+use Feral\Core\Process\ProcessInterface;
+use Feral\Core\Process\Validator\ProcessValidator;
+use Feral\Core\Process\Validator\ProcessValidatorInterface;
+use Feral\Core\Process\Validator\ValidatorInterface;
 use PHPUnit\Framework\TestCase;
 
 class ProcessValidatorTest extends TestCase

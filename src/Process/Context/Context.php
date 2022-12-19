@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\Context;
+namespace Feral\Core\Process\Context;
 
 /**
  * @see ContextInterface

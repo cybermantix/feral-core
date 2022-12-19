@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\Validator;
+namespace Feral\Core\Process\Validator;
 
 /**
  * Check if the set of nodes contains the start node.

@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Utility\Filter\Comparator;
+namespace Feral\Core\Utility\Filter\Comparator;
 
-use Nodez\Core\Utility\Scalar\FloatUtility;
+use Feral\Core\Utility\Scalar\FloatUtility;
 
 class LessThanOrEqualToComparator implements ScalarToScalarComparatorInterface, ArrayToScalarComparatorInterface
 {

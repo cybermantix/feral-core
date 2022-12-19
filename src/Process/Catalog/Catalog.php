@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Catalog;
+namespace Feral\Core\Process\Catalog;
 
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Nodez\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
-use Nodez\Core\Process\Exception\ProcessException;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
+use Feral\Core\Process\Exception\ProcessException;
 
 /**
  * The catalog is a container that holds all of the catalog

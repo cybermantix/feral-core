@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\Result;
+namespace Feral\Core\Process\Result;
 
 /**
  * After a node is processed it will return a result

@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Catalog\CatalogNode\Log;
+namespace Feral\Core\Process\Catalog\CatalogNode\Log;
 
 use JetBrains\PhpStorm\ArrayShape;
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Nodez\Core\Process\NodeCode\Data\LogNodeCode;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\NodeCode\Data\LogNodeCode;
 use Psr\Log\LogLevel;
 
 /**

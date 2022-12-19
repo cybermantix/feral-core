@@ -1,12 +1,12 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\Filter;
+namespace Feral\Core\Tests\Utility\Filter;
 
-use Nodez\Core\Utility\Filter\Criterion;
-use Nodez\Core\Utility\Filter\Exception\CriterionException;
-use Nodez\Core\Utility\Filter\Exception\FilterLimitException;
-use Nodez\Core\Utility\Filter\FilterBuilder;
-use Nodez\Core\Utility\Filter\Order;
+use Feral\Core\Utility\Filter\Criterion;
+use Feral\Core\Utility\Filter\Exception\CriterionException;
+use Feral\Core\Utility\Filter\Exception\FilterLimitException;
+use Feral\Core\Utility\Filter\FilterBuilder;
+use Feral\Core\Utility\Filter\Order;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 

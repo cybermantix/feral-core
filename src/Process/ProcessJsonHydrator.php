@@ -1,14 +1,14 @@
 <?php
 
-namespace Nodez\Core\Process;
+namespace Feral\Core\Process;
 
 use Exception;
-use Nodez\Core\Process\Context\Context;
-use Nodez\Core\Process\Context\ContextInterface;
-use Nodez\Core\Process\Edge\Edge;
-use Nodez\Core\Process\Edge\EdgeInterface;
-use Nodez\Core\Process\Node\Node;
-use Nodez\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Edge\Edge;
+use Feral\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Node\Node;
+use Feral\Core\Process\Node\NodeInterface;
 
 /**
  * Hydrate a json string into a process object

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use Nodez\Core\Utility\Filter\Comparator\NotInComparator;
+use Feral\Core\Utility\Filter\Comparator\NotInComparator;
 use PHPUnit\Framework\TestCase;
 
 class NotInComparatorTest extends TestCase

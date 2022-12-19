@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\Validator;
+namespace Feral\Core\Tests\Process\Validator;
 
-use Nodez\Core\Process\Node\NodeInterface;
-use Nodez\Core\Process\Validator\HasStartNodeValidator;
-use Nodez\Core\Process\Validator\ValidatorInterface;
+use Feral\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Validator\HasStartNodeValidator;
+use Feral\Core\Process\Validator\ValidatorInterface;
 use PHPUnit\Framework\TestCase;
 
 class HasStartNodeValidatorTest extends TestCase

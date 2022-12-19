@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode\NodeCodeSource;
+namespace Feral\Core\Process\NodeCode\NodeCodeSource;
 
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 
 /**
  * A catalog source provides CatalogNodes to a catalog.

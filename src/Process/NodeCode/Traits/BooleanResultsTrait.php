@@ -1,9 +1,9 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
-use Nodez\Core\Process\Result\Description\ResultDescription;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Result\Description\ResultDescription;
+use Feral\Core\Process\Result\ResultInterface;
 
 /**
  * A trait to return the result descriptions for a

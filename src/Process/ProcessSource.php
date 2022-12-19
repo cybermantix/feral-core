@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process;
+namespace Feral\Core\Process;
 
-use Nodez\Core\Process\ProcessSourceInterface;
+use Feral\Core\Process\ProcessSourceInterface;
 
 /**
  * A generic process source that will hold a collection

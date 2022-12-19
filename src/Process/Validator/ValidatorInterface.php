@@ -1,9 +1,9 @@
 <?php
 
-namespace Nodez\Core\Process\Validator;
+namespace Feral\Core\Process\Validator;
 
-use Nodez\Core\Process\Edge\EdgeInterface;
-use Nodez\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Node\NodeInterface;
 
 /**
  * A validator can validate the nodes, edges, and start node when persisting

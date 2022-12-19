@@ -1,11 +1,11 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\NodeCode\Data;
+namespace Feral\Core\Tests\Process\NodeCode\Data;
 
-use Nodez\Core\Process\Context\Context;
-use Nodez\Core\Process\NodeCode\Data\SetContextValueNodeCode;
-use Nodez\Core\Process\Result\Description\ResultDescriptionInterface;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\NodeCode\Data\SetContextValueNodeCode;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
+use Feral\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
 class SetContextValueNodeCodeTest extends TestCase

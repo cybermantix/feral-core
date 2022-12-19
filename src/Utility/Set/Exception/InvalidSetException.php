@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Set\Exception;
+namespace Feral\Core\Utility\Set\Exception;
 
 
 class InvalidSetException extends \Exception

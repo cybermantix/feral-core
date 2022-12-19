@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
 /**
  * Class Criteria

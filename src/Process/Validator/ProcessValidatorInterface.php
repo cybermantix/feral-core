@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\Validator;
+namespace Feral\Core\Process\Validator;
 
-use Nodez\Core\Process\ProcessInterface;
+use Feral\Core\Process\ProcessInterface;
 
 /**
  * Run the nodes, edges, and start key against all the available

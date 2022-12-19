@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\Definition;
+namespace Feral\Core\Process\Definition;
 
-use Nodez\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Edge\EdgeInterface;
 
 /**
  * A meta object that describes a process and

@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode;
+namespace Feral\Core\Process\NodeCode;
 
-use Nodez\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
+use Feral\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
 
 /**
  * A factory which can build node code objects based

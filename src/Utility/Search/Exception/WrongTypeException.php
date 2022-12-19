@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Search\Exception;
+namespace Feral\Core\Utility\Search\Exception;
 
 use Exception;
 use Throwable;

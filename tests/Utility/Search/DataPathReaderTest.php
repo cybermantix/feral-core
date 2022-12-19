@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Search;
 
-use Nodez\Core\Utility\Search\DataPathReader;
+use Feral\Core\Utility\Search\DataPathReader;
 use PHPUnit\Framework\TestCase;
 
 class DataPathReaderTest extends TestCase

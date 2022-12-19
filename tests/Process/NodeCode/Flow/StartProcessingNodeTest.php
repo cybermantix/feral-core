@@ -1,12 +1,12 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\NodeCode\Flow;
+namespace Feral\Core\Tests\Process\NodeCode\Flow;
 
-use Nodez\Core\Process\Context\Context;
-use Nodez\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
-use Nodez\Core\Process\NodeCode\Flow\StartProcessingNode;
-use Nodez\Core\Process\Result\Description\ResultDescriptionInterface;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
+use Feral\Core\Process\NodeCode\Flow\StartProcessingNode;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
+use Feral\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
 class StartProcessingNodeTest extends TestCase

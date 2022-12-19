@@ -1,17 +1,17 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode\Flow;
+namespace Feral\Core\Process\NodeCode\Flow;
 
-use Nodez\Core\Process\Configuration\ConfigurationManager;
-use Nodez\Core\Process\Context\ContextInterface;
-use Nodez\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Nodez\Core\Process\NodeCode\NodeCodeInterface;
-use Nodez\Core\Process\NodeCode\Traits\ConfigurationTrait;
-use Nodez\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
-use Nodez\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use Nodez\Core\Process\NodeCode\Traits\ResultsTrait;
-use Nodez\Core\Process\Result\Description\ResultDescription;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Configuration\ConfigurationManager;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
+use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
+use Feral\Core\Process\Result\Description\ResultDescription;
+use Feral\Core\Process\Result\ResultInterface;
 
 /**
  * Class ComparatorNode

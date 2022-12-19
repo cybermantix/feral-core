@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Utility\Filter\Adapter;
+namespace Feral\Core\Utility\Filter\Adapter;
 
-use Nodez\Core\Utility\Filter\Filter;
+use Feral\Core\Utility\Filter\Filter;
 
 interface AdapterInterface
 {

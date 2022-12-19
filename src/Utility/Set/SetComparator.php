@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Set;
+namespace Feral\Core\Utility\Set;
 
 
-use Nodez\Core\Utility\Search\DataPathReader;
-use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
-use Nodez\Core\Utility\Set\Exception\InvalidSetException;
+use Feral\Core\Utility\Search\DataPathReader;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Utility\Set\Exception\InvalidSetException;
 
 /**
  * Class SetComparison

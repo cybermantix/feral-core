@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
-use Nodez\Core\Process\Context\ContextInterface;
-use Nodez\Core\Utility\Search\DataPathReader;
-use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Utility\Search\DataPathReader;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Add the functions to get values from the context.

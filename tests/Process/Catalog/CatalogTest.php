@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\Catalog;
+namespace Feral\Core\Tests\Process\Catalog;
 
-use Nodez\Core\Process\Catalog\Catalog;
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Nodez\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
+use Feral\Core\Process\Catalog\Catalog;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\Catalog\CatalogSource\CatalogSourceInterface;
 use PHPUnit\Framework\TestCase;
 
 /**

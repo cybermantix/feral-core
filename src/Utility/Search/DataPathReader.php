@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Search;
+namespace Feral\Core\Utility\Search;
 
-use Nodez\Core\Utility\Search\Exception\WrongTypeException;
+use Feral\Core\Utility\Search\Exception\WrongTypeException;
 use stdClass;
-use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * The datapath reader will walk an array or object and find

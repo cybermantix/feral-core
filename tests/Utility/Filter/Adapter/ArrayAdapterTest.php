@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\Filter\Adapter;
+namespace Feral\Core\Tests\Utility\Filter\Adapter;
 
-use Nodez\Core\Utility\Filter\Adapter\ArrayAdapter;
-use Nodez\Core\Utility\Filter\Exception\CriterionException;
-use Nodez\Core\Utility\Filter\FilterBuilder;
+use Feral\Core\Utility\Filter\Adapter\ArrayAdapter;
+use Feral\Core\Utility\Filter\Exception\CriterionException;
+use Feral\Core\Utility\Filter\FilterBuilder;
 use PHPUnit\Framework\TestCase;
 
 class ArrayAdapterTest extends TestCase

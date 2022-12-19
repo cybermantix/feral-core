@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use Nodez\Core\Utility\Filter\Comparator\StartsWithComparator;
+use Feral\Core\Utility\Filter\Comparator\StartsWithComparator;
 use PHPUnit\Framework\TestCase;
 
 class StartsWithComparatorTest extends TestCase

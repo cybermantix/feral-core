@@ -1,11 +1,11 @@
 <?php
 
-namespace Nodez\Core\Process\Catalog\CatalogNode\Calculation;
+namespace Feral\Core\Process\Catalog\CatalogNode\Calculation;
 
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Nodez\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Nodez\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
-use Nodez\Core\Process\NodeCode\Data\CalculationNodeCode;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
+use Feral\Core\Process\NodeCode\Data\CalculationNodeCode;
 
 /**
  * Multiply the values of two variables stored in the context.

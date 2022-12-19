@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process;
+namespace Feral\Core\Process;
 
 use Exception;
 

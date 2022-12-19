@@ -1,11 +1,11 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode;
+namespace Feral\Core\Process\NodeCode;
 
-use Nodez\Core\Process\Context\ContextInterface;
-use Nodez\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Nodez\Core\Process\Result\Description\ResultDescriptionInterface;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
+use Feral\Core\Process\Result\ResultInterface;
 
 /**
  * A Node is one element in a process that performs one action

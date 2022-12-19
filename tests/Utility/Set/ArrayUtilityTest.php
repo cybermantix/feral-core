@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Tests\Utility\Set;
+namespace Feral\Core\Tests\Utility\Set;
 
-use Nodez\Core\Utility\Set\ArrayUtility;
+use Feral\Core\Utility\Set\ArrayUtility;
 use PHPUnit\Framework\TestCase;
 
 class ArrayUtilityTest extends TestCase

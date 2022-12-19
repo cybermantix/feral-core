@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Catalog\CatalogNode\Context;
+namespace Feral\Core\Process\Catalog\CatalogNode\Context;
 
-use Nodez\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Nodez\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
-use Nodez\Core\Process\NodeCode\Data\SetContextValueNodeCode;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
+use Feral\Core\Process\NodeCode\Data\SetContextValueNodeCode;
 
 /**
  * Sets a value into the context at a certain key.

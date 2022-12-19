@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Scalar;
+namespace Feral\Core\Utility\Scalar;
 
 /**
  * Class FloatUtility

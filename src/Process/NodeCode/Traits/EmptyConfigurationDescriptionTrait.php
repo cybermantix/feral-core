@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
 /**
  * Add the function to return an empty array for the

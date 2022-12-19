@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\NodeCode\Configuration;
+namespace Feral\Core\Process\NodeCode\Configuration;
 
-use Nodez\Core\Process\NodeCode\Configuration\ValueModifier\ConfigurationValueModifierInterface;
+use Feral\Core\Process\NodeCode\Configuration\ValueModifier\ConfigurationValueModifierInterface;
 
 /**
  * Build a configuration for a node instance. The configuration

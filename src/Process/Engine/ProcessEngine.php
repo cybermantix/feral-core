@@ -1,24 +1,24 @@
 <?php
 
-namespace Nodez\Core\Process\Engine;
+namespace Feral\Core\Process\Engine;
 
-use Nodez\Core\Process\Catalog\CatalogInterface;
-use Nodez\Core\Process\Context\ContextInterface;
-use Nodez\Core\Process\Edge\EdgeCollection;
-use Nodez\Core\Process\Engine\Traits\EdgeCollectionTrait;
-use Nodez\Core\Process\Engine\Traits\NodeCodeCollectionTrait;
-use Nodez\Core\Process\Engine\Traits\NodeCollectionTrait;
-use Nodez\Core\Process\Event\ProcessEndEvent;
-use Nodez\Core\Process\Event\ProcessNodeAfterEvent;
-use Nodez\Core\Process\Event\ProcessNodeBeforeEvent;
-use Nodez\Core\Process\Event\ProcessStartEvent;
-use Nodez\Core\Process\Exception\InvalidNodeKey;
-use Nodez\Core\Process\Node\NodeCollection;
-use Nodez\Core\Process\Node\NodeInterface;
-use Nodez\Core\Process\NodeCode\NodeCodeFactory;
-use Nodez\Core\Process\NodeCode\NodeCodeInterface;
-use Nodez\Core\Process\ProcessInterface;
-use Nodez\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Catalog\CatalogInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Edge\EdgeCollection;
+use Feral\Core\Process\Engine\Traits\EdgeCollectionTrait;
+use Feral\Core\Process\Engine\Traits\NodeCodeCollectionTrait;
+use Feral\Core\Process\Engine\Traits\NodeCollectionTrait;
+use Feral\Core\Process\Event\ProcessEndEvent;
+use Feral\Core\Process\Event\ProcessNodeAfterEvent;
+use Feral\Core\Process\Event\ProcessNodeBeforeEvent;
+use Feral\Core\Process\Event\ProcessStartEvent;
+use Feral\Core\Process\Exception\InvalidNodeKey;
+use Feral\Core\Process\Node\NodeCollection;
+use Feral\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\NodeCode\NodeCodeFactory;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\ProcessInterface;
+use Feral\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**

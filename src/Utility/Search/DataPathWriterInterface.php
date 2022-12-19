@@ -1,9 +1,9 @@
 <?php
 
-namespace Nodez\Core\Utility\Search;
+namespace Feral\Core\Utility\Search;
 
 use stdClass;
-use Nodez\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * This general utility will allow data be modified in an object or

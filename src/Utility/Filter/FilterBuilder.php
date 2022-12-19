@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Nodez\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
 use DateTimeImmutable;
-use Nodez\Core\Utility\DateTime\DateTimeFormats;
-use Nodez\Core\Utility\Filter\Exception\CriterionException;
-use Nodez\Core\Utility\Filter\Exception\FilterLimitException;
-use Nodez\Core\Utility\Scalar\FloatUtility;
+use Feral\Core\Utility\DateTime\DateTimeFormats;
+use Feral\Core\Utility\Filter\Exception\CriterionException;
+use Feral\Core\Utility\Filter\Exception\FilterLimitException;
+use Feral\Core\Utility\Scalar\FloatUtility;
 
 /**
  * Class FilterBuilder

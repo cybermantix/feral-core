@@ -1,8 +1,8 @@
 <?php
 
-namespace Nodez\Core\Process\Catalog\CatalogNode;
+namespace Feral\Core\Process\Catalog\CatalogNode;
 
-use Nodez\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
 
 /**
  * A catalog node provides information to the user

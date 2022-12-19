@@ -2,22 +2,22 @@
 
 namespace Unit;
 
-use Nodez\Core\Utility\Filter\Comparator\BetweenComparator;
-use Nodez\Core\Utility\Filter\Comparator\ComparatorFactory;
-use Nodez\Core\Utility\Filter\Comparator\ContainsComparator;
-use Nodez\Core\Utility\Filter\Comparator\EmptyTest;
-use Nodez\Core\Utility\Filter\Comparator\EndsWithComparator;
-use Nodez\Core\Utility\Filter\Comparator\EqualComparator;
-use Nodez\Core\Utility\Filter\Comparator\GreaterThanComparator;
-use Nodez\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator;
-use Nodez\Core\Utility\Filter\Comparator\InComparator;
-use Nodez\Core\Utility\Filter\Comparator\LessThanComparator;
-use Nodez\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator;
-use Nodez\Core\Utility\Filter\Comparator\NotEmptyTest;
-use Nodez\Core\Utility\Filter\Comparator\NotEqualComparator;
-use Nodez\Core\Utility\Filter\Comparator\NotInComparator;
-use Nodez\Core\Utility\Filter\Comparator\StartsWithComparator;
-use Nodez\Core\Utility\Filter\Criterion;
+use Feral\Core\Utility\Filter\Comparator\BetweenComparator;
+use Feral\Core\Utility\Filter\Comparator\ComparatorFactory;
+use Feral\Core\Utility\Filter\Comparator\ContainsComparator;
+use Feral\Core\Utility\Filter\Comparator\EmptyTest;
+use Feral\Core\Utility\Filter\Comparator\EndsWithComparator;
+use Feral\Core\Utility\Filter\Comparator\EqualComparator;
+use Feral\Core\Utility\Filter\Comparator\GreaterThanComparator;
+use Feral\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator;
+use Feral\Core\Utility\Filter\Comparator\InComparator;
+use Feral\Core\Utility\Filter\Comparator\LessThanComparator;
+use Feral\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator;
+use Feral\Core\Utility\Filter\Comparator\NotEmptyTest;
+use Feral\Core\Utility\Filter\Comparator\NotEqualComparator;
+use Feral\Core\Utility\Filter\Comparator\NotInComparator;
+use Feral\Core\Utility\Filter\Comparator\StartsWithComparator;
+use Feral\Core\Utility\Filter\Criterion;
 use PHPUnit\Framework\TestCase;
 
 class ComparatorFactoryTest extends TestCase

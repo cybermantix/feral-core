@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Utility\Set;
+namespace Feral\Core\Utility\Set;
 
 interface KeyStorageInterface
 {
