@@ -81,11 +81,11 @@ class LogNodeCode implements NodeCodeInterface
                 ->setDescription('The logger level')
                 ->setOptions(
                     [
-                    LogLevel::DEBUG,
-                    LogLevel::INFO,
-                    LogLevel::WARNING,
-                    LogLevel::ERROR,
-                    LogLevel::CRITICAL,
+                        LogLevel::DEBUG,
+                        LogLevel::INFO,
+                        LogLevel::WARNING,
+                        LogLevel::ERROR,
+                        LogLevel::CRITICAL,
                     ]
                 ),
         ];
@@ -102,10 +102,14 @@ class LogNodeCode implements NodeCodeInterface
         $level = $this->getRequiredConfigurationValue(self::LEVEL, LogLevel::INFO);
 
         foreach ($context->getAll() as $key => $value) {
-            if (is_object($value)) {
-                $value = 'object';
+            if (is_array($value)) {
+                $value = '(array)';
+            } elseif (is_object($value)) {
+                $value = '(object)';
             }
-            $message = str_replace('{' . $key . '}', $value, $message);
+            if (is_string($value) || is_numeric($value)) {
+                $message = str_replace('{' . $key . '}', $value, $message);
+            }
         }
         $this->logger->log($level, $message);
 
