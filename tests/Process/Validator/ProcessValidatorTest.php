@@ -15,7 +15,7 @@ class ProcessValidatorTest extends TestCase
         $process = $this->createMock(ProcessInterface::class);
         $validator = $this->createMock(ValidatorInterface::class);
         $validator->method('getValidationError')->willReturn('test');
-        $processValidator = new ProcessValidator([$validator]);
+        $processValidator = new ProcessValidator(new \ArrayIterator([$validator]));
         $errors = $processValidator->validate($process);
         $this->assertCount(1, $errors);
     }
@@ -25,7 +25,7 @@ class ProcessValidatorTest extends TestCase
         $process = $this->createMock(ProcessInterface::class);
         $validator = $this->createMock(ValidatorInterface::class);
         $validator->method('getValidationError')->willReturn(null);
-        $processValidator = new ProcessValidator([$validator]);
+        $processValidator = new ProcessValidator(new \ArrayIterator([$validator]));
         $errors = $processValidator->validate($process);
         $this->assertEmpty($errors);
     }

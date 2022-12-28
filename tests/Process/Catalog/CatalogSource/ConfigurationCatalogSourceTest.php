@@ -12,10 +12,10 @@ class ConfigurationCatalogSourceTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->source = new CatalogSource([
+        $this->source = new CatalogSource(new \ArrayIterator([
             (new CatalogNode())->setKey('one'),
             (new CatalogNode())->setKey('two')
-        ]);
+        ]));
     }
 
     public function testGetCatalogNodes()
