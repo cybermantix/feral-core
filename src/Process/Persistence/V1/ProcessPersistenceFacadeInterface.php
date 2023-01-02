@@ -1,8 +1,9 @@
 <?php
 
-namespace Nodez\Core\Process\Persistence;
+namespace Nodez\Core\Process\Persistence\V1;
 
-use Feral\Core\Process\Persistence\Entity\V1 as V1;
+
+use Feral\Core\Process\Persistence\V1\Entity\Process;
 
 /**
  * An interface used to read and write processes. Use the copy on write(COW)
@@ -18,7 +19,7 @@ interface ProcessPersistenceFacadeInterface
 
     /**
      * Get a list of the latest processes.
-     * @return V1\Process[]
+     * @return Process[]
      */
     public function list(): array;
 
@@ -27,17 +28,17 @@ interface ProcessPersistenceFacadeInterface
      * is passed in, then get the latest version.
      * @param string $key
      * @param string $version
-     * @return mixed
+     * @return Process|null
      */
-    public function read(string $key, string $version = self::LATEST): ?V1\Process;
+    public function read(string $key, string $version = self::LATEST): ?Process;
 
     /**
      * Write the process to the subsystem. Always update the version
      * on every write (COW).
-     * @param V1\Process $process
-     * @return V1\Process
+     * @param Process $process
+     * @return Process
      */
-    public function write(V1\Process $process): V1\Process;
+    public function write(Process $process): Process;
 
     /**
      * Delete a process from the sub system. Return the latest version

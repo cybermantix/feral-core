@@ -1,10 +1,10 @@
 <?php
 
-namespace Nodez\Core\Process\Persistence;
+namespace Nodez\Core\Process\Persistence\V1;
 
 use Feral\Core\Process\Persistence\PersistenceJsonHydrator;
 use Feral\Core\Process\Persistence\PersistenceJsonSerializer;
-use Feral\Core\Process\Persistence\Entity\V1 as V1;
+use Feral\Core\Process\Persistence\V1\Entity\Process;
 
 /**
  * A process persistence facade that writes to the local filesystem. This
@@ -24,7 +24,7 @@ class FilesystemProcessPersistenceFacade implements ProcessPersistenceFacadeInte
      */
     public function list(): array
     {
-        /** @var V1\Process[] $processes */
+        /** @var Process[] $processes */
         $processes = [];
         $directoryContent = array_diff(scandir($this->directory), array('..', '.'));
         foreach ($directoryContent as $file) {
@@ -44,7 +44,7 @@ class FilesystemProcessPersistenceFacade implements ProcessPersistenceFacadeInte
      */
     public function read(string $key, string $version = self::LATEST): ?V1\Process
     {
-        /** @var V1\Process $bestProcess */
+        /** @var Process $bestProcess */
         $bestProcess = null;
         $directoryContent = array_diff(scandir($this->directory), array('..', '.'));
         foreach ($directoryContent as $file) {
@@ -67,7 +67,7 @@ class FilesystemProcessPersistenceFacade implements ProcessPersistenceFacadeInte
     /**
      * @inheritDoc
      */
-    public function write(V1\Process $process): V1\Process
+    public function write(Process $process): Process
     {
         $version = $process->getVersion() + 1;
         $process->setVersion($version);

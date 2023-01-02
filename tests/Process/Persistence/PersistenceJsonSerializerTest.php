@@ -2,9 +2,9 @@
 
 namespace Nodez\Core\Tests\Process\Persistence;
 
-use Feral\Core\Process\Persistence\PersistenceJsonSerializer;
-use Feral\Core\Process\Persistence\Entity\V1\Node;
-use Feral\Core\Process\Persistence\Entity\V1\Process;
+use Feral\Core\Process\Persistence\V1\PersistenceJsonSerializer;
+use Feral\Core\Process\Persistence\V1\Entity\Node;
+use Feral\Core\Process\Persistence\V1\Entity\Process;
 use PHPUnit\Framework\TestCase;
 
 class PersistenceJsonSerializerTest extends TestCase

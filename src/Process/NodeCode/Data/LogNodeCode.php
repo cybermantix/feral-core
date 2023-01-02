@@ -82,6 +82,7 @@ class LogNodeCode implements NodeCodeInterface
                 ->setOptions(
                     [
                         LogLevel::DEBUG,
+                        LogLevel::NOTICE,
                         LogLevel::INFO,
                         LogLevel::WARNING,
                         LogLevel::ERROR,

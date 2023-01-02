@@ -1,9 +1,10 @@
 <?php
 
-namespace Feral\Core\Process\Persistence;
+namespace Feral\Core\Process\Persistence\V1;
 
 use Exception;
-use Feral\Core\Process\Persistence\Entity\V1 as V1;
+use Feral\Core\Process\Persistence\V1\Entity\Node;
+use Feral\Core\Process\Persistence\V1\Entity\Process;
 
 /**
  * Hydrate a json string into a process object
@@ -13,7 +14,7 @@ class PersistenceJsonHydrator
     /**
      * @throws Exception
      */
-    public function hydrate(string $jsonString): V1\Process
+    public function hydrate(string $jsonString): Process
     {
         $json = json_decode($jsonString, true);
 
@@ -28,7 +29,7 @@ class PersistenceJsonHydrator
             throw new Exception('A key is required for a process.');
         }
 
-        $process = (new V1\Process())
+        $process = (new Process())
             ->setKey($key);
 
         // VERSION
@@ -57,11 +58,11 @@ class PersistenceJsonHydrator
      * Create a node from the array data.
      *
      * @param  array $data
-     * @return NodeInterface
+     * @return NodeInterfac
      */
-    protected function hydrateNode(array $data): V1\Node
+    protected function hydrateNode(array $data): Node
     {
-        $node = new V1\Node();
+        $node = new Node();
         $node
             ->setKey($data['key'])
             ->setCatalogNodeKey($data['catalog_node_key']);

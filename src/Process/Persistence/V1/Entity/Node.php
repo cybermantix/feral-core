@@ -1,6 +1,6 @@
 <?php
 
-namespace Feral\Core\Process\Persistence\Entity\V1;
+namespace Feral\Core\Process\Persistence\V1\Entity;
 /**
  * A persist-able node
  */

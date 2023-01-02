@@ -1,9 +1,9 @@
 <?php
 
-namespace Feral\Core\Process\Persistence;
+namespace Feral\Core\Process\Persistence\V1;
 
 use Exception;
-use Feral\Core\Process\Persistence\Entity\V1 as V1;
+use Feral\Core\Process\Persistence\V1\Entity\Process;
 
 /**
  * Hydrate a json string into a process object
@@ -13,7 +13,7 @@ class PersistenceJsonSerializer
     /**
      * @throws Exception
      */
-    public function serialize(V1\Process $process): string
+    public function serialize(Process $process): string
     {
         $obj = new \stdClass();
         $obj->schema_version = 1;

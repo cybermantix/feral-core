@@ -2,7 +2,7 @@
 
 namespace Nodez\Core\Tests\Process\Persistence;
 
-use Feral\Core\Process\Persistence\PersistenceJsonHydrator;
+use Feral\Core\Process\Persistence\V1\PersistenceJsonHydrator;
 use PHPUnit\Framework\TestCase;
 
 class PersistenceJsonHydratorTest extends TestCase
