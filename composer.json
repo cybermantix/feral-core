@@ -1,6 +1,6 @@
 {
     "name": "feral/core",
-    "version": "1.0.21",
+    "version": "1.0.23",
     "description": "This package provides a powerful core for No Code, Low Code solutions.",
     "keywords": ["feral", "feral flow", "nodes", "edges", "process" ,"no-code", "low-code", "bpm", "bpms"],
     "homepage": "https://feralflow.com",
