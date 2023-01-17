@@ -55,11 +55,17 @@ class ProcessEngine implements ProcessEngineInterface
      * @inheritDoc
      * @throws     InvalidNodeKey
      */
-    public function process(ProcessInterface $process, string $startNode = 'start'): void
+    public function process(ProcessInterface $process, ContextInterface $context, string $startNode = 'start'): void
     {
         $this->addNodeCollection($process->getNodes());
         $this->addEdgeCollection($process->getEdges());
-        $context = $process->getContext();
+        $processContext = $process->getContext();
+
+        // ADD PROCESS CONTEXT
+        // OVERRIDE ANY RUNTIME CONTEXT VALUES!
+        foreach($processContext->getAll() as $key => $value) {
+            $context->set($key, $value);
+        }
 
         $this->eventDispatcher->dispatch(
             (new ProcessStartEvent())
