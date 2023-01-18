@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\Persistence;
+namespace Feral\Core\Tests\Process\Persistence;
 
 use Feral\Core\Process\Persistence\V1\PersistenceJsonHydrator;
 use PHPUnit\Framework\TestCase;

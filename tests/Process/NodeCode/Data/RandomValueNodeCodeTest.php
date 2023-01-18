@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Tests\Process\NodeCode\Data;
+namespace Feral\Core\Tests\Process\NodeCode\Data;
 
 use Feral\Core\Process\Context\Context;
 use Feral\Core\Process\NodeCode\Data\RandomValueNodeCode;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\Persistence\V1;
+namespace Feral\Core\Process\Persistence\V1;
 
 
 use Feral\Core\Process\Persistence\V1\Entity\Process;

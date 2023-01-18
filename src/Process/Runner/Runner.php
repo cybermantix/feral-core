@@ -1,6 +1,6 @@
 <?php
 
-namespace Nodez\Core\Process\Runner;
+namespace Feral\Core\Process\Runner;
 
 use Exception;
 use Feral\Core\Process\Context\Context;
