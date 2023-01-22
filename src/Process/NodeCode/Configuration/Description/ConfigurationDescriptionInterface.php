@@ -20,6 +20,10 @@ interface ConfigurationDescriptionInterface
      */
     const FLOAT = 'float';
     /**
+     * The type of the configuration is a boolean.
+     */
+    const BOOLEAN = 'boolean';
+    /**
      * The type of the configuration is an array of strings.
      */
     const STRING_ARRAY = 'string_array';

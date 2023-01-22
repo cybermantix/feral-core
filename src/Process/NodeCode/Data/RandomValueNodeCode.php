@@ -8,7 +8,6 @@ use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
 use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
@@ -72,10 +71,10 @@ class RandomValueNodeCode implements NodeCodeInterface
     public function getConfigurationDescriptions(): array
     {
         return [
-            (new StringArrayConfigurationDescription())
+            (new StringConfigurationDescription())
                 ->setKey(self::CONTEXT_PATH)
                 ->setName('Context Path')
-                ->setDescription('The context path tto set the random value.'),
+                ->setDescription('The context path to set the random value.'),
         ];
     }
 
