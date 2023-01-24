@@ -19,6 +19,7 @@ use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
 use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Feral\Core\Utility\Template\Template;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
@@ -53,6 +54,7 @@ class LogNodeCode implements NodeCodeInterface
 
     public function __construct(
         protected LoggerInterface $logger,
+        protected Template $template = new Template(),
         ConfigurationManager $configurationManager = new ConfigurationManager()
     ) {
         $this->setMeta(
@@ -102,16 +104,7 @@ class LogNodeCode implements NodeCodeInterface
         $message = $this->getRequiredConfigurationValue(self::MESSAGE);
         $level = $this->getRequiredConfigurationValue(self::LEVEL, LogLevel::INFO);
 
-        foreach ($context->getAll() as $key => $value) {
-            if (is_array($value)) {
-                $value = '(array)';
-            } elseif (is_object($value)) {
-                $value = '(object)';
-            }
-            if (is_string($value) || is_numeric($value)) {
-                $message = str_replace('{' . $key . '}', $value, $message);
-            }
-        }
+        $message = $this->template->replace($message, $context->getAll());
         $this->logger->log($level, $message);
 
         return $this->result(

@@ -3,35 +3,39 @@
 namespace Feral\Core\Process\NodeCode\Flow;
 
 use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\Exception\ProcessException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
+use Feral\Core\Utility\Template\Template;
 
 /**
  * If an error is received then convert the error into an exception.
  *
  * Configuration Keys
- *  (No Configuration keys)
+ *  message - The message to throw
  */
-class ThrowExceptionProcessingNode implements NodeCodeInterface
+class ThrowExceptionNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
+        ConfigurationValueTrait,
         EmptyConfigurationDescriptionTrait;
 
     const KEY = 'throw_exception';
-
     const NAME = 'Throw Exception';
-
     const DESCRIPTION = 'Throw an exception in the process.';
+    public const MESSAGE = 'message';
 
-    public function __construct()
+    public function __construct(protected Template $template = new Template(),)
     {
         $this->setMeta(
             self::KEY,
@@ -46,12 +50,24 @@ class ThrowExceptionProcessingNode implements NodeCodeInterface
         return [];
     }
 
+    public function getConfigurationDescriptions(): array
+    {
+        return [
+            (new StringArrayConfigurationDescription())
+                ->setKey(self::MESSAGE)
+                ->setName('Message')
+                ->setDescription('The message for the exception. Use context values with the key and mustache style includes.'),
+        ];
+    }
+
     /**
      * @inheritDoc
-     * @throws     ProcessException
+     * @throws     ProcessException|MissingConfigurationValueException
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        throw new ProcessException('An error occurred during a process. Please review the process logs.');
+        $message = $this->getRequiredConfigurationValue(self::MESSAGE);
+        $message = $this->template->replace($message, $context->getAll());
+        throw new ProcessException($message);
     }
 }

@@ -31,9 +31,7 @@ class StartProcessingNode implements NodeCodeInterface
         OkResultsTrait;
 
     const KEY = 'start';
-
     const NAME = 'Start Process';
-
     const DESCRIPTION = 'The node that starts a process.';
 
     public function __construct(
