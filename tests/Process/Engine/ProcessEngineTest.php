@@ -31,7 +31,7 @@ class ProcessEngineTest extends TestCase
         $this->factory = $this->createMock(NodeCodeFactory::class);
         $this->catalog = $this->createMock(CatalogInterface::class);
         $this->node1 = $this->createMock(NodeInterface::class);
-        $this->node1->method('getKey')->willReturn('one');
+        $this->node1->method('getKey')->willReturn('start');
         $this->node1->method('getCatalogNodeKey')->willReturn('one');
         $this->node2 = $this->createMock(NodeInterface::class);
         $this->node2->method('getKey')->willReturn('two');
@@ -70,7 +70,7 @@ class ProcessEngineTest extends TestCase
         ];
         $edges = [
             (new Edge())
-                ->setFromKey('one')
+                ->setFromKey('start')
                 ->setToKey('two')
                 ->setResult(ResultInterface::OK)
         ];
@@ -79,6 +79,6 @@ class ProcessEngineTest extends TestCase
             ->setNodes($nodes)
             ->setEdges($edges)
             ->setContext($context);
-        $this->engine->process($process, 'one');
+        $this->engine->process($process, $context);
     }
 }

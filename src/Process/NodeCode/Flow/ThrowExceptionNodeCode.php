@@ -2,6 +2,7 @@
 
 namespace Feral\Core\Process\NodeCode\Flow;
 
+use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\Exception\ProcessException;
@@ -42,7 +43,7 @@ class ThrowExceptionNodeCode implements NodeCodeInterface
             self::NAME,
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
-        );
+        )->setConfigurationManager(new ConfigurationManager());
     }
 
     public function getResultDescriptions(): array
