@@ -90,7 +90,6 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 ###> phpunit/phpunit ###
-/phpunit
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
@@ -106,4 +105,3 @@ docker/etc/zz-docker-dev.conf
 docker/etc/zz-docker.conf
 docker/Makefile
 docker/Welcome
-
