@@ -105,3 +105,4 @@ docker/etc/zz-docker-dev.conf
 docker/etc/zz-docker.conf
 docker/Makefile
 docker/Welcome
+phpunit
