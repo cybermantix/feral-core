@@ -30,7 +30,11 @@ class DirectoryProcessReader implements ProcessSourceInterface
         $directoryContent = array_diff(scandir($this->directory), array('..', '.'));
         foreach ($directoryContent as $file) {
             $jsonString = file_get_contents($this->directory . DIRECTORY_SEPARATOR . $file);
-            $processes[] = $this->hydrator->hydrate($jsonString);
+            try {
+                $processes[] = $this->hydrator->hydrate($jsonString);
+            } catch (\Exception $e) {
+                throw new Exception(sprintf('Error reading file "%s"', $file), 0, $e);
+            }
         }
         return $processes;
     }
