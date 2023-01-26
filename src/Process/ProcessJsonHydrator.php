@@ -22,6 +22,10 @@ class ProcessJsonHydrator
     {
         $json = json_decode($jsonString, true);
 
+        if (!$json) {
+            throw new \Exception(sprintf('Invalid Json data. "%s"', json_last_error_msg()));
+        }
+
         // VERSION CHECK
         $version = $json['schema_version'];
         if (1 !== $version) {
