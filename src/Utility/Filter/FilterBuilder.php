@@ -207,12 +207,15 @@ class FilterBuilder
      * The result set must include values equal to the test value
      *
      * @param  string $key
-     * @param  string $value
+     * @param  string|array $value
      * @return $this
      * @throws CriterionException
      */
-    public function equal(string $key, string $value): self
+    public function equal(string $key, string|array $value): self
     {
+        if (!empty($value) && is_array($value)) {
+            $value = implode(Criterion::DELIMITER, $value);
+        }
         $this->validateNotEmpty($value);
         $this->filter->addCriteria(
             $this->createCriterion($key, Criterion::EQ, $value)
@@ -224,12 +227,15 @@ class FilterBuilder
      * The result set should not contain values matching the test value.
      *
      * @param  string $key
-     * @param  string $value
+     * @param  string|array $value
      * @return $this
      * @throws CriterionException
      */
-    public function notEqual(string $key, string $value): self
+    public function notEqual(string $key, string|array $value): self
     {
+        if (!empty($value) && is_array($value)) {
+            $value = implode(Criterion::DELIMITER, $value);
+        }
         $this->validateNotEmpty($value);
         $this->filter->addCriteria(
             $this->createCriterion($key, Criterion::NOT, $value)
@@ -248,6 +254,9 @@ class FilterBuilder
     public function contains(string $key, string $value): self
     {
         $this->validateNotEmpty($value);
+        if (is_array($value)) {
+            $value = implode(Criterion::DELIMITER, $value);
+        }
         $this->filter->addCriteria(
             $this->createCriterion($key, Criterion::CONTAINS, $value)
         );
@@ -546,7 +555,7 @@ class FilterBuilder
      */
     protected function validateNotEmpty(string $value)
     {
-        if (is_null($value) || '' == $value) {
+        if (empty($value)) {
             throw new CriterionException('The value cannot be empty.');
         }
     }

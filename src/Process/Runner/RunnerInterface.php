@@ -16,7 +16,8 @@ interface RunnerInterface
      * key value parameter will init the context with the values passed in.
      * @param string $processKey
      * @param array $contextKeyValues
+     * @param array $modifications
      * @return mixed
      */
-    public function run(string $processKey, array $contextKeyValues = []) : ContextInterface;
+    public function run(string $processKey, array $contextKeyValues = [], array $modifications = []) : ContextInterface;
 }

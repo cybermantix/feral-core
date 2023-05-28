@@ -7,14 +7,20 @@ use Feral\Core\Process\Context\Context;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Engine\ProcessEngine;
 use Feral\Core\Process\Exception\InvalidNodeKey;
+use Feral\Core\Process\Modification\JSONModificationInterface;
 use Feral\Core\Process\ProcessFactory;
 
+/**
+ * Take a process and run it with an initial context. Allow
+ * optional modifications to the process.
+ */
 class Runner implements RunnerInterface
 {
 
     public function __construct(
         private ProcessFactory $factory,
-        private ProcessEngine $engine
+        private ProcessEngine $engine,
+        private JSONModificationInterface $modification
     ){}
 
     /**
@@ -22,7 +28,7 @@ class Runner implements RunnerInterface
      * @throws InvalidNodeKey
      * @throws Exception
      */
-    public function run(string $processKey, array $contextKeyValues = []): ContextInterface
+    public function run(string $processKey, array $contextKeyValues = [], array $modifications = []): ContextInterface
     {
         $context = new Context();
         foreach ($contextKeyValues as $key => $value) {

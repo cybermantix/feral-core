@@ -79,8 +79,8 @@ class ArrayAdapter implements AdapterInterface
             } else {
                 // IF ANY ARE FALSE THEN NO MATCH
                 /**
- * @var Criterion $criterion 
-*/
+                 * @var Criterion $criterion
+                */
                 $criterion = array_pop($criterionArray);
                 if ($this->compare($criterion->getOperator(), $this->originalData, $criterion->getValue())) {
                     $matches = true;
@@ -128,10 +128,10 @@ class ArrayAdapter implements AdapterInterface
      */
     protected function compare($operator, $value, $testValue): bool
     {
-        if (strpos($testValue, Criterion::DELIMITER)) {
+        if (is_string($testValue) && str_contains($testValue, Criterion::DELIMITER)) {
             $arrayTestValue = explode(Criterion::DELIMITER, $testValue);
             return $this->comparator->compare($value, $operator, $arrayTestValue);
-        } else {
+        }  else {
             return $this->comparator->compare($value, $operator, $testValue);
         }
     }

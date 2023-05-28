@@ -79,6 +79,6 @@ class ProcessEngineTest extends TestCase
             ->setNodes($nodes)
             ->setEdges($edges)
             ->setContext($context);
-        $this->engine->process($process, 'one');
+        $this->engine->process($process, $context, 'one');
     }
 }

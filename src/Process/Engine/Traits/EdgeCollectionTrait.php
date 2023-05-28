@@ -5,6 +5,7 @@ namespace Feral\Core\Process\Engine\Traits;
 use Feral\Core\Process\Edge\Edge;
 use Feral\Core\Process\Edge\EdgeCollection;
 use Feral\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Exception\ProcessException;
 
 trait EdgeCollectionTrait
 {
@@ -42,13 +43,19 @@ trait EdgeCollectionTrait
 
     /**
      *
-     * @param  string $fromNodeKey
-     * @param  string $result
+     * @param string $fromNodeKey
+     * @param string $result
      * @return Edge
+     * @throws ProcessException
      */
     protected function getEdgeByNodeAndResult(string $fromNodeKey, string $result): Edge
     {
         $edges = $this->edgeCollection->getEdgesByNodeAndResult($fromNodeKey, $result);
+        if (empty($edges)) {
+            throw new ProcessException(
+                sprintf('No edges found with from node "%s" with result "%s"', $fromNodeKey, $result)
+            );
+        }
         return array_shift($edges);
     }
 }
