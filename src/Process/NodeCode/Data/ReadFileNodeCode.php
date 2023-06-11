@@ -26,7 +26,7 @@ use Feral\Core\Utility\Search\DataPathWriter;
 use Feral\Core\Utility\Filesystem\FileWrapper;
 
 /**
- * The the contents of a file into the context
+ * Read the contents of a file into the context
  *
  * Configuration Keys
  *  file - The path to the file

@@ -31,6 +31,8 @@ use Feral\Core\Utility\Search\DataPathWriter;
  * Configuration Keys
  *  context_path - The path in the context
  *
+ * Results
+ *  ok - The counter has been updated.
  */
 class CounterNodeCode implements NodeCodeInterface
 {

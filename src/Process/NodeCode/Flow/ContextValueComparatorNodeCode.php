@@ -2,6 +2,7 @@
 
 namespace Feral\Core\Process\NodeCode\Flow;
 
+use Feral\Core\Process\Attributes\CatalogNodeDecorator;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
@@ -36,6 +37,42 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  *  context_path - The key used to retrieve the actual value from the context
  *
  */
+#[CatalogNodeDecorator(
+    key:'is_zero',
+    name: 'Is Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is zero.',
+    configuration: [self::OPERATOR => Criterion::EQ, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_not_zero',
+    name: 'Is Not Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is not zero.',
+    configuration: [self::OPERATOR => Criterion::NOT, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_greater_than_zero',
+    name: 'Is Greater Than Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is greater than zero.',
+    configuration: [self::OPERATOR => Criterion::GT, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_greater_than_equal_zero',
+    name: 'Is Greater Than or Equal to Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is greater than or equal to zero.',
+    configuration: [self::OPERATOR => Criterion::GTE, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_less_than_zero',
+    name: 'Is Less Than Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is less than zero.',
+    configuration: [self::OPERATOR => Criterion::LT, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_greater_than_equal_zero',
+    name: 'Is Less Than or Equal to Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is less than or equal to zero.',
+    configuration: [self::OPERATOR => Criterion::LTE, self::TEST_VALUE => 0])]
 class ContextValueComparatorNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,

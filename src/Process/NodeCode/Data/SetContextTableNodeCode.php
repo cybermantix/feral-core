@@ -47,7 +47,7 @@ class SetContextTableNodeCode implements NodeCodeInterface
 
     const NAME = 'Set Context Table';
 
-    const DESCRIPTION = 'Set multiple values in the context using a table (associative array)';
+    const DESCRIPTION = '`Set multiple values in the context using a table (associative array)`';
 
     public const TABLE = 'table';
 

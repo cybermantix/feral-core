@@ -26,12 +26,18 @@ use Feral\Core\Utility\Search\DataPathReaderInterface;
 use Feral\Core\Utility\Search\DataPathWriter;
 
 /**
- * Create a counter that ticks every pass through the
- * node.
+ * A simple math node that can run arithmetic operations on data stored
+ * in different context values.
  *
  * Configuration Keys
  *  context_path - The path in the context
+ *  x_context_path - The path in the context to the left constant
+ *  y_context_path - The path in the context to the right constant
+ *  result_context_path - The path in the context to store the result
+ *  operation - The path in the context to store the result
  *
+ * Results
+ *  ok - The arithmetic operation has been run and the results added to the context
  */
 class CalculationNodeCode implements NodeCodeInterface
 {

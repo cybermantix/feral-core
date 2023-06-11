@@ -26,6 +26,16 @@ use Feral\Core\Utility\Search\DataPathReaderInterface;
 use Feral\Core\Utility\Search\DataPathWriter;
 use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 
+/**
+ * Get data from a URL and store the results in a context.
+ *
+ * Configuration Keys
+ *  context_path - The path in the context to store the results
+ *  url - The URL to call to get the data
+ *
+ * Results
+ *  ok - Data was read from the URL and stored in the context
+ */
 class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
 {
     use NodeCodeMetaTrait,
