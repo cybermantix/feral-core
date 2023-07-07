@@ -68,7 +68,7 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
     description: 'Compare if a context value is less than zero.',
     configuration: [self::OPERATOR => Criterion::LT, self::TEST_VALUE => 0])]
 #[CatalogNodeDecorator(
-    key:'is_greater_than_equal_zero',
+    key:'is_less_than_equal_zero',
     name: 'Is Less Than or Equal to Zero',
     group: 'Flow',
     description: 'Compare if a context value is less than or equal to zero.',

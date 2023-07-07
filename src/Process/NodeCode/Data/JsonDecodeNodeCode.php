@@ -19,6 +19,7 @@ use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
+use Feral\Core\Utility\Filter\Criterion;
 use Feral\Core\Utility\Search\DataPathReader;
 use Feral\Core\Utility\Search\DataPathReaderInterface;
 use Feral\Core\Utility\Search\DataPathWriter;
@@ -28,7 +29,16 @@ use Feral\Core\Process\Attributes\CatalogNodeDecorator;
 /**
  * Decode a JSON string into an array.
  */
-#[CatalogNodeDecorator(key:'json_decode', name: 'JSON Decode', group: 'Data', description: 'Convert a string from json into an associative array.')]
+#[CatalogNodeDecorator(
+    key:'json_decode',
+    name: 'JSON Decode',
+    group: 'Data',
+    description: 'Convert a string from json into an associative array.',
+    configuration: [
+        self::CONTEXT_PATH => self::DEFAULT_CONTEXT_PATH,
+        self::GET_CONTEXT_PATH => self::DEFAULT_GET_CONTEXT_PATH
+    ]
+)]
 class JsonDecodeNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,

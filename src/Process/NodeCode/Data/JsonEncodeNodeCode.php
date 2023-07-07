@@ -28,7 +28,16 @@ use Feral\Core\Process\Attributes\CatalogNodeDecorator;
 /**
  * Encode an array into a JSON string.
  */
-#[CatalogNodeDecorator(key:'json_encode', name: 'JSON Encode', group: 'Data', description: 'Convert an array to a JSON string.')]
+#[CatalogNodeDecorator(
+    key:'json_encode',
+    name: 'JSON Encode',
+    group: 'Data',
+    description: 'Convert an array to a JSON string.',
+    configuration: [
+        self::CONTEXT_PATH => self::DEFAULT_CONTEXT_PATH,
+        self::GET_CONTEXT_PATH => self::DEFAULT_GET_CONTEXT_PATH
+    ]
+)]
 class JsonEncodeNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,

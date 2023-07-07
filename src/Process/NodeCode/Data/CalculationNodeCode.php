@@ -88,15 +88,15 @@ class CalculationNodeCode implements NodeCodeInterface
     public function getConfigurationDescriptions(): array
     {
         return [
-            (new StringArrayConfigurationDescription())
+            (new StringConfigurationDescription())
                 ->setKey(self::X_CONTEXT_PATH)
                 ->setName('X Context Path')
                 ->setDescription('The context path to the first variable, the left side, of the equation.'),
-            (new StringArrayConfigurationDescription())
+            (new StringConfigurationDescription())
                 ->setKey(self::Y_CONTEXT_PATH)
                 ->setName('Y Context Path')
                 ->setDescription('The context path to the second variable, the right side, of the equation.'),
-            (new StringArrayConfigurationDescription())
+            (new StringConfigurationDescription())
                 ->setKey(self::RESULT_PATH)
                 ->setName('Result Context Path')
                 ->setDescription('The context path to set the results of the operation.'),
