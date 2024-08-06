@@ -1,18 +1,18 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Flow;
+namespace Feral\Core\Process\NodeCode\Flow;
 
-use NoLoCo\Core\Process\Configuration\ConfigurationManager;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\OkResultsTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
-use NoLoCo\Core\Process\Result\Description\ResultDescription;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Configuration\ConfigurationManager;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
+use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
+use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
+use Feral\Core\Process\Result\Description\ResultDescription;
+use Feral\Core\Process\Result\ResultInterface;
 
 /**
  * Class ComparatorNode
@@ -21,7 +21,6 @@ use NoLoCo\Core\Process\Result\ResultInterface;
  * Configuration Keys
  *  (No Configuration keys)
  *
- * @package NoLoCo\Core\Process\Node\FlowControl
  */
 class StartProcessingNode implements NodeCodeInterface
 {
@@ -32,9 +31,7 @@ class StartProcessingNode implements NodeCodeInterface
         OkResultsTrait;
 
     const KEY = 'start';
-
     const NAME = 'Start Process';
-
     const DESCRIPTION = 'The node that starts a process.';
 
     public function __construct(

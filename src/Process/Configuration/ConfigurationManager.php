@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Configuration;
+namespace Feral\Core\Process\Configuration;
 
 /**
  * Override data in an array with data from another array.

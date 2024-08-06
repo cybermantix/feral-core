@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode;
+namespace Feral\Core\Process\NodeCode;
 
-use NoLoCo\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
+use Feral\Core\Process\NodeCode\NodeCodeSource\NodeCodeSourceInterface;
 
 /**
  * A factory which can build node code objects based
@@ -15,11 +15,11 @@ class NodeCodeFactory
      */
     protected array $nodeCodes = [];
 
-    public function __construct(iterable $sources)
+    public function __construct(iterable $sources = [])
     {
         /**
- * @var NodeCodeSourceInterface $source
-*/
+         * @var NodeCodeSourceInterface $source
+         */
         foreach ($sources as $source) {
             foreach ($source->getNodeCodes() as $nodeCode) {
                 $key = $nodeCode->getKey();

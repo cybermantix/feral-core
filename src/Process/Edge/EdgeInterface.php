@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Edge;
+namespace Feral\Core\Process\Edge;
 
 /**
  * An edge is the glue between different nodes. It's a connector

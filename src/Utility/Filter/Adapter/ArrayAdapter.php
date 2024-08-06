@@ -1,15 +1,15 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter\Adapter;
+namespace Feral\Core\Utility\Filter\Adapter;
 
-use NoLoCo\Core\Utility\Filter\Adapter\Exception\AdapterException;
-use NoLoCo\Core\Utility\Filter\Comparator\Comparator;
-use NoLoCo\Core\Utility\Filter\Comparator\ComparatorInterface;
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
-use NoLoCo\Core\Utility\Filter\Criterion;
-use NoLoCo\Core\Utility\Filter\Filter;
-use NoLoCo\Core\Utility\Filter\Order;
+use Feral\Core\Utility\Filter\Adapter\Exception\AdapterException;
+use Feral\Core\Utility\Filter\Comparator\Comparator;
+use Feral\Core\Utility\Filter\Comparator\ComparatorInterface;
+use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Feral\Core\Utility\Filter\Criterion;
+use Feral\Core\Utility\Filter\Filter;
+use Feral\Core\Utility\Filter\Order;
 
 class ArrayAdapter implements AdapterInterface
 {
@@ -79,8 +79,8 @@ class ArrayAdapter implements AdapterInterface
             } else {
                 // IF ANY ARE FALSE THEN NO MATCH
                 /**
- * @var Criterion $criterion 
-*/
+                 * @var Criterion $criterion
+                */
                 $criterion = array_pop($criterionArray);
                 if ($this->compare($criterion->getOperator(), $this->originalData, $criterion->getValue())) {
                     $matches = true;
@@ -128,10 +128,10 @@ class ArrayAdapter implements AdapterInterface
      */
     protected function compare($operator, $value, $testValue): bool
     {
-        if (strpos($testValue, Criterion::DELIMITER)) {
+        if (is_string($testValue) && str_contains($testValue, Criterion::DELIMITER)) {
             $arrayTestValue = explode(Criterion::DELIMITER, $testValue);
             return $this->comparator->compare($value, $operator, $arrayTestValue);
-        } else {
+        }  else {
             return $this->comparator->compare($value, $operator, $testValue);
         }
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\NodeCode\Data;
+namespace Feral\Core\Tests\Process\NodeCode\Data;
 
-use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\NodeCode\Data\SetContextValueNodeCode;
-use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\NodeCode\Data\SetContextValueNodeCode;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
+use Feral\Core\Process\Result\ResultInterface;
 use PHPUnit\Framework\TestCase;
 
 class SetContextValueNodeCodeTest extends TestCase

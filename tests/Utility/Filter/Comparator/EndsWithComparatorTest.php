@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Filter\Comparator\EndsWithComparator;
+use Feral\Core\Utility\Filter\Comparator\EndsWithComparator;
 use PHPUnit\Framework\TestCase;
 
 class EndsWithComparatorTest extends TestCase

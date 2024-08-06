@@ -1,14 +1,13 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
-use NoLoCo\Core\Utility\Filter\Exception\FilterParserException;
+use Feral\Core\Utility\Filter\Exception\FilterParserException;
 
 /**
  * Interface CriterionStringParserInterface
  *
- * @package NoLoCo\Core\Utility\Filter
  */
 interface OrderStringParserInterface
 {

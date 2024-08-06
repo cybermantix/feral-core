@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
 /**
  * Class Filter
@@ -17,7 +17,6 @@ namespace NoLoCo\Core\Utility\Filter;
  *  3) Two similar criterion keys and one different key
  *      WHERE (foo >= 'test' OR foo <= 'test2') AND bar = 'test3'
  *
- * @package NoLoCo\Core\Utility\Entity
  */
 class Filter
 {

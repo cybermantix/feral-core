@@ -1,14 +1,13 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
-use NoLoCo\Core\Utility\Filter\Exception\FilterParserException;
+use Feral\Core\Utility\Filter\Exception\FilterParserException;
 
 /**
  * Class PeriscopeNotationParser
  *
- * @package NoLoCo\Core\Utility\Filter
  */
 class CriterionStringParser extends AbstractPeriscopeNotationParser implements CriterionStringParserInterface
 {

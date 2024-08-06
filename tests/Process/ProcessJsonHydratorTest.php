@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process;
+namespace Feral\Core\Tests\Process;
 
-use NoLoCo\Core\Process\ProcessJsonHydrator;
+use Feral\Core\Process\ProcessJsonHydrator;
 use PHPUnit\Framework\TestCase;
 
 class ProcessJsonHydratorTest extends TestCase

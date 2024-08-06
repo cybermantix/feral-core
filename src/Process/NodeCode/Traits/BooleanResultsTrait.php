@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Result\Description\ResultDescription;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Result\Description\ResultDescription;
+use Feral\Core\Process\Result\ResultInterface;
 
 /**
  * A trait to return the result descriptions for a

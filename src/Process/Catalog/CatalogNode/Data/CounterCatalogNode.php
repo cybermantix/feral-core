@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogNode\Data;
+namespace Feral\Core\Process\Catalog\CatalogNode\Data;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
-use NoLoCo\Core\Process\NodeCode\Data\CounterNodeCode;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
+use Feral\Core\Process\NodeCode\Data\CounterNodeCode;
 
 /**
  * A counter node which increments a value every time the

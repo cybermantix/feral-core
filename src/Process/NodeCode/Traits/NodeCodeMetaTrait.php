@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
 /**
  * Add the instance vars and getters for the interface which

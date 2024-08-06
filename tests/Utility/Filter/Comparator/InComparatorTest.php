@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Filter\Comparator\InComparator;
+use Feral\Core\Utility\Filter\Comparator\InComparator;
 use PHPUnit\Framework\TestCase;
 
 class InComparatorTest extends TestCase

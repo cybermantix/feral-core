@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Validator;
+namespace Feral\Core\Process\Validator;
 
-use NoLoCo\Core\Process\ProcessInterface;
+use Feral\Core\Process\ProcessInterface;
 
 /**
  * Validate the nodes, edges, and start key against all of the available
@@ -10,8 +10,9 @@ use NoLoCo\Core\Process\ProcessInterface;
  */
 class ProcessValidator implements ProcessValidatorInterface
 {
-    public function __construct(private iterable $validators)
+    public function __construct(private iterable $validators = [])
     {
+        $this->validators = iterator_to_array($validators);
     }
 
     /**

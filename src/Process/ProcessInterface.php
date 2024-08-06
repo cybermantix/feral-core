@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process;
+namespace Feral\Core\Process;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Node\NodeInterface;
 
 /**
  * A process is an entity that holds the nodes, edges,

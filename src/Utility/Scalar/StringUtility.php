@@ -1,16 +1,15 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Scalar;
+namespace Feral\Core\Utility\Scalar;
 
 use InvalidArgumentException;
-use NoLoCo\Core\Utility\Set\ArrayUtility;
+use Feral\Core\Utility\Set\ArrayUtility;
 
 /**
  * Class StringUtility
  * Functions used to help with strings.
  *
- * @package NoLoCo\Core\Utility\Scalar
  */
 class StringUtility
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Result\Description;
+namespace Feral\Core\Process\Result\Description;
 /**
  * @see ResultDescriptionInterface
  */

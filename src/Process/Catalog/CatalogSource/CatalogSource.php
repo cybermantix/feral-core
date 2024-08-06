@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogSource;
+namespace Feral\Core\Process\Catalog\CatalogSource;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 
 /**
  * A catalog source which is contains an array of catalogNode objects.
@@ -13,8 +13,9 @@ class CatalogSource implements CatalogSourceInterface
         /**
          * @var CatalogNodeInterface[]
          */
-        private array $catalogNodes = []
+        private iterable $catalogNodes = []
     ) {
+        $this->catalogNodes = iterator_to_array($this->catalogNodes);
     }
 
     /**

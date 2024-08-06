@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Process\Edge;
 
-use NoLoCo\Core\Process\Edge\Edge;
-use NoLoCo\Core\Process\Edge\EdgeCollection;
+use Feral\Core\Process\Edge\Edge;
+use Feral\Core\Process\Edge\EdgeCollection;
 use PHPUnit\Framework\TestCase;
 
 class EdgeCollectionTest extends TestCase

@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter\Adapter;
+namespace Feral\Core\Utility\Filter\Adapter;
 
-use NoLoCo\Core\Utility\Filter\Filter;
+use Feral\Core\Utility\Filter\Filter;
 
 interface AdapterInterface
 {

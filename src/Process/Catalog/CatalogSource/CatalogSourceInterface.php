@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogSource;
+namespace Feral\Core\Process\Catalog\CatalogSource;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 
 /**
  * A catalog source provides CatalogNodes to a catalog.

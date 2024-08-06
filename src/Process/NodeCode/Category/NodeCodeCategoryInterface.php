@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Category;
+namespace Feral\Core\Process\NodeCode\Category;
 
 /**
  * The NodeCode Category is a category organization object. The

@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process;
+namespace Feral\Core\Process;
 
 /**
  * Define the interface for an object that can be a

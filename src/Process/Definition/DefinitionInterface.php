@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\Definition;
+namespace Feral\Core\Process\Definition;
 
-use NoLoCo\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Edge\EdgeInterface;
 
 /**
  * A meta object that describes a process and

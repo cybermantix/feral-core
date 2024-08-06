@@ -1,12 +1,12 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Set;
+namespace Feral\Core\Utility\Set;
 
 
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
-use NoLoCo\Core\Utility\Set\Exception\InvalidSetException;
+use Feral\Core\Utility\Search\DataPathReader;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Utility\Set\Exception\InvalidSetException;
 
 /**
  * Class SetComparison
@@ -23,7 +23,6 @@ use NoLoCo\Core\Utility\Set\Exception\InvalidSetException;
  *    $leftOnlyItems = $comparator->getLeftOnly();
  *    $rightOnlyItems = $comparator->getRightOnly();
  *
- * @package NoLoCo\Core\Utility\Set
  */
 class SetComparator
 {

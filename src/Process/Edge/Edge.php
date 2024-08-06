@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Edge;
+namespace Feral\Core\Process\Edge;
 
 /**
  * @see EdgeInterface

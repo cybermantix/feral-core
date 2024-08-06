@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Validator;
+namespace Feral\Core\Tests\Process\Validator;
 
-use NoLoCo\Core\Process\ProcessInterface;
-use NoLoCo\Core\Process\Validator\ProcessValidator;
-use NoLoCo\Core\Process\Validator\ProcessValidatorInterface;
-use NoLoCo\Core\Process\Validator\ValidatorInterface;
+use Feral\Core\Process\ProcessInterface;
+use Feral\Core\Process\Validator\ProcessValidator;
+use Feral\Core\Process\Validator\ProcessValidatorInterface;
+use Feral\Core\Process\Validator\ValidatorInterface;
 use PHPUnit\Framework\TestCase;
 
 class ProcessValidatorTest extends TestCase
@@ -15,7 +15,7 @@ class ProcessValidatorTest extends TestCase
         $process = $this->createMock(ProcessInterface::class);
         $validator = $this->createMock(ValidatorInterface::class);
         $validator->method('getValidationError')->willReturn('test');
-        $processValidator = new ProcessValidator([$validator]);
+        $processValidator = new ProcessValidator(new \ArrayIterator([$validator]));
         $errors = $processValidator->validate($process);
         $this->assertCount(1, $errors);
     }
@@ -25,7 +25,7 @@ class ProcessValidatorTest extends TestCase
         $process = $this->createMock(ProcessInterface::class);
         $validator = $this->createMock(ValidatorInterface::class);
         $validator->method('getValidationError')->willReturn(null);
-        $processValidator = new ProcessValidator([$validator]);
+        $processValidator = new ProcessValidator(new \ArrayIterator([$validator]));
         $errors = $processValidator->validate($process);
         $this->assertEmpty($errors);
     }

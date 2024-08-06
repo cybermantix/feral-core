@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Result\Description;
+namespace Feral\Core\Process\Result\Description;
 /**
  * A possible result from NodeCode. Provide the string result and
  * a description on why the result is a possibility.

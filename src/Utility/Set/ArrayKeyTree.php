@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Set;
+namespace Feral\Core\Utility\Set;
 
 /**
  * Class IdTree

@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Event\Traits;
+namespace Feral\Core\Process\Event\Traits;
 
 trait StoppableEventTrait
 {

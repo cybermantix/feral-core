@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Result\Result;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Result\Result;
+use Feral\Core\Process\Result\ResultInterface;
 
 trait ResultsTrait
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\Filter;
+namespace Feral\Core\Tests\Utility\Filter;
 
-use NoLoCo\Core\Utility\Filter\Criterion;
-use NoLoCo\Core\Utility\Filter\Exception\CriterionException;
-use NoLoCo\Core\Utility\Filter\Exception\FilterLimitException;
-use NoLoCo\Core\Utility\Filter\FilterBuilder;
-use NoLoCo\Core\Utility\Filter\Order;
+use Feral\Core\Utility\Filter\Criterion;
+use Feral\Core\Utility\Filter\Exception\CriterionException;
+use Feral\Core\Utility\Filter\Exception\FilterLimitException;
+use Feral\Core\Utility\Filter\FilterBuilder;
+use Feral\Core\Utility\Filter\Order;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 

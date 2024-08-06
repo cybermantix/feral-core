@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Configuration\ConfigurationManager;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\Configuration\ConfigurationManager;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
 
 trait ConfigurationTrait
 {

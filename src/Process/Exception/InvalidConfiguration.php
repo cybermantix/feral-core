@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Exception;
+namespace Feral\Core\Process\Exception;
 
 use Exception;
 

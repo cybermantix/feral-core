@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\NodeCode\Configuration\Description;
 
 /**
  * Use this configuration description for configuration values that are

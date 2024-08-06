@@ -1,10 +1,10 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
 
-use NoLoCo\Core\Utility\Filter\Exception\FilterParserException;
+use Feral\Core\Utility\Filter\Exception\FilterParserException;
 
 /**
  * Class PeriscopeNotationParser
@@ -35,7 +35,6 @@ use NoLoCo\Core\Utility\Filter\Exception\FilterParserException;
  *                ╲           ╱
  *                   `─────'
  *
- * @package NoLoCo\Core\Utility\Filter
  */
 class PeriscopeNotationParser implements PeriscopeNotationParserInterface
 {

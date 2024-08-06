@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process;
+namespace Feral\Core\Process;
 
 use Exception;
 
@@ -22,7 +22,7 @@ class ProcessFactory
      */
     protected array $cache = [];
 
-    public function __construct(iterable $sources)
+    public function __construct(iterable $sources = [])
     {
         foreach ($sources as $source) {
             $this->sources[] = $source;

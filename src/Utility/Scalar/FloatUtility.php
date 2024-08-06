@@ -1,13 +1,12 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Scalar;
+namespace Feral\Core\Utility\Scalar;
 
 /**
  * Class FloatUtility
  * Helpful functions for float variables.
  *
- * @package NoLoCo\Core\Utility\Scalar
  */
 class FloatUtility
 {

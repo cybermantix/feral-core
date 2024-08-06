@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\Set;
+namespace Feral\Core\Tests\Utility\Set;
 
-use NoLoCo\Core\Utility\Set\ArrayUtility;
+use Feral\Core\Utility\Set\ArrayUtility;
 use PHPUnit\Framework\TestCase;
 
 class ArrayUtilityTest extends TestCase

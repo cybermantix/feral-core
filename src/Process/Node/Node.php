@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\Node;
+namespace Feral\Core\Process\Node;
 
 /**
  * A concrete implementation of the process node.

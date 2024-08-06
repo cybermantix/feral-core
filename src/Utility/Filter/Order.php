@@ -1,12 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter;
+namespace Feral\Core\Utility\Filter;
 
 /**
  * Class Order
  * A key/direction pair used to sort a set of data.
  *
- * @package NoLoCo\Core\Utility\Entity\Filter
  */
 class Order
 {

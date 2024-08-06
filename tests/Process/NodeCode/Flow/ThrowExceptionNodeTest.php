@@ -1,13 +1,15 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\NodeCode\Flow;
+namespace Feral\Core\Tests\Process\NodeCode\Flow;
 
-use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\Exception\ProcessException;
-use NoLoCo\Core\Process\NodeCode\Flow\StartProcessingNode;
-use NoLoCo\Core\Process\NodeCode\Flow\ThrowExceptionProcessingNode;
-use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\Exception\ProcessException;
+use Feral\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
+use Feral\Core\Process\NodeCode\Flow\StartProcessingNode;
+use Feral\Core\Process\NodeCode\Flow\ThrowExceptionNodeCode;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
+use Feral\Core\Process\Result\ResultInterface;
+use Feral\Core\Utility\Filter\Criterion;
 use PHPUnit\Framework\TestCase;
 
 class ThrowExceptionNodeTest extends TestCase
@@ -15,14 +17,23 @@ class ThrowExceptionNodeTest extends TestCase
     public function testProcess()
     {
         $context = new Context();
-        $node = new ThrowExceptionProcessingNode();
+        $node = (new ThrowExceptionNodeCode())->addConfiguration(
+            [
+                ThrowExceptionNodeCode::MESSAGE => 'test',
+            ]
+        );
         $this->expectException(ProcessException::class);
+        $this->expectExceptionMessage('test');
         $node->process($context);
     }
 
     public function testResultDescriptions()
     {
-        $node = new ThrowExceptionProcessingNode();
+        $node = (new ThrowExceptionNodeCode())->addConfiguration(
+            [
+                ThrowExceptionNodeCode::MESSAGE => 'test',
+            ]
+        );
         /** @var ResultDescriptionInterface[] $definitions */
         $definitions = $node->getResultDescriptions();
         $this->assertCount(0, $definitions);

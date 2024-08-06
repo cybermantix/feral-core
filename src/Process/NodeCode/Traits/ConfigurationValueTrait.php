@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
+use Feral\Core\Process\Exception\MissingConfigurationValueException;
 
 /**
  * Add the methods used to get the configuration values

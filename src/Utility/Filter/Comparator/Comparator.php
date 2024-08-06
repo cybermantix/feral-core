@@ -1,10 +1,10 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter\Comparator;
+namespace Feral\Core\Utility\Filter\Comparator;
 
 
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 
 class Comparator implements ComparatorInterface
 {

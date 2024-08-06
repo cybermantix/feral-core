@@ -1,12 +1,11 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Set;
+namespace Feral\Core\Utility\Set;
 
 /**
  * Class ArrayUtility
  *
- * @package NoLoCo\Core\Utility\Set
  */
 class ArrayUtility
 {

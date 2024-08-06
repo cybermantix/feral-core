@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Process\Event;
+namespace Feral\Core\Process\Event;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Event\Traits\StoppableEventTrait;
-use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Event\Traits\StoppableEventTrait;
+use Feral\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
 /**

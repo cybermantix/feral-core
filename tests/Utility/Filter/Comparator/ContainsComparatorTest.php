@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Filter\Comparator\ContainsComparator;
+use Feral\Core\Utility\Filter\Comparator\ContainsComparator;
 use PHPUnit\Framework\TestCase;
 
 class ContainsComparatorTest extends TestCase

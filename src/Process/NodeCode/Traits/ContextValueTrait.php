@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Traits;
+namespace Feral\Core\Process\NodeCode\Traits;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Utility\Search\DataPathReader;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Add the functions to get values from the context.
@@ -38,13 +38,31 @@ trait ContextValueTrait
     /**
      * Get an int value from the context
      *
+     * @param string $key
+     * @param ContextInterface $context
+     * @return int
+     * @throws \Exception
+     */
+    protected function getRequiredValueFromContext(string $key, ContextInterface $context): mixed
+    {
+        $data = $this->getValueFromContext($key, $context);
+        if ($data) {
+            return $data;
+        } else {
+            throw new \Exception(sprintf('Value not found for key "%s"', $key));
+        }
+    }
+
+    /**
+     * Get an int value from the context
+     *
      * @param  string           $key
      * @param  ContextInterface $context
      * @return int
      */
     protected function getRequiredIntValueFromContext(string $key, ContextInterface $context): int
     {
-        return $this->getIntValueFromContext($key, $context);
+        return (int)$this->getRequiredValueFromContext($key, $context);
     }
 
     /**
@@ -54,6 +72,6 @@ trait ContextValueTrait
      */
     protected function getStringValueFromContext(string $key, ContextInterface $context): string
     {
-        return $this->getRequiredIntValueFromContext($key, $context);
+        return (string)$this->getRequiredValueFromContext($key, $context);
     }
 }

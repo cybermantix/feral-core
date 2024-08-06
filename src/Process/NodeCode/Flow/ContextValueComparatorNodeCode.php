@@ -1,42 +1,78 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Flow;
+namespace Feral\Core\Process\NodeCode\Flow;
 
-use NoLoCo\Core\Process\Configuration\ConfigurationManager;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Exception\MissingConfigurationValueException;
-use NoLoCo\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\NodeCode\Traits\BooleanResultsTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ContextValueTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use NoLoCo\Core\Process\NodeCode\Traits\ResultsTrait;
-use NoLoCo\Core\Process\Result\ResultInterface;
-use NoLoCo\Core\Utility\Filter\Comparator\Comparator;
-use NoLoCo\Core\Utility\Filter\Comparator\ComparatorInterface;
-use NoLoCo\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
-use NoLoCo\Core\Utility\Filter\Criterion;
-use NoLoCo\Core\Utility\Search\DataPathReader;
-use NoLoCo\Core\Utility\Search\DataPathReaderInterface;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Process\Attributes\CatalogNodeDecorator;
+use Feral\Core\Process\Configuration\ConfigurationManager;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Exception\MissingConfigurationValueException;
+use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\NodeCode\Traits\BooleanResultsTrait;
+use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
+use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
+use Feral\Core\Process\NodeCode\Traits\ContextValueTrait;
+use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
+use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
+use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
+use Feral\Core\Process\Result\ResultInterface;
+use Feral\Core\Utility\Filter\Comparator\Comparator;
+use Feral\Core\Utility\Filter\Comparator\ComparatorInterface;
+use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
+use Feral\Core\Utility\Filter\Criterion;
+use Feral\Core\Utility\Search\DataPathReader;
+use Feral\Core\Utility\Search\DataPathReaderInterface;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * Class ComparatorNode
  * Test if a value in the context passes a test with an operator.
- * To see the list of available operators see \NoLoCo\Core\Utility\Filter\Criterion
+ * To see the list of available operators see \Feral\Core\Utility\Filter\Criterion
  *
  * Configuration Keys
  *  operator    - The operator used in the test
  *  test_value  - The value used to test the actual value in the context
  *  context_path - The key used to retrieve the actual value from the context
  *
- * @package NoLoCo\Core\Process\Node\FlowControl
  */
+#[CatalogNodeDecorator(
+    key:'is_zero',
+    name: 'Is Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is zero.',
+    configuration: [self::OPERATOR => Criterion::EQ, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_not_zero',
+    name: 'Is Not Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is not zero.',
+    configuration: [self::OPERATOR => Criterion::NOT, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_greater_than_zero',
+    name: 'Is Greater Than Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is greater than zero.',
+    configuration: [self::OPERATOR => Criterion::GT, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_greater_than_equal_zero',
+    name: 'Is Greater Than or Equal to Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is greater than or equal to zero.',
+    configuration: [self::OPERATOR => Criterion::GTE, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_less_than_zero',
+    name: 'Is Less Than Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is less than zero.',
+    configuration: [self::OPERATOR => Criterion::LT, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'is_less_than_equal_zero',
+    name: 'Is Less Than or Equal to Zero',
+    group: 'Flow',
+    description: 'Compare if a context value is less than or equal to zero.',
+    configuration: [self::OPERATOR => Criterion::LTE, self::TEST_VALUE => 0])]
 class ContextValueComparatorNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,

@@ -1,9 +1,9 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Filter\Comparator;
+namespace Feral\Core\Utility\Filter\Comparator;
 
-use NoLoCo\Core\Utility\Scalar\FloatUtility;
+use Feral\Core\Utility\Scalar\FloatUtility;
 
 class LessThanComparator implements ScalarToScalarComparatorInterface, ArrayToScalarComparatorInterface
 {

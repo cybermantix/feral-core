@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Filter\Comparator;
+namespace Feral\Core\Utility\Filter\Comparator;
 
 interface ArrayToScalarComparatorInterface
 {

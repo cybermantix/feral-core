@@ -1,14 +1,14 @@
 <?php
 
-namespace NoLoCo\Core\Process;
+namespace Feral\Core\Process;
 
 use Exception;
-use NoLoCo\Core\Process\Context\Context;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\Edge;
-use NoLoCo\Core\Process\Edge\EdgeInterface;
-use NoLoCo\Core\Process\Node\Node;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Context\Context;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Edge\Edge;
+use Feral\Core\Process\Edge\EdgeInterface;
+use Feral\Core\Process\Node\Node;
+use Feral\Core\Process\Node\NodeInterface;
 
 /**
  * Hydrate a json string into a process object
@@ -21,6 +21,10 @@ class ProcessJsonHydrator
     public function hydrate(string $jsonString): ProcessInterface
     {
         $json = json_decode($jsonString, true);
+
+        if (!$json) {
+            throw new \Exception(sprintf('Invalid Json data. "%s"', json_last_error_msg()));
+        }
 
         // VERSION CHECK
         $version = $json['schema_version'];

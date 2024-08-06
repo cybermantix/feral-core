@@ -1,6 +1,6 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\NodeCode\Configuration\Description;
 
 /**
  * A description of a configuration value.
@@ -19,6 +19,10 @@ interface ConfigurationDescriptionInterface
      * The type of the configuration is a float.
      */
     const FLOAT = 'float';
+    /**
+     * The type of the configuration is a boolean.
+     */
+    const BOOLEAN = 'boolean';
     /**
      * The type of the configuration is an array of strings.
      */

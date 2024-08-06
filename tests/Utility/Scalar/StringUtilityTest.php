@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\Scalar;
+namespace Feral\Core\Tests\Utility\Scalar;
 
-use NoLoCo\Core\Utility\Scalar\StringUtility;
+use Feral\Core\Utility\Scalar\StringUtility;
 use PHPUnit\Framework\TestCase;
 
 class StringUtilityTest extends TestCase

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\Search\Exception;
+namespace Feral\Core\Utility\Search\Exception;
 
 use Exception;
 use Throwable;
@@ -10,7 +10,6 @@ use Throwable;
  * The class of the data didn't match the expected class.
  * Class UnknownTypeException
  *
- * @package NoLoCo\Utility\Search\Exception
  */
 class WrongTypeException extends Exception
 {

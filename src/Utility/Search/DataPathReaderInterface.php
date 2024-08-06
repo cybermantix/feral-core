@@ -1,16 +1,15 @@
 <?php
 
-namespace NoLoCo\Core\Utility\Search;
+namespace Feral\Core\Utility\Search;
 
-use NoLoCo\Core\Utility\Search\Exception\WrongTypeException;
+use Feral\Core\Utility\Search\Exception\WrongTypeException;
 use stdClass;
-use NoLoCo\Core\Utility\Search\Exception\UnknownTypeException;
+use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 
 /**
  * This general utility will allow data to be found and typed within a set of data.
  * Interface DataPathReaderInterface
  *
- * @package NoLoCo\Utility\Search
  */
 interface DataPathReaderInterface
 {

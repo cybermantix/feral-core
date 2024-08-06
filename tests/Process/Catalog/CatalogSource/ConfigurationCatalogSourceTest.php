@@ -1,9 +1,9 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Process\Catalog\CatalogSource;
+namespace Feral\Core\Tests\Process\Catalog\CatalogSource;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNode;
-use NoLoCo\Core\Process\Catalog\CatalogSource\CatalogSource;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNode;
+use Feral\Core\Process\Catalog\CatalogSource\CatalogSource;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationCatalogSourceTest extends TestCase
@@ -12,10 +12,10 @@ class ConfigurationCatalogSourceTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->source = new CatalogSource([
+        $this->source = new CatalogSource(new \ArrayIterator([
             (new CatalogNode())->setKey('one'),
             (new CatalogNode())->setKey('two')
-        ]);
+        ]));
     }
 
     public function testGetCatalogNodes()

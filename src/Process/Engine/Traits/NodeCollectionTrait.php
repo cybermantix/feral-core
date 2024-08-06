@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process\Engine\Traits;
+namespace Feral\Core\Process\Engine\Traits;
 
-use NoLoCo\Core\Process\Exception\InvalidNodeKey;
-use NoLoCo\Core\Process\Node\NodeCollection;
-use NoLoCo\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\Exception\InvalidNodeKey;
+use Feral\Core\Process\Node\NodeCollection;
+use Feral\Core\Process\Node\NodeInterface;
 
 /**
  * Store nodes and make them accessible by key

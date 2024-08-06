@@ -1,8 +1,8 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode\NodeCodeSource;
+namespace Feral\Core\Process\NodeCode\NodeCodeSource;
 
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 
 /**
  * A catalog source which is contains an array of catalogNode objects.
@@ -13,8 +13,9 @@ class NodeCodeSource implements NodeCodeSourceInterface
         /**
          * @var CatalogNodeInterface[]
          */
-        private array $nodeCodes = []
+        private iterable $nodeCodes = []
     ) {
+        $this->nodeCodes = iterator_to_array($this->nodeCodes);
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Process\Catalog\CatalogNode\Comparator;
+namespace Feral\Core\Process\Catalog\CatalogNode\Comparator;
 
 use JetBrains\PhpStorm\ArrayShape;
-use NoLoCo\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use NoLoCo\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
-use NoLoCo\Core\Utility\Filter\Criterion;
+use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
+use Feral\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
+use Feral\Core\Utility\Filter\Criterion;
 
 /**
  * Check a context value and return true if it's greater than

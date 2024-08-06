@@ -1,10 +1,10 @@
 <?php
 
-namespace NoLoCo\Core\Process\Reader;
+namespace Feral\Core\Process\Reader;
 
 use Exception;
-use NoLoCo\Core\Process\ProcessJsonHydrator;
-use NoLoCo\Core\Process\ProcessSourceInterface;
+use Feral\Core\Process\ProcessJsonHydrator;
+use Feral\Core\Process\ProcessSourceInterface;
 
 /**
  * Read a directory of process files and return Process objects.
@@ -30,7 +30,11 @@ class DirectoryProcessReader implements ProcessSourceInterface
         $directoryContent = array_diff(scandir($this->directory), array('..', '.'));
         foreach ($directoryContent as $file) {
             $jsonString = file_get_contents($this->directory . DIRECTORY_SEPARATOR . $file);
-            $processes[] = $this->hydrator->hydrate($jsonString);
+            try {
+                $processes[] = $this->hydrator->hydrate($jsonString);
+            } catch (\Exception $e) {
+                throw new Exception(sprintf('Error reading file "%s"', $file), 0, $e);
+            }
         }
         return $processes;
     }

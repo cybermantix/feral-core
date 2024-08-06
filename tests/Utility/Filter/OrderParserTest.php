@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Tests\Utility\Filter;
+namespace Feral\Core\Tests\Utility\Filter;
 
-use NoLoCo\Core\Utility\Filter\Exception\FilterParserException;
-use NoLoCo\Core\Utility\Filter\OrderStringParser;
-use NoLoCo\Core\Utility\Filter\OrderStringParserInterface;
-use NoLoCo\Core\Utility\Filter\PeriscopeNotationParser;
+use Feral\Core\Utility\Filter\Exception\FilterParserException;
+use Feral\Core\Utility\Filter\OrderStringParser;
+use Feral\Core\Utility\Filter\OrderStringParserInterface;
+use Feral\Core\Utility\Filter\PeriscopeNotationParser;
 use PHPUnit\Framework\TestCase;
 
 class OrderParserTest extends TestCase

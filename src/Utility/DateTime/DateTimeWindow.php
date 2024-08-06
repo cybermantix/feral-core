@@ -1,7 +1,7 @@
 <?php
 
 
-namespace NoLoCo\Core\Utility\DateTime;
+namespace Feral\Core\Utility\DateTime;
 
 
 use DateTime;

@@ -1,9 +1,9 @@
 {
-    "name": "noloco/core",
-    "version": "1.0.0",
+    "name": "feral/core",
+    "version": "1.0.40",
     "description": "This package provides a powerful core for No Code, Low Code solutions.",
-    "keywords": ["no-code", "low-code", "bpms"],
-    "homepage": "https://cybermantix.net",
+    "keywords": ["feral", "feral flow", "nodes", "edges", "process" ,"no-code", "low-code", "bpm", "bpms"],
+    "homepage": "https://feralflow.com",
     "type": "library",
     "license": "Apache-2.0",
     "minimum-stability": "stable",
@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NoLoCo\\Core\\": "src/"
+            "Feral\\Core\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NoLoCo\\Core\\Tests\\": "tests/"
+            "Feral\\Core\\Tests\\": "tests/"
         }
     }
 }

@@ -2,22 +2,22 @@
 
 namespace Unit;
 
-use NoLoCo\Core\Utility\Filter\Comparator\BetweenComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\ComparatorFactory;
-use NoLoCo\Core\Utility\Filter\Comparator\ContainsComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\EmptyTest;
-use NoLoCo\Core\Utility\Filter\Comparator\EndsWithComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\EqualComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\GreaterThanComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\InComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\LessThanComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\NotEmptyTest;
-use NoLoCo\Core\Utility\Filter\Comparator\NotEqualComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\NotInComparator;
-use NoLoCo\Core\Utility\Filter\Comparator\StartsWithComparator;
-use NoLoCo\Core\Utility\Filter\Criterion;
+use Feral\Core\Utility\Filter\Comparator\BetweenComparator;
+use Feral\Core\Utility\Filter\Comparator\ComparatorFactory;
+use Feral\Core\Utility\Filter\Comparator\ContainsComparator;
+use Feral\Core\Utility\Filter\Comparator\EmptyTest;
+use Feral\Core\Utility\Filter\Comparator\EndsWithComparator;
+use Feral\Core\Utility\Filter\Comparator\EqualComparator;
+use Feral\Core\Utility\Filter\Comparator\GreaterThanComparator;
+use Feral\Core\Utility\Filter\Comparator\GreaterThanOrEqualToComparator;
+use Feral\Core\Utility\Filter\Comparator\InComparator;
+use Feral\Core\Utility\Filter\Comparator\LessThanComparator;
+use Feral\Core\Utility\Filter\Comparator\LessThanOrEqualToComparator;
+use Feral\Core\Utility\Filter\Comparator\NotEmptyTest;
+use Feral\Core\Utility\Filter\Comparator\NotEqualComparator;
+use Feral\Core\Utility\Filter\Comparator\NotInComparator;
+use Feral\Core\Utility\Filter\Comparator\StartsWithComparator;
+use Feral\Core\Utility\Filter\Criterion;
 use PHPUnit\Framework\TestCase;
 
 class ComparatorFactoryTest extends TestCase

@@ -1,11 +1,11 @@
 <?php
 
-namespace NoLoCo\Core\Process\NodeCode;
+namespace Feral\Core\Process\NodeCode;
 
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use NoLoCo\Core\Process\Result\Description\ResultDescriptionInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
+use Feral\Core\Process\Result\ResultInterface;
 
 /**
  * A Node is one element in a process that performs one action

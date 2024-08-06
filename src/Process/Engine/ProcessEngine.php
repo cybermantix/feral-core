@@ -1,24 +1,24 @@
 <?php
 
-namespace NoLoCo\Core\Process\Engine;
+namespace Feral\Core\Process\Engine;
 
-use NoLoCo\Core\Process\Catalog\CatalogInterface;
-use NoLoCo\Core\Process\Context\ContextInterface;
-use NoLoCo\Core\Process\Edge\EdgeCollection;
-use NoLoCo\Core\Process\Engine\Traits\EdgeCollectionTrait;
-use NoLoCo\Core\Process\Engine\Traits\NodeCodeCollectionTrait;
-use NoLoCo\Core\Process\Engine\Traits\NodeCollectionTrait;
-use NoLoCo\Core\Process\Event\ProcessEndEvent;
-use NoLoCo\Core\Process\Event\ProcessNodeAfterEvent;
-use NoLoCo\Core\Process\Event\ProcessNodeBeforeEvent;
-use NoLoCo\Core\Process\Event\ProcessStartEvent;
-use NoLoCo\Core\Process\Exception\InvalidNodeKey;
-use NoLoCo\Core\Process\Node\NodeCollection;
-use NoLoCo\Core\Process\Node\NodeInterface;
-use NoLoCo\Core\Process\NodeCode\NodeCodeFactory;
-use NoLoCo\Core\Process\NodeCode\NodeCodeInterface;
-use NoLoCo\Core\Process\ProcessInterface;
-use NoLoCo\Core\Process\Result\ResultInterface;
+use Feral\Core\Process\Catalog\CatalogInterface;
+use Feral\Core\Process\Context\ContextInterface;
+use Feral\Core\Process\Edge\EdgeCollection;
+use Feral\Core\Process\Engine\Traits\EdgeCollectionTrait;
+use Feral\Core\Process\Engine\Traits\NodeCodeCollectionTrait;
+use Feral\Core\Process\Engine\Traits\NodeCollectionTrait;
+use Feral\Core\Process\Event\ProcessEndEvent;
+use Feral\Core\Process\Event\ProcessNodeAfterEvent;
+use Feral\Core\Process\Event\ProcessNodeBeforeEvent;
+use Feral\Core\Process\Event\ProcessStartEvent;
+use Feral\Core\Process\Exception\InvalidNodeKey;
+use Feral\Core\Process\Node\NodeCollection;
+use Feral\Core\Process\Node\NodeInterface;
+use Feral\Core\Process\NodeCode\NodeCodeFactory;
+use Feral\Core\Process\NodeCode\NodeCodeInterface;
+use Feral\Core\Process\ProcessInterface;
+use Feral\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -55,11 +55,17 @@ class ProcessEngine implements ProcessEngineInterface
      * @inheritDoc
      * @throws     InvalidNodeKey
      */
-    public function process(ProcessInterface $process, string $startNode = 'start'): void
+    public function process(ProcessInterface $process, ContextInterface $context, string $startNode = 'start'): void
     {
         $this->addNodeCollection($process->getNodes());
         $this->addEdgeCollection($process->getEdges());
-        $context = $process->getContext();
+        $processContext = $process->getContext();
+
+        // ADD PROCESS CONTEXT
+        // OVERRIDE ANY RUNTIME CONTEXT VALUES!
+        foreach($processContext->getAll() as $key => $value) {
+            $context->set($key, $value);
+        }
 
         $this->eventDispatcher->dispatch(
             (new ProcessStartEvent())
