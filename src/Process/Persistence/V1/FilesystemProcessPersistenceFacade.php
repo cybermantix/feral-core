@@ -42,7 +42,7 @@ class FilesystemProcessPersistenceFacade implements ProcessPersistenceFacadeInte
     /**
      * @inheritDoc
      */
-    public function read(string $key, string $version = self::LATEST): ?V1\Process
+    public function read(string $key, string $version = self::LATEST): ?Process
     {
         /** @var Process $bestProcess */
         $bestProcess = null;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Feral\Core\Core\Process\Catalog\CatalogSource;
+namespace Feral\Core\Process\Catalog\CatalogSource;
 
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNode;
 use Feral\Core\Process\Attributes\CatalogNodeDecorator;
