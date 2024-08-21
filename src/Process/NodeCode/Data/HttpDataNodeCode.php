@@ -8,6 +8,7 @@ use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\Exception\ProcessException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\NodeCode\Configuration\Description\IntConfigurationDescription;
 use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
 use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
@@ -51,11 +52,15 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
 
     const NAME = 'HTTP Data';
 
-    const DESCRIPTION = 'Make a call to an HTTP service to get data and store it in the context.';
+    const DESCRIPTION = 'Make a call to an HTTP service to get data and store it in the context. Methods allowed are GET, POST, PUT, PATCH, and DELETE';
 
     public const DEFAULT_CONTEXT_PATH = '_results';
     public const CONTEXT_PATH = 'context_path';
+    public const DATA_CONTEXT_PATH = 'data_context_path';
+    public const CONFIG_DATA = 'config_data';
     public const URL = 'url';
+    public const METHOD = 'method';
+    public const DEFAULT_METHOD = 'GET';
 
     public function __construct(
         DataPathReaderInterface $dataPathReader = new DataPathReader(),
@@ -87,6 +92,25 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
                 ->setKey(self::URL)
                 ->setName('URL')
                 ->setDescription('The URL to call to get the data.')
+            (new StringConfigurationDescription())
+                ->setKey(self::METHOD)
+                ->setName('Method')
+                ->setDescription('The HTTP Method to use to make the call. DEFAULT GET')
+                ->setOptions([
+                    'GET',
+                    'POST',
+                    'PUT',
+                    'PATCH',
+                    'DELETE',
+                ])
+            (new StringArrayConfigurationDescription())
+                ->setKey(self::CONFIG_DATA)
+                ->setName('Data')
+                ->setDescription('Data to be added to the HTTP request.')
+            (new StringArrayConfigurationDescription())
+                ->setKey(self::DATA_CONTEXT_PATH)
+                ->setName('Data Context Path')
+                ->setDescription('The location of the data to be sent to the HTTP service')
         ];
     }
 
@@ -100,11 +124,46 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
     {
         $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, self::DEFAULT_CONTEXT_PATH);
         $url = $this->getRequiredConfigurationValue(self::URL);
+        $method = $this->getRequiredStringConfigurationValue(self::METHOD, self::DEFAULT_METHOD);
+        $configData = $this->getArrayConfigurationValue(self::CONFIG_DATA, []);
+        $contextDataPath = $this->getStringConfigurationValue(self::DATA_CONTEXT_PATH, 'ctx_data');
+        $contextData = $this->getValueFromContext($contextDataPath, $context);
+        if (empty($contextData)){
+            $contextData = [];
+        } else if (is_string($contextData)) {
+            $contextData = [$contextData];
+        }
+        $data = array_merge($configData, $contextData);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        switch (strtoupper($method)) {
+            case 'POST':
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                break;
+            case 'PUT':
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                break;
+            case 'PATCH':
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                break;
+            case 'DELETE':
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+                break;
+            case 'GET':
+            default:
+                if (!empty($data)) {
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                }
+                break;
+        }
 
         $response = curl_exec($ch);
         $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
