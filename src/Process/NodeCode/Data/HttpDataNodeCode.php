@@ -248,7 +248,7 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
         return $this->result(
             ResultInterface::OK,
             'cURL call to "%s" which returned code "%u" with %u bytes.',
-            [$url, $responseCode, strlen($response)]
+            [$url, $responseCode, strlen($responseBody)]
         );
     }
 
