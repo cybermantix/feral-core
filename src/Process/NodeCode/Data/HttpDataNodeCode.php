@@ -2,6 +2,7 @@
 
 namespace Feral\Core\Process\NodeCode\Data;
 
+use Feral\Core\Process\Attributes\CatalogNodeDecorator;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
@@ -37,6 +38,51 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  * Results
  *  ok - Data was read from the URL and stored in the context
  */
+#[CatalogNodeDecorator(
+    key:'http_get',
+    name: 'HTTP Get',
+    group: 'Data',
+    description: 'Send a GET call to an endpoint.',
+    configuration: [
+        self::METHOD => self::METHOD_POST
+    ]
+)]
+#[CatalogNodeDecorator(
+    key:'http_post',
+    name: 'HTTP Post',
+    group: 'Data',
+    description: 'Send a POST call to an endpoint.',
+    configuration: [
+        self::METHOD => self::METHOD_POST
+    ]
+)]
+#[CatalogNodeDecorator(
+    key:'http_put',
+    name: 'HTTP Put',
+    group: 'Data',
+    description: 'Send a PUT call to an endpoint.',
+    configuration: [
+        self::METHOD => self::METHOD_PUT
+    ]
+)]
+#[CatalogNodeDecorator(
+    key:'http_patch',
+    name: 'HTTP Patch',
+    group: 'Data',
+    description: 'Send a PATCH call to an endpoint.',
+    configuration: [
+        self::METHOD => self::METHOD_PATCH
+    ]
+)]
+#[CatalogNodeDecorator(
+    key:'http_delete',
+    name: 'HTTP Delete',
+    group: 'Data',
+    description: 'Send a DELETE call to an endpoint.',
+    configuration: [
+        self::METHOD => self::METHOD_DELETE
+    ]
+)]
 class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
 {
     use NodeCodeMetaTrait,
@@ -60,7 +106,16 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
     public const CONFIG_DATA = 'config_data';
     public const URL = 'url';
     public const METHOD = 'method';
-    public const DEFAULT_METHOD = 'GET';
+    public const METHOD_GET = 'GET';
+    public const METHOD_POST = 'POST';
+    public const METHOD_PUT = 'PUT';
+    public const METHOD_PATCH = 'PATCH';
+    public const METHOD_DELETE = 'DELETE';
+    public const DEFAULT_METHOD = self::METHOD_GET;
+
+    public const RESULT_BODY = 'body';
+    public const RESULT_CODE = 'code';
+    public const RESULT_HEADERS = 'headers';
 
     public function __construct(
         DataPathReaderInterface $dataPathReader = new DataPathReader(),
@@ -139,6 +194,7 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, true);
 
         switch (strtoupper($method)) {
             case 'POST':
@@ -165,6 +221,7 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
                 break;
         }
 
+
         $response = curl_exec($ch);
         $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($response === false) {
@@ -175,12 +232,40 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
             ));
         }
 
-        $this->setValueInContext($contextPath, $response, $context);
+        // Separate the headers and the body
+        $headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+        $responseHeaders = $this->parseHeaders(substr($response, 0, $headerSize));
+        $responseBody = substr($response, $headerSize);
+
+        $results = [
+            self::RESULT_BODY => $responseBody,
+            self::RESULT_CODE => $responseCode,
+            self::RESULT_HEADERS => $responseHeaders
+        ];
+
+        $this->setValueInContext($contextPath, $results, $context);
         curl_close($ch);
         return $this->result(
             ResultInterface::OK,
             'cURL call to "%s" which returned code "%u" with %u bytes.',
             [$url, $responseCode, strlen($response)]
         );
+    }
+
+    protected function parseHeaders(string $headers): array
+    {
+        $headerLines = explode("\r\n", trim($headers));
+        $headerArray = [];
+
+        foreach ($headerLines as $headerLine) {
+            if (strpos($headerLine, ':') !== false) {
+                list($key, $value) = explode(':', $headerLine, 2);
+                $headerArray[trim($key)] = trim($value);
+            } elseif (preg_match('#HTTP/[0-9\.]+\s+([0-9]+)#', $headerLine, $matches)) {
+                $headerArray['status_code'] = $matches[1];
+            }
+        }
+
+        return $headerArray;
     }
 }
