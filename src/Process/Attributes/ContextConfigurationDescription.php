@@ -14,7 +14,7 @@ class ContextConfigurationDescription extends AbstractConfigurationDescription
         parent::__construct(
             key: 'context_path',
             name: 'Context Path',
-            description: 'The context path tto set the random value.'
+            description: 'The context path to set the value.'
         );
     }
 
