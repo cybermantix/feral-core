@@ -163,14 +163,6 @@ class CatalogNode implements CatalogNodeInterface
     }
 
     /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return $this->configurationDescriptions;
-    }
-
-    /**
      * @param  ConfigurationDescriptionInterface[] $configurationDescriptions
      * @return CatalogNode
      */

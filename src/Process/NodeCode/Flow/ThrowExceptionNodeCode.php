@@ -12,7 +12,6 @@ use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
@@ -34,8 +33,7 @@ class ThrowExceptionNodeCode implements NodeCodeInterface
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
-        ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait;
+        ConfigurationValueTrait;
 
     const KEY = 'throw_exception';
     const NAME = 'Throw Exception';

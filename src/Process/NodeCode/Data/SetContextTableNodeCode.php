@@ -17,9 +17,7 @@ use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextValueTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
 use Feral\Core\Utility\Search\DataPathReaderInterface;
@@ -46,10 +44,8 @@ class SetContextTableNodeCode implements NodeCodeInterface
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait,
-        OkResultsTrait;
+        ContextMutationTrait;
 
     const KEY = 'set_context_table';
 
@@ -73,24 +69,6 @@ class SetContextTableNodeCode implements NodeCodeInterface
         )
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter);
-    }
-
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringArrayConfigurationDescription())
-                ->setKey(self::TABLE)
-                ->setName('Table')
-                ->setDescription('Set multiple values in the context.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The optional context path to the parent where the table of values will be written.'),
-        ];
     }
 
     /**

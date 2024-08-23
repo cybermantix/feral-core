@@ -64,11 +64,4 @@ class LogWarningCatalogNode implements CatalogNodeInterface
             LogNodeCode::LEVEL => LogLevel::WARNING
         ];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }

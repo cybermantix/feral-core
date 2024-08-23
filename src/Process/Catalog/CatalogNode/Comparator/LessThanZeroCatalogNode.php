@@ -69,11 +69,4 @@ class LessThanZeroCatalogNode implements CatalogNodeInterface
             ContextValueComparatorNodeCode::OPERATOR => Criterion::LT
         ];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }

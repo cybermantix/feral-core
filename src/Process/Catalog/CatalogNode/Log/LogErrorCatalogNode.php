@@ -64,11 +64,4 @@ class LogErrorCatalogNode implements CatalogNodeInterface
             LogNodeCode::LEVEL => LogLevel::ERROR
         ];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }

@@ -16,9 +16,7 @@ use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextValueTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
 use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
@@ -41,10 +39,8 @@ class RandomValueNodeCode implements NodeCodeInterface
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait,
-        OkResultsTrait;
+        ContextMutationTrait;
 
     const KEY = 'random';
     const NAME = 'Random';

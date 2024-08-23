@@ -2,7 +2,7 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Comparator;
 
-use Feral\Core\Process\Attributes\StringConfigurationDescription;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use Feral\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
 use Feral\Core\Utility\Filter\Criterion;
@@ -12,6 +12,7 @@ use JetBrains\PhpStorm\ArrayShape;
  * Check a context value and return true if it's zero
  * or false otherwise
  */
+#[ContextConfigurationDescription]
 class EqualsZeroCatalogNode implements CatalogNodeInterface
 {
     /**
@@ -68,19 +69,6 @@ class EqualsZeroCatalogNode implements CatalogNodeInterface
         return [
             ContextValueComparatorNodeCode::TEST_VALUE => 0,
             ContextValueComparatorNodeCode::OPERATOR => Criterion::EQ
-        ];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(ContextValueComparatorNodeCode::CONTEXT_PATH)
-                ->setName('Data Path')
-                ->setDescription('The context path to get the value being tested.'),
         ];
     }
 }

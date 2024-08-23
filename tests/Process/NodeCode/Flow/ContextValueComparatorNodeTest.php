@@ -30,16 +30,6 @@ class ContextValueComparatorNodeTest extends TestCase
         $this->assertEquals(Result::FALSE, $results->getStatus());
     }
 
-    public function testResultDescriptions()
-    {
-        $node = new ContextValueComparatorNodeCode();
-        /** @var ResultDescriptionInterface[] $definitions */
-        $definitions = $node->getResultDescriptions();
-        $this->assertCount(2, $definitions);
-        $this->assertEquals(ResultInterface::TRUE, $definitions[0]->getResult());
-        $this->assertEquals(ResultInterface::FALSE, $definitions[1]->getResult());
-    }
-
     public function testProcessNot()
     {
         $node = (new ContextValueComparatorNodeCode())->addConfiguration(

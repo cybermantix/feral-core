@@ -26,17 +26,5 @@ class ThrowExceptionNodeTest extends TestCase
         $this->expectExceptionMessage('test');
         $node->process($context);
     }
-
-    public function testResultDescriptions()
-    {
-        $node = (new ThrowExceptionNodeCode())->addConfiguration(
-            [
-                ThrowExceptionNodeCode::MESSAGE => 'test',
-            ]
-        );
-        /** @var ResultDescriptionInterface[] $definitions */
-        $definitions = $node->getResultDescriptions();
-        $this->assertCount(0, $definitions);
-    }
 }
 

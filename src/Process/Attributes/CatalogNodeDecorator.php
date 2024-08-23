@@ -14,7 +14,6 @@ class CatalogNodeDecorator
         private string $group,
         private string $description,
         private array $configuration = [],
-        private array $configurationDescriptions = [],
     ){}
 
     /**
@@ -107,14 +106,6 @@ class CatalogNodeDecorator
     {
         $this->configuration = $configuration;
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return $this->configurationDescriptions;
     }
 
     /**

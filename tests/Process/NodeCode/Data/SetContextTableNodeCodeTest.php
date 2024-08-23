@@ -18,20 +18,6 @@ class SetContextTableNodeCodeTest extends TestCase
         $this->node = new SetContextTableNodeCode();
     }
 
-    public function testResultDescriptions()
-    {
-        /** @var ResultDescriptionInterface[] $definitions */
-        $definitions = $this->node->getResultDescriptions();
-        $this->assertCount(1, $definitions);
-        $this->assertEquals(ResultInterface::OK, $definitions[0]->getResult());
-    }
-
-    public function testGetConfigurationDescriptions()
-    {
-        $configuration = $this->node->getConfigurationDescriptions();
-        $this->assertEquals(2, count($configuration));
-    }
-
     public function testProcess()
     {
         $this->node->addConfiguration(

@@ -8,15 +8,15 @@ use Feral\Core\Process\Result\ResultInterface;
  * @see ResultDescriptionInterface
  */
 #[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
-class OkResultDescription extends AbstractResultDescription
+class FalseResultDescription extends AbstractResultDescription
 {
 
     public function __construct(
         /**
          * The description of the result
          */
-        string $description = 'The node processing was successful.'
+        string $description = 'The result of the test was false.'
     ){
-        parent::__construct(ResultInterface::OK, $description);
+        parent::__construct(ResultInterface::FALSE, $description);
     }
 }

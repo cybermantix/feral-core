@@ -2,15 +2,15 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Data;
 
-use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
-use Feral\Core\Process\Attributes\StringArrayConfigurationDescription;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Feral\Core\Process\NodeCode\Data\CounterNodeCode;
+
 
 /**
  * A counter node which increments a value every time the
  * node is processed.
  */
+#[ContextConfigurationDescription]
 class CounterCatalogNode implements CatalogNodeInterface
 {
     /**
@@ -59,17 +59,5 @@ class CounterCatalogNode implements CatalogNodeInterface
     public function getConfiguration(): array
     {
         return [];
-    }
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringArrayConfigurationDescription())
-                ->setKey(CounterNodeCode::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path where the counter is held.')
-        ];
     }
 }

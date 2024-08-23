@@ -4,12 +4,12 @@ namespace Feral\Core\Process\NodeCode\Flow;
 
 use Feral\Core\Process\Attributes\OkResultDescription;
 use Feral\Core\Process\Attributes\ResultDescription;
+use Feral\Core\Process\Attributes\StopResultDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
@@ -22,13 +22,12 @@ use Feral\Core\Process\Result\ResultInterface;
  *  (No Configuration keys)
  *
  */
-#[OkResultDescription(description: 'The stop node was successful.')]
+#[StopResultDescription]
 class StopProcessingNode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
         ResultsTrait,
-        ConfigurationTrait,
-        EmptyConfigurationDescriptionTrait;
+        ConfigurationTrait;
 
     const KEY = 'stop';
 
@@ -45,13 +44,6 @@ class StopProcessingNode implements NodeCodeInterface
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
         )->setConfigurationManager($configurationManager);
-    }
-
-    public function getResultDescriptions(): array
-    {
-        return [(new ResultDescription())
-            ->setResult(ResultInterface::STOP)
-            ->setDescription('The send the stop signal to the process engine.')];
     }
 
     /**

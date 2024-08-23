@@ -27,10 +27,4 @@ class RandomValueNodeCodeTest extends TestCase
         $this->assertEquals(ResultInterface::OK, $result->getStatus());
         $this->assertNotEmpty($context->get('random'));
     }
-
-    public function testGetConfigurationDescriptions()
-    {
-        $configuration = $this->node->getConfigurationDescriptions();
-        $this->assertEquals(1, count($configuration));
-    }
 }

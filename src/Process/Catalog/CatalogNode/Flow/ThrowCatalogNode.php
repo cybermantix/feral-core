@@ -63,11 +63,4 @@ class ThrowCatalogNode implements \Feral\Core\Process\Catalog\CatalogNode\Catalo
                 ->setDescription('The message for the exception. Use context values with the key and mustache style includes.'),
         ];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }

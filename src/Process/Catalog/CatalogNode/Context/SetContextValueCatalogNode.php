@@ -2,6 +2,7 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Context;
 
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
 use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
 use Feral\Core\Process\NodeCode\Data\SetContextValueNodeCode;
@@ -9,6 +10,22 @@ use Feral\Core\Process\NodeCode\Data\SetContextValueNodeCode;
 /**
  * Sets a value into the context at a certain key.
  */
+#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: SetContextValueNodeCode::VALUE,
+    name: 'Value',
+    description: 'The value to set in the context.'
+)]
+#[StringConfigurationDescription(
+    key: SetContextValueNodeCode::VALUE_TYPE,
+    name: 'Value Type',
+    description: 'The type of variable to set into the context.',
+    options: [
+        SetContextValueNodeCode::OPTION_STRING,
+        SetContextValueNodeCode::OPTION_INT,
+        SetContextValueNodeCode::OPTION_FLOAT
+    ]
+)]
 class SetContextValueCatalogNode implements CatalogNodeInterface
 {
     /**
@@ -56,32 +73,5 @@ class SetContextValueCatalogNode implements CatalogNodeInterface
     public function getConfiguration(): array
     {
         return [];
-    }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(SetContextValueNodeCode::VALUE)
-                ->setName('Value')
-                ->setDescription('The value to set in the context.'),
-            (new StringConfigurationDescription())
-                ->setKey(SetContextValueNodeCode::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path to set the value.'),
-            (new StringConfigurationDescription())
-                ->setKey(SetContextValueNodeCode::VALUE_TYPE)
-                ->setName('Value Type')
-                ->setDescription('The type of variable to set into the context.')
-                ->setOptions(
-                    [
-                    SetContextValueNodeCode::OPTION_STRING,
-                    SetContextValueNodeCode::OPTION_INT,
-                    SetContextValueNodeCode::OPTION_FLOAT
-                    ]
-                )
-        ];
     }
 }

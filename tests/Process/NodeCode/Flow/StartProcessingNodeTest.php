@@ -18,13 +18,4 @@ class StartProcessingNodeTest extends TestCase
         $result = $node->process($context);
         $this->assertEquals(ResultInterface::OK, $result->getStatus());
     }
-
-    public function testResultDescriptions()
-    {
-        $node = new StartProcessingNode();
-        /** @var ResultDescriptionInterface[] $definitions */
-        $definitions = $node->getResultDescriptions();
-        $this->assertCount(1, $definitions);
-        $this->assertEquals(ResultInterface::OK, $definitions[0]->getResult());
-    }
 }
