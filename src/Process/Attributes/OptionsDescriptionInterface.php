@@ -1,6 +1,6 @@
 <?php
 
-namespace Feral\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\Attributes;
 
 /**
  * A configuration description that has options.

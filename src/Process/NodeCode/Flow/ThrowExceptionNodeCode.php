@@ -2,16 +2,16 @@
 
 namespace Feral\Core\Process\NodeCode\Flow;
 
+use Feral\Core\Process\Attributes\StringArrayConfigurationDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\Exception\ProcessException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
@@ -23,13 +23,17 @@ use Feral\Core\Utility\Template\Template;
  * Configuration Keys
  *  message - The message to throw
  */
+#[StringConfigurationDescription(
+    key: self::MESSAGE,
+    name: 'Message',
+    description: 'The message for the exception. Use context values with the key and mustache style includes.'
+)]
 class ThrowExceptionNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
-        ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait;
+        ConfigurationValueTrait;
 
     const KEY = 'throw_exception';
     const NAME = 'Throw Exception';
@@ -44,21 +48,6 @@ class ThrowExceptionNodeCode implements NodeCodeInterface
             self::DESCRIPTION,
             NodeCodeCategoryInterface::FLOW
         )->setConfigurationManager(new ConfigurationManager());
-    }
-
-    public function getResultDescriptions(): array
-    {
-        return [];
-    }
-
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringArrayConfigurationDescription())
-                ->setKey(self::MESSAGE)
-                ->setName('Message')
-                ->setDescription('The message for the exception. Use context values with the key and mustache style includes.'),
-        ];
     }
 
     /**

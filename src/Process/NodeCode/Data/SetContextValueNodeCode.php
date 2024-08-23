@@ -3,20 +3,20 @@
 namespace Feral\Core\Process\NodeCode\Data;
 
 use Exception;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextValueTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
 use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
@@ -33,16 +33,31 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  *  value_type - The type of var to place into the context
  *
  */
+#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: self::VALUE,
+    name: 'Value',
+    description: 'The value to set in the context.'
+)]
+#[StringConfigurationDescription(
+    key: self::VALUE_TYPE,
+    name: 'Value Type',
+    description: 'The type of variable to set into the context.',
+    options: [
+        self::OPTION_STRING,
+        self::OPTION_INT,
+        self::OPTION_FLOAT
+    ]
+)]
+#[OkResultDescription(description: 'The value was set successfully.')]
 class SetContextValueNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait,
-        OkResultsTrait;
+        ContextMutationTrait;
 
     const OPTION_STRING = 'string';
 
@@ -76,34 +91,6 @@ class SetContextValueNodeCode implements NodeCodeInterface
             ->setDataPathWriter($dataPathWriter);
     }
 
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(self::VALUE)
-                ->setName('Value')
-                ->setDescription('The value to set in the context.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path to set the value.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::VALUE_TYPE)
-                ->setName('Value Type')
-                ->setDescription('The type of variable to set into the context.')
-                ->setOptions(
-                    [
-                    self::OPTION_STRING,
-                    self::OPTION_INT,
-                    self::OPTION_FLOAT
-                    ]
-                )
-        ];
-    }
 
     /**
      * @inheritDoc

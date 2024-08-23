@@ -24,8 +24,8 @@ class ProcessValidator implements ProcessValidatorInterface
         $edges = $process->getEdges();
         $errors = [];
         /**
- * @var ValidatorInterface $validator
-*/
+         * @var ValidatorInterface $validator
+        */
         foreach ($this->validators as $validator) {
             $error = $validator->getValidationError($startKey, $nodes, $edges);
             if ($error) {

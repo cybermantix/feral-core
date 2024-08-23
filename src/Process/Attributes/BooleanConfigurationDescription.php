@@ -1,6 +1,6 @@
 <?php
 
-namespace Feral\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\Attributes;
 
 use function is_bool;
 
@@ -8,6 +8,7 @@ use function is_bool;
  * Use this configuration description for configuration values that are
  * a boolean variable.
  */
+#[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
 class BooleanConfigurationDescription extends AbstractConfigurationDescription
 {
     /**

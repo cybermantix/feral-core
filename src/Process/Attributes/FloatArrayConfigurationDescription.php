@@ -1,12 +1,13 @@
 <?php
 
-namespace Feral\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\Attributes;
 
 /**
  * Use this configuration description for configuration values that are
  * an array of strings
  */
-class StringArrayConfigurationDescription extends AbstractConfigurationDescription
+#[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
+class FloatArrayConfigurationDescription extends AbstractConfigurationDescription implements OptionsDescriptionInterface
 {
     public function __construct(
         protected array $validOptions = []
@@ -18,7 +19,7 @@ class StringArrayConfigurationDescription extends AbstractConfigurationDescripti
      */
     public function getType(): string
     {
-        return self::STRING_ARRAY;
+        return self::FLOAT_ARRAY;
     }
 
     /**
@@ -31,5 +32,13 @@ class StringArrayConfigurationDescription extends AbstractConfigurationDescripti
         } else {
             return is_array($value) && 0 == count(array_diff($value, $this->validOptions));
         }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getOptions(): array
+    {
+        return $this->validOptions;
     }
 }

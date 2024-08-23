@@ -110,10 +110,4 @@ class CalculationNodeCodeTest extends TestCase
         $this->assertIsInt($context->get('result'));
         $this->assertEquals(8, $context->get('result'));
     }
-
-    public function testGetConfigurationDescriptions()
-    {
-        $configuration = $this->node->getConfigurationDescriptions();
-        $this->assertEquals(4, count($configuration));
-    }
 }

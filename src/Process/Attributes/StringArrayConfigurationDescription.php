@@ -1,16 +1,24 @@
 <?php
 
-namespace Feral\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\Attributes;
 
 /**
  * Use this configuration description for configuration values that are
- * an array of ints.
+ * an array of strings
  */
-class IntArrayConfigurationDescription extends AbstractConfigurationDescription implements OptionsDescriptionInterface
+#[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
+class StringArrayConfigurationDescription extends AbstractConfigurationDescription
 {
+
     public function __construct(
+        string $key,
+        string $name,
+        string $description,
+        array $options = [],
         protected array $validOptions = []
-    ) {
+    )
+    {
+        parent::__construct(key: $key, name: $name, description: $description, options: $options);
     }
 
     /**
@@ -18,7 +26,7 @@ class IntArrayConfigurationDescription extends AbstractConfigurationDescription 
      */
     public function getType(): string
     {
-        return self::INT_ARRAY;
+        return self::STRING_ARRAY;
     }
 
     /**
@@ -31,13 +39,5 @@ class IntArrayConfigurationDescription extends AbstractConfigurationDescription 
         } else {
             return is_array($value) && 0 == count(array_diff($value, $this->validOptions));
         }
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getOptions(): array
-    {
-        return $this->validOptions;
     }
 }

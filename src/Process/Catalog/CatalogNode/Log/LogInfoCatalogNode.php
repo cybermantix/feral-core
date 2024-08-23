@@ -64,11 +64,4 @@ class LogInfoCatalogNode implements CatalogNodeInterface
             LogNodeCode::LEVEL => LogLevel::INFO
         ];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }

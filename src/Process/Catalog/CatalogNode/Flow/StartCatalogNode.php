@@ -57,11 +57,4 @@ class StartCatalogNode implements CatalogNodeInterface
     {
         return [];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }

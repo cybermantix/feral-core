@@ -11,15 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 class ReadFileNodeCodeTest extends TestCase
 {
-
-    public function testResultDescriptions()
-    {
-        /** @var ResultDescriptionInterface[] $definitions */
-        $definitions = (new ReadFileNodeCode())->getResultDescriptions();
-        $this->assertCount(1, $definitions);
-        $this->assertEquals(ResultInterface::OK, $definitions[0]->getResult());
-    }
-
     public function testReadFile()
     {
         $node = $this->buildNode(true, true, true, 1024, 'This is a test');

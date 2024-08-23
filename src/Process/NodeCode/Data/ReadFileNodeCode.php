@@ -3,27 +3,28 @@
 namespace Feral\Core\Process\NodeCode\Data;
 
 use Exception;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\IntConfigurationDescription;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextValueTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
+use Feral\Core\Utility\Filesystem\FileWrapper;
 use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 use Feral\Core\Utility\Search\DataPathReader;
 use Feral\Core\Utility\Search\DataPathReaderInterface;
 use Feral\Core\Utility\Search\DataPathWriter;
-use Feral\Core\Utility\Filesystem\FileWrapper;
 
 /**
  * Read the contents of a file into the context
@@ -34,6 +35,18 @@ use Feral\Core\Utility\Filesystem\FileWrapper;
  *  maximum_file_size - The maximum file size to allow
  *
  */
+#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: self::FILE,
+    name: 'File Path',
+    description: 'The path to the file to read.'
+)]
+#[IntConfigurationDescription(
+    key: self::MAXIMUM_SIZE,
+    name: 'Maximum Size',
+    description: 'The maximum file size allowed to be read. Defaults ot 1MB.'
+)]
+#[OkResultDescription(description: 'The file was read successfully.')]
 class ReadFileNodeCode implements NodeCodeInterface
 {
     const DEFAULT_MAXIMUM_SIZE = 1024 ** 2;
@@ -42,15 +55,12 @@ class ReadFileNodeCode implements NodeCodeInterface
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait,
-        OkResultsTrait;
+        ContextMutationTrait;
 
     const KEY = 'read_file';
     const NAME = 'Read File';
     const FILE = 'file';
-    const CONTEXT_PATH = 'context_path';
     const MAXIMUM_SIZE = 'maximum_size';
     const DESCRIPTION = 'Read the contents of a file into the context.';
 
@@ -70,28 +80,6 @@ class ReadFileNodeCode implements NodeCodeInterface
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter)
             ->setDataPathReader($dataPathReader);
-    }
-
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(self::FILE)
-                ->setName('File Path')
-                ->setDescription('The path to the file to read.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path tto set the random value.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::MAXIMUM_SIZE)
-                ->setName('Maximum Size')
-                ->setDescription('The maximum file size allowed to be read. Defaults ot 1MB.'),
-        ];
     }
 
     /**

@@ -55,11 +55,4 @@ class StopCatalogNode implements \Feral\Core\Process\Catalog\CatalogNode\Catalog
     {
         return [];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }

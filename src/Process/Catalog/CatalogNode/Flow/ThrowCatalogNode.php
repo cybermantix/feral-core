@@ -2,7 +2,7 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Flow;
 
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
+use Feral\Core\Process\Attributes\StringArrayConfigurationDescription;
 use Feral\Core\Process\NodeCode\Flow\ThrowExceptionNodeCode;
 
 /**
@@ -62,12 +62,5 @@ class ThrowCatalogNode implements \Feral\Core\Process\Catalog\CatalogNode\Catalo
                 ->setName('Message')
                 ->setDescription('The message for the exception. Use context values with the key and mustache style includes.'),
         ];
-    }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
     }
 }

@@ -3,24 +3,23 @@
 namespace Feral\Core\Process\NodeCode\Data;
 
 use Exception;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\StringArrayConfigurationDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextMutationTrait;
 use Feral\Core\Process\NodeCode\Traits\ContextValueTrait;
-use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
-use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
 use Feral\Core\Process\Result\ResultInterface;
-use Feral\Core\Utility\Filter\Comparator\Exception\UnknownComparatorException;
 use Feral\Core\Utility\Search\DataPathReaderInterface;
 use Feral\Core\Utility\Search\DataPathWriter;
 
@@ -32,16 +31,21 @@ use Feral\Core\Utility\Search\DataPathWriter;
  *  table  - The associative array
  *
  */
+#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: self::TABLE,
+    name: 'Table',
+    description: 'Set multiple values in the context.'
+)]
+#[OkResultDescription(description: 'The array of data was set successfully.')]
 class SetContextTableNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
         ResultsTrait,
         ConfigurationTrait,
         ConfigurationValueTrait,
-        EmptyConfigurationDescriptionTrait,
         ContextValueTrait,
-        ContextMutationTrait,
-        OkResultsTrait;
+        ContextMutationTrait;
 
     const KEY = 'set_context_table';
 
@@ -65,24 +69,6 @@ class SetContextTableNodeCode implements NodeCodeInterface
         )
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter);
-    }
-
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringArrayConfigurationDescription())
-                ->setKey(self::TABLE)
-                ->setName('Table')
-                ->setDescription('Set multiple values in the context.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The optional context path to the parent where the table of values will be written.'),
-        ];
     }
 
     /**

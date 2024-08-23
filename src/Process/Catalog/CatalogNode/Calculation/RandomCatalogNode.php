@@ -2,14 +2,16 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Calculation;
 
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\Data\RandomValueNodeCode;
 
 /**
  * Add a random number between zero and one to a context node
  */
+#[ContextConfigurationDescription]
 class RandomCatalogNode implements CatalogNodeInterface
 {
     /**
@@ -58,17 +60,5 @@ class RandomCatalogNode implements CatalogNodeInterface
     public function getConfiguration(): array
     {
         return [];
-    }
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(RandomValueNodeCode::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path to set the random number'),
-        ];
     }
 }

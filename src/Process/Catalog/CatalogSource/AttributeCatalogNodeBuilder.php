@@ -16,8 +16,7 @@ class AttributeCatalogNodeBuilder
         'setName' => 'getName',
         'setGroup' => 'getGroup',
         'setDescription' => 'getDescription',
-        'setConfiguration' => 'getConfiguration',
-        'setConfigurationDescriptions' => 'getConfigurationDescriptions',
+        'setConfiguration' => 'getConfiguration'
     ];
 
     /**

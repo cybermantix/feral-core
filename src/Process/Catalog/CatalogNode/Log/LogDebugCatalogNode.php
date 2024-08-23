@@ -64,11 +64,4 @@ class LogDebugCatalogNode implements CatalogNodeInterface
             LogNodeCode::LEVEL => LogLevel::DEBUG
         ];
     }
-    /**
-     * @inheritDoc
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [];
-    }
 }
