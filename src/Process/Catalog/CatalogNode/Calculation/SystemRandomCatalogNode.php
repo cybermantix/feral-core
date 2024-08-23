@@ -2,9 +2,8 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Calculation;
 
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\Data\RandomValueNodeCode;
 
 /**

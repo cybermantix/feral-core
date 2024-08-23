@@ -2,7 +2,7 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode;
 
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
 
 /**
  * A Catalog Node implementation that carries the information

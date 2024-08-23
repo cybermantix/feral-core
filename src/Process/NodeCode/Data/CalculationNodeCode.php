@@ -3,13 +3,14 @@
 namespace Feral\Core\Process\NodeCode\Data;
 
 use Exception;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\ResultDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
@@ -39,6 +40,35 @@ use Feral\Core\Utility\Search\DataPathWriter;
  * Results
  *  ok - The arithmetic operation has been run and the results added to the context
  */
+
+#[StringConfigurationDescription(
+    key: self::X_CONTEXT_PATH,
+    name: 'X Context Path',
+    description: 'The context path to the first variable, the left side, of the equation.'
+)]
+#[StringConfigurationDescription(
+    key: self::Y_CONTEXT_PATH,
+    name: 'Y Context Path',
+    description: 'The context path to the second variable, the right side, of the equation.'
+)]
+#[StringConfigurationDescription(
+    key: self::RESULT_PATH,
+    name: 'Result Context Path',
+    description: 'The context path to set the results of the operation.'
+)]
+#[StringConfigurationDescription(
+    key: self::OPERATION,
+    name: 'Calculation Operation',
+    description: 'The mathematical operation to apply to the variables.',
+    options: [
+        self::ADD,
+        self::SUBTRACT,
+        self::MULTIPLY,
+        self::DIVIDE,
+        self::POWER,
+    ]
+)]
+#[OkResultDescription(description: 'The calculation was successful.')]
 class CalculationNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
@@ -79,41 +109,6 @@ class CalculationNodeCode implements NodeCodeInterface
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter)
             ->setDataPathReader($dataPathReader);
-    }
-
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(self::X_CONTEXT_PATH)
-                ->setName('X Context Path')
-                ->setDescription('The context path to the first variable, the left side, of the equation.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::Y_CONTEXT_PATH)
-                ->setName('Y Context Path')
-                ->setDescription('The context path to the second variable, the right side, of the equation.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::RESULT_PATH)
-                ->setName('Result Context Path')
-                ->setDescription('The context path to set the results of the operation.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::OPERATION)
-                ->setName('Calculation Operation')
-                ->setDescription('The mathematical operation to apply to the variables.')
-                ->setOptions(
-                    [
-                        self::ADD,
-                        self::SUBTRACT,
-                        self::MULTIPLY,
-                        self::DIVIDE,
-                        self::POWER,
-                    ]
-                )
-        ];
     }
 
     /**

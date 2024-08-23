@@ -1,19 +1,20 @@
 <?php
 
-namespace Feral\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\Attributes;
 
 /**
  * Use this configuration description for configuration values that are
  * a string.
  */
-class FloatConfigurationDescription extends AbstractConfigurationDescription
+#[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
+class StringConfigurationDescription extends AbstractConfigurationDescription
 {
     /**
      * @inheritDoc
      */
     public function getType(): string
     {
-        return self::FLOAT;
+        return self::STRING;
     }
 
     /**
@@ -21,6 +22,6 @@ class FloatConfigurationDescription extends AbstractConfigurationDescription
      */
     public function isValid(mixed $value): bool
     {
-        return is_float($value);
+        return 0 < strlen((string)$value);
     }
 }

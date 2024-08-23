@@ -2,11 +2,11 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Comparator;
 
-use JetBrains\PhpStorm\ArrayShape;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\Flow\ContextValueComparatorNodeCode;
 use Feral\Core\Utility\Filter\Criterion;
+use JetBrains\PhpStorm\ArrayShape;
 
 /**
  * Check a context value and return true if it's zero

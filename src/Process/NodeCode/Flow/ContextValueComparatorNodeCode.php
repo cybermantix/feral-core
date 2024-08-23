@@ -3,12 +3,14 @@
 namespace Feral\Core\Process\NodeCode\Flow;
 
 use Feral\Core\Process\Attributes\CatalogNodeDecorator;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\BooleanResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
@@ -37,6 +39,30 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  *  context_path - The key used to retrieve the actual value from the context
  *
  */
+#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: self::OPERATOR,
+    name: 'Comparison Operator',
+    description: 'The operator to compare the context value in the path to the value stored',
+    options: [
+        Criterion::EQ,
+        Criterion::GT,
+        Criterion::GTE,
+        Criterion::LT,
+        Criterion::LTE,
+        Criterion::NOT,
+        Criterion::CONTAINS,
+        Criterion::IN,
+        Criterion::NIN,
+        Criterion::NOT_EMPTY
+    ]
+)]
+#[StringConfigurationDescription(
+    key: self::TEST_VALUE,
+    name: 'Test Value',
+    description: 'The value to compare the context value to.'
+)]
+#[OkResultDescription(description: 'The comparison was successful.')]
 #[CatalogNodeDecorator(
     key:'is_zero',
     name: 'Is Zero',
@@ -113,42 +139,6 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface
             NodeCodeCategoryInterface::FLOW
         )->setConfigurationManager(new ConfigurationManager())
             ->setDataPathReader($dataPathReader);
-    }
-
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(self::OPERATOR)
-                ->setName('Comparison Operator')
-                ->setDescription('The operator to compare the context value in the path to the value stored')
-                ->setOptions(
-                    [
-                    Criterion::EQ,
-                    Criterion::GT,
-                    Criterion::GTE,
-                    Criterion::LT,
-                    Criterion::LTE,
-                    Criterion::NOT,
-                    Criterion::CONTAINS,
-                    Criterion::IN,
-                    Criterion::NIN,
-                    Criterion::NOT_EMPTY
-                    ]
-                ),
-            (new StringConfigurationDescription())
-                ->setKey(self::TEST_VALUE)
-                ->setName('Test Value')
-                ->setDescription('The value to compare the context value to.'),
-            (new StringConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Data Path')
-                ->setDescription('The context path to get the value being tested.'),
-        ];
     }
 
     /**

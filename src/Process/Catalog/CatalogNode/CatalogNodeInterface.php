@@ -2,7 +2,7 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode;
 
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
 
 /**
  * A catalog node provides information to the user
@@ -57,11 +57,4 @@ interface CatalogNodeInterface
      * @return array
      */
     public function getConfiguration(): array;
-
-    /**
-     * Get the descriptions of the configuration avialable.
-     *
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array;
 }

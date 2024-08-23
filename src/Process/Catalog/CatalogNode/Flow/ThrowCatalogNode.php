@@ -2,7 +2,7 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Flow;
 
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
+use Feral\Core\Process\Attributes\StringArrayConfigurationDescription;
 use Feral\Core\Process\NodeCode\Flow\ThrowExceptionNodeCode;
 
 /**

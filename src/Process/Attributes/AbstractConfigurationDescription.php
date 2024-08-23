@@ -1,40 +1,41 @@
 <?php
 
-namespace Feral\Core\Process\NodeCode\Configuration\Description;
+namespace Feral\Core\Process\Attributes;
 
 /**
  * Use this configuration description for configuration values that are
  * a string.
  */
+#[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
 abstract class AbstractConfigurationDescription implements ConfigurationDescriptionInterface, OptionsDescriptionInterface
 {
-    /**
-     * The configuration key.
-     *
-     * @var string
-     */
-    protected string $key;
+
+
 
     /**
-     * The human friendly name of this configuration description
-     *
-     * @var string
+     * @param string $key
+     * @param string $name
+     * @param string $description
+     * @param array $options
      */
-    protected string $name;
-
-    /**
-     * The human friendly description
-     *
-     * @var string
-     */
-    protected string $description;
-
-    /**
-     * Possible options for this value
-     *
-     * @var array
-     */
-    protected array $options = [];
+    public function __construct(
+        /**
+         * The configuration key.
+         */
+        protected string $key,
+        /**
+         * The human friendly name of this configuration description
+         */
+        protected string $name,
+        /**
+         * The human friendly description
+         */
+        protected string $description,
+        /**
+         * Possible options for this value
+         */
+        protected array $options = []
+    ){}
 
     /**
      * Set the configuration key which is used to identify the configuration.

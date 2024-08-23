@@ -2,13 +2,16 @@
 
 namespace Feral\Core\Process\NodeCode\Data;
 
+use Feral\Core\Process\Attributes\CatalogNodeDecorator;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\Exception\ProcessException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
@@ -23,11 +26,16 @@ use Feral\Core\Utility\Search\DataPathReader;
 use Feral\Core\Utility\Search\DataPathReaderInterface;
 use Feral\Core\Utility\Search\DataPathWriter;
 use Feral\Core\Utility\Search\Exception\UnknownTypeException;
-use Feral\Core\Process\Attributes\CatalogNodeDecorator;
 
 /**
  * Encode an array into a JSON string.
  */
+#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: self::GET_CONTEXT_PATH,
+    name: 'Get Context Path',
+    description: 'The context path to read the JSON string from.'
+)]
 #[CatalogNodeDecorator(
     key:'json_encode',
     name: 'JSON Encode',
@@ -38,6 +46,7 @@ use Feral\Core\Process\Attributes\CatalogNodeDecorator;
         self::GET_CONTEXT_PATH => self::DEFAULT_GET_CONTEXT_PATH
     ]
 )]
+#[OkResultDescription(description: 'The JSON string encoding was successful.')]
 class JsonEncodeNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
@@ -74,24 +83,6 @@ class JsonEncodeNodeCode implements NodeCodeInterface
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter)
             ->setDataPathReader($dataPathReader);
-    }
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path where the returned data is held.')
-            (new StringConfigurationDescription())
-                ->setKey(self::GET_CONTEXT_PATH)
-                ->setName('Get Context Path')
-                ->setDescription('The context path to read the array from.')
-
-        ];
     }
 
     /**

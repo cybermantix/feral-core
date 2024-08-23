@@ -3,12 +3,14 @@
 namespace Feral\Core\Process\NodeCode\Data;
 
 use Exception;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\StringArrayConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
@@ -34,6 +36,8 @@ use Feral\Core\Utility\Search\DataPathWriter;
  * Results
  *  ok - The counter has been updated.
  */
+#[ContextConfigurationDescription]
+#[OkResultDescription(description: 'The counter was increased successfully.')]
 class CounterNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
@@ -71,19 +75,6 @@ class CounterNodeCode implements NodeCodeInterface
             ->setDataPathReader($dataPathReader);
     }
 
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringArrayConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path where the counter is held.')
-        ];
-    }
 
     /**
      * @inheritDoc

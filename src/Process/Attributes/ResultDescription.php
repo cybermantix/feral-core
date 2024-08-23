@@ -1,21 +1,25 @@
 <?php
 
-namespace Feral\Core\Process\Result\Description;
+namespace Feral\Core\Process\Attributes;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
+
 /**
  * @see ResultDescriptionInterface
  */
+#[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
 class ResultDescription implements ResultDescriptionInterface
 {
-    /**
-     * The result returned by the node
-     * @var string
-     */
-    private string $result;
-    /**
-     * The description of the result
-     * @var string
-     */
-    private string $description;
+
+    public function __construct(
+        /**
+         * The result returned by the node
+         */
+        private string $result,
+        /**
+         * The description of the result
+         */
+        private string $description
+    ){}
 
     /**
      * @return string

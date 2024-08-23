@@ -2,7 +2,7 @@
 
 namespace Feral\Core\Process\NodeCode\Traits;
 
-use Feral\Core\Process\Result\Description\ResultDescription;
+use Feral\Core\Process\Attributes\ResultDescription;
 use Feral\Core\Process\Result\ResultInterface;
 
 /**

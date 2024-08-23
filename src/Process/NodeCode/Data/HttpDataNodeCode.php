@@ -3,15 +3,16 @@
 namespace Feral\Core\Process\NodeCode\Data;
 
 use Feral\Core\Process\Attributes\CatalogNodeDecorator;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Attributes\ContextConfigurationDescription;
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\StringArrayConfigurationDescription;
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Exception\MissingConfigurationValueException;
 use Feral\Core\Process\Exception\ProcessException;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\ConfigurationDescriptionInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\IntConfigurationDescription;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringArrayConfigurationDescription;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\ConfigurationValueTrait;
@@ -21,7 +22,6 @@ use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use Feral\Core\Process\NodeCode\Traits\OkResultsTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
-use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
 use Feral\Core\Process\Result\ResultInterface;
 use Feral\Core\Utility\Search\DataPathReader;
 use Feral\Core\Utility\Search\DataPathReaderInterface;
@@ -38,6 +38,34 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  * Results
  *  ok - Data was read from the URL and stored in the context
  */
+#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: self::URL,
+    name: 'URL',
+    description: 'The URL to call to get the data.'
+)]
+#[StringConfigurationDescription(
+    key: self::METHOD,
+    name: 'Method',
+    description: 'The HTTP Method to use to make the call. DEFAULT GET',
+    options: [
+        'GET',
+        'POST',
+        'PUT',
+        'PATCH',
+        'DELETE',
+    ]
+)]
+#[StringConfigurationDescription(
+    key: self::CONFIG_DATA,
+    name: 'Data',
+    description: 'Data to be added to the HTTP request.'
+)]
+#[StringConfigurationDescription(
+    key: self::DATA_CONTEXT_PATH,
+    name: 'Data Context Path',
+    description: 'The location of the data to be sent to the HTTP service.'
+)]
 #[CatalogNodeDecorator(
     key:'http_get',
     name: 'HTTP Get',
@@ -83,7 +111,8 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
         self::METHOD => self::METHOD_DELETE
     ]
 )]
-class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
+#[OkResultDescription(description: 'The HTTP request was successful.')]
+class HttpDataNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
         ResultsTrait,
@@ -131,42 +160,6 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
             ->setConfigurationManager($configurationManager)
             ->setDataPathWriter($dataPathWriter)
             ->setDataPathReader($dataPathReader);
-    }
-
-    /**
-     * @return ConfigurationDescriptionInterface[]
-     */
-    public function getConfigurationDescriptions(): array
-    {
-        return [
-            (new StringConfigurationDescription())
-                ->setKey(self::CONTEXT_PATH)
-                ->setName('Context Path')
-                ->setDescription('The context path where the returned data is held.')
-            (new StringConfigurationDescription())
-                ->setKey(self::URL)
-                ->setName('URL')
-                ->setDescription('The URL to call to get the data.')
-            (new StringConfigurationDescription())
-                ->setKey(self::METHOD)
-                ->setName('Method')
-                ->setDescription('The HTTP Method to use to make the call. DEFAULT GET')
-                ->setOptions([
-                    'GET',
-                    'POST',
-                    'PUT',
-                    'PATCH',
-                    'DELETE',
-                ])
-            (new StringArrayConfigurationDescription())
-                ->setKey(self::CONFIG_DATA)
-                ->setName('Data')
-                ->setDescription('Data to be added to the HTTP request.')
-            (new StringArrayConfigurationDescription())
-                ->setKey(self::DATA_CONTEXT_PATH)
-                ->setName('Data Context Path')
-                ->setDescription('The location of the data to be sent to the HTTP service')
-        ];
     }
 
     /**
@@ -247,8 +240,8 @@ class HttpDataNodeCode implements \Feral\Core\Process\NodeCode\NodeCodeInterface
         curl_close($ch);
         return $this->result(
             ResultInterface::OK,
-            'cURL call to "%s" which returned code "%u" with %u bytes.',
-            [$url, $responseCode, strlen($responseBody)]
+            'cURL "%s" call to "%s" which returned code "%u" with %u bytes.',
+            [$method, $url, $responseCode, strlen($responseBody)]
         );
     }
 

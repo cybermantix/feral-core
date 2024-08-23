@@ -2,6 +2,8 @@
 
 namespace Feral\Core\Process\NodeCode\Flow;
 
+use Feral\Core\Process\Attributes\OkResultDescription;
+use Feral\Core\Process\Attributes\ResultDescription;
 use Feral\Core\Process\Configuration\ConfigurationManager;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\NodeCode\Category\NodeCodeCategoryInterface;
@@ -10,7 +12,6 @@ use Feral\Core\Process\NodeCode\Traits\ConfigurationTrait;
 use Feral\Core\Process\NodeCode\Traits\EmptyConfigurationDescriptionTrait;
 use Feral\Core\Process\NodeCode\Traits\NodeCodeMetaTrait;
 use Feral\Core\Process\NodeCode\Traits\ResultsTrait;
-use Feral\Core\Process\Result\Description\ResultDescription;
 use Feral\Core\Process\Result\ResultInterface;
 
 /**
@@ -21,6 +22,7 @@ use Feral\Core\Process\Result\ResultInterface;
  *  (No Configuration keys)
  *
  */
+#[OkResultDescription(description: 'The stop node was successful.')]
 class StopProcessingNode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,

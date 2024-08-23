@@ -2,8 +2,8 @@
 
 namespace Feral\Core\Process\Catalog\CatalogNode\Context;
 
+use Feral\Core\Process\Attributes\StringConfigurationDescription;
 use Feral\Core\Process\Catalog\CatalogNode\CatalogNodeInterface;
-use Feral\Core\Process\NodeCode\Configuration\Description\StringConfigurationDescription;
 use Feral\Core\Process\NodeCode\Data\SetContextValueNodeCode;
 
 /**
