@@ -64,12 +64,14 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 #[StringConfigurationDescription(
     key: self::DATA_CONTEXT_PATH,
     name: 'Data Context Path',
-    description: 'The location of the data to be sent to the HTTP service.'
+    description: 'The location of the data to be sent to the HTTP service.',
+    isOptional: true
 )]
 #[StringConfigurationDescription(
     key: self::BEARER_TOKEN,
     name: 'Bearer Token',
-    description: 'The bearer token to send with the call'
+    description: 'The bearer token to send with the call',
+    isSecret: true
 )]
 #[CatalogNodeDecorator(
     key:'http_get',
