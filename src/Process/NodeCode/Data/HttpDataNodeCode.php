@@ -46,6 +46,7 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
     key: self::METHOD,
     name: 'Method',
     description: 'The HTTP Method to use to make the call. DEFAULT GET',
+    default: self::DEFAULT_METHOD,
     options: [
         'GET',
         'POST',
@@ -57,12 +58,18 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
 #[StringConfigurationDescription(
     key: self::CONFIG_DATA,
     name: 'Data',
-    description: 'Data to be added to the HTTP request.'
+    description: 'Data to be added to the HTTP request.',
+    isOptional: true
 )]
 #[StringConfigurationDescription(
     key: self::DATA_CONTEXT_PATH,
     name: 'Data Context Path',
     description: 'The location of the data to be sent to the HTTP service.'
+)]
+#[StringConfigurationDescription(
+    key: self::BEARER_TOKEN,
+    name: 'Bearer Token',
+    description: 'The bearer token to send with the call'
 )]
 #[CatalogNodeDecorator(
     key:'http_get',
@@ -126,7 +133,8 @@ class HttpDataNodeCode implements NodeCodeInterface
     const DESCRIPTION = 'Make a call to an HTTP service to get data and store it in the context. Methods allowed are GET, POST, PUT, PATCH, and DELETE';
 
     public const DEFAULT_CONTEXT_PATH = '_results';
-    public const CONTEXT_PATH = 'context_path';
+    public const OUTPUT_CONTEXT_PATH = 'output_context_path';
+    public const BEARER_TOKEN = 'bearer_token';
     public const DATA_CONTEXT_PATH = 'data_context_path';
     public const CONFIG_DATA = 'config_data';
     public const URL = 'url';
@@ -166,18 +174,17 @@ class HttpDataNodeCode implements NodeCodeInterface
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, self::DEFAULT_CONTEXT_PATH);
+        $contextPath = $this->getRequiredConfigurationValue(self::OUTPUT_CONTEXT_PATH, self::DEFAULT_CONTEXT_PATH);
         $url = $this->getRequiredConfigurationValue(self::URL);
         $method = $this->getRequiredStringConfigurationValue(self::METHOD, self::DEFAULT_METHOD);
-        $configData = $this->getArrayConfigurationValue(self::CONFIG_DATA, []);
+        $bearerToken = $this->getStringSecretConfigurationValue(self::BEARER_TOKEN);
+        $data = $this->getArrayConfigurationValue(self::CONFIG_DATA, []);
         $contextDataPath = $this->getStringConfigurationValue(self::DATA_CONTEXT_PATH, 'ctx_data');
         $contextData = $this->getValueFromContext($contextDataPath, $context);
-        if (empty($contextData)){
-            $contextData = [];
-        } else if (is_string($contextData)) {
-            $contextData = [$contextData];
+        if (!empty($contextData)){
+            $data = $contextData;
         }
-        $data = array_merge($configData, $contextData);
+        $headers = [];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -188,15 +195,15 @@ class HttpDataNodeCode implements NodeCodeInterface
         switch (strtoupper($method)) {
             case 'POST':
                 curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 break;
             case 'PUT':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 break;
             case 'PATCH':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 break;
             case 'DELETE':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
@@ -208,6 +215,16 @@ class HttpDataNodeCode implements NodeCodeInterface
                     curl_setopt($ch, CURLOPT_URL, $url);
                 }
                 break;
+        }
+
+        if (!empty($bearerToken)) {
+            $headers[] = 'Authorization: Bearer ' . $bearerToken;
+        }
+
+        // HEADERS
+        $headers[] = 'Content-Type: application/json';
+        if (!empty($headers)) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         }
 
 

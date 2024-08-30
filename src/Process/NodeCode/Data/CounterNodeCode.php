@@ -53,7 +53,7 @@ class CounterNodeCode implements NodeCodeInterface
 
     const DESCRIPTION = 'A counter that ticks on every pass in the node.';
 
-    public const CONTEXT_PATH = 'context_path';
+    public const OUTPUT_CONTEXT_PATH = 'output_context_path';
 
     public function __construct(
         DataPathReaderInterface $dataPathReader = new DataPathReader(),
@@ -79,7 +79,7 @@ class CounterNodeCode implements NodeCodeInterface
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, self::DEFAULT_CONTEXT_PATH);
+        $contextPath = $this->getRequiredConfigurationValue(self::OUTPUT_CONTEXT_PATH, self::DEFAULT_CONTEXT_PATH);
         $counter = $this->getValueFromContext($contextPath, $context);
         if (!$counter) {
             $counter = 0;

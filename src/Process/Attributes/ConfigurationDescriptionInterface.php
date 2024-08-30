@@ -65,6 +65,29 @@ interface ConfigurationDescriptionInterface
     public function getType(): string;
 
     /**
+     * The default value for the configuration.
+     * @return mixed
+     */
+    public function getDefault(): mixed;
+
+    /**
+     * Does the configuation description have a default?
+     */
+    public function hasDefault(): bool;
+
+    /**
+     * Is this configuration a secret?
+     * @return bool
+     */
+    public function isSecret(): bool;
+
+    /**
+     * Is this configuration optional?
+     * @return bool
+     */
+    public function isOptional(): bool;
+
+    /**
      * Test if a value is a valid configuration value.
      *
      * @param  mixed $value

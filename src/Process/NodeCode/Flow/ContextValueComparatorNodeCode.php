@@ -37,7 +37,11 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  *  context_path - The key used to retrieve the actual value from the context
  *
  */
-#[ContextConfigurationDescription]
+#[StringConfigurationDescription(
+    key: self::INPUT_CONTEXT_PATH,
+    name: 'Input Context Path',
+    description: 'The context path where the input to test is found..'
+)]
 #[StringConfigurationDescription(
     key: self::OPERATOR,
     name: 'Comparison Operator',
@@ -97,6 +101,12 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
     group: 'Flow',
     description: 'Compare if a context value is less than or equal to zero.',
     configuration: [self::OPERATOR => Criterion::LTE, self::TEST_VALUE => 0])]
+#[CatalogNodeDecorator(
+    key:'http_status_success',
+    name: 'HTTP Success',
+    group: 'Flow',
+    description: 'Is the HTTP result code a success?',
+    configuration: [self::OPERATOR => Criterion::BETWEEN, self::TEST_VALUE => [200, 299]])]
 class ContextValueComparatorNodeCode implements NodeCodeInterface
 {
     use NodeCodeMetaTrait,
@@ -115,7 +125,7 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface
 
     public const OPERATOR = 'operator';
 
-    public const CONTEXT_PATH = 'context_path';
+    public const INPUT_CONTEXT_PATH = 'input_context_path';
 
     public function __construct(
         /**
@@ -144,7 +154,7 @@ class ContextValueComparatorNodeCode implements NodeCodeInterface
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $contextPath = $this->getRequiredStringConfigurationValue(self::CONTEXT_PATH);
+        $contextPath = $this->getRequiredStringConfigurationValue(self::INPUT_CONTEXT_PATH);
         $testValue = $this->getRequiredConfigurationValue(self::TEST_VALUE);
         $operator = $this->getRequiredConfigurationValue(self::OPERATOR);
         $contextValue = $this->getValueFromContext($contextPath, $context);

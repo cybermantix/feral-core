@@ -13,7 +13,7 @@ use Feral\Core\Process\NodeCode\Data\RandomValueNodeCode;
 #[ContextConfigurationDescription]
 class SystemRandomCatalogNode implements CatalogNodeInterface
 {
-    const CONTEXT_PATH = '_random';
+    const OUTPUT_CONTEXT_PATH = '_random';
 
     /**
      * @inheritDoc
@@ -61,7 +61,7 @@ class SystemRandomCatalogNode implements CatalogNodeInterface
     public function getConfiguration(): array
     {
         return [
-            RandomValueNodeCode::CONTEXT_PATH => self::CONTEXT_PATH
+            RandomValueNodeCode::OUTPUT_CONTEXT_PATH => self::OUTPUT_CONTEXT_PATH
         ];
     }
 }

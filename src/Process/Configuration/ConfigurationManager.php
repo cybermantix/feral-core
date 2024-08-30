@@ -12,23 +12,25 @@ class ConfigurationManager
     /**
      * Init the configuration instance
      *
-     * @var array
+     * @var ConfigurationValueInterface[]
      */
     protected array $configuration = [];
 
     /**
      * Using array_merge is faster than using a loop with assignment.
      *
-     * @param  array $overrides
+     * @param  ConfigurationValueInterface[] $overrides
      * @return ConfigurationManager
      */
     public function merge(array $overrides): self
     {
-        $this->configuration = array_merge($this->configuration, $overrides);
-        foreach ($overrides as $key => $value) {
+        foreach ($overrides as $value) {
+            $key = $value->getKey();
             // DELETE
-            if (isset($this->configuration[$key]) && self::DELETE === $value) {
+            if (isset($this->configuration[$key]) && self::DELETE === $value->getValue()) {
                 unset($this->configuration[$key]);
+            } else {
+                $this->configuration[$key] = $value;
             }
         }
         return $this;
@@ -48,13 +50,28 @@ class ConfigurationManager
     /**
      * Get a value from the configuration
      *
-     * @param  string $key
-     * @return mixed
+     * @param string $key
+     * @return ConfigurationValueInterface|null
      */
     public function getValue(string $key): mixed
     {
         if ($this->hasValue($key)) {
-            return $this->configuration[$key];
+            return $this->configuration[$key]->getValue();
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Get a value from the configuration
+     *
+     * @param string $key
+     * @return ConfigurationValueInterface|null
+     */
+    public function getUnmaskedValue(string $key): mixed
+    {
+        if ($this->hasValue($key)) {
+            return $this->configuration[$key]->getUnmaskedValue();
         } else {
             return null;
         }
@@ -69,14 +86,16 @@ class ConfigurationManager
      */
     public function addDeleteValue(array $main, string $key): array
     {
-        $main[$key] = self::DELETE;
+        $main[$key] = (new ConfigurationValue())
+            ->setKey($key)
+            ->setValue(self::DELETE);
         return $main;
     }
 
     /**
      * Get the configuration
      *
-     * @return array
+     * @return ConfigurationValueInterface[]
      */
     public function getConfiguration(): array
     {

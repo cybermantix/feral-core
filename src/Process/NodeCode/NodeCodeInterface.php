@@ -3,6 +3,7 @@
 namespace Feral\Core\Process\NodeCode;
 
 use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
+use Feral\Core\Process\Configuration\ConfigurationValue;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
 use Feral\Core\Process\Result\ResultInterface;
@@ -64,6 +65,13 @@ interface NodeCodeInterface
      * @return string
      */
     public function getCategoryKey(): string;
+
+    /**
+     * Add the configuration to the NodeCode before running.
+     * @param ConfigurationValue[] $configurationValues
+     * @return $this
+     */
+    public function addConfiguration(array $configurationValues): static;
 
     /**
      * @param  ContextInterface $context

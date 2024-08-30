@@ -72,7 +72,7 @@ class SetContextTableNodeCodeTest extends TestCase
                 SetContextTableNodeCode::TABLE => [
                     'two' => 1
                 ],
-                SetContextTableNodeCode::CONTEXT_PATH => 'one'
+                SetContextTableNodeCode::OUTPUT_CONTEXT_PATH => 'one'
             ]
         );
         $context = (new Context())->set('one', []);
