@@ -16,7 +16,7 @@ class ContextValueComparatorNodeTest extends TestCase
     {
         $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
+                ContextValueComparatorNodeCode::INPUT_CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::EQ,
                 ContextValueComparatorNodeCode::TEST_VALUE => 'testing'
             ]
@@ -34,7 +34,7 @@ class ContextValueComparatorNodeTest extends TestCase
     {
         $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
+                ContextValueComparatorNodeCode::INPUT_CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::NOT,
                 ContextValueComparatorNodeCode::TEST_VALUE => 'testing'
             ]
@@ -52,7 +52,7 @@ class ContextValueComparatorNodeTest extends TestCase
     {
         $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
+                ContextValueComparatorNodeCode::INPUT_CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::CONTAINS,
                 ContextValueComparatorNodeCode::TEST_VALUE => 'ing'
             ]
@@ -70,7 +70,7 @@ class ContextValueComparatorNodeTest extends TestCase
     {
         $node = (new ContextValueComparatorNodeCode())->addConfiguration(
             [
-                ContextValueComparatorNodeCode::CONTEXT_PATH => 'test',
+                ContextValueComparatorNodeCode::INPUT_CONTEXT_PATH => 'test',
                 ContextValueComparatorNodeCode::OPERATOR => Criterion::IN,
                 ContextValueComparatorNodeCode::TEST_VALUE => [1,2,3]
             ]

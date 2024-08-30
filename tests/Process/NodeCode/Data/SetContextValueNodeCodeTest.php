@@ -22,7 +22,7 @@ class SetContextValueNodeCodeTest extends TestCase
         $this->node->addConfiguration(
             [
                 SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one',
+                SetContextValueNodeCode::OUTPUT_CONTEXT_PATH => 'one',
                 SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_INT
             ]
         );
@@ -38,7 +38,7 @@ class SetContextValueNodeCodeTest extends TestCase
         $this->node->addConfiguration(
             [
                 SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one',
+                SetContextValueNodeCode::OUTPUT_CONTEXT_PATH => 'one',
                 SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_STRING
             ]
         );
@@ -54,7 +54,7 @@ class SetContextValueNodeCodeTest extends TestCase
         $this->node->addConfiguration(
             [
                 SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one',
+                SetContextValueNodeCode::OUTPUT_CONTEXT_PATH => 'one',
                 SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_FLOAT
             ]
         );
@@ -69,7 +69,7 @@ class SetContextValueNodeCodeTest extends TestCase
         $this->node->addConfiguration(
             [
                 SetContextValueNodeCode::VALUE => 1,
-                SetContextValueNodeCode::CONTEXT_PATH => 'one|two',
+                SetContextValueNodeCode::OUTPUT_CONTEXT_PATH => 'one|two',
                 SetContextValueNodeCode::VALUE_TYPE => SetContextValueNodeCode::OPTION_INT
             ]
         );

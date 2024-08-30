@@ -12,9 +12,9 @@ trait ConfigurationTrait
     /**
      * @see NodeCodeInterface::addConfiguration()
      */
-    public function addConfiguration(array $keysValues): static
+    public function addConfiguration(array $configurationValues): static
     {
-        $this->manager->merge($keysValues);
+        $this->manager->merge($configurationValues);
         return $this;
     }
 

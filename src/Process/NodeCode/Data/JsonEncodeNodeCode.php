@@ -30,9 +30,10 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
  */
 #[ContextConfigurationDescription]
 #[StringConfigurationDescription(
-    key: self::GET_CONTEXT_PATH,
+    key: self::INPUT_CONTEXT_PATH,
     name: 'Get Context Path',
-    description: 'The context path to read the JSON string from.'
+    description: 'The context path to read the JSON string from.',
+    default: 'input'
 )]
 #[CatalogNodeDecorator(
     key:'json_encode',
@@ -40,8 +41,8 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
     group: 'Data',
     description: 'Convert an array to a JSON string.',
     configuration: [
-        self::CONTEXT_PATH => self::DEFAULT_CONTEXT_PATH,
-        self::GET_CONTEXT_PATH => self::DEFAULT_GET_CONTEXT_PATH
+        self::OUTPUT_CONTEXT_PATH => self::DEFAULT_OUTPUT_CONTEXT_PATH,
+        self::INPUT_CONTEXT_PATH => self::DEFAULT_INPUT_CONTEXT_PATH
     ]
 )]
 #[OkResultDescription(description: 'The JSON string encoding was successful.')]
@@ -60,10 +61,10 @@ class JsonEncodeNodeCode implements NodeCodeInterface
 
     const DESCRIPTION = 'Convert an array into JSON data in the context';
 
-    public const DEFAULT_GET_CONTEXT_PATH = '_results';
-    public const DEFAULT_CONTEXT_PATH = '_data';
-    public const CONTEXT_PATH = 'context_path';
-    public const GET_CONTEXT_PATH = 'get_context_path';
+    public const DEFAULT_INPUT_CONTEXT_PATH = '_results';
+    public const DEFAULT_OUTPUT_CONTEXT_PATH = '_data';
+    public const OUTPUT_CONTEXT_PATH = 'output_context_path';
+    public const INPUT_CONTEXT_PATH = 'input_context_path';
 
     public function __construct(
         DataPathReaderInterface $dataPathReader = new DataPathReader(),
@@ -89,12 +90,12 @@ class JsonEncodeNodeCode implements NodeCodeInterface
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, self::DEFAULT_CONTEXT_PATH);
-        $getContextPath = $this->getRequiredConfigurationValue(self::GET_CONTEXT_PATH, self::DEFAULT_GET_CONTEXT_PATH);
+        $contextPath = $this->getRequiredConfigurationValue(self::OUTPUT_CONTEXT_PATH, self::DEFAULT_OUTPUT_CONTEXT_PATH);
+        $getContextPath = $this->getRequiredConfigurationValue(self::INPUT_CONTEXT_PATH, self::DEFAULT_INPUT_CONTEXT_PATH);
 
-        $jsonString = $this->getStringValueFromContext($getContextPath, $context);
-        $arrayData = json_encode($jsonString, true);
-        $this->setValueInContext(self::CONTEXT_PATH, $arrayData, $context);
+        $rawData = $this->getValueFromContext($getContextPath, $context);
+        $jsonString = json_encode($rawData, true);
+        $this->setValueInContext($contextPath, $jsonString, $context);
 
         return $this->result(
             ResultInterface::OK,

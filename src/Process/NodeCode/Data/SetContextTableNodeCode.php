@@ -55,7 +55,7 @@ class SetContextTableNodeCode implements NodeCodeInterface
 
     public const TABLE = 'table';
 
-    public const CONTEXT_PATH = 'context_path';
+    public const OUTPUT_CONTEXT_PATH = 'output_context_path';
 
     public function __construct(
         DataPathWriter $dataPathWriter = new DataPathWriter(),
@@ -79,7 +79,7 @@ class SetContextTableNodeCode implements NodeCodeInterface
     public function process(ContextInterface $context): ResultInterface
     {
         $table = $this->getRequiredArrayConfigurationValue(self::TABLE);
-        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH, '');
+        $contextPath = $this->getRequiredConfigurationValue(self::OUTPUT_CONTEXT_PATH, '');
         if (!empty($contextPath)) {
             $contextPath .= DataPathReaderInterface::DEFAULT_DELIMITER;
         }

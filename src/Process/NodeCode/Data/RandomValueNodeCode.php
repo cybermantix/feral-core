@@ -44,7 +44,7 @@ class RandomValueNodeCode implements NodeCodeInterface
 
     const KEY = 'random';
     const NAME = 'Random';
-    const CONTEXT_PATH = 'context_path';
+    const OUTPUT_CONTEXT_PATH = 'output_context_path';
     const DESCRIPTION = 'Create a random number between a min and max';
 
 
@@ -71,7 +71,7 @@ class RandomValueNodeCode implements NodeCodeInterface
      */
     public function process(ContextInterface $context): ResultInterface
     {
-        $path = $this->getRequiredConfigurationValue(self::CONTEXT_PATH);
+        $path = $this->getRequiredConfigurationValue(self::OUTPUT_CONTEXT_PATH);
         $value = mt_rand(0, mt_getrandmax()) / mt_getrandmax();
         $this->setValueInContext($path, $value, $context);
 

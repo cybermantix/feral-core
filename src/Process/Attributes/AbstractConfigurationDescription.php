@@ -32,6 +32,18 @@ abstract class AbstractConfigurationDescription implements ConfigurationDescript
          */
         protected string $description,
         /**
+         * Is this configuration a secret?
+         */
+        protected bool $isSecret = false,
+        /**
+         * Is this configuration optional?
+         */
+        protected bool $isOptional = false,
+        /**
+         * Default value for this configuration
+         */
+        protected mixed $default = null,
+        /**
          * Possible options for this value
          */
         protected array $options = []
@@ -98,6 +110,28 @@ abstract class AbstractConfigurationDescription implements ConfigurationDescript
     }
 
     /**
+     * @return mixed
+     */
+    public function getDefault(): mixed
+    {
+        return $this->default;
+    }
+
+    /**
+     * @param mixed $default
+     */
+    public function setDefault(mixed $default): static
+    {
+        $this->default = $default;
+        return $this;
+    }
+
+    public function hasDefault(): bool
+    {
+        return !empty($this->default);
+    }
+
+    /**
      * Set the optional options allowed for the configuration.
      *
      * @param  array $options
@@ -115,5 +149,13 @@ abstract class AbstractConfigurationDescription implements ConfigurationDescript
     public function getOptions(): array
     {
         return $this->options;
+    }
+     public function isSecret(): bool
+     {
+         return $this->isSecret;
+     }
+    public function isOptional(): bool
+    {
+        return $this->isOptional;
     }
 }

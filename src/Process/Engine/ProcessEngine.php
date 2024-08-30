@@ -2,7 +2,11 @@
 
 namespace Feral\Core\Process\Engine;
 
+use Exception;
+use Feral\Core\Process\Attributes\ConfigurationDescriptionInterface;
 use Feral\Core\Process\Catalog\CatalogInterface;
+use Feral\Core\Process\Configuration\ConfigurationValue;
+use Feral\Core\Process\Configuration\ConfigurationValueType;
 use Feral\Core\Process\Context\ContextInterface;
 use Feral\Core\Process\Edge\EdgeCollection;
 use Feral\Core\Process\Engine\Traits\EdgeCollectionTrait;
@@ -18,6 +22,7 @@ use Feral\Core\Process\Node\NodeInterface;
 use Feral\Core\Process\NodeCode\NodeCodeFactory;
 use Feral\Core\Process\NodeCode\NodeCodeInterface;
 use Feral\Core\Process\ProcessInterface;
+use Feral\Core\Process\Result\Description\ResultDescriptionInterface;
 use Feral\Core\Process\Result\ResultInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
@@ -111,8 +116,9 @@ class ProcessEngine implements ProcessEngineInterface
      * and configure it. This will use an internal cache for nodes that
      * get processed multiple times.
      *
-     * @param  NodeInterface $node
+     * @param NodeInterface $node
      * @return NodeCodeInterface
+     * @throws Exception
      */
     protected function getConfiguredNodeCode(NodeInterface $node): NodeCodeInterface
     {
@@ -120,9 +126,86 @@ class ProcessEngine implements ProcessEngineInterface
         if (empty($this->cachedConfiguredNodeCode[$nodeKey])) {
             $catalogNode = $this->catalog->getCatalogNode($node->getCatalogNodeKey());
             $nodeCode = $this->factory->getNodeCode($catalogNode->getNodeCodeKey());
+
+            // description attributes
+            $nodeCodeReflection = new \ReflectionClass($nodeCode::class);
+            $nodeCodeAttributes = $nodeCodeReflection->getAttributes();
+            $configurationDescriptions = [];
+            $requiredValues = [];
+            foreach ($nodeCodeAttributes as $attribute) {
+                $instance = $attribute->newInstance();
+                if (is_a($instance, ConfigurationDescriptionInterface::class)) {
+                    $configurationDescriptions[$instance->getKey()] = $instance;
+                    if (!$instance->hasDefault() && !$instance->isOptional()) {
+                        $requiredValues[] = $instance->getKey();
+                    }
+                }
+            }
+
+            $configurationValues = [];
+            foreach ($configurationDescriptions as $key => $value) {
+                if (!$value->isSecret()) {
+                    $type = $value->isOptional() ?
+                        ConfigurationValueType::OPTIONAL:
+                        ConfigurationValueType::STANDARD;
+                } else {
+                    $type = $value->isOptional() ?
+                        ConfigurationValueType::OPTIONAL_SECRET:
+                        ConfigurationValueType::SECRET;
+                }
+                $configurationValue = (new ConfigurationValue())
+                    ->setKey($key)
+                    ->setType($type);
+
+                if ($value->hasDefault()) {
+                    $configurationValue->setDefault($value->getDefault());
+                    $requiredValues = array_diff($requiredValues, [$key]);
+                }
+                $configurationValues[$key] = $configurationValue;
+            }
+
+            $configurationKeys = array_keys($configurationValues);
+            $badKeys = array_diff(array_keys($catalogNode->getConfiguration()), $configurationKeys);
+            if (!empty($badKeys)) {
+                throw new Exception(sprintf(
+                    'Catalog configuration "%s" keys "%s" are not present in the configuration for the node. Valid configuration keys are "%s"',
+                    $catalogNode->getKey(),
+                    implode(", ",$badKeys),
+                    implode(", ",$configurationKeys)
+                ));
+            }
+
+            $badKeys = array_diff(array_keys($node->getConfiguration()), $configurationKeys);
+            if (!empty($badKeys)) {
+                throw new Exception(sprintf(
+                    'Process configuration "%s" keys "%s" are not present in the configuration for the node. Valid configuration keys are "%s"',
+                    $nodeKey,
+                    implode(", ",$badKeys),
+                    implode(", ",$configurationKeys)
+                ));
+            }
+
+
             // Catalog Overrides Process Node
-            $configuration = array_merge($node->getConfiguration(), $catalogNode->getConfiguration());
-            $nodeCode->addConfiguration($configuration);
+            $configuration = array_merge($catalogNode->getConfiguration(), $node->getConfiguration());
+            foreach ($configuration as $key => $value) {
+                $configurationValues[$key]->setValue($value);
+                $requiredValues = array_diff($requiredValues, [$key]);
+            }
+
+            if (!empty($requiredValues)) {
+                throw new Exception(
+                    sprintf(
+                        'Required configuration values "%s" are missing for node "%s" and catalog node "%s".',
+                        implode(",", $requiredValues),
+                        $node->getKey(),
+                        $catalogNode->getKey()
+                    )
+                );
+            }
+
+            // CONFIRM ALL CONFIGURATIONS HAVE VALUES
+            $nodeCode->addConfiguration($configurationValues);
             $this->cachedConfiguredNodeCode[$nodeKey] = $nodeCode;
         }
         return $this->cachedConfiguredNodeCode[$nodeKey];

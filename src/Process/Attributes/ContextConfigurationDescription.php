@@ -9,12 +9,14 @@ namespace Feral\Core\Process\Attributes;
 #[\Attribute(\Attribute::IS_REPEATABLE | \Attribute::TARGET_CLASS)]
 class ContextConfigurationDescription extends AbstractConfigurationDescription
 {
-    public function __construct()
+    public function __construct(
+        string $description = 'The context path to set the value.')
     {
         parent::__construct(
-            key: 'context_path',
+            key: 'output_context_path',
             name: 'Context Path',
-            description: 'The context path to set the value.'
+            description: $description,
+            default: 'output'
         );
     }
 

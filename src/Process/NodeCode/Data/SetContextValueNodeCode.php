@@ -73,7 +73,7 @@ class SetContextValueNodeCode implements NodeCodeInterface
 
     public const VALUE = 'value';
 
-    public const CONTEXT_PATH = 'context_path';
+    public const OUTPUT_CONTEXT_PATH = 'output_context_path';
 
     public const VALUE_TYPE = 'value_type';
 
@@ -102,7 +102,7 @@ class SetContextValueNodeCode implements NodeCodeInterface
     {
         $valueType = $this->getRequiredConfigurationValue(self::VALUE_TYPE, self::OPTION_STRING);
         $value = $this->getRequiredConfigurationValue(self::VALUE);
-        $contextPath = $this->getRequiredConfigurationValue(self::CONTEXT_PATH);
+        $contextPath = $this->getRequiredConfigurationValue(self::OUTPUT_CONTEXT_PATH);
 
         $value = match ($valueType) {
             self::OPTION_STRING => (string)$value,

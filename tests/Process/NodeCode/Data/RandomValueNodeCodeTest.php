@@ -20,7 +20,7 @@ class RandomValueNodeCodeTest extends TestCase
     public function testProcess()
     {
         $this->node->addConfiguration([
-            RandomValueNodeCode::CONTEXT_PATH => 'random'
+            RandomValueNodeCode::OUTPUT_CONTEXT_PATH => 'random'
         ]);
         $context = (new Context());
         $result = $this->node->process($context);
