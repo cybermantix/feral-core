@@ -12,7 +12,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "psr/event-dispatcher": "^1.0",
-        "psr/log": "^2.0"
+        "psr/log": "^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "9.*",
