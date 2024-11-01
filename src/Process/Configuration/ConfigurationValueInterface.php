@@ -18,6 +18,13 @@ interface ConfigurationValueInterface
      * @return mixed
      */
     public function getValue(): mixed;
+    public function getDefault(): mixed;
+    public function hasDefault(): bool;
+
+    /**
+     * @return bool
+     */
+    public function hasValue(): bool;
 
     /**
      * @return mixed

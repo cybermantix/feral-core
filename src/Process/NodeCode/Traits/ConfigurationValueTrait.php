@@ -18,7 +18,7 @@ trait ConfigurationValueTrait
      */
     protected function hasConfigurationValue(string $key): bool
     {
-        return $this->manager->hasValue($key);
+        return $this->manager->hasValue($key) || $this->manager->hasDefault($key);
     }
 
     /**

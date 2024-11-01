@@ -44,7 +44,12 @@ class ConfigurationManager
      */
     public function hasValue(string $key): bool
     {
-        return isset($this->configuration[$key]);
+        return isset($this->configuration[$key]) && $this->configuration[$key]->hasValue();
+    }
+
+    public function hasDefault(string $key): bool
+    {
+        return isset($this->configuration[$key]) && $this->configuration[$key]->hasDefault();
     }
 
     /**
@@ -57,10 +62,13 @@ class ConfigurationManager
     {
         if ($this->hasValue($key)) {
             return $this->configuration[$key]->getValue();
+        } else if ($this->hasDefault($key)) {
+            return $this->configuration[$key]->getDefault();
         } else {
             return null;
         }
     }
+
 
     /**
      * Get a value from the configuration

@@ -81,12 +81,31 @@ class ConfigurationValue implements ConfigurationValueInterface
      */
     public function getValue(): mixed
     {
-        $value = $this->value ?? $this->default;
+        $value = $this->value;
         if (!empty($value) && $this->isSecret()) {
             return self::MASK;
         } else {
             return $value;
         }
+    }
+
+    public function getDefault(): mixed
+    {
+        if (isset($this->default)) {
+            return $this->default;
+        } else {
+            return null;
+        }
+    }
+
+    public function hasDefault(): bool
+    {
+        return isset($this->default) && $this->default != null;
+    }
+
+    public function hasValue(): bool
+    {
+        return isset($this->value) && $this->value != null;
     }
 
     /**
