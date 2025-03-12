@@ -43,6 +43,7 @@ class NoopNodeCode implements NodeCodeInterface
     const KEY = 'noop';
     const NAME = 'No Operation';
     const DESCRIPTION = 'A placeholder node.';
+    public const CONTEXT_PATH = 'context_path';
 
     public function __construct(
         ConfigurationManager $configurationManager = new ConfigurationManager()
