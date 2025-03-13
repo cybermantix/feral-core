@@ -17,6 +17,10 @@ interface ProcessInterface
      */
     public function getKey(): string;
     /**
+     * Information on what the process does
+     */
+    public function getDescription(): string;
+    /**
      * Get the initial context used in the process engine.
      *
      * @return ContextInterface

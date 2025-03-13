@@ -37,6 +37,11 @@ class ProcessJsonHydrator
             throw new Exception('A key is required for a process.');
         }
 
+        $description = '';
+        if(!empty($json['description'])){
+            $description = $json['description'];
+        }
+
         // NODES AND EDGES
         $nodes = [];
         $edges = [];
@@ -54,6 +59,7 @@ class ProcessJsonHydrator
 
         return (new Process())
             ->setKey($key)
+            ->setDescription($description)
             ->setNodes($nodes)
             ->setEdges($edges)
             ->setContext($context);

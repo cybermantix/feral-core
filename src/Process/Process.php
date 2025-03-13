@@ -18,6 +18,10 @@ class Process implements ProcessInterface
      */
     protected string $key;
     /**
+     * @var string
+     */
+    protected string $description = '';
+    /**
      * @var ContextInterface
      */
     protected ContextInterface $context;
@@ -48,6 +52,23 @@ class Process implements ProcessInterface
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Process
+     */
+    public function setDescription(string $description): Process
+    {
+        $this->description = $description;
+        return $this;
+    }
 
     /**
      * @return ContextInterface
