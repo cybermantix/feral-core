@@ -20,7 +20,7 @@ class ConfigurationValue implements ConfigurationValueInterface
     /**
      * @var mixed
      */
-    protected mixed $value;
+    protected mixed $value = '';
 
     /**
      * @var mixed | null

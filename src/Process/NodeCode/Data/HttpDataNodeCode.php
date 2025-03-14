@@ -71,7 +71,8 @@ use Feral\Core\Utility\Search\Exception\UnknownTypeException;
     key: self::BEARER_TOKEN,
     name: 'Bearer Token',
     description: 'The bearer token to send with the call',
-    isSecret: true
+    isSecret: true,
+    isOptional: true
 )]
 #[CatalogNodeDecorator(
     key:'http_get',
